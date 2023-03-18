@@ -21,7 +21,7 @@ export const mediawithcity  = (category_name, city_name)  => async(dispatch) =>{
         const {data} = await instance.post(`medias`,{category_name,city_name})
         dispatch({ type: "MediaWithCitySuccess", payload: data});
     }catch(error){
-        dispatch({type: "MediaWithCityFail", payload: error.response.data })
+        dispatch({type: "MediaWithCityFail", payload: error.data })
     }
 }
 

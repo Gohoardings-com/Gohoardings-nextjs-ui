@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import Nav from "react-bootstrap/Nav";
 import {MdLocationPin} from "react-icons/md" 
 import Navbar from "react-bootstrap/Navbar";
-import './navbar.scss'
 import Userdetail from "./userdetail";
+import styles from "../../styles/navbarHome.module.scss";
 
 const NewNAvbar = () => {
   const [posts, setPosts] = useState()
@@ -14,30 +14,30 @@ const NewNAvbar = () => {
 
   return (
     <>
-      <Navbar expand="lg px-md-0 pb-0 fixd-nabar">
+      <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
         <div className="navbar container-xxl  container-xl container-lg container-md">
           <Navbar.Brand href="/">
-            <img src="./images/logo.png" className="brand-logo" alt="gohoardings" />
+            <img src="../images/all_image/logo.png" className={styles.rand_logo} alt="gohoardings" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id={styles.basic_navbar_nav}>
             <Nav className=" ms-auto ">
               <Nav.Link
-                className="me-2  me-md-0   nav-text-btn  text-center"
+                className={`me-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 href="https://odoads.com/"
                 target="_blank"
               >
                 Odoads
               </Nav.Link>
               <Nav.Link
-                className=" me-2 me-md-0  nav-text-btn text-center "
+                className={`me-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 href="https://www.gohoardings.com/blog/"
                 target="_blank"
               >
                 Blog
               </Nav.Link>
               <Nav.Link 
-                className="me-3  me-md-0  nav-text-btn text-center"
+                className={`me-3  me-md-0   ${styles.nav_text_btn}  text-center`}
                 href="/contact"
               >
                 Contact
@@ -45,10 +45,10 @@ const NewNAvbar = () => {
             
 
               <Nav.Link
-                className="mapLink font-map-btn text-center  text-nowrap rounded-pill "
+                className={`${styles.mapLink} ${styles.font_map_btn} text-center  text-nowrap rounded-pill`}
                 href="/map"
               >
-                <MdLocationPin className="ps-0 p-0   pb-1 font-map-logo icon-clr" />
+                <MdLocationPin className={`ps-0 p-0   pb-1 ${styles.font_map_logo} icon-clr`} />
                 Map View
               </Nav.Link>
               <Userdetail posts={posts} setPosts={setPosts}/>

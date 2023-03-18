@@ -1,35 +1,38 @@
 @import "../assets/scss/variables";
-.icon-clr ,.icon_clr {
-    color: $icon !important;
-    cursor: pointer !important;
+.icon-clr,
+.icon_clr {
+  color: $icon !important;
+  cursor: pointer !important;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cacaca;
+}
+
+.sdsd {
+  .dropdown-toggle::after {
+    display: none;
   }
- 
-    .slick-next:before {
-      display: none !important;
-    }
-    .slick-next {
-      display: none !important;
-    }
-    .slick-prev:before {
-      display: none !important;
-    }
-    .slick-prev {
-      display: none !important;
-    }
-  
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  #icon_clr {
-    color: $icon !important;
-    cursor: pointer !important;
-  }
+}
+.kngf {
   .dropdown-menu {
     width: 22vw;
     padding: 0px;
-    --bs-dropdown-link-active-bg: #f1e615 !important;
+    --bs-dropdown-link-active-bg: #f1e615;
   }
   .dropdown-toggle::after {
     margin-top: 12px;
@@ -37,18 +40,39 @@
     color: $icon;
     float: right;
   }
-  // .slick-prev.slick-disabled:before,
-  // .slick-next.slick-disabled:before {
-  //   opacity: 0.5;
-  // }
+}
 
-  // .slick-prev:before, 
-  // .slick-next:before {
-  //   font-family: "slick";
-  //   font-size: 25px;
-  //   line-height: 1;
 
-  //   color: $icon !important;
-  //   -webkit-font-smoothing: antialiased;
-  //   -moz-osx-font-smoothing: grayscale;
-  // }
+
+.servc{
+  .slick-prev.slick-disabled:before,
+  .slick-next.slick-disabled:before {
+  opacity: 0.5;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+  font-family: "slick";
+  font-size: 25px;
+  line-height: 1;
+  
+  color: $icon !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+}
+.enqr{
+
+  .slick-next:before {
+    display: none !important;
+  }
+  .slick-next {
+    display: none !important;
+  }
+  .slick-prev:before {
+    display: none !important;
+  }
+  .slick-prev {
+    display: none !important;
+  }
+}
