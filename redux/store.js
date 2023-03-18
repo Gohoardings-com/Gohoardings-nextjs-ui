@@ -1,16 +1,16 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import thunk from 'redux-thunk';
-import {IconFilterReducer, SearchReducer, UserReducer, CartReducer} from './adminAction'
+import {IconFilterReducer, SearchReducer, UserReducer, CartReducer} from './adminReducer'
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { cartitems } from './adminAction';
 
 
 const reducer = combineReducers({
-    user:UserReducer,
-    search:SearchReducer,
-    iconfilter:IconFilterReducer,
-    cart:CartReducer,
-    userItems:cartitems,
+    user: UserReducer,
+    search: SearchReducer,
+    iconfilter: IconFilterReducer,
+    cart: CartReducer,
+    userItems: cartitems,
 })
 
 async function savetoLocalStorage(state) {

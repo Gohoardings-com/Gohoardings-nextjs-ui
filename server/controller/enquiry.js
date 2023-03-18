@@ -1,18 +1,19 @@
 const db = require("../conn/conn");
+const  {executeQuery} = require("../conn/conn");
 const jwtToken = require('jsonwebtoken')
 const catchError = require("../middelware/catchError");
+const ErrorHandle = require("../utils/Errorhandler");
 
-exports.message = catchError(async (req, res) => { 
+exports.message = catchError(async (req, res, next) => { 
         const {name, email, phone, message} = req.body
-        db.changeUser({database: "gohoardi_goh"})
-        db.query("INSERT into enquiry (name, email, phone, message) VALUES ('" + name + "', '" + email + "','" + phone + "','" + message + "')", async (err, result) => {
-                if (err) {
-                    return res.status(206).json({err: err, message: "Something Wrong here"})
+        console.log(name, email, phone, message);
+        executeQuery('',"gohoardi_goh")
+        const sql = await executeQuery("INSERT into enquiry (name, email, phone, message) VALUES ('" + name + "', '" + email + "','" + phone + "','" + message + "')")
+                if (!sql) {
+                    next(new ErrorHandle ("Something Wrong here",206))
                 } else {  
                     return res.status(200).json({success: true, message: "Thanks, we will contact you soon!"})
                 }
-            })
-    
 })
 
 

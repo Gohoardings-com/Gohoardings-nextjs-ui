@@ -9,22 +9,24 @@ import {ImOffice} from "react-icons/im"
 export const emailformate = /^\w+([-,.]?\w+)*@\w+(.-]?\w+)*(\.\w{2,3})+$/;
 export const clientId = process.env.REACT_APP_DEV_MODE;
 
+
   export const CityNameImage = [    
     // {
     //   label: "InFlight Branding",
     //   value: "inflight-media",
     //   value2: "InFlight-Media",
-    //   srcImg: "../images/all_image/airport.jpg",
+    //   srcImg: ".././images/airport.jpg",
     //   icon: <GiCommercialAirplane/>,  
     //   link: "inflight-media/",
     //   city: "citesc"
+
     // },
     {
       label: "Traditional OOH Media ",
       value2: "Traditional-OOH-Media",
       value: "traditional-ooh-media",
-      srcImg: "../images/all_image/traditional-ooh-media-advertising-near-me.jpg",
-      srcImgM: "../images/all_image/traditional-ooh-media-advertising.jpg",
+      srcImg: "../images/all_Image/traditional-ooh-media-advertising-near-me.jpg",
+      srcImgM: "../images/all_Image/traditional-ooh-media-advertising.jpg",
       Link:`/traditional-ooh-media/delhi`,
       icon: <GiAwareness/>,
       city: "cities"
@@ -33,8 +35,8 @@ export const clientId = process.env.REACT_APP_DEV_MODE;
       label: "Digital Media",
       value: "digital-media",
       value2: "Digital-Media",
-      srcImg: "../.images/all_image/digital-media-hoardings-near-me.jpg",
-      srcImgM: "../.images/all_image/digital-media-hoardings-digital-hoardings.jpg",
+      srcImg: "../images/all_Image/digital-media-hoardings-near-me.jpg",
+      srcImgM: "../images/all_Image/digital-media-hoardings-digital-hoardings.jpg",
      Link:`/digital-media/delhi`,
      icon: <GiLaptop/>,
      city: "citesc"
@@ -43,8 +45,8 @@ export const clientId = process.env.REACT_APP_DEV_MODE;
       label: "Mall Media",
       value: "mall-media",
       value2: "Mall-Media",
-      srcImg: "../images/all_image/mall-media-advertising-company.jpg",
-      srcImgM: "../images/all_image/mall-media-advertising-near-me.jpg",
+      srcImg: "../images/all_Image/mall-media-advertising-company.jpg",
+      srcImgM: "../images/all_Image/mall-media-advertising-near-me.jpg",
       Link:`/mall-media/delhi`,
       icon:<TbBuildingCommunity/>,
       city: "citesc"
@@ -54,8 +56,8 @@ export const clientId = process.env.REACT_APP_DEV_MODE;
       label: "Office Branding", 
       value: "office-media",
       value2:"Office-Media",
-      srcImg: "../images/all_image/office-branding-advertising-company.jpg",
-      srcImgM: "../images/all_image/office-branding-media-near-me.jpg",
+      srcImg: "../images/all_Image/office-branding-advertising-company.jpg",
+      srcImgM: "../images/all_Image/office-branding-media-near-me.jpg",
       Link:`/office-branding/delhi`,
       icon:<ImOffice/>,
       city: "citesc"
@@ -64,8 +66,8 @@ export const clientId = process.env.REACT_APP_DEV_MODE;
       label: "Transit Media",
       value: "transit-media",
       value2: "Transit-Media",
-      srcImg: "../images/all_image/transit-media-advertising-in-delhi.jpg",
-      srcImgM: "../images/all_image/transit-media-advertising-near-me.jpg",
+      srcImg: "../images/all_Image/transit-media-advertising-in-delhi.jpg",
+      srcImgM: "../images/all_Image/transit-media-advertising-near-me.jpg",
       Link:`/transit-media/delhi`,
       icon:<TfiLayoutMediaCenterAlt/>,
       city: "citesc"
@@ -74,8 +76,8 @@ export const clientId = process.env.REACT_APP_DEV_MODE;
       label: "Airport Branding",
       value: "airport-media",
       value2: "Airport-Media",
-      srcImg: "../images/all_image/airport-media-hoardings-near-me.jpg",
-      srcImgM: "../images/all_image/airport-media-digital-hoardings.jpg",
+      srcImg: "../images/all_Image/airport-media-hoardings-near-me.jpg",
+      srcImgM: "../images/all_Image/airport-media-digital-hoardings.jpg",
       Link:`/airport-media/delhi`,
       icon:<GiAirplaneDeparture/>,
       city: "citesc"
@@ -189,7 +191,7 @@ export const updatePassword = async(state) =>{
 }
 
 export const enquiryApi = async( name, email, phone, message ) =>{
-    const {data} =await  instance.post("enquiry/message", { name, email, phone, message });
+    const {data} =await  instance.post("enquiries", { name, email, phone, message });
  return data
 }
 

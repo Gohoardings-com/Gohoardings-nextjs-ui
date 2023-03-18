@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import styles from '../../styles/enquire.module.scss';
-// import { emailformate } from "../../apis/apis";
-// import { enquiryApi } from "../../apis/apis";
+import { enquiryApi, emailformate } from "../../allApi/apis";
 
 const Enquireregister = () => {
   const [name, setName] = useState("");

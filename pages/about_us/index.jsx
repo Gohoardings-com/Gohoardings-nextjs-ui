@@ -3,8 +3,7 @@ import Fixednavbar from "../../components/navbar/fixednavbar";
 import Branding from "../../components/branding/branding";
 import "./about.scss";
 import clientslogo from "./clients";
-import Seohelmet from "../../components/seohelper/seohelmet";
-import { Helmet } from "react-helmet-async";
+
  
 const About = () => {
   const [noOfLogo, setnoOfLogo] = useState(18);
@@ -27,14 +26,14 @@ const About = () => {
     <>
 <div>
 
-<Helmet prioritizeSeoTags>
+{/* <Helmet prioritizeSeoTags>
    <meta charset="utf-8" />
  
   <link rel="icon" href="https://www.gohoardings.com/assets/images/favicon.png" />
 <title>About - Outdoor Advertising Agency in India | Gohoardings</title>
   <meta name="description" value="Gohoarding is the leading company of OOH Advertising agency in India. Gohoardings provide Hoardings across  India at best price. | Gohoardings Solution LLP"    data-rh="true" />
   <meta  name="keyword" content="Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"       data-rh="false"/>
-</Helmet>
+</Helmet> */}
 </div>
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>

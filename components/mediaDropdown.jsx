@@ -5,11 +5,11 @@ import styles from '../styles/searchmedia.module.scss'
 const Mediadropdown = ({ userType, setUserType }) => {
 
    let selecType;
-  // CityNameImage.map((el) => {
-  //     if (el.value == userType) {
-  //       selecType=el.label;
-  //     }
-  //   });
+  CityNameImage.map((el) => {
+      if (el.value == userType) {
+        selecType=el.label;
+      }
+    });
 
 
   return ( 

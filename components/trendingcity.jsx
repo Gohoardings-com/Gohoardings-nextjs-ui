@@ -1,13 +1,11 @@
-
 import Slider from "react-slick";
-// import { useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
+import Link from "next/link";
 // import VariantsExample from "../../components/loading/loading";
 
 const Trendingcity = () => {
-  // const { search, loading } = useSelector((state) => state.search);
-  let loading=false;
- 
+  const { search, loading } = useSelector((state) => state.search);
+
   {
     var settings = {
       dots: true,
@@ -64,17 +62,17 @@ const Trendingcity = () => {
             ) : (
               <>
                 <Slider {...slider}>
-                  {/* {search &&
+                  {search &&
                     search.map((pos, i) => (
                       <div className="container pt-3" key={i}>
                         <div className="row  ">
                           <div className="col p-3 ">
                             <Link
-                              to={`/services/${pos.category_name}/${pos.meta_title}`}
+                              href={`/services/${pos.category_name}/${pos.meta_title}`}
                             >
                               <div className="trending-card-img  rounded-2">
                                 <img
-                                  className="  rounded-2  trending-cardd "
+                                  className="rounded-2  trending-cardd "
                                   key={i}
                                   alt={pos.mediaownercompanyname}
                                   src={
@@ -110,7 +108,7 @@ const Trendingcity = () => {
                           </div>
                         </div>
                       </div>
-                    ))} */}
+                    ))} 
                 </Slider>
               </>
             )}

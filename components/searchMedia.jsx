@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-// import {getAllCity} from "../../apis/apis";
+import { getAllCity } from "@/allApi/apis";
 import MediaDropDown from "../components/mediaDropdown";
 import Citylocation from "../components/cityLocation";
 import styles from '../styles/searchmedia.module.scss';
@@ -17,16 +17,16 @@ const Searchmedia = () => {
       const data = await getAllCity(cities);
       setCity(data);
     };
-    // const mavigatetoMediaPage = (userType, value) => {
-    //   if (userType.length > 3 && value.length > 2) {
-    //     navigate(`/${userType}/${value}`);
-    //   }
-    // };
+    const mavigatetoMediaPage = (userType, value) => {
+      if (userType.length > 3 && value.length > 2) {
+        navigate(`/${userType}/${value}`);
+      }
+    };
   
-    // const onSearch = (searchTerm) => {
-    //   setValue(searchTerm);
-    //   setFocus(false);
-    // };
+    const onSearch = (searchTerm) => {
+      setValue(searchTerm);
+      setFocus(false);
+    };
   return (
     <>
       <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  `}>

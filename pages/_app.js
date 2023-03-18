@@ -6,6 +6,7 @@ import store from '@/redux/store';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "react-toastify/dist/ReactToastify.css";
 import { SSRProvider } from "react-bootstrap";
 
 export default function App({ Component, pageProps }) {
