@@ -36,7 +36,7 @@ const Enquire = () => {
   }
   return (
     <>
-     <section className={`${styles.our_clients_content} my-4`} >
+     <section className={`${styles.our_clients_content} my-4 enqr`} >
        <Slider {...settings}>
          {slice.map((clients, i) => (
            <div className="container pt-md-3" key={i}>

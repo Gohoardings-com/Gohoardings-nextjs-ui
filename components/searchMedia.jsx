@@ -61,7 +61,7 @@ const Searchmedia = () => {
               />
             </div>
           </div>
-          <section>
+          <section className="kngf">
             <div className="container-fluid  mt-5 pt-2  px-5 m-0 ">
               <div className= {`${styles.search_container} row mx-auto mb-5 p-1`}>
                 <div className="col-md-5  me-0 pe-0">
@@ -129,7 +129,16 @@ const Searchmedia = () => {
             </div>
           </section>
         </div>
-      
+      <style jsx>
+        {`
+        
+        .dropdown-menu {
+    width: 22vw;
+    padding: 0px;
+    --bs-dropdown-link-active-bg: #f1e615 ;
+  }
+        `}
+      </style>
     </>
   )
 }

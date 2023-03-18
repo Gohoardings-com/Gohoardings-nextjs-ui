@@ -8,7 +8,7 @@ const Trendingcity = () => {
 
   {
     var settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       slidesToShow: 4,
       slidesToScroll: 2,
@@ -129,20 +129,7 @@ const Trendingcity = () => {
               font-weight: 400;
               color: #373435;
             }
-            .slick-next:before {
-              display: none !important;
-            }
-          
-            .slick-next {
-              display: none !important;
-            }
-            .slick-prev:before {
-              display: none !important;
-            }
-            .slick-prev {
-              display: none !important;
-            }
-          
+         
             .trending-card-img:before {
               content: "";
               position: absolute;
@@ -159,11 +146,13 @@ const Trendingcity = () => {
               height: 100%;
               border-radius: 5px;
             }
+            
             .trending-card-img {
               height: 200px;
               width: 300px;
               position: relative;
               z-index: 0;
+            }
               .bottom-left {
                 position: absolute;
                 bottom: 34px;
@@ -180,14 +169,12 @@ const Trendingcity = () => {
                 font-weight: 600;
                 padding-right: 0px;
               }
-            }
+           
             .trending-cardd {
               height: 200px;
               width: 300px;
             }
-            .slick-dots li button:before {
-              font-size: 10px !important;
-            }
+            
           
             @media screen and (max-width: 1366px) {
               h1 {

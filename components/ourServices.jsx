@@ -38,7 +38,7 @@ const Ourservices = () => {
   return (
     <>
       <div
-        className={`${styles.service_content} container-xxl  container-xl container-lg container-md  pt-md-5 pb-md-5 `}
+        className={`${styles.service_content} container-xxl  container-xl container-lg container-md  pt-md-5 pb-md-5 servc`}
       >
         <h1>Our Services</h1>
         <h6 className="pt-1">
