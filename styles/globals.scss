@@ -1,0 +1,54 @@
+@import "../assets/scss/variables";
+.icon-clr ,.icon_clr {
+    color: $icon !important;
+    cursor: pointer !important;
+  }
+ 
+    .slick-next:before {
+      display: none !important;
+    }
+    .slick-next {
+      display: none !important;
+    }
+    .slick-prev:before {
+      display: none !important;
+    }
+    .slick-prev {
+      display: none !important;
+    }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  #icon_clr {
+    color: $icon !important;
+    cursor: pointer !important;
+  }
+  .dropdown-menu {
+    width: 22vw;
+    padding: 0px;
+    --bs-dropdown-link-active-bg: #f1e615 !important;
+  }
+  .dropdown-toggle::after {
+    margin-top: 12px;
+    font-size: 30px;
+    color: $icon;
+    float: right;
+  }
+  // .slick-prev.slick-disabled:before,
+  // .slick-next.slick-disabled:before {
+  //   opacity: 0.5;
+  // }
+
+  // .slick-prev:before, 
+  // .slick-next:before {
+  //   font-family: "slick";
+  //   font-size: 25px;
+  //   line-height: 1;
+
+  //   color: $icon !important;
+  //   -webkit-font-smoothing: antialiased;
+  //   -moz-osx-font-smoothing: grayscale;
+  // }
