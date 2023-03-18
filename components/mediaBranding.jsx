@@ -1,5 +1,4 @@
 import React from "react";
-import "./medialogo.scss";
 import { CityNameImage } from "@/allApi/apis";
 const Medialogo = ({ category_name, city_name }) => {
 

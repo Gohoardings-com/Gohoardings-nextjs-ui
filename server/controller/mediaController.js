@@ -22,7 +22,7 @@ exports.city = catchError(async (req, res, next) => {
         if(!sql) {
             next(new ErrorHandle('City Not Found', "City Api",206))
         }else{
-            client.setEx("cities", 15,JSON.stringify(sql))
+            client.setEx("cities", process.env.REDIS_TIMEOUT, JSON.stringify(sql))
             return  res.status(200).json(sql)
         }
           
@@ -81,7 +81,7 @@ exports.SearchData = catchError(async (req, res, next) => {
             if (!dataLimit) {
                 next(new ErrorHandle('Data Not Found', "Media With City Api",206))
             }
-            client.setEx(key, 15000,JSON.stringify(dataLimit))
+            client.setEx(key,  process.env.REDIS_TIMEOUT,JSON.stringify(dataLimit))
             return res.status(200).json(dataLimit)
     }    
     }

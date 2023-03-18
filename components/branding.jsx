@@ -1,5 +1,5 @@
 import React from 'react'
-import './branding.scss'
+
 
 const Branding = (props) => {
  

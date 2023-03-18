@@ -9,7 +9,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 import { SSRProvider } from "react-bootstrap";
 
+
 export default function App({ Component, pageProps }) {
+
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.js");
   }, []);
