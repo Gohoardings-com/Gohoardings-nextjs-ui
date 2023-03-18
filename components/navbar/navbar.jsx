@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Userdetail from "./userdetail";
 import styles from "../../styles/navbarHome.module.scss";
 
-const NewNAvbar = () => {
+const NavbarH = () => {
   const [posts, setPosts] = useState()
 
   useEffect(() => {
@@ -60,5 +60,5 @@ const NewNAvbar = () => {
   );
 };
 
-export default NewNAvbar;
+export default NavbarH ;
 

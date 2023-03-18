@@ -7,6 +7,7 @@ import Searchmedia from "@/components/searchMedia";
 import Trendingcity from "@/components/trendingcity";
 import Footer from "@/components/footer";
 import { mediawithcity } from "@/redux/adminAction";
+import NavbarH from "@/components/navbar/navbar";
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -28,6 +29,7 @@ export default function Home() {
  <meta name="google-site-verification" content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM" />
       </Head>
       <main>
+        <NavbarH/>
         <section>
    <Searchmedia/>
         </section>
