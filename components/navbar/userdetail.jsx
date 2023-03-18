@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { useGoogleOneTapLogin } from "react-google-one-tap-login";
 import { GoogleLogout } from "react-google-login";
-import { useNavigate } from "react-router-dom";
+import navigate  from "next/navigation";
 import {
   clientId,
   googleLogin,
   logoutUser,
   refreshToken,
-} from "../../apis/apis";
-import { AccountContext } from "../../apis/apicontext";
-import { cartitems, userDetails } from "../../action/adminAction";
+} from "@/allApi/apis";
+import { AccountContext } from "@/allApi/apicontext";
+import { cartitems, userDetails } from "@/redux/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useAuth0 } from "@auth0/auth0-react";
 import { MdDashboard } from "react-icons/md";
@@ -21,7 +21,6 @@ import { FaHandsHelping, FaUserCircle } from "react-icons/fa";
 import { ImEnter } from "react-icons/im";
 
 const Userdetail = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { addRemove } = useContext(AccountContext);
   const { initalState } = useContext(AccountContext);

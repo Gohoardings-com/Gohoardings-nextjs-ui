@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { profileDetails } from "../../apis/apis";
+import { profileDetails } from "@/allApi/apis";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import Campaings from "./userdata";
 import Changepassword from "./changepassword";

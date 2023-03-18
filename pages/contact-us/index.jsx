@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./contact.scss";
-import { emailformate } from "../../apis/apis";
-import Fixednavbar from "../../components/navbar/fixednavbar";
+import { emailformate, enquiryApi } from "@/allApi/apis";
+import fixednavbar from "@/components/navbar/fixednavbar";
 import { toast, ToastContainer } from "react-toastify";
 import { MdEmail, MdLocationPin, MdOutlineError } from "react-icons/md";
 import { ImMobile } from "react-icons/im";
-import { enquiryApi } from "../../apis/apis";
+
  
 const Contact = () => {
   const [name, setName] = useState(""); 

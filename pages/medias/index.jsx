@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./media.scss";
-// import { ILLUMINATION } from "../../apis/apis";
 import {
   addItem,
   mediaFilters,
@@ -8,23 +7,22 @@ import {
   mediawithlocation,
   removeItem,
   singlemnedia,  
-} from "../../action/adminAction";
+} from "@/redux/adminAction";
 import { useDispatch, useSelector } from "react-redux";
-import { AccountContext } from "../../apis/apicontext";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { CityNameImage, Less, More } from "../../apis/apis";
+import { AccountContext } from "@/allApi/apicontext";
+import { Link } from "next/link";
+import navigate  from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Multicard from "./multicard";
-import Medialogo from "../../components/medialogo/medialogo";
+import Medialogo from "@/components/mediaBranding";
 import FixedNavbar from "../../components/navbar/fixednavbar";
-import { mediaDataApi } from "../../apis/apis";
+import { CityNameImage, Less, More, mediaDataApi } from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { BsGrid } from "react-icons/bs";
 import { CiGrid2H } from "react-icons/ci";
 import Singlecard from "./singlecard";
 import { MdArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import OverView from "./overView";
-import Seohelmet from "../../components/seohelper/seohelmet";
 
 const Media = () => {
   const dispatch = useDispatch();

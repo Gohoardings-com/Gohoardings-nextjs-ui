@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { CityNameImage } from "../allApi/apis";
 import Link from "next/link";
-// import { emailformate } from "../../apis/apis";
-// import { changefooter } from "../../apis/apis";
-// import instance from "../../apis/axios";
 import { FiPhoneCall } from "react-icons/fi";
 import { BiMailSend } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
-// import { enquiryApi } from "../../apis/apis";
+import { enquiryApi, emailformate, changefooter, CityNameImage } from "../allApi/apis";
+import instance from "@/allApi/axios";
 
 
 // function useWindowSize() {

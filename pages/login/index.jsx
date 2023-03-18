@@ -3,7 +3,7 @@ import Log from "./log";
 import "./authorization.scss";
 import Sign from "./sign";
 import ForgetPass from "./forgetPass";
-import { userDetails } from "../../action/adminAction";
+import { userDetails } from "@/redux/adminAction";
 import { toast, ToastContainer } from "react-toastify";
 import {
   changePasswordApi,
@@ -16,15 +16,13 @@ import {
   OtpRegister,
   registerUser,
   sendOTP,
-} from "../../apis/apis";
+ emailformate } from "@/allApi/apis";
 import { useGoogleLogin } from "react-google-login";
 import { MdOutlineError } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { AccountContext } from "../../apis/apicontext";
-import { emailformate } from "../../apis/apis";
+import navigate  from "next/navigation";
+import { AccountContext } from "@/allApi/apicontext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import Seohelmet from "../../components/seohelper/seohelmet";
 
 const LoginN = () => {
   const dispatch = useDispatch()

@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../apis/apicontext";
-import { useNavigate, useParams, Link } from "react-router-dom";
-import { emailformate } from "../../apis/apis";
+import { Link } from "next/link";
+import navigate  from "next/navigation";
+import { enquiryApi, emailformate } from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import "./details.scss";
 import { toast, ToastContainer } from "react-toastify";
-import instance from "../../apis/axios";
+import instance from "@/allApi/axios";
 import Fixednavbar from "../../components/navbar/fixednavbar";
-import { enquiryApi } from "../../apis/apis";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import VariantsExample from "../../components/loading/loading";
-import { addItem, removeItem, singlemnedia } from "../../action/adminAction";
-import Seohelmet from "../../components/seohelper/seohelmet";
+import VariantsExample from "@/components/loader";
+import { addItem, removeItem, singlemnedia  } from "@/redux/adminAction";
+
 
 const Details = () => {
   const dispatch = useDispatch();   
@@ -125,7 +125,6 @@ const Details = () => {
 
   return (
     <>
-      <Seohelmet />
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
       {markers == 0 ? (

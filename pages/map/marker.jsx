@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import "./marker.scss";
 import { useDispatch } from "react-redux";
-import {Link} from 'react-router-dom'
+import {Link} from 'next/link'
 import Streetview from "./streetview";
 import { markersPosition } from "../../action/adminAction";
 

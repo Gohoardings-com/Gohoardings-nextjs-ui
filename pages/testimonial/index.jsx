@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./testimonial.scss";
-import Branding from "../../components/branding/branding";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { goh_testimonialsApi } from "../../apis/apis";
+import Branding from "@/components/branding";
+import { goh_testimonialsApi } from "@/allApi/apis";
 
 const Testimonial = () => {
   const [posts, setPosts] = useState([]);

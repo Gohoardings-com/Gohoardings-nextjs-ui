@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Fixednavbar from "../../components/navbar/fixednavbar";
-import Branding from "../../components/branding/branding";
-import "./about.scss";
+// import Fixednavbar from "../../components/navbar/fixednavbar";
+// import Branding from "../../components/branding/branding";
 import clientslogo from "./clients";
 
  
@@ -35,9 +34,9 @@ const About = () => {
   <meta  name="keyword" content="Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"       data-rh="false"/>
 </Helmet> */}
 </div>
-      <Fixednavbar />
+      {/* <Fixednavbar /> */}
       <div className="d-hide drop-nd"></div>
-      <Branding title="About Us" />
+      {/* <Branding title="About Us" /> */}
       <section className="mt-2">
         <div className="container mt-2">
           <div className="row">

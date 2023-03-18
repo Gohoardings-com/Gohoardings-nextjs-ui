@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import { mediaDataApi } from '../../apis/apis';
+import { mediaDataApi } from '@/allApi/apis';
 import Multirangeslider from "./multirangeslider";
 import { useDispatch } from 'react-redux';
-import { priceSubIllu } from '../../action/adminAction';
+import { priceSubIllu } from '@/redux/adminAction';
 
 const Mapfilters = ({search}) => {
     const dispatch = useDispatch()

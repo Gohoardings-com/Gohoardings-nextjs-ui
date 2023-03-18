@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./news_media.scss";
-import Fixednavbar from "../../components/navbar/fixednavbar";
-import Branding from "../../components/branding/branding";
-import {goh_media_and_newsApi} from "../../apis/apis";
+import Branding from "@/components/branding";
+import Fixednavbar from "@/components/navbar/fixednavbar";
+import { goh_media_and_newsApi } from "@/allApi/apis";
 
 const Newsmedia = () => {
   const [posts, setPosts] = useState([])

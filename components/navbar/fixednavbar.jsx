@@ -2,24 +2,22 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCity } from "../../apis/apis";
+import { getAllCity } from "@/allApi/apis";
 import Userdetail from "./userdetail";
-import Drop_Down_Image from "../drop_down/drop_down_image";
+import Drop_Down_Image from "./navbarDropdown";
 import { MdOutlineSearch,MdLocationPin } from "react-icons/md"; 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import MediaDropDown from "../media_dropdown/mediadropdown";
-import { mediawithcity } from "../../action/adminAction";
+import Mediadropdown from "../mediaDropdown";
+import { mediawithcity } from "@/redux/adminAction";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Citylocation from "../cityLocation/citylocation";
+import Citylocation from "../cityLocation";
 
 const Flotinggnavbar = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [city, setCity] = useState([]);
   const [posts, setPosts] = useState();

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHandPointRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import "./dropdown.scss";
 
 const Navbardropdown = ({ show, setShow, Dropdown }) => {

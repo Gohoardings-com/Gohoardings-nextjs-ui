@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from "react-toastify";
-import { emailOTP, mobileOTP } from '../../apis/apis';
+import { emailOTP, mobileOTP } from '@/allApi/apis';
 
 const Countdown = ({initialTime, email, setSendOtp}) => {
   const [time, setTime] = useState(initialTime);

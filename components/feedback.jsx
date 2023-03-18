@@ -9,7 +9,7 @@ import {
   BsEmojiFrown,
   BsEmojiAngry,
 } from "react-icons/bs";
-import { reviewApi, getreviewApi } from "../../apis/apis";
+import { reviewApi, getreviewApi } from "@/allApi/apis";
 
 const Feedback = () => {
   const [feedback, setFeedback] = useState("");

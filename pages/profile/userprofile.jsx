@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {Form} from 'react-bootstrap';
-import {updateProfile} from '../../apis/apis'
+import { updateProfile } from '@/allApi/apis';
 import {toast, ToastContainer} from "react-toastify";
-import instance from '../../apis/axios';
+import instance from '@/allApi/axios';
 
 const initalState = {
   firstname: "",

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {toast, ToastContainer} from 'react-toastify';
-import {updatePassword} from '../../apis/apis';
+import { updatePassword } from '@/allApi/apis';
 
 const Changepassword = () => {
   const [state, setState] = useState({

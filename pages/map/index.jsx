@@ -5,7 +5,8 @@ import "./map.scss";
 import Navbar from '../../components/navbar/fixednavbar'
 import "./icons.scss";
 import { useSelector, useDispatch} from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "next/link";
+import navigate  from "next/navigation";
 import Mapfilter from './mapfilters'
 import {useJsApiLoader} from "@react-google-maps/api"; 
 import Markers from "./marker";

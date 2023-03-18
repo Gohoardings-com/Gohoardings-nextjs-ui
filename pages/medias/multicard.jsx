@@ -2,7 +2,7 @@ import React from "react";
 import "./media.scss";
 import { TfiEye } from "react-icons/tfi";
 import VariantsExample from "../../components/loading/loading";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import {
   MdLocalOffer,
 } from "react-icons/md";

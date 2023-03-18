@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 const Campign = ({ posts }) => {
   const [campings, setCampings] = useState();
   const [campingid, setCampingid] = useState();

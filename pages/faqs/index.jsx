@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import "./faqs.scss";
 import {BsFillCircleFill} from "react-icons/bs";
 import {IoIosArrowDown} from 'react-icons/io';
-import Fixednavbar from "../../components/navbar/fixednavbar";
-import {goh_faqsApi} from "../../apis/apis";
+import Fixednavbar from "@/components/navbar/fixednavbar";
+import { goh_faqsApi } from "@/allApi/apis";
 
 const Faqs = () => {
   const [posts, setPosts] = useState([])

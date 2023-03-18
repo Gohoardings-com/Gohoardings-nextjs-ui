@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./team.scss";
 import Fixednavbar from "../../components/navbar/fixednavbar";
-import {gohordingStaffAPi} from "../../apis/apis";
+import { gohordingStaffAPi } from "@/allApi/apis";
 import {FaFacebookSquare, FaLinkedin} from "react-icons/fa";
 import {TiSocialTwitter} from "react-icons/ti"
-import Branding from "../../components/branding/branding";
+import Branding from "@/components/branding";
+
 
 const Team = () => {
   const [posts, setPosts] = useState([])
