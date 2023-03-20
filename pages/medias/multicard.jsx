@@ -1,7 +1,6 @@
 import React from "react";
-import "./media.scss";
 import { TfiEye } from "react-icons/tfi";
-import VariantsExample from "../../components/loading/loading";
+// import VariantsExample from "../../components/loading/loading";
 import { Link } from "next/link";
 import {
   MdLocalOffer,
@@ -16,12 +15,13 @@ const Multicard = ({
   removefroCart,
 }) => {
   return (
+
     <>
       {loading ? (
         <>
           <div className=" container ">
             <div className="row  text-center ">
-              <VariantsExample />
+              {/* <VariantsExample /> */}
             </div>
           </div>
         </>
@@ -38,7 +38,7 @@ const Multicard = ({
             <>
               {slice.map((item, i) => (
                 <div className="project   mt-4" key={i}>
-                  <figure className="img-responsive  ">
+                  <div className="img-responsive  figure">
                   <Link
                       to={`/services/${item.category_name}/${item.meta_title}`}
                       className="text-decoration-none"
@@ -112,7 +112,7 @@ const Multicard = ({
                         )}
                       </span>
                     </figcaption>
-                  </figure>
+                  </div>
                 </div>
               ))}
             </>

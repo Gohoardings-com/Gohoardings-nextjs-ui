@@ -1,0 +1,150 @@
+@import "../assets/scss/variables";
+
+
+#sendf {
+    background-color: #9c9696;
+    color: #ffffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+  }
+  #noget {
+    cursor: not-allowed;
+  }
+
+  #sendf:hover {
+    background-color: #7c7474;
+    color: #ffffff;
+  }
+  #mnd {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to right, #616161, #363636);
+  
+    .opacitydiv {
+      border: 1px ridge rgb(220, 220, 220);
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      height: 80vh;
+      width: 65vh;
+    }
+  
+    .title {
+      opacity: 85%;
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      h4 {
+        font-size: 1.4rem;
+        color: #ffffff;
+        margin-top: 10px;
+      }
+      h6 {
+        font-size: 1rem;
+        color: #ffffff;
+        font-weight: 400;
+        margin-top: 10px;
+      }
+    }
+  
+    .img_responsive {
+      height: 68vh;
+      position: fixed;
+      top: 14.9%;
+      left: -16%;
+    }
+  
+    .img_responsive2 {
+      height: 54vh;
+      position: fixed;
+      top: 32.4%;
+      left: 3%;
+    }
+  }
+  .login_container2 {
+    padding: 25%;
+    padding-bottom: 0%;
+    padding-top: 20%;
+  
+    h2,
+    h5 {
+      color: #515151;
+    }
+    button {
+      background-color: #373435;
+      color: #fff212;
+      font-size: 20px;
+      padding-bottom: 5px;
+    }
+  
+    #brand_logo {
+      width: 190px;
+    }
+    
+    .switch {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .forgetpass {
+      text-decoration: none;
+      float: right;
+  
+      color: rgb(86, 86, 86);
+  
+      cursor: pointer;
+    }
+  
+    .forgetpass:hover {
+      text-decoration: none;
+      color: rgb(37, 37, 37);
+    }
+  }
+  #psaa {
+    width: 150px;
+  }
+  
+  .login_auth {
+    .google_icon {
+      height: 40px;
+      width: 38px;
+      margin-bottom: 15px;
+      transition: 0.1;
+      cursor: pointer;
+    }
+    .linkdin_icon {
+      height: 34px;
+      width: 34px;
+      margin-bottom: 15px;
+      transition: 0.1;
+      cursor: pointer;
+    }
+    .otp_icon {
+      height: 39px;
+      width: 39px;
+      margin-bottom: 15px;
+      transition: 0.1;
+      cursor: pointer;
+    }
+    .google_icon:hover {
+      transform: scale(1.1);
+    }
+    .linkdin_icon:hover {
+      transform: scale(1.1);
+    }
+    .otp_icon:hover {
+      transform: scale(1.1);
+    }
+  }

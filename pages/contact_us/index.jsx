@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./contact.scss";
 import { emailformate, enquiryApi } from "@/allApi/apis";
-import fixednavbar from "@/components/navbar/fixednavbar";
 import { toast, ToastContainer } from "react-toastify";
 import { MdEmail, MdLocationPin, MdOutlineError } from "react-icons/md";
 import { ImMobile } from "react-icons/im";
+import Fixednavbar from "@/components/navbar/fixednavbar";
+import styles from '../../styles/contactUs.module.scss'  ;
 
- 
 const Contact = () => {
   const [name, setName] = useState(""); 
   const [phone, setphone] = useState("");
@@ -63,16 +62,16 @@ const Contact = () => {
 
   return (
     <>
-      <Fixednavbar />
+   <Fixednavbar/>
       <div className="d-hide drop-nd"></div>
       <section>
-        <div className="container-xxl  container-xl container-lg container-md  my-5 main-contact-all ">
+        <div className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}>
           <h1 className="text-center pt-4">Contact Us</h1>
           <h5 className="text-center">
             Any question or remarks? Just write us a message or <br />
             visit our nearest office.
           </h5>
-          <div className="row p-3 mt-5 rounded-3 main-contact">
+          <div className={`row p-3 mt-5 rounded-3 ${styles.main_contact}`}>
             <div className="col-md-6 p-0">
               <h3>
                 Support and Contact <br />
@@ -83,14 +82,14 @@ const Contact = () => {
                 <br />
                 question and set up a meeting with you.
               </h6>
-              <div className="contact-form pe-5">
+              <div className={`${styles.contact_form} pe-5`}>
                 <form className='mt-4 "position-relative' onSubmit={onSubmit}>
                   <div className="form-group py-3 ">
                     <label htmlFor="formGroupExampleInput">Name*</label>
                     <input
                       autoComplete="off"
                       type="text"
-                      className="form-control ps-0 rounded-0"
+                      className={`form-control ps-0 rounded-0`}
                       id="formGroupExampleInput"
                       placeholder="Your Full Name"
                       value={name}
@@ -112,7 +111,7 @@ const Contact = () => {
                       <input
                         type="text"
                         autoComplete="off"
-                        className="form-control ps-0 rounded-0"
+                        className={`form-control ps-0 rounded-0`}
                         placeholder="Your Mail ID"
                         id="first-name"
                         value={email}
@@ -136,7 +135,7 @@ const Contact = () => {
                       <input
                         autoComplete="off"
                         type="number"
-                        className="form-control ps-0 rounded-0"
+                        className={`form-control ps-0 rounded-0`}
                         placeholder="012 3456 789"
                         value={phone}
                         onChange={(e) => setphone(e.target.value)}
@@ -155,7 +154,7 @@ const Contact = () => {
                     <input
                       autoComplete="off"
                       type="text"
-                      className="form-control ps-0 rounded-0"
+                      className={`form-control ps-0 rounded-0`}
                       id="formGroupExampleInput2"
                       placeholder="Write your message.."
                       value={message}
@@ -175,7 +174,7 @@ const Contact = () => {
                   <div className="d-grid  mt-3  ">
                     <button
                       type="submit"
-                      className="btn btn-lg  message-btn"
+                      className={`btn btn-lg  ${styles.message_btn}`}
                       role="button"
                     >
                       Send Message
@@ -184,7 +183,7 @@ const Contact = () => {
                   </div>
                 </form>
 
-                <p className="text-center my-2 fw-bold orr">or</p>
+                <p className={`text-center my-2 fw-bold ${styles.orr}`}>or</p>
                 <h6 className="text-center my-2 ">Call us: +91 77778 71717</h6>
                 <h6 className="text-center my-2 ">
                   Email: info@gohoardings.com
@@ -194,7 +193,7 @@ const Contact = () => {
             <div className="col-md-6   p-0">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.203386323958!2d77.31864131492027!3d28.59367469258985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f0a89ce605%3A0xfd09bf1f744de96f!2sGohoardings!5e0!3m2!1sen!2sin!4v1667808584343!5m2!1sen!2sin"
-                className="google-map rounded-3"
+                className={`${styles.google_map} rounded-3`}
                 allowFullScreen={true}
                 loading="lazy"
                 title="google-map"
@@ -203,6 +202,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+     
     </>
   );
 };

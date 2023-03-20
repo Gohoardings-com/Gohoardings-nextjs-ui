@@ -85,7 +85,7 @@ const Userdetail = () => {
   //     client_id: clientId,
   //   },
   // });
-  const loading = false;
+  const loading = true;
   return (
     <>
       {loading == false ? (

@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginOauth from "./loginOauth";
+import styles from '../../styles/login.module.scss'  ;
 import { toast, ToastContainer } from "react-toastify";
 const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password, setEmail, email, emailsValidate, numbervalidate, phone, AiFillEye, AiFillEyeInvisible, setNumber, nameValidate, setName, name, onRegister, onForget, setOtp, checkOTPForLogin, registerOtp}) => {
   return (
@@ -46,7 +47,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
         onChange={(e) => {
           setNumber(e.target.value);
         }}
-      /> <button className='border-0' id='sendf' onClick={onRegister}>Send</button>
+      /> <button className='border-0' id={styles.sendf} onClick={onRegister}>Send</button>
       <label htmlFor="floatingInput">Phone</label>
     </div>
       <p className="ms-2 p-0 text ">{numbervalidate}</p>
@@ -78,9 +79,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
     <label htmlFor="floatingInput">OTP</label>
   </div>
     }
-     
-    
- 
+
    {sendOtp?  <div className="d-grid mt-3">
       <button
         type="submit"

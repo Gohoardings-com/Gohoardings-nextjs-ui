@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginOauth from "./loginOauth";
+import styles from '../../styles/login.module.scss'  ;
 const Log = ({ onSignIn,sendOtp, withOtp, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
   return (
     <>
@@ -69,13 +70,12 @@ onClick={checkOTPForLogin}
             />
             <label htmlFor="floatingPassword">Password</label>
           </div>
-          <a
-            href="#"
-            className="forgetpass"
+          <p
+            className={styles.forgetpass}
             onClick={() => clickforget()}
           >
             Forget Password?
-          </a>
+          </p>
           <div className="d-grid mt-5">
             <button
               type="submit"
@@ -93,7 +93,7 @@ onClick={checkOTPForLogin}
 
 
       <h6 className="mt-2">
-        Don’t have an account? <span className="fw-bold switch " onClick={ toggleSignUp}>Sign Up</span>
+        Don’t have an account? <span className={`fw-bold ${styles.switch} `} onClick={ toggleSignUp}>Sign Up</span>
       </h6>
 
 
