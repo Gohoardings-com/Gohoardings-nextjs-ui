@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
-import "./marker.scss";
 import { useDispatch } from "react-redux";
 import {Link} from 'next/link'
 import Streetview from "./streetview";
-import { markersPosition } from "../../action/adminAction";
+import { markersPosition } from "@/redux/adminAction";
 
 const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
   const [map, setMap] = useState(null);
@@ -359,6 +358,118 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
           </GoogleMap>
         </>
       )}
+
+      <style jsx>
+        {
+          `
+          .back-map {
+            z-index: 5;
+            width: 80px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            border: none;
+            // font-weight: 600;
+            position: absolute;
+            height: 40px;
+            vertical-align: middle;
+            color: rgb(0, 0, 0);
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 18px;
+            border-bottom-left-radius: 2px;
+            border-top-left-radius: 2px;
+            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
+          }
+          .this-area{
+            z-index: 5;
+            text-align: center;
+            padding:6px 24px ;
+            height: 40px;
+            vertical-align: middle;
+            color: rgb(0, 0, 0);
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 18px;
+            border-bottom-left-radius: 2px;
+            border-top-left-radius: 2px;
+            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
+            width: 160px;
+            background-color: #ffffff;
+            border: none;
+            // font-weight: 600;
+            position: absolute;
+             left: 83%;
+             top: 9.5%;
+           width: 200px; 
+          }
+          .streetv {
+            height: 49px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 3%;
+            right: 15%;
+          }
+          
+          .Load-more{
+            padding:6px 10px ;
+            z-index: 5;
+            background-color: #ffffff;
+            border-radius: 2px;
+            border: none;
+            // font-weight: 600;
+            position: absolute;
+            // left: 3%;
+            top: 94%;
+            height: 40px;
+            vertical-align: middle;
+            color: rgb(0, 0, 0);
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 18px;
+            border-bottom-left-radius: 2px;
+            border-top-left-radius: 2px;
+            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
+          }
+          .back-map:hover {
+            background-color: #dddada;
+          }
+          .Load-more:hover {
+            background-color: #dddada;
+          }
+          .infoWindow {
+            width: 300px;
+            height: 210px;
+            .media-image img {
+              width: 100%;
+              position: absolute;
+              top: -20px;
+              left: 0;
+            }
+          }
+          .sitemark {
+            height: 25px;
+            width: 20px;
+            margin-left: 6px;
+          }
+          .info-window {
+            width: 100%;
+            height: 110px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            line-height: 0.2;
+            padding: 7px;
+            .sitemark {
+              height: 36px;
+              width: 38px;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              padding: 0px 0px;
+              margin: 0px 10px 10px;
+            }
+          }
+          
+          `
+        }
+      </style>
       
     </>
   );

@@ -22,9 +22,11 @@ const Mapfilters = ({search}) => {
 
   const apiforFillters = async () => {
     const value = [...search];
-    const category_name = value[0].category_name;
+    // const category_name = value[0].category_name;
+    const category_name = "traditional-ooh-media";
     setCategory(category_name)
-    const city_name = value[0].city_name;
+    // const city_name = value[0].city_name;
+    const city_name = "delhi";
     setCity(city_name)
     const  data = await mediaDataApi (
       category_name,

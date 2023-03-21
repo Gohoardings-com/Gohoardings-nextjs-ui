@@ -1,32 +1,25 @@
 import React, {useContext, useEffect, useState, useCallback} from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {AccountContext} from "../../apis/apicontext";
-import "./map.scss";
-import Navbar from '../../components/navbar/fixednavbar'
-import "./icons.scss";
+import {AccountContext} from "@/allApi/apicontext";
+import style from '../../styles/map.module.scss'
 import { useSelector, useDispatch} from "react-redux";
 import { Link } from "next/link";
-import navigate  from "next/navigation";
 import Mapfilter from './mapfilters'
 import {useJsApiLoader} from "@react-google-maps/api"; 
 import Markers from "./marker";
 import Iconsselection from "./iconsselection";
-import { addItem, markersPosition, mediawithcity, nearProduct, removeItem } from "../../action/adminAction";
+import { addItem, markersPosition, mediawithcity, nearProduct, removeItem } from "@/redux/adminAction";
 import {BsListUl} from 'react-icons/bs'
 import {MdAddLocationAlt ,MdArrowUpward, MdOutlineArrowDownward} from 'react-icons/md'
 import {FaFilter,FaRupeeSign,FaMapMarked} from 'react-icons/fa'
-import Seohelmet from "../../components/seohelper/seohelmet";
-import VariantsExample from "../../components/loading/loading";
+import { useRouter } from 'next/router';
 
 const Map = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const router = useRouter();
   const {search, loading} = useSelector((state) => state.search);
-  const {addRemove} = useContext(AccountContext);
+  const { state, addRemove } = useContext(AccountContext);
   const [noOfLogo, setnoOfLogo] = useState(8);
   const [zoom,setZoom] = useState(15)
-
-  console.log(search);
 
   var slice;
 
@@ -135,15 +128,12 @@ const Map = () => {
   // data()
   // },[])
   
-
   return (
   <>
-  <Seohelmet/>
-  <Navbar/>
-  <div className="container-fluid ">
-      <div className="row" id="map-view-row">
+  <div className="container-fluid" id="map-body">
+      <div className="row" id={style.map_view_row}>
         <div className="col-lg-3 col-md-3 col-sm-12 p-0 border-end position-relative">
-          <div className="row filter-icons mt-5 pt-3">
+          <div className={`row ${style.filter_icons} mt-5 pt-3`}>
             <div
               className="col-4 list d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
               data-bs-toggle="collapse"
@@ -176,7 +166,7 @@ const Map = () => {
 
           <div id="accordionTest">
             <div
-              className="media-items p-2 accordion-collapse collapse show map-media-item-list mb-1"
+              className={`${style.media_items} ${style.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
               id="collapseT1"
               data-bs-parent="#accordionTest"
             >
@@ -185,8 +175,7 @@ const Map = () => {
                 id="accordionExample"
               >
               {loading ? (
-                    <VariantsExample/>
-            
+            <></>
                 ) : (
                   <>
                     {slice.length == 0 ? (
@@ -199,11 +188,12 @@ const Map = () => {
                               <div
                               >
                                 <div className="row m-0">
-                                  <div className="col-xl-4 col-lg-12 col-md-12 col-sm-6 map-media-items">
-                                  <Link
-                        to={`/services/${item.category_name}/${item.meta_title}`}
-                        className="text-decoration-none"
-                      >
+                                  <div className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${style.map_media_items}`}>
+                                  {/* <Link
+  href={`/services/${item.category_name}/${item.meta_title}`}
+  passHref
+>
+  <a className="text-decoration-none">
                                     <img
                                     
                                       src={
@@ -228,38 +218,39 @@ const Map = () => {
                                       }
                                       className="w-100 h-75 mt-2 pt-2"
                                     />
-                                    </Link>
+                                    </a>
+</Link> */}
                                   </div>
                                   <div className="col-xl-8 col-lg-12 col-md-12 col-sm-6">
                                     <ul className="list-unstyled pt-1">
-                                    <Link
-                        to={`/services/${item.category_name}/${item.meta_title}`}
+                                    {/* <Link
+                        href={`/services/${item.category_name}/${item.meta_title}`}
                         className="text-decoration-none"
                       >
                                       <li title={item.page_title} className='text-dark'>
                                         {item.page_title.substring(0, 20) +
                                           "..."}
                                       </li>
-                                      </Link>
+                                      </Link> */}
                                       <li>FTF : {item.ftf}</li>
                                       <li>Size : {item.size} feet</li>
 
                                       <li>
                                         Price: {parseInt(item.price/30)}         
-                                                <span className="project-price float-end">
+                                                <span className={`${style.project_price} float-end`}>
                         {item.isDelete == 0 ? (
                           <img
                           alt="check"
                             src="../../clientslogo/A-chek.png"
                             onClick={() => removefromCart(item.code, item.category_name)}
-                            className="addonCart icon-clr  "
+                            className={`${style.addonCart} icon-clr`}
                           />
                         ) : (
                           <img
                           alt="cart-icon"
                             src="../../clientslogo/A-cart.png"
                             onClick={(e,i) => addonCart(item.code)}
-                            className="addonCart icon-clr "
+                            className={`${style.addonCart} icon-clr`}
                           />
                         )}
                       </span>
@@ -272,7 +263,7 @@ const Map = () => {
                               </div>
                             </div>
                             {slice.length == 1 && <div>
-                              <button  className=" buttonload btn-hover" onClick={getRelateddata}>Get Related Data</button>
+                              <button  className={` ${style.btn_hover} buttonload`} onClick={getRelateddata}>Get Related Data</button>
                               </div>}
                           </>
                         ))}
@@ -283,9 +274,11 @@ const Map = () => {
              
 
 
-                <div className="text-center map-btn-more">
+                <div className={`${style.map_btn_more} text-center`}>
                 {loading ? (
-        <> </>
+        <>
+        <h5 className="text-center">No Data Found</h5> 
+        </>
       ) : (
         <>
           {" "}
@@ -296,27 +289,31 @@ const Map = () => {
               <div className="position-relative my-5 ">
                 <div className=" position-absolute mt-4 top-0 start-50 translate-middle">
                   {slice.length == search.length ? (
-                    <> </>
+                    <> 
+                    <h5 className="text-center">No Data Found</h5>
+                    </>
                   ) : (
                     <button
-                      className=" buttonload btn-hover"
+                      className={` ${style.btn_hover} buttonload`}
                       onClick={() => More()}
                     >
                       View More <MdOutlineArrowDownward className="icon-clr" />
                     </button>
                   )}
                   {slice.length <= 9 ? (
-                    <> </>
+                    <>
+                    <h5 className="text-center">No Data Found</h5>
+                     </>
                   ) : (
                     <button
-                      className="buttonload btn-hover mt-0"
+                      className={` ${style.btn_hover} buttonload mt-0`}
                       onClick={() => Less()}
                     >
                       View Less <MdArrowUpward className="icon-clr" />
                     </button>
                   )}
                 </div>
-              </div>{" "}
+              </div>
             </>
           )}
         </>
@@ -331,8 +328,8 @@ const Map = () => {
       
           </div>
 
-          <div id="map-view-mobile">
-            <div className="aval-hoarding d-inline-block position-absolute">
+          <div id={` ${style.map_view_mobile}`}>
+            <div className={`${style.aval_hoarding} d-inline-block position-absolute`}>
               <div className="map-btns d-inline-block p-1 pe-2 border-end">
                 <img
                   src="./assests/map-icons/billboard.png"

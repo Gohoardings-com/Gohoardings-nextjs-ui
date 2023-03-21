@@ -157,7 +157,7 @@ export const changePasswordApi = async(password, confirmpasswords, expire) =>{
 }
 
 export const gohordingStaffAPi = async() =>{
-    const {data} =  await instance.get("static/gohordingStaff");
+    const {data} =  await instance.get("team");
  return data
 }
 

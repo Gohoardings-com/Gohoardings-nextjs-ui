@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 import { SSRProvider } from "react-bootstrap";
+import AccountProvider from "@/allApi/apicontext";
 
 
 export default function App({ Component, pageProps }) {
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
     <SSRProvider>
+    <AccountProvider>
       <Component {...pageProps} />
+      </AccountProvider>
     </SSRProvider>
     </Provider> 
   );
