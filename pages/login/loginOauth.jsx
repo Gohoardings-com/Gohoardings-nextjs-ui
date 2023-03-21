@@ -1,7 +1,8 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import instance from "../../apis/axios";
+// import instance from "../../apis/axios";
 import { useAuth0 } from "@auth0/auth0-react";
+import styles from '../../styles/login.module.scss'  ;
 
 const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp}) => {
   const { loginWithPopup, user } = useAuth0();
@@ -16,24 +17,24 @@ const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp}) => {
 
   return (
     <>
-      <div className=" ps-0 mt-3 text-center login-auth mt-2">
+      <div className={`ps-0 mt-3 text-center ${styles.login_auth} mt-2`}>
         <div className="row">
 
         </div>
         
         <img
         alt="phone_otp"
-          src="../../clientslogo/otp.png"
-          className="otp-icon offset-1"
+          src="../../images/all_image/otp.png"
+          className={`${styles.otp_icon} offset-1`}
            onClick={()=>setWithOtp(!withOtp)}
         />
         <img
         alt="linkdin"
-          src="../../clientslogo/linkdin.png"
-          className="linkdin-icon offset-1"
+          src="../../images/all_image/linkdin.png"
+          className={`${styles.linkdin_icon} offset-1`}
           onClick={loginLinkdin}
         />
-     <FcGoogle className="google-icon offset-1" onClick={signIn} />
+     <FcGoogle className={`${styles.google_icon} offset-1`} onClick={signIn} />
       </div>
     </>
   );

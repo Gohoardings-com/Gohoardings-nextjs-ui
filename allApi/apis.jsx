@@ -167,17 +167,17 @@ export const goh_quick_linksApi = async() =>{
 }
 
 export const goh_faqsApi = async() =>{
-    const {data} =  await instance.get("static/goh_faqs");
+    const {data} =  await instance.get("medias");
  return data
 }
 
 export const goh_media_and_newsApi = async() =>{
-    const {data} =  await instance.get("static/goh_media_and_news");
+    const {data} =  await instance.get("news&media");
  return data
 }
 
 export const goh_testimonialsApi = async() =>{
-    const {data} =  await instance.get("static/goh_testimonials");
+    const {data} =  await instance.get("testmonials");
  return data
 }
 
@@ -189,7 +189,7 @@ export const updatePassword = async(state) =>{
 }
 
 export const enquiryApi = async( name, email, phone, message ) =>{
-    const {data} =await  instance.post("enquiry/message", { name, email, phone, message });
+    const {data} =await  instance.post("enquiries", { name, email, phone, message });
  return data
 }
 

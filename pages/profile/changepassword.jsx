@@ -29,7 +29,7 @@ const Changepassword = () => {
     <div className="card p-3 password-data">
                       <div className="panel-body">
                         <form
-                       accept-charset="utf-8"
+                       accept-charSet="utf-8"
                           onSubmit={sumbithandle}
                         >
                           <div className="form-group mt-2">

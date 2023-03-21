@@ -2,24 +2,29 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { useNavigate } from "react-router-dom";
+import { getAllCity } from "@/allApi/apis";
+import { DropdownButton } from "react-bootstrap";
+import { CityNameImage } from "@/allApi/apis";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCity } from "../../apis/apis";
 import Userdetail from "./userdetail";
-import Drop_Down_Image from "../drop_down/drop_down_image";
+// import Drop_Down_Image from "../drop_down/drop_down_image";
 import { MdOutlineSearch, MdLocationPin } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import MediaDropDown from "../media_dropdown/mediadropdown";
-import { mediawithcity } from "../../action/adminAction";
+
+// import { mediawithcity } from "../../action/adminAction";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Citylocation from "../cityLocation/citylocation";
+import Citylocation from "../cityLocation";
+import styles from "../../styles/fixedNavbar.module.scss";
+import Mediadropdown from "../mediaDropdown";
+import Navbardropdown from "./navbarDropdown";
+// import Citylocation from "../cityLocation/citylocation";
 
-const Flotinggnavbar = () => {
+const Fixednavbar = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const [show, setShow] = useState(false);
   const [city, setCity] = useState([]);
   const [posts, setPosts] = useState();
@@ -28,19 +33,27 @@ const Flotinggnavbar = () => {
   const [userType, setUserType] = useState("");
   const [userPath, setUserPath] = useState(false);
 
-  const where = window.location.pathname;
+  // function closeSearch() {
+  //   useEffect(() => {
+  //     const where = window.location.pathname;
+  //     // Client-side-only code
+  // })
+  //   if (where === "/map") {
+  //     setUserPath(true);
+  //     // document.getElementById("mapM").style.display="none";
+  //   }
+  // }
 
-  function closeSearch() {
-    if (where === "/map") {
-      setUserPath(true);
-      // document.getElementById("mapM").style.display="none";
+  // useEffect(() => {
+  //   closeSearch();
+  // }, []);
+
+  let selecType;
+  CityNameImage.map((el) => {
+    if (el.value == userType) {
+      selecType = el.label;
     }
-  }
-
-  useEffect(() => {
-    closeSearch();
-  }, []);
-
+  });
   const onChange = async (event) => {
     setValue(event.target.value);
     const cities = event.target.value;
@@ -62,23 +75,31 @@ const Flotinggnavbar = () => {
 
   return (
     <>
-      <Navbar expand="lg px-md-0 p-1 m-0 border-0 navbar-main-floating fixed-top ">
-        <div className="sss" onMouseOver={() => setShow(false)}></div>
-        <Navbar.Brand href="/" id="home" onMouseOver={() => setShow(true)}>
+      <Navbar
+        expand={`lg px-md-0 p-1 m-0 border-0 ${styles.navbar_main_floating} fixed-top`}
+      >
+        <div className={styles.sss} onMouseOver={() => setShow(false)}></div>
+        <Navbar.Brand
+          href="/"
+          id={styles.home}
+          onMouseOver={() => setShow(true)}
+        >
           <img
             alt="gohoardings"
-            src="../../images/logo.png"
-            className="border-0 brand float-brand "
+            src="../../images/all_image/logo.png"
+            className={`border-0 brand ${styles.float_brand}`}
           />
-          <RiArrowDropDownLine className="riArrowDropDownLine icon-clr" />
+          <RiArrowDropDownLine
+            className={`${styles.riArrowDropDownLine} icon-clr`}
+          />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
         <Navbar.Collapse
-          id="basic-navbar-nav"
+          id={styles.basic_navbar_nav}
           onMouseOver={() => setShow(false)}
         >
-          <Nav className="navbar-nav mx-auto  search-inner-drop">
+          <Nav className={`navbar-nav mx-auto  ${styles.search_inner_drop} `}>
             <InputGroup className="">
               <Citylocation InputGroup={InputGroup} setValue={setValue} />
               <Form.Control
@@ -88,18 +109,15 @@ const Flotinggnavbar = () => {
                 onChange={onChange}
                 value={value}
                 onFocus={() => setFocus(true)}
-                id="search-location-box"
-                className=" "
+                id={styles.search_location_box}
               />
             </InputGroup>
 
             <div
               className={
-                focus
-                  ? "dropdown-menu border-0 show  mt-5  ps-5 "
-                  : "dropdown-menu "
+                focus ? "dropdown-menu border-0 show  mt-5  " : "dropdown-menu "
               }
-              id="xyz"
+              id={styles.xyz}
             >
               {city.map((item, i) => (
                 <div
@@ -113,31 +131,55 @@ const Flotinggnavbar = () => {
                 </div>
               ))}
             </div>
-            <MediaDropDown userType={userType} setUserType={setUserType} />
+            <div className="p-0 m-0 fnav">
+              <DropdownButton
+                title={userType ? selecType : "Select your media type"}
+                id={styles.select_media_box}
+                onSelect={(e) => setUserType(e)}
+              >
+                {CityNameImage.map((el, i) => (
+                  <Dropdown.Item
+                    eventKey={el.value}
+                    className="p-2 mt-0 "
+                    key={i}
+                  >
+                    <span className={`${styles.select_media_icon} icon-clr`}>
+                      {" "}
+                      {el.icon}{" "}
+                    </span>
+                    {el.label}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </div>
 
             <Button
               className="border-0 btn "
               onClick={(a, b) => mavigatetoMediaPage(userType, value)}
-              id="search-button-flotnav"
+              id={styles.search_button_flotnav}
             >
-              <MdOutlineSearch className="search-logo icon-clr" />
+              <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
             </Button>
           </Nav>
           <form className="  text-center">
             {userPath ? (
               <Nav.Link
-                className="mapLink float-map-btn text-light   p-0 rounded-pill "
-                id="float-map-btn-id"
+                className={`${styles.mapLink} ${styles.float_map_btn} text-light   p-0  rounded-pill`}
+                id={styles.float_map_btn_id}
               >
-                <MdLocationPin className=" float-map-logo ps-0 p-0  ms-0 mb-1 icon-clr" />
+                {/* <MdLocationPin
+                  className={`${styles.float_map_logo} ps-0 p-0  ms-0 mb-1  icon-clr`}
+                /> */}
                 Map View
               </Nav.Link>
             ) : (
               <Nav.Link
-                className="mapLink float-map-btn    p-0 rounded-pill "
+                className={`${styles.mapLink} ${styles.float_map_btn}    p-0 rounded-pill pt-1`}
                 href="/map"
               >
-                <MdLocationPin className=" float-map-logo ps-0 p-0  ms-0 mb-1 icon-clr" />
+                {/* <MdLocationPin
+                  className={`${styles.float_map_logo} ps-0 p-0  ms-0 mb-1 icon-clr   `}
+                /> */}
                 Map View
               </Nav.Link>
             )}
@@ -147,9 +189,10 @@ const Flotinggnavbar = () => {
           </form>
         </Navbar.Collapse>
       </Navbar>
-      <Drop_Down_Image show={show} setShow={setShow} Dropdown={Dropdown} />
+ 
+      <Navbardropdown  show={show} setShow={setShow} Dropdown={Dropdown} />
     </>
   );
 };
 
-export default Flotinggnavbar;
+export default Fixednavbar;

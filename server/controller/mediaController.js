@@ -18,7 +18,7 @@ exports.city = catchError(async (req, res, next) => {
     if (data) {
         res.send(JSON.parse(data))
     } else {
-        const sql = await executeQuery("SELECT DISTINCT name FROM goh_cities " + citystart + "  LIMIT 8", "gohoardi_goh")
+        const sql = await executeQuery("SELECT DISTINCT name FROM goh_cities " + citystart + "  LIMIT 8", "gohoardi_goh", next)
         if(!sql) {
             next(new ErrorHandle('City Not Found', "City Api",206))
         }else{
@@ -38,7 +38,7 @@ exports.SearchData = catchError(async (req, res, next) => {
     if (!cookieData) {
         return res.status(204).json({ message: "No Cookie Found" })
     }
-    executeQuery('', "gohoardi_goh")
+    executeQuery('', "gohoardi_goh", next)
     switch (category_name) {
         case "traditional-ooh-media":
             table_name = "goh_media";
@@ -77,11 +77,12 @@ exports.SearchData = catchError(async (req, res, next) => {
     if (data) {
        return  res.status(200).json(JSON.parse(data))
     } else {
-      const dataLimit = await executeQuery(sql, "gohoardi_goh")
+      const dataLimit = await executeQuery(sql, "gohoardi_goh", next)
+
             if (!dataLimit) {
                 next(new ErrorHandle('Data Not Found', "Media With City Api",206))
             }
-            client.setEx(key,  15000 ,JSON.stringify(dataLimit))
+            client.setEx(key,  157788000000,JSON.stringify(dataLimit))
             return res.status(200).json(dataLimit)
     }    
     }

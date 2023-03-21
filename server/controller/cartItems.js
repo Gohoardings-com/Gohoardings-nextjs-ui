@@ -176,18 +176,16 @@ exports.deleteFromCart = catchError(async (req, res, next) => {
 
 exports.useritems = catchError(async (req, res, next) => {
     const user = req.id
-    db.changeUser({ database: "gohoardi_goh" });
-    db.query(
-        `SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0 `,
-        (err, result) => {
-            if (err) {
+   const data = await executeQuery(`SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0 `, "gohoardi_goh", next)
+       
+            if (!data) {
                 return res.send(err)
             } else {
                 return res.status(200).json(result)
             }
         }
     );
-})
+
 
 
 exports.getUserCartItem = catchError(async (req, res, next) => {

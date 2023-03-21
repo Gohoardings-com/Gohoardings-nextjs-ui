@@ -8,6 +8,11 @@ import Trendingcity from "@/components/trendingcity";
 import Footer from "@/components/footer";
 import { mediawithcity } from "@/redux/adminAction";
 import NavbarH from "@/components/navbar/navbar";
+import dynamic from 'next/dynamic';
+
+const MyComponent = dynamic(() => import('@/components/navbar/flotingnavbar'), {
+  ssr: false
+});
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -17,7 +22,7 @@ export default function Home() {
     <>
       <Head>
  <title>Gohoardings is one of the leading outdoor advertising agency in India. We provide the finest advertising solutions for all your business needs.</title>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
  
  <link rel="icon" href="https://www.gohoardings.com/assets/images/favicon.png" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,6 +35,7 @@ export default function Home() {
       </Head>
       <main>
         <NavbarH/>
+        <MyComponent/>
         <section>
    <Searchmedia/>
         </section>

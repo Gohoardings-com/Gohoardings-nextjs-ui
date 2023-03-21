@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./media.scss";
 import {
   addItem,
   mediaFilters,
@@ -15,7 +14,6 @@ import navigate  from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Multicard from "./multicard";
 import Medialogo from "@/components/mediaBranding";
-import FixedNavbar from "../../components/navbar/fixednavbar";
 import { CityNameImage, Less, More, mediaDataApi } from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { BsGrid } from "react-icons/bs";
@@ -23,15 +21,19 @@ import { CiGrid2H } from "react-icons/ci";
 import Singlecard from "./singlecard";
 import { MdArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import OverView from "./overView";
+import { useRouter } from 'next/router'
 
 const Media = () => {
   const dispatch = useDispatch();
   const { search, loading } = useSelector((state) => state.search);
-  const { category_name, city_name } = useParams();
-  const { addRemove } = useContext(AccountContext);
+  const router = useRouter()
+
+ const { category_name, city_name } = router.query;
+  
+  // const { addRemove } = useContext(AccountContext);
   const [query, setQuery] = useState("");
   const [posts, setPosts] = useState([]);
-  const navigate = useNavigate();
+ 
   const [listings, setListings] = useState(true);
   const [overview, setOverview] = useState(false);
   const [noOfLogo, setnoOfLogo] = useState(9);
@@ -46,10 +48,10 @@ const Media = () => {
   if (!loading) {
     slice = search.slice(0, noOfLogo);
   }
-console.log(slice);
-  const getCardData = async () => {
-    await dispatch(mediawithcity(category_name, city_name, noOfLogo));
-  };
+
+  // const getCardData = async () => {
+  //   await dispatch(mediawithcity(category_name, city_name, noOfLogo));
+  // };
 
   const addonCart = async (e) => {
     if (!localStorage.getItem(true)) {
@@ -97,11 +99,11 @@ console.log(slice);
   useEffect(() => {
     topFunction()
   },[])
-  useEffect(() => {
-    getCardData();
+  // useEffect(() => {
+  //   getCardData();
 
-    apiforfillters();
-  }, [category_name, city_name, noOfLogo]);
+  //   apiforfillters();
+  // }, [category_name, city_name, noOfLogo]);
 
   const apiforfillters = async () => {
     const data = await mediaDataApi(category_name, city_name);
@@ -226,8 +228,8 @@ locationData.map((data,i)=>{
 
   return (
     <>
-      <Seohelmet />
-      <FixedNavbar />
+  
+
       <div className="d-hide drop-nd"></div>
       <Medialogo
         category_name={category_name}
@@ -414,7 +416,7 @@ locationData.map((data,i)=>{
                   />
                 )}
               </div>
-
+{/* 
               {loading ? (
                 <> </>
               ) : (
@@ -452,7 +454,7 @@ locationData.map((data,i)=>{
                     </>
                   )}
                 </>
-              )}
+              )} */}
             </div>
           </div>
         )}

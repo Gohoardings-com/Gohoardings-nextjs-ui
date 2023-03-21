@@ -27,7 +27,6 @@ const Citylocation = ({ InputGroup, setValue }) => {
       axios
         .request(options)
         .then(function (response) {
-          console.log(response);
           const city = response.data[0];
           setValue(city.City);
            setLoading(false)

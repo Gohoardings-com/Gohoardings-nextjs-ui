@@ -1,6 +1,6 @@
+import Fixednavbar from "@/components/navbar/fixednavbar";
 import React, { useState } from "react";
-// import Fixednavbar from "../../components/navbar/fixednavbar";
-// import Branding from "../../components/branding/branding";
+import Branding from "../../components/branding";
 import clientslogo from "./clients";
 
  
@@ -25,18 +25,10 @@ const About = () => {
     <>
 <div>
 
-{/* <Helmet prioritizeSeoTags>
-   <meta charset="utf-8" />
- 
-  <link rel="icon" href="https://www.gohoardings.com/assets/images/favicon.png" />
-<title>About - Outdoor Advertising Agency in India | Gohoardings</title>
-  <meta name="description" value="Gohoarding is the leading company of OOH Advertising agency in India. Gohoardings provide Hoardings across  India at best price. | Gohoardings Solution LLP"    data-rh="true" />
-  <meta  name="keyword" content="Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"       data-rh="false"/>
-</Helmet> */}
 </div>
-      {/* <Fixednavbar /> */}
+   <Fixednavbar/>
       <div className="d-hide drop-nd"></div>
-      {/* <Branding title="About Us" /> */}
+      <Branding title="About Us" />
       <section className="mt-2">
         <div className="container mt-2">
           <div className="row">
@@ -58,7 +50,7 @@ const About = () => {
               <img
                 className="img-fluid"
                 id="media-img"
-                src=""
+                src="../../images/all_image/ooh.png"
                 alt="img"
               />
             </div>
@@ -143,7 +135,7 @@ const About = () => {
               <img
                 id="map-img"
                 className="img-fluid "
-                src="./images/india_map.png"
+                src="../../images/all_image/india_map.png"
                 alt="map"
               />
             </div>
@@ -155,7 +147,7 @@ const About = () => {
               <img
                 id="care-img"
                 className="img-fluid care"
-                src="./images/vision.png"
+                src="../images/all_image/vision.png"
                 alt="care"
               />
             </div>
@@ -217,6 +209,141 @@ const About = () => {
           </div>
         </div>
       </section>
+      <style>
+{
+  `
+  
+  .text-container {
+    padding-top: 7%;
+    opacity: 75%;
+    color: $black;
+  }
+  
+  .vision {
+    margin-top: 2.5%;
+  }
+  .media-container {
+    margin-top: 3%;
+  }
+  .about-cards {
+    background-image: linear-gradient(
+      to bottom,
+      rgb(23, 21, 29),
+      rgb(37, 38, 41)
+    );
+    text-align: center;
+    color: white;
+    padding-top: 7px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+    box-shadow: $box-shadow;
+  }
+  .about-cards h6 {
+    padding-bottom: 4px;
+    border-bottom: 1px solid $yellow;
+  }
+  
+  .container2 {
+    background: transparent;
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+  #media-img {
+    position: relative;
+    cursor: pointer;
+    padding-left: 35px;
+  }
+  
+  #map-img {
+    position: relative;
+    cursor: pointer;
+    margin-left: 35px;
+    height: 426px;
+    width: 390px;
+  }
+  
+  .text-container {
+    color: $black;
+  }
+  
+  .text-container p::first-letter {
+    color: $grey;
+    font-size: $subhead;
+    font-weight: 600;
+  }
+  .grid-container1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .grid-item {
+    text-align: center;
+  }
+  .logo-img {
+    height: 100px;
+    width: 150px;
+  }
+  
+  #root {
+    background-color: $white;
+    padding: 0%;
+    margin: 0%;
+  }
+  .load-button {
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin: 20px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+    background-color: #373435;
+    --moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .load-button:hover {
+    transform: scale(1.1);
+  }
+  #care-img {
+    padding-top: 1px;
+  }
+  
+  @media screen and (max-width: 1366px) {
+    .about-cards {
+      h6 {
+        font-size: 12px;
+        padding-bottom: 3px;
+      }
+      .descrption {
+        font-size: small;
+      }
+    }
+    .vision {
+      margin-top: 1.5%;
+    }
+    .logo-img {
+      height: 80px;
+      width: 130px;
+    }
+    #map-img {
+      position: relative;
+      cursor: pointer;
+      padding-top: 25px;
+      padding-left: 32px;
+    }
+    #care-img {
+      padding-top: 30px;
+    }
+  }
+  `
+}
+
+      </style>
     </>
   );
 };

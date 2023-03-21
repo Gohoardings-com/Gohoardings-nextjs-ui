@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-// import { useGoogleOneTapLogin } from "react-google-one-tap-login";
-// import { GoogleLogout } from "react-google-login";
-
+import { useGoogleOneTapLogin } from "react-google-one-tap-login";
+import { GoogleLogout } from "react-google-login";
 // import {
 //   clientId,
 //   googleLogin,
@@ -13,7 +12,7 @@ import { toast, ToastContainer } from "react-toastify";
 // import { AccountContext } from "../../apis/apicontext";
 // import { cartitems, userDetails } from "../../action/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../../styles/navbarHome.module.scss";
 import { MdDashboard } from "react-icons/md";
 import { CgUserlane } from "react-icons/cg";
@@ -85,7 +84,8 @@ const Userdetail = () => {
   //     client_id: clientId,
   //   },
   // });
-  const loading = false;
+
+  const loading = true;
   return (
     <>
       {loading == false ? (

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import "./news_media.scss";
 import Branding from "@/components/branding";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 import { goh_media_and_newsApi } from "@/allApi/apis";
@@ -64,6 +63,18 @@ const Newsmedia = () => {
           </div>
         </div>
       </section>
+      <style jsx>
+        {`
+        .news-heading{
+          color: $white;
+          font-weight: 650;
+          background-color: $dark-blue;
+      }
+      #news-img{
+          height: 220px;
+      }
+        `}
+      </style>
     </>
   );
 };

@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
-import "bootstrap/dist/css/bootstrap.min.css";
-import './fixednavbar.scss'
-import Flotinggnavbar from './fixednavbar';
+import React, { useEffect, useState } from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import Fixednavbar from "./fixednavbar";
 
 function useWindowScroll() {
-  const [scrollPosition, setScrollPosition] = useState([window.pageYOffset]);
+
   
+  const [scrollPosition, setScrollPosition] = useState([window.pageYOffset]);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition([window.pageYOffset]);
@@ -18,7 +18,9 @@ function useWindowScroll() {
   }, []);
   return scrollPosition;
 }
-const Fixednavbar = () => {
+
+
+const Floatingnavbar = () => {
   const [scroll] = useWindowScroll();
   const [scrollcss, setScrollcss] = useState(false);
 
@@ -35,12 +37,25 @@ const Fixednavbar = () => {
 
   return (
     <>
-      <div style={scrollcss ? { display: "none" } : { display: "block" }} className="new-search   animate__animated  animate__fadeInDown mt-0">   
-   <Flotinggnavbar/>
+      <div
+        style={scrollcss ? { display: "none" } : { display: "block" }}
+        className="new-search   animate__animated  animate__fadeInDown mt-0"
+      >
+        <Fixednavbar />
       </div>
+      <style jsx>
+        {`
+          .new-search {
+            position: fixed;
 
+            z-index: 5;
+            top: 0%;
+            width: 100vw;
+          }
+        `}
+      </style>
     </>
-  )
-}
+  );
+};
 
-export default Fixednavbar
+export default Floatingnavbar;
