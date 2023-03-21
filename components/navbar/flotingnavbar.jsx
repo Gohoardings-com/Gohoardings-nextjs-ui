@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Fixednavbar from "./fixednavbar";
 
 function useWindowScroll() {
-  
+
   
   const [scrollPosition, setScrollPosition] = useState([window.pageYOffset]);
   useEffect(() => {
