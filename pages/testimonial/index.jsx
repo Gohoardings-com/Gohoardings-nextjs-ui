@@ -3,26 +3,26 @@ import React, { useEffect, useState } from "react";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import Branding from "@/components/branding";
-// import { goh_testimonialsApi } from "@/allApi/apis";
+import { goh_testimonialsApi } from "@/allApi/apis";
 
 const Testimonial = () => {
   const [posts, setPosts] = useState([]);
 
-  // const staff = async () => {
-  //   const data = await goh_testimonialsApi();
-  //   setPosts(data);
-  // };
+  const staff = async () => {
+    const data = await goh_testimonialsApi();
+    setPosts(data);
+  };
 
-  // useEffect(() => {
-  //   staff();
-  // }, []);
+  useEffect(() => {
+    staff();
+  }, []);
   
   return (
     <>
       <Fixednavbar />
       <Branding title="Testimonials" />
       <div className="container  mt-5">
-        {/* <div className="row testimonial-row mt-5">
+        <div className="row testimonial-row mt-5">
           {!posts ? (
             <>
               <h1>Loading Please wait</h1>
@@ -54,7 +54,7 @@ const Testimonial = () => {
               ))}
             </>
           )}
-        </div> */}
+        </div>
       </div>
       <style jsx>
 {`

@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
 import Branding from "@/components/branding";
 import Fixednavbar from "@/components/navbar/fixednavbar";
-// import { goh_media_and_newsApi } from "@/allApi/apis";
+import { goh_media_and_newsApi } from "@/allApi/apis";
 
 const Newsmedia = () => {
   const [posts, setPosts] = useState([])
-  // const staff = async() =>{
-  //   const data = await goh_media_and_newsApi()
-  //   setPosts(data)
-  // }
+  const staff = async() =>{
+    const data = await goh_media_and_newsApi()
+    setPosts(data)
+  }
   
-  // useEffect(()=>{
-  //   staff()
-  // },[])
+  useEffect(()=>{
+    staff()
+  },[])
   
   return (
     <>
@@ -24,7 +24,7 @@ const Newsmedia = () => {
         <div className="container-fluid px-5 news pt-3">
           <h5 className=" p-2 ps-3 news-heading ">Latest News</h5>
           <div className="card mb-3">
-          {/* {!posts ? <>
+          {!posts ? <>
           <h1>Loadin Please Wait...</h1>
           </>:<>
           {posts.map((el,i) =>(
@@ -59,7 +59,7 @@ const Newsmedia = () => {
            <hr/>
             </>
            ))}
-          </>} */}
+          </>}
           </div>
         </div>
       </section>

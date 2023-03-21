@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Fixednavbar from "@/components/navbar/fixednavbar";
-// import { goh_faqsApi } from "@/allApi/apis";
+import { goh_faqsApi } from "@/allApi/apis";
 
 const Faqs = () => {
   const [posts, setPosts] = useState([]);
-  // const staff = async() =>{
-  //   const data = await goh_faqsApi()
-  //   setPosts(data)
-  // }
+  const staff = async() =>{
+    const data = await goh_faqsApi()
+    setPosts(data)
+  }
 
-  // useEffect(()=>{
-  //   staff()
-  // },[])
+  useEffect(()=>{
+    staff()
+  },[])
 
   return (
     <>
@@ -22,7 +22,7 @@ const Faqs = () => {
       <div className="container-xxl  container-xl container-lg container-md container-faqs pt-4">
         <h1 className="pt-5 mt-5 mb-4">Frequently Asked Questions</h1>
         <section className="mt-5 mb-5">
-          {/* {posts.map((data, index) => {
+          {posts.map((data, index) => {
             let abc = 'a' + data.id;
             return (
               < div className="question-box mt-3">
@@ -43,7 +43,7 @@ const Faqs = () => {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </section>
       </div>
       <style jsx>

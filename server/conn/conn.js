@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const ErrorHandle = require("../utils/Errorhandler");
 
 
 const db_config = {
@@ -39,15 +40,16 @@ handleDisconnect();
 //  answered Jun 17, 2022 by N
 
 
-const executeQuery = (query, arraParms) =>{
+const executeQuery = (query, arraParms, next) =>{
   return new Promise((resolve,reject) => {
     connection.changeUser({ database: arraParms });
     if(query){
 
       connection.query(query,async(err, data) => {
         if(err){
-  
-          reject(err)}
+          next(new ErrorHandle(err, `The query in which error occurred ${query}`,206))
+          reject(err)
+        }
         return resolve(data)
       })
     }
