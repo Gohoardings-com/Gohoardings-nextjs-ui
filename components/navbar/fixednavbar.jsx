@@ -190,7 +190,7 @@ const Fixednavbar = () => {
         </Navbar.Collapse>
       </Navbar>
  
-      {/* <Navbardropdown  show={show} setShow={setShow} Dropdown={Dropdown} /> */}
+      <Navbardropdown  show={show} setShow={setShow} Dropdown={Dropdown} />
     </>
   );
 };

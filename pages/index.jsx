@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic';
 const MyComponent = dynamic(() => import('@/components/navbar/flotingnavbar'), {
   ssr: false
 });
+
 export default function Home() {
   const dispatch = useDispatch()
  
