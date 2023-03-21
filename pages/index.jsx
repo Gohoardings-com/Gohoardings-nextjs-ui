@@ -8,8 +8,11 @@ import Trendingcity from "@/components/trendingcity";
 import Footer from "@/components/footer";
 import { mediawithcity } from "@/redux/adminAction";
 import NavbarH from "@/components/navbar/navbar";
-import Floatingnavbar from "@/components/navbar/flotingnavbar";
+import dynamic from 'next/dynamic';
 
+const MyComponent = dynamic(() => import('@/components/navbar/flotingnavbar'), {
+  ssr: false
+});
 export default function Home() {
   const dispatch = useDispatch()
  
@@ -31,7 +34,7 @@ export default function Home() {
       </Head>
       <main>
         <NavbarH/>
-        <Floatingnavbar/>
+        <MyComponent/>
         <section>
    <Searchmedia/>
         </section>
