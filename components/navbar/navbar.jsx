@@ -11,7 +11,7 @@ const NavbarH = () => {
   useEffect(() => {
   setPosts(posts)
 }, []);
-
+   
   return (
     <>
       <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
