@@ -216,7 +216,7 @@ exports.mapMarkersData = catchError(async(req,res) => {
     let sql;
  
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+    return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
             sql ="SELECT "+data2+" FROM goh_media as media "+positions+" UNION SELECT "+data2+" FROM goh_media_digital as media "+positions+" UNION SELECT "+data2+" FROM goh_media_transit as media "+positions+" UNION SELECT "+data2+" FROM goh_media_mall as media "+positions+" UNION SELECT "+data2+" FROM goh_media_airport as media "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight as media "+positions+" UNION SELECT "+data2+" FROM goh_media_office as media "+positions+""
 

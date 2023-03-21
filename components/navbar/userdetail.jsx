@@ -12,7 +12,7 @@ import { GoogleLogout } from "react-google-login";
 // import { AccountContext } from "../../apis/apicontext";
 // import { cartitems, userDetails } from "../../action/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../../styles/navbarHome.module.scss";
 import { MdDashboard } from "react-icons/md";
 import { CgUserlane } from "react-icons/cg";
@@ -148,7 +148,7 @@ const Userdetail = () => {
             <Dropdown.Item
               variant="transparent"
               className={`rounded-top ps-2 pt-2 pb-2 ${styles.drop_item}`}
-              // href="/login"
+              href="/login"
             >
               <BiLogIn className={"icon-clr"} /> Sign in
             </Dropdown.Item>

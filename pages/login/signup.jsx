@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginOauth from "./loginOauth";
+import GoogleLinkdinAuthentication from "./googleLogin";
 import styles from '../../styles/login.module.scss'  ;
 import { toast, ToastContainer } from "react-toastify";
 const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password, setEmail, email, emailsValidate, numbervalidate, phone, AiFillEye, AiFillEyeInvisible, setNumber, nameValidate, setName, name, onRegister, onForget, setOtp, checkOTPForLogin, registerOtp}) => {
@@ -105,7 +105,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
     Already have an account?  <span className="fw-bold switch " onClick={() => toggleSignUp()}>Login</span>
     </h6>
 
-    <LoginOauth signIn={signIn} afterLogin={afterLogin} setNumber={setNumber}  onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin}/>
+    <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber}  onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin}/>
     </>
   );
 }

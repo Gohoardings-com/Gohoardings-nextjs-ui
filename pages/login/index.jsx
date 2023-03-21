@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
-import Log from "./log";
+import Login from './login';
 
-import Sign from "./sign";
+import Sign from "./signup";
 import ForgetPass from "./forgetPass";
 import { userDetails } from "@/redux/adminAction";
 import { toast, ToastContainer } from "react-toastify";
@@ -20,6 +20,7 @@ import {
 import { useGoogleLogin } from "react-google-login";
 import { MdOutlineError } from "react-icons/md";
 import navigate  from "next/navigation";
+import {useRouter} from 'next/navigation'
 import styles from '../../styles/login.module.scss'  ;
 import { AccountContext } from "@/allApi/apicontext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -47,17 +48,16 @@ const LoginN = () => {
   const [confirmpasswords, setconfirmPasswords] = useState();
   const [withOtp,setWithOtp] = useState(false);
   const {user, loading} = useSelector((state) => state.user)
+  const navigate = useRouter()
 
   const afterLogin = async () => {
-    addRemove({ type: "DECR" });
-    localStorage.setItem(true, "long");
-    const locate = localStorage.getItem("locate");
-    const backlink = locate ? locate : "/";
+    // localStorage.setItem(true, "long");
+    // const locate = localStorage.getItem("locate");
+    // const backlink = locate ? locate : "/";
     
-    localStorage.removeItem("locate");
+    // localStorage.removeItem("locate");
     
-    dispatch(userDetails)
-    navigate(`${backlink}`);
+   
 
     setSendOtp(false);
   };
@@ -67,7 +67,8 @@ const LoginN = () => {
     const profile = res.profileObj;
     const data = await googleLogin(profile);
     if (data.success === true) {
-      afterLogin();
+      dispatch(userDetails)
+      navigate.push(`/`);
     } else {
       toast(data.message);
     }
@@ -85,16 +86,6 @@ const LoginN = () => {
     onFailure,
   });
 
-  const getUser = async() => {
-    if(loading == false){
-      localStorage.setItem(true, "long");
-      addRemove({ type: "DECR" });
-      navigate("/")  
-    }else{
-      localStorage.removeItem(true);
-    }
-  }
-
   const checkOTPForLogin = async(e) => {
     e.preventDefault();
     const data = await loginOTP(otp);
@@ -104,10 +95,7 @@ const LoginN = () => {
       toast(data.message);
     }
   }
-useEffect(() => {
-  getUser()
-  topFunction()
-},[])
+
 
 
   let count = 0;
@@ -158,7 +146,6 @@ useEffect(() => {
 
   const onForget = async (e) => {
     e.preventDefault();
-
     if (isNaN(parseInt(phone))) {
       const data = await emailOTP(phone);
       if (data.success == true) {
@@ -236,9 +223,7 @@ useEffect(() => {
   };
 
   const registerOtp = async(e) => {
- 
-    e.preventDefault()
-   
+    e.preventDefault() 
     if (name === "") {
       count = +1;
       setNameValidate(<MdOutlineError className="text-danger" />);
@@ -261,10 +246,8 @@ useEffect(() => {
       setPasswordsValidate(<MdOutlineError className="text-danger" />);
     } else if (password.length <= 3) {
       setPasswordsValidate("Password should be atleast 4 digit ");
-    }
-    
+    }  
     else if (count === 0 && sendOTP) {
-      
       const data = await OtpRegister(name, email, phone, password, otp);
       if (data.success === true) {
         afterLogin()
@@ -352,7 +335,7 @@ useEffect(() => {
             ) : (
               <>
                 {signin ? (
-                  <Log
+                  <Login
                     setEmailValidate={setEmailsValidate}
                     onSignIn={onSignIn}
                     afterLogin={afterLogin}

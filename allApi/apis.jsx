@@ -7,7 +7,7 @@ import {TbBuildingCommunity} from "react-icons/tb"
 import {TfiLayoutMediaCenterAlt} from "react-icons/tfi"
 import {ImOffice} from "react-icons/im"
 export const emailformate = /^\w+([-,.]?\w+)*@\w+(.-]?\w+)*(\.\w{2,3})+$/;
-export const clientId = process.env.REACT_APP_DEV_MODE;
+export const clientId = '85378901999-efhrgq7ltamh5730qq1776fatpm0mhd0.apps.googleusercontent.com';
 
   export const CityNameImage = [    
     // {
@@ -98,24 +98,24 @@ export const refreshToken = async() => {
 }
 
 export const googleLogin = async(res) => {
-    const {data} = await  instance.post("registration/googleSingUp", res)
+    const {data} = await  instance.post("sociallogin", res)
       return data
 }
 
 
 export const loginUser = async(email, password) => {
-    const {data} = await instance.post('registration/login',{email,password})
+    const {data} = await instance.patch('loginApis',{email,password})
       return data
 }
 
 export const registerUser = async(email, phone) => {
-    const {data} = await instance.post('registration/register',{
+    const {data} = await instance.post('loginApis',{
         email,phone 
       })
       return data
 }
 export const OtpRegister = async(name, email, phone, password,otp) => {
-    const {data} = await instance.post('registration/registerOtp',{
+    const {data} = await instance.put('loginApis',{
         name,  email,phone, password, otp
       })
       return data
@@ -139,20 +139,20 @@ export const updateProfile = async(formData) =>{
 }
 export const emailOTP = async(email) =>{
   
-    const {data} =  await instance.post("registration/forgetpassword",{email});
+    const {data} =  await instance.put(`${email}`);
  return data
 }
 export const mobileOTP = async(email) =>{
-    const {data} =  await instance.post("otp/mobileOtp",{email});
+    const {data} =  await instance.patch(`${email}`);
  return data
 }
 export const sendOTP = async(otp) =>{
-    const {data} =  await instance.put("otp/check",{otp});
+    const {data} =  await instance.patch(`forgetPass`,{otp});
  return data
 }
 
 export const changePasswordApi = async(password, confirmpasswords, expire) =>{
-    const {data} =  await instance.post("otp/check",{password, confirmpasswords, expire});
+    const {data} =  await instance.put("forgetPass",{password, confirmpasswords, expire});
  return data
 }
 

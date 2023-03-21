@@ -53,7 +53,7 @@ exports.addOnCart = catchError(async (req, res) => {
         return res.status(206).json({success:false, message: "No Cookie Found" })
     }
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+    return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
             return res.status(206).json({success:false, message: "Login First" })
         } else {

@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginOauth from "./loginOauth";
+import GoogleLinkdinAuthentication from "./googleLogin";
 import styles from '../../styles/login.module.scss'  ;
-const Log = ({ onSignIn,sendOtp, withOtp, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
+const Login = ({ onSignIn,sendOtp, withOtp, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
   return (
     <>
       <h2 className="mt-5 fw-bold">Login to Continue</h2>
@@ -113,11 +113,11 @@ onClick={checkOTPForLogin}
        </form>
       
         </div>  */}
-      <LoginOauth signIn={signIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}
+      <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}
         withOtp={withOtp}
       />
     </>
   );
 }
 
-export default Log;
+export default Login;

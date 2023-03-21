@@ -165,7 +165,7 @@ const Details = () => {
                                   .toLowerCase()}/media/images/new${element}`
                           }
                           onError={(e) =>
-                            (e.target.src = "../../clientslogo/alter-img.png")
+                            (e.target.src = "../../images/all_Image/alter-img.png")
                           }
                           className="rounded-3 detail-img"
                         />

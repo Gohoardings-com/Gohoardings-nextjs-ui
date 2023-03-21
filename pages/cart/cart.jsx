@@ -214,7 +214,7 @@ const submitAllProduct = async () => {
                                   }
                                   onError={(e) =>
                                     (e.target.src =
-                                      "../../clientslogo/alter-img.png")
+                                      "../../images/all_Image/alter-img.png")
                                   }
                                   className="img-fluid w-100 rounded-2  m-2 cart-media-img"
                                   alt={obj.mediaownercompanyname}

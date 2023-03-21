@@ -1,14 +1,14 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-// import instance from "../../apis/axios";
-import { useAuth0 } from "@auth0/auth0-react";
+import instance from "@/allApi/axios";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import styles from '../../styles/login.module.scss'  ;
 
 const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp}) => {
-  const { loginWithPopup, user } = useAuth0();
+  const { loginWithPopup, user } = useUser();
 
-  if (useAuth0()?.isAuthenticated) {
-    instance.post("registration/user", user).then(() =>   afterLogin());
+  if (useUser()?.isAuthenticated) {
+    instance.put("sociallogin", user).then(() =>   afterLogin());
   }
 
   const loginLinkdin = async () => {
@@ -19,9 +19,7 @@ const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp}) => {
     <>
       <div className={`ps-0 mt-3 text-center ${styles.login_auth} mt-2`}>
         <div className="row">
-
         </div>
-        
         <img
         alt="phone_otp"
           src="../../images/all_image/otp.png"

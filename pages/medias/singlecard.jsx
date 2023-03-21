@@ -62,7 +62,7 @@ const Singlecard = ({
                                   }`
                             }
                             onError={(e) =>
-                              (e.target.src = "../../clientslogo/alter-img.png")
+                              (e.target.src = "../../images/all_Image/alter-img.png")
                             }
                           />
                         </Link>
