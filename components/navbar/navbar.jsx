@@ -51,6 +51,7 @@ const NavbarH = () => {
                 <MdLocationPin className={`ps-0 p-0   pb-1 ${styles.font_map_logo} icon-clr`} />
                 Map View
               </Nav.Link>
+              
               <Userdetail posts={posts} setPosts={setPosts}/>
             </Nav>
           </Navbar.Collapse>

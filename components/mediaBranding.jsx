@@ -4,7 +4,7 @@ const Medialogo = ({ category_name, city_name }) => {
 
 
   const catVar =[CityNameImage[1]] 
-  console.log(catVar)
+
   return (
     <>
       <div className="media-branding">

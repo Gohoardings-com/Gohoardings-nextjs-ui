@@ -43,8 +43,11 @@ const executeQuery = (query, arraParms) =>{
   return new Promise((resolve,reject) => {
     connection.changeUser({ database: arraParms });
     if(query){
+
       connection.query(query,async(err, data) => {
-        if(err) reject(err)
+        if(err){
+  
+          reject(err)}
         return resolve(data)
       })
     }

@@ -6,7 +6,7 @@ const ErrorHandle = require("../utils/Errorhandler");
 
 exports.message = catchError(async (req, res, next) => { 
         const {name, email, phone, message} = req.body
-        console.log(name, email, phone, message);
+
         executeQuery('',"gohoardi_goh")
         const sql = await executeQuery("INSERT into enquiry (name, email, phone, message) VALUES ('" + name + "', '" + email + "','" + phone + "','" + message + "')")
                 if (!sql) {

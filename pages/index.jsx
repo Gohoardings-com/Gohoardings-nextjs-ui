@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <main>
         <NavbarH/>
-        {/* <Floatingnavbar/> */}
+        <Floatingnavbar/>
         <section>
    <Searchmedia/>
         </section>

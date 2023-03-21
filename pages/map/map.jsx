@@ -26,7 +26,7 @@ const Map = () => {
   const [noOfLogo, setnoOfLogo] = useState(8);
   const [zoom,setZoom] = useState(15)
 
-  console.log(search);
+ 
 
   var slice;
 

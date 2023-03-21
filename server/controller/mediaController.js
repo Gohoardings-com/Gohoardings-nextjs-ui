@@ -78,10 +78,11 @@ exports.SearchData = catchError(async (req, res, next) => {
        return  res.status(200).json(JSON.parse(data))
     } else {
       const dataLimit = await executeQuery(sql, "gohoardi_goh")
+
             if (!dataLimit) {
                 next(new ErrorHandle('Data Not Found', "Media With City Api",206))
             }
-            client.setEx(key,  process.env.REDIS_TIMEOUT,JSON.stringify(dataLimit))
+            client.setEx(key,  157788000000,JSON.stringify(dataLimit))
             return res.status(200).json(dataLimit)
     }    
     }
