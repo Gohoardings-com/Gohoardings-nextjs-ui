@@ -1,6 +1,6 @@
 import React from "react";
-import "./media.scss";
-import VariantsExample from "../../components/loading/loading";
+
+// import VariantsExample from "../../components/loading/loading";
 import { MdLocationPin } from "react-icons/md";
 import { Link } from "next/link";
 

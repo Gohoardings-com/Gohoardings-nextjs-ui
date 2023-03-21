@@ -88,53 +88,53 @@ const Userdetail = () => {
   return (
     <>
       {loading == false ? (
-        <div className={`p-0 m-0  d-flex ${styles.styles.userDetail2} my-2 my-lg-0`}>
+        <div className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0`}>
           <Dropdown className={styles.login_profile}>
             <Dropdown.Toggle variant="transparent" className={styles.drop_togel}>
-              <FaUserCircle className={`${styles.styles.login_icon}  pt-0 mb-1 icon-clr`} />
+              <FaUserCircle className={`${styles.login_icon}  pt-0 mb-1 icon-clr`} />
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className={` ${styles.styles.dropdown_menu_end} pt-0 pb-0`}>
+            <Dropdown.Menu className={` ${styles.dropdown_menu_end} pt-0 pb-0`}>
               <Dropdown.Item
                 className={`${styles.drop_item} rounded-top  ps-2 pt-2 pb-2`}
                 disabled={true}
               >
-                <CgUserlane className={`mb-1 ${styles.icon-clr}`}/>
-                {user[0].firstname.toUpperCase()}
+                <CgUserlane className={`mb-1 icon-clr}`}/>
+                {/* {user[0].firstname.toUpperCase()} */}
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
-                onClick={profile}
-                className={`${styles.styles.drop_item}  ps-2 pt-2 pb-2`}
+                // onClick={profile}
+                className={`${styles.drop_item}  ps-2 pt-2 pb-2`}
               >
                 {" "}
                 <MdDashboard className={`mb-1 icon-clr`} /> My Dashboard
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
-                onClick={handelLogout}
+                // onClick={handelLogout}
                 className={`${styles.drop_item} rounded-bottom ps-2 pt-2 pb-2`}
               >
                 <BiLogOut className="icon-clr" />{" "}
-                <GoogleLogout
+                {/* <GoogleLogout
                   className="border-0 bg-transparent"
                   clientId={clientId}
                   buttonText={"Logout"}
                   onLogoutSuccess={handelLogout}
                   icon={false}
                   id={log_bttn}
-                />
+                /> */}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <div className={`${styles.cart} me-2`}onClick={cart}>
+          <div className={`${styles.cart} ms-2`}>
             <span>
               <img
-                src="../../clientslogo/hoarding.png"
+                src="../../images/all_image/hoarding.png"
                 className={`${styles.login_icon_cart} icon-clr`}
               />
             </span>
-            <span>{initalState}</span>
+            <span></span>
           </div>
         </div>
       ) : (

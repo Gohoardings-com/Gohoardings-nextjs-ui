@@ -4,13 +4,14 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { getAllCity } from "@/allApi/apis";
 import MediaDropDown from "../components/mediaDropdown";
 import Citylocation from "../components/cityLocation";
+import { useRouter } from 'next/router'
 import styles from '../styles/searchmedia.module.scss';
 const Searchmedia = () => {
     const [city, setCity] = useState([]);
     const [value, setValue] = useState("");
     const [focus, setFocus] = useState(false);
     const [userType, setUserType] = useState("");
-  
+    const route=useRouter();
     const onChange = async (event) => {
       setValue(event.target.value); 
       const cities = event.target.value;
@@ -19,7 +20,8 @@ const Searchmedia = () => {
     };
     const mavigatetoMediaPage = (userType, value) => {
       if (userType.length > 3 && value.length > 2) {
-        navigate(`/${userType}/${value}`);
+        route.push(`/${userType}/${value}`)
+        
       }
     };
   
@@ -61,7 +63,7 @@ const Searchmedia = () => {
               />
             </div>
           </div>
-          <section className="kngf">
+          <section className="serchm">
             <div className="container-fluid  mt-5 pt-2  px-5 m-0 ">
               <div className= {`${styles.search_container} row mx-auto mb-5 p-1`}>
                 <div className="col-md-5  me-0 pe-0">
@@ -129,16 +131,7 @@ const Searchmedia = () => {
             </div>
           </section>
         </div>
-      <style jsx>
-        {`
-        
-        .dropdown-menu {
-    width: 22vw;
-    padding: 0px;
-    --bs-dropdown-link-active-bg: #f1e615 ;
-  }
-        `}
-      </style>
+
     </>
   )
 }

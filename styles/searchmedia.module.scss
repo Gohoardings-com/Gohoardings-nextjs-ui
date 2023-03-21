@@ -16,8 +16,8 @@
   }
   .heading_text {
     h2 {
-      font-size: 3rem !important;
-      font-weight: 700 !important;
+      font-size: 3rem ;
+      font-weight: 700 ;
       color: #373435;
     }
     h1 { 
@@ -53,7 +53,7 @@
     }
   }
   .basic_addon {
-    background-color: #dfdfdf !important;
+    background-color: #dfdfdf ;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border: none;
@@ -81,8 +81,8 @@
     margin-top: 4px;
     margin-left: 44px;
     border-radius: 6px;
-    z-index: 4 !important;
-    padding: 0px !important;
+    z-index: 4 ;
+    padding: 0px ;
 
   }
   #abcd > .border_1 {
@@ -172,7 +172,7 @@
     cursor: not-allowed;
   }
   .dropdown_menu_location {
-    z-index: 0 !important;
+    z-index: 0 ;
     cursor: pointer;
   }
   #search_location-box:focus {
@@ -187,13 +187,13 @@
       width: 74%;
     }
     .search_media_img {
-      width: 315px !important;
-      height: 308px !important;
+      width: 315px ;
+      height: 308px ;
     }
     .heading_text {
       h2 {
-        font-size: 2.2rem !important;
-        font-weight: 700 !important;
+        font-size: 2.2rem ;
+        font-weight: 700 ;
         color: #373435;
       }
       h1 {
@@ -213,7 +213,7 @@
       width: 110px;
     }
     .dropdown_toggle::after {
-      font-size: 20px !important;
+      font-size: 20px ;
     }
     #search_location_box {
       font-size: 14px;
@@ -226,21 +226,21 @@
   }
   @media screen and (max-width: 1024px) {
     .search_container {
-      width: 87% !important;
+      width: 87% ;
     }
   }
   // @media screen and (max-width: 425px) {
   //   #abcd {
-  //     width: 230px !important;
+  //     width: 230px ;
   //   }
   //   .search-container {
-  //     width: 100% !important;
+  //     width: 100% ;
   //     .dropdown-menu {
-  //       width: 85vw !important;
+  //       width: 85vw ;
   //       padding: 0px;
   //     }
   //     .select-media-icon {
-  //       height: 20px !important;
+  //       height: 20px ;
   //     }
   //   }
   //   .enquire-now {
@@ -256,7 +256,7 @@
   //   .heading-text {
   //     margin: 0px 10px;
   //     h2 {
-  //       font-size: 1.2rem !important;
+  //       font-size: 1.2rem ;
   //     }
   //     h1 {
   //       font-size: 1.6rem;
@@ -275,25 +275,25 @@
   //     background-color: #373435;
   //   }
   //   .dropdown-toggle::after {
-  //     font-size: 20px !important;
+  //     font-size: 20px ;
   //   }
   //   #search-location-box {
   //     font-size: 12px;
   //     height: 35px;
   //   }
   //   .px-5 {
-  //     padding-right: 0.5rem !important;
-  //     padding-left: 0.5rem !important;
+  //     padding-right: 0.5rem ;
+  //     padding-left: 0.5rem ;
   //   }
   //   .pe-0 {
-  //     padding-right: 0 !important;
+  //     padding-right: 0 ;
   //     padding: 0px;
   //   }
   //   .pb-2 {
-  //     padding-bottom: 0.1rem !important;
+  //     padding-bottom: 0.1rem ;
   //   }
   //   .mt-5 {
-  //     margin-top: 2rem !important;
+  //     margin-top: 2rem ;
   //   }
 
   //   #select-media-box {

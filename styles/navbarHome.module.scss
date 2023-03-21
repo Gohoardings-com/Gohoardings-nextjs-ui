@@ -1,0 +1,150 @@
+@import "../assets/scss/variables";
+
+.login-profile .drop-item button {
+  box-shadow: none !important;
+}
+.fixd_nabar {
+  background-color: #ffffff;
+  .brand_logo {
+    width: 190px;
+  }
+}
+.mapLink {
+  width: 116px;
+  height: 44px;
+}
+.nav_text_btn {
+  color: #373435;
+  font-weight: 600 !important;
+  display: inline-block;
+  width: auto !important;
+}
+
+.nav_text_btn::after {
+  content: "" !important;
+  display: block !important;
+  width: 0 !important;
+  height: 4px !important;
+  background: #f8eb00 !important;
+  transition: width 0.4s ease-in !important;
+}
+
+.nav_text_btn:hover::after {
+  width: 100% !important;
+}
+
+.login_profile {
+  .drop_togel {
+    border: transparent !important;
+    margin-left: 16px;
+  }
+
+  @media screen and (max-width: 1366px) {
+    .drop_togel {
+      border: transparent !important;
+      margin-left: 8px !important;
+    }
+  }
+  .drop_item {
+    color: #373435 !important;
+    font-weight: 600 !important;
+    span {
+      padding: 0px !important;
+
+      color: #373435 !important;
+      font-weight: 600 !important;
+    }
+  }
+}
+
+.user_detail_login {
+  .login_icon {
+    font-size: 30px;
+    transition: 0.2s;
+  }
+  .login_icon:hover {
+    color: #e6db14 !important ;
+  }
+
+  .drop_togel {
+    border: transparent !important;
+  }
+  .drop_item {
+    color: #373435 !important;
+    font-weight: 600 !important;
+  }
+}
+.login_profile {
+  .login_icon {
+    height: 30px;
+    width: 30px;
+  }
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+  .drop_togel {
+    border: transparent !important;
+  }
+  .drop_item {
+    color: #373435 !important;
+    font-weight: 600 !important;
+  }
+}
+.font_map_btn {
+  color: #373435 !important;
+  font-weight: 600 !important;
+}
+
+.font_map_logo {
+  font-size: 28px;
+  margin-bottom: 1%;
+}
+#dropdown_basic_user {
+  display: none;
+}
+
+.anchor {
+  text-decoration: none;
+}
+.login_icon_cart {
+  margin-top: 4px;
+  height: 36px;
+}
+
+@media screen and (max-width: 1366px) {
+  .fixd_nabar {
+    .brand_logo {
+      width: 175px;
+    }
+  }
+  .nav_text_btn {
+    font-size: 0.9rem !important;
+  }
+  .font_map_btn {
+    font-size: 0.9rem !important;
+  }
+
+  .font_map_logo {
+    height: 21px !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .fixd_nabar {
+    margin: 0px 10px;
+
+    .brand_logo {
+      width: 123px;
+    }
+    button:not(:disabled),
+    [type="button"]:not(:disabled) {
+      height: 28px;
+      width: 40px;
+      padding: 0px;
+    }
+    .navbar_toggler_icon {
+      height: 22px !important;
+      width: 30px !important;
+    }
+  }
+}

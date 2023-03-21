@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react"; 
 import Nav from "react-bootstrap/Nav";
 import {MdLocationPin} from "react-icons/md" 
 import Navbar from "react-bootstrap/Navbar";
 import Userdetail from "./userdetail";
 import styles from "../../styles/navbarHome.module.scss";
 
-const NewNAvbar = () => {
+const NavbarH = () => {
   const [posts, setPosts] = useState()
 
   useEffect(() => {
@@ -60,5 +60,5 @@ const NewNAvbar = () => {
   );
 };
 
-export default NewNAvbar;
+export default NavbarH ;
 

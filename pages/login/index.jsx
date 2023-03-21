@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import Log from "./log";
-import "./authorization.scss";
+
 import Sign from "./sign";
 import ForgetPass from "./forgetPass";
 import { userDetails } from "@/redux/adminAction";
@@ -20,15 +20,16 @@ import {
 import { useGoogleLogin } from "react-google-login";
 import { MdOutlineError } from "react-icons/md";
 import navigate  from "next/navigation";
+import styles from '../../styles/login.module.scss'  ;
 import { AccountContext } from "@/allApi/apicontext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
 const LoginN = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate();
+
   const [name, setName] = useState("");
-  const { addRemove } = useContext(AccountContext);
+  // const { addRemove } = useContext(AccountContext);
   const [nameValidate, setNameValidate] = useState();
   const [email, setEmail] = useState();
   const [emailsValidate, setEmailsValidate] = useState();
@@ -277,16 +278,16 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <Seohelmet/>
+    <div className="lgn">
+
       <div className=" d-flex">
         <div className="col-md-6 ">
-          <div className="wrapper">
-            <div className="opacitydiv rounded-4">
+          <div className={styles.wrapper}>
+            <div className={`${styles.opacitydiv} rounded-4`}>
               {signin ? (
                 <>
                   {" "}
-                  <div className="title pt-3 ps-4">
+                  <div className={`${styles.title} pt-3 ps-4`}>
                     <h2>
                       Promote <br />
                       your brand
@@ -294,14 +295,14 @@ useEffect(() => {
                     <h4>in just one click</h4>
                   </div>
                   <img
-                    src="../../images/login1.png"
-                    className="img-responsive"
+                    src="../../images/all_image/login1.png"
+                    className={styles.img_responsive}
                     alt="Registraion"
                   />
                 </>
               ) : (
                 <>
-                  <div className="title pt-3 ps-4">
+                  <div className={`${styles.title} pt-3 ps-4`}>
                     <h2>
                       Gohoardings <br />
                       OOH Advertising
@@ -313,8 +314,8 @@ useEffect(() => {
                     </h6>
                   </div>
                   <img
-                    src="../../images/login2.png"
-                    className="img-responsive2"
+                    src="../images/all_image/login2.png"
+                    className={styles.img_responsive2}
                     alt="Login image"
                   />
                 </>
@@ -323,8 +324,8 @@ useEffect(() => {
           </div>
         </div>
         <div className="col-md-6 ">
-          <div className="container-xxl  container-xl container-lg container-md  login-container2 ">
-            <img src="../../images/logo.png" alt="gohoardings" id="brand-logo" />
+          <div className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}>
+            <img src="../../images/all_image/logo.png" alt="gohoardings" id={styles.brand_logo} />
 
             {forget ? (
               <>
