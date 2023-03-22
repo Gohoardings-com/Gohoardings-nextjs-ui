@@ -1,8 +1,8 @@
 @import "../assets/scss/variables";
 .icon-clr,
 .icon_clr {
-  color: $icon !important;
-  cursor: pointer !important;
+  color: $icon ;
+  cursor: pointer ;
 }
 ::-webkit-scrollbar {
   width: 7px;
@@ -42,7 +42,14 @@
     float: right;
   }
 }
-
+.usrdtl{
+  .dropdown-toggle::after {
+    display: none;
+  }
+  .dropdown-menu {
+    --bs-dropdown-link-active-bg: #f1e615 ;
+  }
+}
 .fnav{
   .dropdown-toggle::after {
     display: none;
@@ -83,7 +90,7 @@
 .servc{
   .slick-prev.slick-disabled:before,
   .slick-next.slick-disabled:before {
-  opacity: 0.5;
+  opacity: 60%;
   }
   
   .slick-prev:before,
@@ -92,7 +99,7 @@
   font-size: 25px;
   line-height: 1;
   
-  color: $icon !important;
+  color: $icon ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   }
@@ -114,15 +121,15 @@ input:focus {
 .enqr{
 
   .slick-next:before {
-    display: none !important;
+    display: none ;
   }
   .slick-next {
-    display: none !important;
+    display: none ;
   }
   .slick-prev:before {
-    display: none !important;
+    display: none ;
   }
   .slick-prev {
-    display: none !important;
+    display: none ;
   }
 }
