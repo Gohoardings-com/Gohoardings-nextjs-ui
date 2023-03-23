@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
     <AccountProvider>
       <Component {...pageProps} />
     <Feedback/>
-      <Footer/>
+      {/* <Footer/> */}
       </AccountProvider>
     </SSRProvider>
     </Provider> 
