@@ -62,11 +62,7 @@ const Multicard = ({
                               .toLowerCase()}/media/images/new${item.thumb}`
                       }
                       onError={(e) =>
-<<<<<<< HEAD:pages/medias/multicard.jsx
-                        (e.target.src = "../../images/all_Image/alter-img.png")
-=======
                         (e.target.src = "../../images/all_image/alter-img.png")
->>>>>>> bb8787e2af4198edba475334253c10ed4c8d0440:pages/[category_name]/multicard.jsx
                       }
                     />
                        </Link>

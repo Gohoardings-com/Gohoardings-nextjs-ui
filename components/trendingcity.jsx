@@ -93,11 +93,7 @@ const Trendingcity = () => {
                                         }`
                                   }
                                   onError={(e) =>
-<<<<<<< HEAD
-                                    (e.target.src = "../../images/all_Image/alter-img.png")
-=======
                                     (e.target.src = "../../images/all_image/alter-img.png")
->>>>>>> bb8787e2af4198edba475334253c10ed4c8d0440
                                   }
                                 />
 
