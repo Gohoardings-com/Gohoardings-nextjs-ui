@@ -14,7 +14,7 @@ import instance from "../../apis/axios";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import { toast, ToastContainer } from "react-toastify";
 import { cartitems, mediawithcity, removeItem, userDetails } from "../../action/adminAction";
-import VariantsExample from "../../components/loading/loading";
+import Loader from "../components/loader";
 import Seohelmet from "../../components/seohelper/seohelmet";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -162,7 +162,7 @@ const submitAllProduct = async () => {
             <>
               <div className=" container ">
                 <div className="row  text-center my-3">
-                  <VariantsExample />
+                  <Loader />
                 </div>
               </div>
             </>
@@ -214,7 +214,7 @@ const submitAllProduct = async () => {
                                   }
                                   onError={(e) =>
                                     (e.target.src =
-                                      "../../clientslogo/alter-img.png")
+                                      "../../images/all_image/alter-img.png")
                                   }
                                   className="img-fluid w-100 rounded-2  m-2 cart-media-img"
                                   alt={obj.mediaownercompanyname}

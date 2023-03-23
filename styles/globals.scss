@@ -118,18 +118,22 @@ input:focus {
       box-shadow: none;
     }
 }
-.enqr{
-
+*{
+  // font-family: "Poppins "!important;
+  font-family: sans-serif !important;
+}
+.enqry{
+ 
   .slick-next:before {
-    display: none ;
+    display: none !important;
   }
   .slick-next {
-    display: none ;
+    display: none !important ;
   }
   .slick-prev:before {
-    display: none ;
+    display: none !important ;
   }
   .slick-prev {
-    display: none ;
+    display: none !important;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-// import VariantsExample from "../../components/loading/loading";
+// import Loader from "../components/loader";
 import { MdLocationPin } from "react-icons/md";
 import { Link } from "next/link";
 
@@ -18,7 +18,7 @@ const Singlecard = ({
         <>
           <div className=" container ">
             <div className="row  text-center ">
-              <VariantsExample />
+              <Loader />
             </div>
           </div>
         </>
@@ -62,7 +62,7 @@ const Singlecard = ({
                                   }`
                             }
                             onError={(e) =>
-                              (e.target.src = "../../clientslogo/alter-img.png")
+                              (e.target.src = "../../images/all_image/alter-img.png")
                             }
                           />
                         </Link>

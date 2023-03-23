@@ -62,7 +62,7 @@ const Fixednavbar = () => {
     if (userPath == true && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
     } else if (userType.length > 3 && value.length > 2) {
-      navigate(`/${userType}/${value}`);
+      route.push(`/${userType}/${value}`);
     }
   };
 

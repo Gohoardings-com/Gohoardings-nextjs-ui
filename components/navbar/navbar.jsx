@@ -48,7 +48,7 @@ const NavbarH = () => {
                 className={`${styles.mapLink} ${styles.font_map_btn} text-center  text-nowrap rounded-pill`}
                 href="/map"
               >
-                <MdLocationPin className={`ps-0 p-0   pb-1 ${styles.font_map_logo} icon-clr`} />
+                {/* <MdLocationPin className={`ps-0 p-0   pb-1 ${styles.font_map_logo} icon-clr`} /> */}
                 Map View
               </Nav.Link>
               

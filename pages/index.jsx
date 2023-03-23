@@ -5,7 +5,6 @@ import City from "@/components/cityList";
 import Enquire from "@/components/enquire/enquire";
 import Searchmedia from "@/components/searchMedia";
 import Trendingcity from "@/components/trendingcity";
-import Footer from "@/components/footer";
 import { mediawithcity } from "@/redux/adminAction";
 import NavbarH from "@/components/navbar/navbar";
 import dynamic from 'next/dynamic';
@@ -26,7 +25,7 @@ export default function Home() {
  
  <link rel="icon" href="https://www.gohoardings.com/assets/images/favicon.png" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <meta name="theme-color" content="#000000" />
+ <meta name="theme-color" content="#000000"/>
  <meta
    name="description"
    content="Gohoardings is one of the leading outdoor advertising agency in India. We provide the finest advertising solutions for all your business needs."
@@ -51,7 +50,7 @@ export default function Home() {
         <section>
           <Trendingcity/>
         </section>
-        {/* <Footer/> */}
+ 
       </main>
     </>
   );
