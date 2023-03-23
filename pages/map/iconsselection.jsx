@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 // import Slider from "./slider.jsx";
-import "./icons.scss"
-import {iconFiltersData} from "../../action/adminAction";
+import {iconFiltersData} from "@/redux/adminAction";
 import {useDispatch} from "react-redux";
 import {MdSchool, MdOutlineRestaurantMenu } from "react-icons/md";
 import {BiDrink } from "react-icons/bi";
@@ -135,21 +134,6 @@ const Iconsselection = ({slice}) => {
             </div>
           ))}
         </div>
-        
-        {/* <div className="distance p-2 m-3">
-          <p className="m-1 mb-4 pb-2">Distance</p>
-          <Slider Distance={distance} onChange={HandleDistance} />
-          <div className="row pt-3 ps-3 km-distance">
-            {distanceofMedia.map((dis, i) => {
-
-              <div className="col-lg-3 col-sm-2 ps-1" key={i}>{dis.name}</div>
-            })}
-            <div className="col-lg-3 col-sm-2 ps-2">0km</div>
-            <div className="col-lg-3 col-sm-2 ps-2">1km</div>
-            <div className="col-lg-3 col-sm-2 ps-3">2km</div>
-            <div className="col-lg-3 col-sm-2 ps-4">3km</div>
-          </div>
-        </div> */}
       
        <div className="text-center map-btn-more"  >
           <button id="notWorking" className="buttonload btn-hover" >
@@ -158,6 +142,79 @@ const Iconsselection = ({slice}) => {
           </button>
       </div>
       </div>
+      <style jsx>
+        {
+          `
+          .poi-item input[type="checkbox"][id^="cb"] {
+            display: none;
+          }
+          
+          
+          .poi-item label {
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+          }
+          
+          .poi-item label:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 28px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+          }
+          
+          .poi-item :checked + label {
+            border-color: #ddd;
+          }
+          
+          .poi-item :checked + label:before {
+            content: "✓";
+            background-color: rgb(0, 255, 0);
+            transform: scale(1);
+          }
+          
+          .poi-item :checked + label img {
+            transform: scale(0.9);
+            z-index: -1;
+          }
+          .icone-name-map {
+            text-transform: uppercase;
+          }
+          
+          @media screen and (max-width: 1024px) {
+            .poi-item label {
+              padding: 5px;
+              margin: 5px;
+            }
+            .poi-item label:before {
+              width: 20px;
+              height: 16px;
+              text-align: center;
+              line-height: 18px;
+              transition-duration: 0.4s;
+              transform: scale(0);
+            }
+            .icone-name-map {
+              font-size: small;
+            }
+          }
+          #notWorking:hover{
+            cursor: not-allowed;
+          }
+          `
+        }
+      </style>
     </>
   )
 }

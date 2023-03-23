@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const db = require('../conn/conn');
-const  cookie = require('cookies')
+const cookie = require('cookie')
 const request = require('request')
 const {executeQuery} =  require('../conn/conn')
 const jwtToken = require('jsonwebtoken')
@@ -60,8 +60,7 @@ exports.registerLogin = catchError(async(req,res, next) => {
                     return res.status(206).json({success: false, message: "Otp Invalid"});
                         } else {
                            const userid = user[0].userid
-                            res.clearCookie(String(userid))
-                            req.cookies[`${String(userid)}`] = " ";
+                           res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                             token(userid, 200, res)
                         } 
                } 
@@ -82,9 +81,8 @@ exports.login = catchError(async (req, res, next) => {
                         message: "Wrong Email & Password"
                     });
                 }
-                const userid = result[0].userid
-                res.clearCookie(String(userid))
-                req.cookies[`${String(userid)}`] = " ";
+                const userid = data[0].userid
+                res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                 token(userid, 200, res)
             }
         } else {
@@ -105,8 +103,7 @@ exports.googleLogin = catchError(async (req, res, next) => {
                         if (data) {
                     const sql = "Insert into tblclients (userid) values ("+userid+")"
                        await executeQuery(sql, "gohoardi_crmapp", next)
-                            res.clearCookie(String(userid))
-                            req.cookies[`${String(userid)}`] = " ";
+                       res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                             token(userid, 200, res)
                         }
         } else {
@@ -151,8 +148,7 @@ exports.linkdinLogin = catchError(async (req, res) => {
                                 } else {
                                 const  sql = "Insert into tblclients (userid) values ("+userid+")"
                                     db.query(sql)
-                                    res.clearCookie(String(userid))
-                                    req.cookies[`${String(userid)}`] = " ";
+                                     res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                                     token(userid, 200, res)
                                 }
                             })
@@ -161,8 +157,7 @@ exports.linkdinLogin = catchError(async (req, res) => {
 
                 } else {
                     const userid = selectResult[0].userid
-                    res.clearCookie(String(userid))
-                    req.cookies[`${String(userid)}`] = " ";
+                    res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                     token(userid, 200, res)
                 }
             }) : res.send(206).json({success: false,message: "No Data Found"})
@@ -182,11 +177,9 @@ exports.refreshToken = catchError(async (req, res, next) => {
             if (err) {
                 return res.status(206).json({success: false,message: "InValid Token"});
             } else {
-                res.clearCookie(`${user.id}`)
-                req.cookies[`${user.id}`] = "";
-
+                res.setHeader("Set-Cookie",cookie.serialize(String(user.id),{expires: Date.now()}))
                 const token = jwtToken.sign({id: user.id}, "thisismysecretejsonWebToken", {
-                    expiresIn: "6d"
+                    expiresIn: "7d"
                 });
                 res.cookie(String(user.id), token, {
                     path: '/',
@@ -316,7 +309,6 @@ exports.changepasswoed = catchError(async (req, res, next) => {
 
     } else {
         return res.status(206).json({success:false,message: "Your Password Not Matched"})
-
 
     }
     

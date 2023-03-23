@@ -126,7 +126,7 @@ const LoginN = () => {
       e.preventDefault();
       const data = await loginUser(email, password);
       if (data.success === true) {
-        afterLogin();
+        navigate.push('/')
       } else {
         toast(data.message);
       }
@@ -173,7 +173,8 @@ const LoginN = () => {
     setPassword(" ");
     setconfirmPasswords(" ");
     if (data.success === true) {
-      afterLogin();
+      // afterLogin();
+      navigate.push('/')
     } else {
       toast(data.message);
     }

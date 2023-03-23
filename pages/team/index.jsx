@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./team.scss";
-import Fixednavbar from "../../components/navbar/fixednavbar";
+// import Fixednavbar from "../../components/navbar/fixednavbar";
 import { gohordingStaffAPi } from "@/allApi/apis";
 import {FaFacebookSquare, FaLinkedin} from "react-icons/fa";
 import {TiSocialTwitter} from "react-icons/ti"
@@ -21,7 +20,7 @@ const Team = () => {
   
   return (
     <>
-  <Fixednavbar/>
+  {/* <Fixednavbar/> */}
   <div className="d-hide drop-nd" >
       </div>
   <Branding title="Our expert team includes the following Gems" />
@@ -66,6 +65,82 @@ const Team = () => {
           </div>
         </div>
       </section>
+      <style jsx>
+        {
+          `
+          .single-team {
+            position: relative;
+            overflow: hidden;
+            padding-top: 6%;
+            height: 255px;
+            background-image: $card_background;
+            cursor: pointer;
+            box-shadow: $box-shadow;
+          }
+            .team-img img {
+              border: 6px solid #3690d1;
+              height: 125px;
+              background-color: $yellow;
+              width: 125px;
+              transition: transform 0.3s;
+            }
+            .team-content {
+              text-align: center;
+              overflow: hidden;
+            }
+            .team-info {
+              height: 54px;
+            }
+              h3 {
+                text-transform: uppercase;
+                color: $dark-blue;
+                font-size: 1.1rem;
+                margin: 4px;
+              }
+              h5 {
+                text-transform: uppercase;
+                color: $grey;
+                font-size: 0.8rem;
+                margin: 4px;
+              }
+            
+          
+          .team-img img:hover {
+            transform: scale(1.2);
+          }
+
+          .team-content .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 2%;
+          }
+           
+          .grid-item {
+              background: transparent;
+              text-align: center;
+            }
+            
+            .icon {
+              font-size: 22px;
+              transition: transform 0.3s;
+            }
+            .icon:hover {
+              transform: scale(1.3);
+            }
+            .facebook {
+              color: #3b5998;
+            }
+            .twiter {
+              color: #1d9bf0;
+              font-size: 26px;
+            }
+            .linkedin {
+              color: #1da1f2;
+            }
+          
+          `
+        }
+      </style>
     </>
   );
 };

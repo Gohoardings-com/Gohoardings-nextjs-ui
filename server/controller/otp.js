@@ -103,7 +103,6 @@ exports.checkOTP = catchError(async (req, res, next) => {
 })
 
 exports.changePassword = catchError(async (req, res, next) => {
-    console.log("hii");
     console.log(req.body);
     const {password, confirmpasswords, expire} = req.body
     if (!expire) {
@@ -112,8 +111,7 @@ exports.changePassword = catchError(async (req, res, next) => {
     if (password == confirmpasswords) {
         jwtToken.verify(expire, "thisismysecretejsonWebToken", async (err, user) => {
             if (err) {
-                console.log(err);
-                return res.status(206).json({success:false, message: "InValid Token"});
+                return res.status(206).json({success:false, message: "Time Out"});
             } else {
                 const userid = user.id;
                 const finalPassword = bcrypt.hashSync(password, 8)
@@ -142,8 +140,7 @@ exports.loginwithOTP = catchError(async (req, res) => {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
         } else {
             const userid = result[0].userid;
-            res.clearCookie(String(userid))
-            req.cookies[`${String(userid)}`] = " ";
+            res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
             token(userid, 200, res)
         }
     })
