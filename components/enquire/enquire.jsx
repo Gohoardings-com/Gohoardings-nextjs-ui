@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import clientslogo from "../../pages/about_us/clients";
+import clientslogo from "../../pages/about-us/clients";
 import Enquireregister from "./enquireregister";
 import styles from '../../styles/enquire.module.scss'  ;
 const Enquire = () => {

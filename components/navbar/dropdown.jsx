@@ -45,7 +45,7 @@ const navbarDropdown = () => {
                 <li>
                 
                   <Link
-                    href={`/office-branding/delhi`}
+                    href={`/office-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
                    
@@ -89,21 +89,21 @@ const navbarDropdown = () => {
               <ul className="list-none">
                 <li>
                 
-                  <a href="/about-us" className="text-decoration-none text-dark">
+                  <Link  href="/about-us" className="text-decoration-none text-dark">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
                 
-                  <a href="/team" className="text-decoration-none text-dark">
+                  <Link  href="/team" className="text-decoration-none text-dark">
                     Team
-                  </a>
+                  </Link>
                 </li>
                 <li>
                 
-                  <a href="/media-and-news" className="text-decoration-none text-dark">
+                  <Link  href="/media-and-news" className="text-decoration-none text-dark">
                     News & Media
-                  </a>
+                  </Link>
                 </li>
               
                 {/* <li>
@@ -112,9 +112,9 @@ const navbarDropdown = () => {
                 </li> */}
                 <li>
                 
-                  <a href="/contact-us" className="text-decoration-none text-dark">
+                  <Link  href="/contact-us" className="text-decoration-none text-dark">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -122,28 +122,26 @@ const navbarDropdown = () => {
               <ul className="list-none">
               <li>
                 
-                <a
-                  href="/testimonial"
+                <Link  href="/testimonial"
                   className="text-decoration-none text-dark"
                 >
                   Testimonials
-                </a>
+                </Link>
               </li>
                 <li>
                 
-                  <a
-                    href="https://www.gohoardings.com/blog/"
+                  <Link  href="https://www.gohoardings.com/blog/"
                     className="text-decoration-none text-dark"
                     target="_blank"
                   >
                     Blogs
-                  </a>
+                  </Link>
                 </li>
                 <li>
                 
-                  <a href="/faq" className="text-decoration-none text-dark">
+                  <Link  href="/faq" className="text-decoration-none text-dark">
                     FAQs
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -162,7 +160,7 @@ const navbarDropdown = () => {
            
               opacity: 93%;
               width: 90%;
-              margin: .4%;
+              margin: .2%;
               margin-left: 3%;
               padding-top: 1.4%;
               box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,

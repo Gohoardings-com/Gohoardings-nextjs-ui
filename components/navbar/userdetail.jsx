@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { useGoogleOneTapLogin } from "react-google-one-tap-login";
+import { useRouter } from "next/navigation";
 import { GoogleLogout } from "react-google-login";
 // import {
 //   clientId,
@@ -84,7 +85,7 @@ const Userdetail = () => {
   //     client_id: clientId,
   //   },
   // });
-
+  const route=useRouter();
   const loading = true;
   return (
     <>
@@ -148,14 +149,16 @@ const Userdetail = () => {
             <Dropdown.Item
               variant="transparent"
               className={`rounded-top ps-2 pt-2 pb-2 ${styles.drop_item}`}
-              href="/login"
+             
+              onClick={()=>route.push("/login")}
             >
               <BiLogIn className={"icon-clr"} /> Sign in
             </Dropdown.Item>
             <hr className="p-0 m-0" />
             <Dropdown.Item
               className={`rounded-bottom ps-2 pt-2 pb-2 ${styles.drop_item}`}
-              href="/contact"
+             
+              onClick={()=>route.push("/contact-us")}
             >
               <FaHandsHelping className="icon-clr" /> Help?
             </Dropdown.Item>

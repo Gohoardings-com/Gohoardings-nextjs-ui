@@ -17,7 +17,7 @@ import { CityNameImage, Less, More, mediaDataApi } from "../../allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { BsGrid } from "react-icons/bs";
 import { CiGrid2H } from "react-icons/ci";
-import Singlecard from "./singlecard";
+import Singlecard from "./single";
 import { MdArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import OverView from "./overView";
 import { useRouter } from "next/router";
@@ -51,15 +51,15 @@ const { search, loading } = useSelector((state) => state.search);
 
 
 
-  const getCardData = async () => {
-    await dispatch(mediawithcity(category_name, city_name, noOfLogo));
-  };
-  
-  //  useEffect(() => {
-  //   getCardData();
-  //   // apiforfillters();
-  // }, [category_name, city_name, noOfLogo]);
- 
+  // const getCardData = async () => {
+  //   await dispatch(mediawithcity(category_name, city_name, noOfLogo));
+  // };
+   useEffect(() => {
+    // getCardData();
+    // apiforfillters();
+  }, []);
+  // category_name, city_name, noOfLogo
+
   let slice;
   if (!loading) {
     slice = search.slice(0, noOfLogo);
@@ -228,7 +228,7 @@ const { search, loading } = useSelector((state) => state.search);
     setListings(!listings);
     setOverview(!overview);
   };
-console.log(search)
+
   return (
     <>
       <Fixednavbar />
@@ -390,8 +390,8 @@ console.log(search)
                     );
                   }
                 })}
-       
-            
+     
+     
                 {/* {multicard ? (
                   <Multicard
                     MdOutlineShoppingCart={MdOutlineShoppingCart}
@@ -417,7 +417,7 @@ console.log(search)
                 )} */}
               </div>
 
-{}
+
               {/* {loading ? (
                 <> </>
               ) : (
@@ -454,7 +454,7 @@ console.log(search)
                     </>
                   )}
                 </>
-              )} */}
+              )}  */}
             </div>
           </div>
         )}

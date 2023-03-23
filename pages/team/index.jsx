@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-// import Fixednavbar from "../../components/navbar/fixednavbar";
+import Fixednavbar from "../../components/navbar/fixednavbar";
 import { gohordingStaffAPi } from "@/allApi/apis";
 import {FaFacebookSquare, FaLinkedin} from "react-icons/fa";
 import {TiSocialTwitter} from "react-icons/ti"
@@ -20,7 +20,7 @@ const Team = () => {
   
   return (
     <>
-  {/* <Fixednavbar/> */}
+  <Fixednavbar/>
   <div className="d-hide drop-nd" >
       </div>
   <Branding title="Our expert team includes the following Gems" />

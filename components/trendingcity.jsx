@@ -67,9 +67,9 @@ const Trendingcity = () => {
                       <div className="container pt-3" key={i}>
                         <div className="row  ">
                           <div className="col p-3 ">
-                            {/* <Link
+                            <Link
                               href={`/services/${pos.category_name}/${pos.meta_title}`}
-                            > */}
+                            >
                               <div className="trending-card-img  rounded-2">
                                 <img
                                   className="rounded-2  trending-cardd "
@@ -92,8 +92,8 @@ const Trendingcity = () => {
                                           pos.thumb
                                         }`
                                   }
-                                  onError={(e) =>
-                                    (e.target.src = "../../images/all_image/alter-img.png")
+                                  onError={(e) =>(e.target.src = "../../images/all_image/alter-img.png")
+
                                   }
                                 />
 
@@ -104,7 +104,7 @@ const Trendingcity = () => {
                                   {pos.medianame.substring(0,20)}...
                                 </div>
                               </div>
-                            {/* </Link> */}
+                            </Link>
                           </div>
                         </div>
                       </div>

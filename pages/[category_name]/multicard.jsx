@@ -21,7 +21,7 @@ const Multicard = ({
         <>
           <div className=" container ">
             <div className="row  text-center ">
-              {/* <Loader /> */}
+              <Loader />
             </div>
           </div>
         </>
@@ -29,7 +29,7 @@ const Multicard = ({
         <>
           {slice.length == 0 ? (
             <div className="container">
-              <div className="no-data row  text-center my-3">
+              <div className={`${no_data} row  text-center my-3`}>
                 <img src="../../clientslogo/no-data.png" alt="No Data" className="" />
               
               </div>

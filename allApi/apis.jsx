@@ -203,7 +203,7 @@ export const getreviewApi = async() =>{
 }
 
 export const mediaDataApi = async( category_name, city_name ) =>{
-    const {data} =await  instance.post("media/filters", { category_name, city_name});
+    const {data} =await  instance.post("medias", { category_name, city_name});
  return data
 }
 

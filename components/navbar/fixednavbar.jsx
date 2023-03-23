@@ -92,12 +92,13 @@ const Fixednavbar = () => {
           id={styles.home}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={()=>route.push("/")}
+          
         >
           <img
             alt="gohoardings"
             src="../../images/all_image/logo.png"
             className={`border-0 brand ${styles.float_brand}`}
+            onClick={()=>route.push("/")}
           />
           <div className={`dropdown-menu ${showMenu ? "show" : ""} p-0 m-0`}>
          <NavbarDropdown/>
