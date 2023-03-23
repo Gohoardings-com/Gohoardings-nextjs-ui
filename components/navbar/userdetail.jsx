@@ -89,7 +89,7 @@ const Userdetail = () => {
   return (
     <>
       {loading == false ? (
-        <div className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0`}>
+        <div className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}>
           <Dropdown className={styles.login_profile}>
             <Dropdown.Toggle variant="transparent" className={styles.drop_togel}>
               <FaUserCircle className={`${styles.login_icon}  pt-0 mb-1 icon-clr`} />
@@ -139,7 +139,7 @@ const Userdetail = () => {
           </div>
         </div>
       ) : (
-        <Dropdown className={`border-0  ms-2  pt-1 p-0 me-md-0  ${styles.user_detail_login}`}>
+        <Dropdown className={`border-0  ms-2  pt-1 p-0 me-md-0  ${styles.user_detail_login} usrdtl`}>
           <Dropdown.Toggle variant="transparent" className={`pt-0 ${styles.drop_togel} border-0`}>
             <ImEnter className={`${styles.login_icon}  pt-0 mb-1 icon-clr`} />
           </Dropdown.Toggle>

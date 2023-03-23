@@ -11,7 +11,7 @@ import instance from "@/allApi/axios";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import VariantsExample from "@/components/loader";
+import Loader from "@/components/loader";
 import { addItem, removeItem, singlemnedia  } from "@/redux/adminAction";
 
 
@@ -131,7 +131,7 @@ const Details = () => {
         <>
           <div className=" container-xxl  container-xl container-lg container-md">
             <div className="row  text-center my-5">
-              <VariantsExample />
+              <Loader />
             </div>
           </div>
         </>
@@ -165,7 +165,7 @@ const Details = () => {
                                   .toLowerCase()}/media/images/new${element}`
                           }
                           onError={(e) =>
-                            (e.target.src = "../../images/all_Image/alter-img.png")
+                            (e.target.src = "../../clientslogo/alter-img.png")
                           }
                           className="rounded-3 detail-img"
                         />

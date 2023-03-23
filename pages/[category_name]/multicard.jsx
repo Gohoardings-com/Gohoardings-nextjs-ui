@@ -1,6 +1,6 @@
 import React from "react";
 import { TfiEye } from "react-icons/tfi";
-// import VariantsExample from "../../components/loading/loading";
+// import Loader from "../components/loader";
 import { Link } from "next/link";
 import {
   MdLocalOffer,
@@ -21,7 +21,7 @@ const Multicard = ({
         <>
           <div className=" container ">
             <div className="row  text-center ">
-              {/* <VariantsExample /> */}
+              {/* <Loader /> */}
             </div>
           </div>
         </>
@@ -62,7 +62,11 @@ const Multicard = ({
                               .toLowerCase()}/media/images/new${item.thumb}`
                       }
                       onError={(e) =>
+<<<<<<< HEAD:pages/medias/multicard.jsx
                         (e.target.src = "../../images/all_Image/alter-img.png")
+=======
+                        (e.target.src = "../../images/all_image/alter-img.png")
+>>>>>>> bb8787e2af4198edba475334253c10ed4c8d0440:pages/[category_name]/multicard.jsx
                       }
                     />
                        </Link>

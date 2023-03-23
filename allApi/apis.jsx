@@ -198,7 +198,7 @@ export const reviewApi = async( feedback, rating, ip ) =>{
   return data
 }
 export const getreviewApi = async() =>{
-  const {data} = await  instance.get("enquiry/review");
+  const {data} = await  instance.get("enquiries");
   return data
 }
 

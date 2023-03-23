@@ -5,35 +5,40 @@ import {
   mediawithcity,
   mediawithlocation,
   removeItem,
-  singlemnedia,  
+  singlemnedia,
 } from "@/redux/adminAction";
 import { useDispatch, useSelector } from "react-redux";
 import { AccountContext } from "@/allApi/apicontext";
 import { Link } from "next/link";
-import navigate  from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Multicard from "./multicard";
 import Medialogo from "@/components/mediaBranding";
-import { CityNameImage, Less, More, mediaDataApi } from "@/allApi/apis";
+import { CityNameImage, Less, More, mediaDataApi } from "../../allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { BsGrid } from "react-icons/bs";
 import { CiGrid2H } from "react-icons/ci";
 import Singlecard from "./singlecard";
 import { MdArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
 import OverView from "./overView";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import styles from '../../styles/media.module.scss';
+import Fixednavbar from "@/components/navbar/fixednavbar";
 
 const Media = () => {
   const dispatch = useDispatch();
-  const { search, loading } = useSelector((state) => state.search);
-  const router = useRouter()
 
- const { category_name, city_name } = router.query;
   
-  // const { addRemove } = useContext(AccountContext);
+
+const { search, loading } = useSelector((state) => state.search);
+
+
+  const router = useRouter();
+  const { category_name, city_name } = router.query;
+
+  const { addRemove } = useContext(AccountContext);
   const [query, setQuery] = useState("");
   const [posts, setPosts] = useState([]);
- 
+  const [multicard, setMulticard] = useState(true);
   const [listings, setListings] = useState(true);
   const [overview, setOverview] = useState(false);
   const [noOfLogo, setnoOfLogo] = useState(9);
@@ -44,19 +49,27 @@ const Media = () => {
   const [categoryArray, setCategoryArray] = useState([]);
   const [locationCkheckbox, setLocationCkheckbox] = useState([]);
 
+
+
+  const getCardData = async () => {
+    await dispatch(mediawithcity(category_name, city_name, noOfLogo));
+  };
+  
+  //  useEffect(() => {
+  //   getCardData();
+  //   // apiforfillters();
+  // }, [category_name, city_name, noOfLogo]);
+ 
   let slice;
   if (!loading) {
     slice = search.slice(0, noOfLogo);
   }
 
-  // const getCardData = async () => {
-  //   await dispatch(mediawithcity(category_name, city_name, noOfLogo));
-  // };
 
   const addonCart = async (e) => {
     if (!localStorage.getItem(true)) {
       window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-      navigate("/login");
+      router.push("/login");
     } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
@@ -67,7 +80,7 @@ const Media = () => {
 
   const locatetologin = async () => {
     window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-    navigate("/login");
+    router.push("/login");
   };
   const removefroCart = async (obj) => {
     dispatch(removeItem(obj.code));
@@ -96,32 +109,25 @@ const Media = () => {
     });
   };
 
-  useEffect(() => {
-    topFunction()
-  },[])
-  // useEffect(() => {
-  //   getCardData();
-
-  //   apiforfillters();
-  // }, [category_name, city_name, noOfLogo]);
-
-  const apiforfillters = async () => {
-    const data = await mediaDataApi(category_name, city_name);
-
-    data.map((obj, i) => {
-      obj["select"] = false; 
-    });
-
-    let uniqueData =  data.filter((obj, index, self) => {
-      return index === self.findIndex((t) => (
-        t.location === obj.location
-      ));
-    });
   
-    setMediadata(uniqueData);
-    setlocationData(uniqueData);
-    setcategoryData(uniqueData);
-  };
+ 
+  // const apiforfillters = async () => {
+  //   const data = await mediaDataApi(category_name, city_name);
+
+  //   data.map((obj, i) => {
+  //     obj["select"] = false; 
+  //   });
+
+  //   let uniqueData =  data.filter((obj, index, self) => {
+  //     return index === self.findIndex((t) => (
+  //       t.location === obj.location
+  //     ));
+  //   });
+  
+  //   setMediadata(uniqueData);
+  //   setlocationData(uniqueData);
+  //   setcategoryData(uniqueData);
+  // };
 
 
   let category;
@@ -135,87 +141,84 @@ const Media = () => {
       return el.illumination;
     }
   });
+
   const allIllumations = filtered.map((illumation) => illumation.illumination);
   ILLUMINATION = [...new Set(allIllumations)];
 
-  function categoryFilter(cate) {
-    category.forEach((el) => {
-      if (el === cate && categoryArray.indexOf(el) > -1) {
-        categoryArray.splice(categoryArray.indexOf(el), 1);
-        setCategoryArray(categoryArray);
-      } else if (el === cate && !categoryArray.indexOf(el) > -1) {
-        categoryArray.push(cate);
-        setCategoryArray(categoryArray);
-      }
-    });
-    dispatch(
-      mediaFilters(
-        category_name,
-        singlemedia,
-        categoryArray,
-        city_name,
-        locationCkheckbox
-      )
-    );
-  }
+  // function categoryFilter(cate) {
+  //   category.forEach((el) => {
+  //     if (el === cate && categoryArray.indexOf(el) > -1) {
+  //       categoryArray.splice(categoryArray.indexOf(el), 1);
+  //       setCategoryArray(categoryArray);
+  //     } else if (el === cate && !categoryArray.indexOf(el) > -1) {
+  //       categoryArray.push(cate);
+  //       setCategoryArray(categoryArray);
+  //     }
+  //   });
+  //   dispatch(
+  //     mediaFilters(
+  //       category_name,
+  //       singlemedia,
+  //       categoryArray,
+  //       city_name,
+  //       locationCkheckbox
+  //     )
+  //   );
+  // }
 
-  const  locationFilter = (loca) => {
-
-locationData.map((data,i)=>{
-  if(data.id==loca.id){
-    data.select=true;
-    setlocationData(locationData);
+//  const  locationFilter = (loca) => {
+// locationData.map((data,i)=>{
+//   if(data.id==loca.id){
+//     data.select=true;
+//     setlocationData(locationData);
     
-  }
-  if(data.id!==loca.id){
-    data.select=false;
-    setlocationData(locationData);
-    
-  }
+//   }
+//   if(data.id!==loca.id){
+//     data.select=false;
+//     setlocationData(locationData);
+//   }
+// })
 
-})
+//     dispatch(
+//       mediawithlocation(
+//         category_name,
+//         city_name,
+//         loca.location,
+//         noOfLogo
+//       )
+//     );
+//   }
 
-    dispatch(
-      mediawithlocation(
-        category_name,
-        city_name,
-        loca.location,
-        noOfLogo
-      )
-    );
-  }
+ 
 
-  function topFunction() {
-    document.body.scrollTop = 0; // htmlFor Safari
-    document.documentElement.scrollTop = 0; // htmlFor Chrome, Firefox, IE and Opera
-  }
-  function mediaTypeFilter(cate) {
-    ILLUMINATION.forEach((el) => {
-      if (el === cate && singlemedia.indexOf(el) > -1) {
-        singlemedia.splice(singlemedia.indexOf(el), 1);
-        setsingleMedia(singlemedia);
-      } else if (el === cate && !singlemedia.indexOf(el) > -1) {
-        singlemedia.push(cate);
-        setsingleMedia(singlemedia);
-      }
-    });
-    dispatch(
-      mediaFilters(
-        category_name,
-        singlemedia,
-        categoryArray,
-        city_name,
-        locationCkheckbox
-      )
-    );
-  }
+
+  // function mediaTypeFilter(cate) {
+  //   ILLUMINATION.forEach((el) => {
+  //     if (el === cate && singlemedia.indexOf(el) > -1) {
+  //       singlemedia.splice(singlemedia.indexOf(el), 1);
+  //       setsingleMedia(singlemedia);
+  //     } else if (el === cate && !singlemedia.indexOf(el) > -1) {
+  //       singlemedia.push(cate);
+  //       setsingleMedia(singlemedia);
+  //     }
+  //   });
+  //   dispatch(
+  //     mediaFilters(
+  //       category_name,
+  //       singlemedia,
+  //       categoryArray,
+  //       city_name,
+  //       locationCkheckbox
+  //     )
+  //   );
+  // }
 
   // const mapData = async (meta_title, category_name) => {
   //   dispatch(singlemnedia(meta_title, category_name)).then(() => {
-  //     navigate("/map");
+  //     router.push("/map");
   //   });
   // };
-  const [multicard, setMulticard] = useState(true);
+
 
   const view = () => {
     setMulticard(!multicard);
@@ -225,20 +228,14 @@ locationData.map((data,i)=>{
     setListings(!listings);
     setOverview(!overview);
   };
-
+console.log(search)
   return (
     <>
-  
-
+      <Fixednavbar />
       <div className="d-hide drop-nd"></div>
-      <Medialogo
-        category_name={category_name}
-        search={search}
-        loading={loading}
-        city_name={city_name}
-      />
+      <Medialogo category_name={category_name} city_name={city_name} />
       <div className=" container-xxl  container-xl container-lg container-md  mt-4 mb-5 p-0 media-con rounded">
-        <div className="mt-md-5 pt-md-3  list media-choice d-flex">
+        <div className={`mt-md-5 pt-md-3  list ${styles.media_choice} d-flex`}>
           <h2 aria-expanded={listings} onClick={togle}>
             Listings
           </h2>
@@ -251,9 +248,9 @@ locationData.map((data,i)=>{
           <OverView category_name={category_name} city_name={city_name} />
         ) : (
           <div className="row my-2 my-md-5 pt-md-3">
-            <div className="col-md-2  " id="hide-fltr">
-              <div className="filter-container rounded">
-                <div className="col sub-category-search ms-3 pt-4 ">
+            <div className="col-md-2  " id={styles.hide_fltr}>
+              <div className={`${styles.filter_container}rounded`}>
+                <div className={`col ${styles.sub_category_search} ms-3 pt-4`}>
                   <h6>
                     Location <span>({locationData.length})</span>
                   </h6>
@@ -262,12 +259,12 @@ locationData.map((data,i)=>{
                     <input
                       type="search"
                       placeholder="Search Hoarding Type"
-                      id="ddd"
+                      // id="ddd"
                       className="form-control border-none rounded-2"
                       onChange={(event) => setQuery(event.target.value)}
                     />
                   </div>
-                  <div className="rowCheck  row">
+                  <div className={`${styles.rowCheck} row`}>
                     <ul>
                       {locationData
                         .filter((obj) => {
@@ -280,7 +277,7 @@ locationData.map((data,i)=>{
                           }
                         })
                         .map((loca, i) => (
-                          <div className="m-0  loc-select" 
+                          <div className={`m-0  ${styles.loc_select}`} 
                          aria-expanded={loca.select} 
                           id={i}
                           key={i}
@@ -300,12 +297,12 @@ locationData.map((data,i)=>{
                   </div>
                 </div>
 
-                <div className="col sub-category-search ms-3  my-3">
+                <div className={`col ${styles.sub_category_search} ms-3  my-3`}>
                   <h6>
                     Sub Category<span>({category.length})</span>
                   </h6>
 
-                  <div className="rowCheck  row">
+                  <div className={`${styles.rowCheck} row`}>
                     <ul>
                       {category.map((cate, i) => (
                         <div className="m-0 p-0" key={i}>
@@ -319,7 +316,7 @@ locationData.map((data,i)=>{
                           />
                       
                           <label
-                            className="media-filter-text-card-detail-filt"
+                            className={styles.media_filter_text_card_detail_filt}
                             htmlFor={cate}
                           >
                             {cate.substring(0, 13)}
@@ -329,15 +326,15 @@ locationData.map((data,i)=>{
                     </ul>
                   </div>
                 </div>
-                <div className="col sub-category-search ms-3  my-1">
+                <div className={`col ${styles.sub_category_search} ms-3  my-1`}>
                   <h6>
                     Media Type <span>({ILLUMINATION.length})</span>
                   </h6>
 
-                  <div className="row rowCheck">
+                  <div className={`${styles.rowCheck} row`}>
                     <ul className="text-decoration-none">
                       {ILLUMINATION.map((item, i) => (
-                        <li className=" " id="marker" key={i}>
+                        <li className=" " id={styles.marker} key={i}>
                           <input
                             className="me-1"
                             type="checkbox"
@@ -352,7 +349,7 @@ locationData.map((data,i)=>{
                           />
                       
                           <label
-                            className="media-filter-text-card-detail-filt "
+                            className={styles.media_filter_text_card_detail_filt}
                             htmlFor={item}
                           >
                             {" "}
@@ -365,34 +362,37 @@ locationData.map((data,i)=>{
                 </div>
               </div>
             </div>
+
             <div className=" col-md-10 ">
-              <div className=" multi-card-contaier row    ">
+              <div className={`${styles.multi_card_contaier} row`}>
                 {CityNameImage.map((el, i) => {
                   if (category_name === el.value ) {
                     return (
-                      <div key={i} className=" p-3  header-btn  ms-3 ">
+                   
+                      <div key={i} className={` p-3 ${styles.header_btn}  ms-3 `}>
                         {`${el.label} in ${
                           city_name.charAt(0).toUpperCase() + city_name.slice(1)
                         }`}
 
                         <span className="float-end ">
                         {multicard ? (
-                          <CiGrid2H className="media-location-logo-map icon-clr" onClick={view}/>
+                          <CiGrid2H className={`${styles.media_location_logo_map} icon-clr`} onClick={view}/>
                           ) : (
-                            <BsGrid className="media-location-logo-map icon-clr" onClick={view}/>
+                            <BsGrid className={`${styles.media_location_logo_map} icon-clr`} onClick={view}/>
                         )}
                       </span>
-                        <Link to="/map">
+                   
                           <span className="float-end me-2" >
-                            <MdLocationPin className="media-location-logo-map  icon-clr" />
+                            <MdLocationPin className={`${styles.media_location_logo_map} icon-clr`} />
                           </span>
-                        </Link>
+                  
                       </div>
                     );
                   }
                 })}
-
-                {multicard ? (
+       
+            
+                {/* {multicard ? (
                   <Multicard
                     MdOutlineShoppingCart={MdOutlineShoppingCart}
                     slice={slice}
@@ -414,14 +414,14 @@ locationData.map((data,i)=>{
                     addonCart={addonCart}
                     removefroCart={removefroCart}
                   />
-                )}
+                )} */}
               </div>
-{/* 
-              {loading ? (
+
+{}
+              {/* {loading ? (
                 <> </>
               ) : (
                 <>
-                  {" "}
                   {slice.length < 8 ? (
                     <></>
                   ) : (
@@ -432,7 +432,7 @@ locationData.map((data,i)=>{
                             <> </>
                           ) : (
                             <button
-                              className=" buttonload btn-hover"
+                              className={`${styles.buttonload} btn-hover`}
                               onClick={(a,b,c) => More(setnoOfLogo, noOfLogo,search)}
                             >
                               View More{" "}
@@ -443,14 +443,14 @@ locationData.map((data,i)=>{
                             <> </>
                           ) : (
                             <button
-                              className=" ms-5 buttonload btn-hover"
+                              className={`${styles.buttonload} btn-hover ms-5`}
                               onClick={(a,b) => Less(setnoOfLogo, noOfLogo)}
                             >
                               View Less <MdArrowUpward className="icon-clr" />
                             </button>
                           )}
                         </div>
-                      </div>{" "}
+                      </div>
                     </>
                   )}
                 </>

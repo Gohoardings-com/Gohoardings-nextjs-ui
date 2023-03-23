@@ -4,35 +4,33 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { getAllCity } from "@/allApi/apis";
 import { DropdownButton } from "react-bootstrap";
+import Link from "next/link";
 import { CityNameImage } from "@/allApi/apis";
 import { useDispatch, useSelector } from "react-redux";
 import Userdetail from "./userdetail";
-// import Drop_Down_Image from "../drop_down/drop_down_image";
 import { MdOutlineSearch, MdLocationPin } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
 // import { mediawithcity } from "../../action/adminAction";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Citylocation from "../cityLocation";
 import styles from "../../styles/fixedNavbar.module.scss";
-import Mediadropdown from "../mediaDropdown";
-import Navbardropdown from "./navbarDropdown";
+import NavbarDropdown from "./dropdown";
 // import Citylocation from "../cityLocation/citylocation";
+import { useRouter } from "next/navigation";
 
 const Fixednavbar = () => {
   const dispatch = useDispatch();
-
-  const [show, setShow] = useState(false);
   const [city, setCity] = useState([]);
   const [posts, setPosts] = useState();
   const [focus, setFocus] = useState(false);
   const [value, setValue] = useState("");
   const [userType, setUserType] = useState("");
   const [userPath, setUserPath] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
+  const route=useRouter();
   // function closeSearch() {
   //   useEffect(() => {
   //     const where = window.location.pathname;
@@ -64,7 +62,7 @@ const Fixednavbar = () => {
     if (userPath == true && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
     } else if (userType.length > 3 && value.length > 2) {
-      navigate(`/${userType}/${value}`);
+      route.push(`/${userType}/${value}`);
     }
   };
 
@@ -73,32 +71,49 @@ const Fixednavbar = () => {
     setFocus(false);
   };
 
+  function handleMouseEnter() {
+    setShowMenu(true);
+  }
+
+  function handleMouseLeave() {
+    setShowMenu(false);
+  }
+
   return (
     <>
       <Navbar
         expand={`lg px-md-0 p-1 m-0 border-0 ${styles.navbar_main_floating} fixed-top`}
       >
-        <div className={styles.sss} onMouseOver={() => setShow(false)}></div>
+        <div className={styles.sss}></div>
+ 
+        
+       
         <Navbar.Brand
-          href="/"
           id={styles.home}
-          onMouseOver={() => setShow(true)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={()=>route.push("/")}
         >
           <img
             alt="gohoardings"
             src="../../images/all_image/logo.png"
             className={`border-0 brand ${styles.float_brand}`}
           />
+          <div className={`dropdown-menu ${showMenu ? "show" : ""} p-0 m-0`}>
+         <NavbarDropdown/>
+          </div>
+          <style jsx>{`
+            .dropdown-menu.show {
+              display: block;
+            }
+          `}</style>
           <RiArrowDropDownLine
             className={`${styles.riArrowDropDownLine} icon-clr`}
           />
         </Navbar.Brand>
-
+    
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
-        <Navbar.Collapse
-          id={styles.basic_navbar_nav}
-          onMouseOver={() => setShow(false)}
-        >
+        <Navbar.Collapse id={styles.basic_navbar_nav}>
           <Nav className={`navbar-nav mx-auto  ${styles.search_inner_drop} `}>
             <InputGroup className="">
               <Citylocation InputGroup={InputGroup} setValue={setValue} />
@@ -189,8 +204,6 @@ const Fixednavbar = () => {
           </form>
         </Navbar.Collapse>
       </Navbar>
- 
-      <Navbardropdown  show={show} setShow={setShow} Dropdown={Dropdown} />
     </>
   );
 };

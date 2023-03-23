@@ -3,6 +3,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 import { goh_faqsApi } from "@/allApi/apis";
+import Footer from "@/components/footer";
 
 const Faqs = () => {
   const [posts, setPosts] = useState([]);
@@ -46,6 +47,7 @@ const Faqs = () => {
           })}
         </section>
       </div>
+      
       <style jsx>
         {`
           h1 {

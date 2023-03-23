@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-// import VariantsExample from "../../components/loading/loading";
+import Loader from "../components/loader";
 
 const Trendingcity = () => {
   const { search, loading } = useSelector((state) => state.search);
@@ -48,15 +48,15 @@ const Trendingcity = () => {
         {loading ? (
           <div className=" container ">
             <div className="row  text-center my-3">
-              {/* <VariantsExample /> */}
+              <Loader />
             </div>
           </div>
         ) : (
           <>
-            {!loading === false ? (
+            {loading == true? (
               <div className=" container ">
                 <div className="row  text-center my-3">
-                  {/* <VariantsExample /> */}
+                  <Loader />
                 </div>
               </div>
             ) : (
@@ -67,9 +67,9 @@ const Trendingcity = () => {
                       <div className="container pt-3" key={i}>
                         <div className="row  ">
                           <div className="col p-3 ">
-                            <Link
+                            {/* <Link
                               href={`/services/${pos.category_name}/${pos.meta_title}`}
-                            >
+                            > */}
                               <div className="trending-card-img  rounded-2">
                                 <img
                                   className="rounded-2  trending-cardd "
@@ -93,7 +93,11 @@ const Trendingcity = () => {
                                         }`
                                   }
                                   onError={(e) =>
+<<<<<<< HEAD
                                     (e.target.src = "../../images/all_Image/alter-img.png")
+=======
+                                    (e.target.src = "../../images/all_image/alter-img.png")
+>>>>>>> bb8787e2af4198edba475334253c10ed4c8d0440
                                   }
                                 />
 
@@ -101,10 +105,10 @@ const Trendingcity = () => {
                                       Delhi
                                 </div>
                                 <div className="bottom-left-media">
-                                  {pos.medianame.substring(0,17)}...
+                                  {pos.medianame.substring(0,20)}...
                                 </div>
                               </div>
-                            </Link>
+                            {/* </Link> */}
                           </div>
                         </div>
                       </div>

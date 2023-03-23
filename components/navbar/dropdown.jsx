@@ -1,15 +1,10 @@
-import React from "react";
-import { FaHandPointRight } from "react-icons/fa";
-import { Link } from "next/link";
+import Link from "next/link"
 
-
-const Navbardropdown = ({ show, setShow, Dropdown }) => {
+const navbarDropdown = () => {
   return (
     <>
-      <Dropdown.Menu
-        show={show}
-        onMouseLeave={() => setShow(false)}
-        className="drop-menu   position-fixed  rounded-0"
+    <div
+        className="drop-menu   position-fixed  rounded-0  animate__animated  "
         id="de"
       >
         <div className="container-xxl  container-xl container-lg container-md  ">
@@ -19,30 +14,30 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
                 <li>
                 
                   <Link
-                    to={`/traditional-ooh-media/delhi`}
+                    href={`/traditional-ooh-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
-                    {" "}
+                 
                     Traditional OOH
                   </Link>
                 </li>
                 <li>
                 
                   <Link
-                    to={`/mall-media/delhi`}
+                    href={`/mall-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
-                    {" "}
+                   
                     Mall Media
                   </Link>
                 </li>
                 <li>
                 
                   <Link
-                    to={`/airport-media/delhi`}
+                    href={`/airport-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
-                    {" "}
+                   
                     Airport Media
                   </Link>
                 </li>
@@ -50,10 +45,10 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
                 <li>
                 
                   <Link
-                    to={`/office-branding/delhi`}
+                    href={`/office-branding/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
-                    {" "}
+                   
                     Office Branding
                   </Link>
                 </li>
@@ -64,7 +59,7 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
                 <li>
                 
                   <Link
-                    to={`/digital-media/delhi`}
+                    href={`/digital-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
                     Digital Screen
@@ -73,7 +68,7 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
                 <li>
                 
                   <Link
-                    to={`/inFlight-branding/delhi`}
+                    href={`/inFlight-branding/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
                     InFlight Branding
@@ -82,7 +77,7 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
                 <li>
                 
                   <Link
-                    to={`/transit-media/delhi`}
+                    href={`/transit-media/delhi`}
                     className="button text-dark text-nowrap is-small is-info text-decoration-none"
                   >
                     Transit Media
@@ -158,9 +153,69 @@ const Navbardropdown = ({ show, setShow, Dropdown }) => {
 
           
         </div>
-      </Dropdown.Menu>
+        </div>
+        <style jsx>
+          {
+            `
+            #de {
+              background: #f1f1f1;
+           
+              opacity: 93%;
+              width: 90%;
+              margin: .4%;
+              margin-left: 3%;
+              padding-top: 1.4%;
+              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+                rgba(0, 0, 0, 0.22) 0px 15px 12px;
+              border: none;
+              
+            }
+            .write {
+                height: 36px;
+                width: 46px;
+              }
+            .drop-nd {
+              height: 1px;
+            }
+            .drop-data ul li {
+              color: rgb(103, 103, 103);
+              padding: 4px;
+            
+              cursor: pointer;
+              list-style-type: none;
+            }
+            .drop-data ul li:hover {
+            
+              font-weight: 600;
+            }
+            
+            .border-box {
+              border-right: 1px solid #c8c9ca;
+            }
+            
+            #write-btn {
+              box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+              opacity: 98%;
+              width: 200px;
+              font-size: 20px;
+              font-weight: 600;
+              cursor: pointer;
+              height: 49px;
+              text-align: center;
+              border: none;
+              background-size: 300% 100%;
+              border-radius: 0px;
+              background-color: #fff212;
+            
+              --moz-transition: all 0.4s ease-in-out;
+              transition: all 0.4s ease-in-out;
+            }
+            
+            `
+          }
+        </style>
     </>
-  );
-};
+  )
+}
 
-export default Navbardropdown;
+export default navbarDropdown

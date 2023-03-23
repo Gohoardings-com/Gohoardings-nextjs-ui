@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./feedback.scss";
+// import "./feedback.scss";
 import axios from "axios";
 import { GiCrossMark } from "react-icons/gi";
 import {
@@ -113,7 +113,7 @@ const ips = async() => {
     <div className="card  feedback-card  fixed-bottom border-0 animate__animated animate__backInUp" id="demo">
       <div className="heading-bg rounded-top">
         <span className="">
-          <GiCrossMark className="iconx mt-1 me-1" onClick={closeFeedback} />
+          <GiCrossMark className=" mt-1 me-1 text-light" onClick={closeFeedback} id='closeicon'/>
         </span>
         <h3 className="text-center p-2   mb-1 heading">Your feedback</h3>
       </div>
@@ -164,6 +164,96 @@ const ips = async() => {
           SEND
         </button>
       </div>
+      <style jsx>
+        {
+          `
+          #closeicon{
+            display: flex;
+            float: right;
+            cursor: pointer;
+            color: #fff212;
+          }
+          .feedback-card {
+            display: none;
+            left: 79%;
+            bottom: 2%;
+            height: auto;
+            width: 20vw;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          }
+            h3 {
+              font-size: 1.4rem;
+              color: #ffff;
+            }
+            
+            .heading-bg {
+              background-color: #373435;
+            }
+            h6 {
+              font-size: 0.85rem;
+              color: #808080;
+            }
+            .grid-container1 {
+              width: 300px;
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+            .logo-img {
+              font-size: 32px;
+              color: #808080;
+              cursor: pointer;
+              transition: 5ms;
+            }
+            .logo-img:hover {
+              color: orangered;
+            }
+            .logo-img[aria-expanded=true] {
+              color: orangered;
+            }
+            .form-control:focus {
+              border: 1px solid #7e7e7edf;
+              box-shadow: none;
+            }
+            .send-btn {
+              display: flex;
+              float: right;
+              cursor: pointer;
+              color: #ffff;
+              font-size: 15px;
+              background-color: #373435;
+              transition: 0.6s;
+            }
+            .send-btn:hover {
+              background-color: #4a494a;
+            }
+          
+          
+          @media screen and (max-width: 1366px) {
+            
+              h3 {
+                font-size: 1.2rem;
+              }
+          
+              h6 {
+                font-size: 0.76rem;
+              }
+          
+              .grid-container1 {
+                width: 250px;
+              }
+          
+              .logo-img {
+                font-size: 28px;
+              }
+          
+              .send-btn {
+                font-size: 13px;
+              }
+            
+        
+          `
+        }
+      </style>
     </div>
   );
 };

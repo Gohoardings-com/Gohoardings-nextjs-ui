@@ -216,7 +216,7 @@ const Map = () => {
                                             }`
                                       }
                                       onError={(e) =>
-                                        (e.target.src = "../../images/all_Image/alter-img.png")
+                                        (e.target.src = "../../images/all_image/alter-img.png")
                                       }
                                       className="w-100 h-75 mt-2 pt-2"
                                     />
