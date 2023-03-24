@@ -130,7 +130,7 @@ export const removeItem = (code) => async (dispatch) => {
 export const singlemnedia  = (meta_title, category_name)  => async(dispatch) =>{
     try{
         dispatch({type: "MediaWithCityRequest"});
-        const {data} = await instance.post("product/product",{ meta_title, category_name})
+        const {data} = await instance.post("seedetails",{ meta_title, category_name})
         dispatch({ type: "MediaWithCitySuccess", payload: data});
     }catch(error){
         dispatch({type: "MediaWithCityFail", payload: error.response.data })

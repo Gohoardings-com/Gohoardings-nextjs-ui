@@ -1,4 +1,5 @@
 const db = require('../conn/conn')
+const  {executeQuery} = require("../conn/conn");
 const catchError = require('../middelware/catchError')
 
 
@@ -107,14 +108,8 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
 
 
 exports.product = catchError(async (req, res, next) => {
-
     const { meta_title, category_name } = req.body
-
-    const cookieData = req.cookies
-    if (!cookieData) {
-        return res.status(204).json({ message: "No Cookie Found" })
-    }
-    db.changeUser({ database: "gohoardi_goh" });
+ executeQuery('', "gohoardi_goh", next)
     switch (category_name) {
         case "traditional-ooh-media":
             table_name = "goh_media";
@@ -141,15 +136,10 @@ exports.product = catchError(async (req, res, next) => {
             table_name = "goh_media";
     }
 
-    const sql = "SELECT * FROM " + table_name + " WHERE meta_title='" + meta_title + "'"
-
-    db.query(sql, async (err, result) => {
-        if (err) {
-
-            return res.status(206).json({ success: false, err: err, message: "Wrong Data" })
-        } else {
-
-            return res.send(result)
-        }
+        const sql = "SELECT * FROM "+table_name+" WHERE meta_title='"+meta_title+"'"
+            const result = await executeQuery(sql, "gohoardi_goh", next)
+                if (result) {
+                    return res.send(result)
+                }
+    
     })
-})

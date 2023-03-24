@@ -1,25 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AccountContext } from "../../apis/apicontext";
+import { AccountContext } from "@/allApi/apicontext";
 import { Link } from "next/link";
-import navigate  from "next/navigation";
 import { enquiryApi, emailformate } from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import "./details.scss";
+// import "./details.scss";
 import { toast, ToastContainer } from "react-toastify";
 import instance from "@/allApi/axios";
-import Fixednavbar from "../../components/navbar/fixednavbar";
+import Fixednavbar from "../../../../components/navbar/fixednavbar";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Loader from "@/components/loader";
 import { addItem, removeItem, singlemnedia  } from "@/redux/adminAction";
+import { useRouter } from "next/router";
 
 
 const Details = () => {
   const dispatch = useDispatch();   
-  const { category_name, meta_title } = useParams();
+  const router = useRouter();
+  const { category_name, meta_title } = router.query;
+
+  console.log(category_name, meta_title);
   const { addRemove } = useContext(AccountContext);
-  const navigate = useNavigate();
   const [markers, setPosts] = useState([]);
 
   const [name, setName] = useState("");
@@ -59,33 +61,34 @@ const Details = () => {
   };
   const mapData = async () => {
     dispatch(singlemnedia(meta_title, category_name)).then(() => {
-      navigate("/map");
+      router.push("/map");
     });
   };
 
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-  useEffect(() => {
-    topFunction();
-  }, []);
+  // useEffect(() => {
+  //   mapData()
+  // }, []);
 
   const getMedia = async () => {
-    const { data } = await instance.post("product/product", {
-      meta_title: meta_title,
-      category_name: category_name,
-    });
-    setPosts(data);
+    if (category_name && meta_title) {
+      const { data } = await instance.post("seedetails", {
+        meta_title: meta_title,
+        category_name: category_name,
+      });
+      console.log(data);
+      setPosts(data); 
+    }
   };
+
+
   const locatetologin = async () => {
     localStorage.setItem("locate", `/services/${category_name}/${meta_title}`);
-    navigate("/login");
+    router.push("/login");
   };
   const addonCart = async (e) => {
     if (!localStorage.getItem(true)) {
       localStorage.setItem("locate", `/${meta_title}/${category_name}`);
-      navigate("/login");
+      router.push("/login");
     } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
@@ -121,7 +124,7 @@ const Details = () => {
   };
   useEffect(() => {
     getMedia();
-  }, []);
+  }, [category_name, meta_title]);
 
   return (
     <>

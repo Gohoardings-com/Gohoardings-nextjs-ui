@@ -107,3 +107,58 @@
  Error: ER_NO_SUCH_TABLE: Table 'gohoardi_goh.goh_media_and_news' doesn't exist arrived on Thu Mar 23 2023 12:24:52 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_media_and_news
  Error: ER_NO_SUCH_TABLE: Table 'gohoardi_goh.goh_media_and_news' doesn't exist arrived on Thu Mar 23 2023 12:25:31 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_media_and_news
  Error: ER_NO_SUCH_TABLE: Table 'gohoardi_goh.goh_media_and_news' doesn't exist arrived on Thu Mar 23 2023 12:25:31 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_media_and_news
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities  WHERE name LIKE 'd%'  LIMIT 8
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities  WHERE name LIKE 'd%'  LIMIT 8
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities  WHERE name LIKE 'de%'  LIMIT 8
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities  WHERE name LIKE 'de%'  LIMIT 8
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities   LIMIT 8
+ Error: Cannot enqueue Query after fatal error. arrived on Thu Mar 23 2023 14:47:18 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT name FROM goh_cities  WHERE name LIKE 'd%'  LIMIT 8
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:35 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:46 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:47 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:49 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:25:52 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:09 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:09 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:09 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:09 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:53 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:53 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:53 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:28:53 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:29:31 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:29:31 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:29:32 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:29:32 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 13:29:32 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:18 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:18 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:19 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:19 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:58 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:58 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:58 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:58 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:15:59 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:17:28 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:17:29 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:17:29 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:17:30 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:20:36 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:20:36 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:20:37 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:20:37 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:20:37 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:28 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:29 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:30 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:30 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:21:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:29:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:29:51 GMT+0530 (India Standard Time) at The query in which error occurred  
+ Error: ER_EMPTY_QUERY: Query was empty arrived on Fri Mar 24 2023 14:29:51 GMT+0530 (India Standard Time) at The query in which error occurred  

@@ -1,70 +1,62 @@
 import React, { useContext, useEffect, useState } from "react";
+import { AccountContext } from "@/allApi/apicontext";
 import {
-  addItem,
-  mediaFilters,
-  mediawithcity,
-  mediawithlocation,
-  removeItem,
-  singlemnedia,
+  mediawithcity
 } from "@/redux/adminAction";
 import { useDispatch, useSelector } from "react-redux";
-import { AccountContext } from "@/allApi/apicontext";
-import { Link } from "next/link";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import Multicard from "./multicard";
-import Medialogo from "@/components/mediaBranding";
-import { CityNameImage, Less, More, mediaDataApi } from "../../allApi/apis";
+import OverView from "./overView";
+import { useRouter } from "next/router";
+import styles from '../../../styles/media.module.scss';
 import { MdLocationPin } from "react-icons/md";
 import { BsGrid } from "react-icons/bs";
 import { CiGrid2H } from "react-icons/ci";
-import Singlecard from "./single";
 import { MdArrowUpward, MdOutlineArrowDownward } from "react-icons/md";
-import OverView from "./overView";
-import { useRouter } from "next/router";
-import styles from '../../styles/media.module.scss';
+import {CityNameImage, Less, More } from "../../../allApi/apis";
 import Fixednavbar from "@/components/navbar/fixednavbar";
+import Medialogo from "@/components/mediaBranding";
+import Singlecard from "./single";
+import Multicard from "./multicard";
+import { MdOutlineShoppingCart } from "react-icons/md";
+
 
 const Media = () => {
   const dispatch = useDispatch();
 
-  
-
-const { search, loading } = useSelector((state) => state.search);
-
-
+  const { search, loading } = useSelector((state) => state.search);
   const router = useRouter();
   const { category_name, city_name } = router.query;
-
   const { addRemove } = useContext(AccountContext);
-  const [query, setQuery] = useState("");
-  const [posts, setPosts] = useState([]);
-  const [multicard, setMulticard] = useState(true);
   const [listings, setListings] = useState(true);
   const [overview, setOverview] = useState(false);
-  const [noOfLogo, setnoOfLogo] = useState(9);
+  const [multicard, setMulticard] = useState(true);
+  const [noOfLogo, setnoOfLogo] = useState(8);
   const [mediaData, setMediadata] = useState([]);
   const [locationData, setlocationData] = useState([]);
   const [categoryData, setcategoryData] = useState([]);
-  const [singlemedia, setsingleMedia] = useState([]);
-  const [categoryArray, setCategoryArray] = useState([]);
-  const [locationCkheckbox, setLocationCkheckbox] = useState([]);
-
-
-
-  // const getCardData = async () => {
-  //   await dispatch(mediawithcity(category_name, city_name, noOfLogo));
-  // };
-   useEffect(() => {
-    // getCardData();
-    // apiforfillters();
-  }, []);
-  // category_name, city_name, noOfLogo
 
   let slice;
   if (!loading) {
     slice = search.slice(0, noOfLogo);
   }
 
+  let category;
+  const allSubcategory = categoryData.map((category) => category.subcategory);
+  category = [...new Set(allSubcategory)];
+
+  let ILLUMINATION;
+
+  let filtered = mediaData.filter(function (el) {
+    if (el.illumination != "") {
+      return el.illumination;
+    }
+  });
+
+  const allIllumations = filtered.map((illumation) => illumation.illumination);
+  ILLUMINATION = [...new Set(allIllumations)];
+
+  const view = () => {
+    setMulticard(!multicard);
+  };
 
   const addonCart = async (e) => {
     if (!localStorage.getItem(true)) {
@@ -109,125 +101,18 @@ const { search, loading } = useSelector((state) => state.search);
     });
   };
 
-  
- 
-  // const apiforfillters = async () => {
-  //   const data = await mediaDataApi(category_name, city_name);
-
-  //   data.map((obj, i) => {
-  //     obj["select"] = false; 
-  //   });
-
-  //   let uniqueData =  data.filter((obj, index, self) => {
-  //     return index === self.findIndex((t) => (
-  //       t.location === obj.location
-  //     ));
-  //   });
-  
-  //   setMediadata(uniqueData);
-  //   setlocationData(uniqueData);
-  //   setcategoryData(uniqueData);
-  // };
-
-
-  let category;
-  const allSubcategory = categoryData.map((category) => category.subcategory);
-  category = [...new Set(allSubcategory)];
-
-  let ILLUMINATION;
-
-  let filtered = mediaData.filter(function (el) {
-    if (el.illumination != "") {
-      return el.illumination;
-    }
-  });
-
-  const allIllumations = filtered.map((illumation) => illumation.illumination);
-  ILLUMINATION = [...new Set(allIllumations)];
-
-  // function categoryFilter(cate) {
-  //   category.forEach((el) => {
-  //     if (el === cate && categoryArray.indexOf(el) > -1) {
-  //       categoryArray.splice(categoryArray.indexOf(el), 1);
-  //       setCategoryArray(categoryArray);
-  //     } else if (el === cate && !categoryArray.indexOf(el) > -1) {
-  //       categoryArray.push(cate);
-  //       setCategoryArray(categoryArray);
-  //     }
-  //   });
-  //   dispatch(
-  //     mediaFilters(
-  //       category_name,
-  //       singlemedia,
-  //       categoryArray,
-  //       city_name,
-  //       locationCkheckbox
-  //     )
-  //   );
-  // }
-
-//  const  locationFilter = (loca) => {
-// locationData.map((data,i)=>{
-//   if(data.id==loca.id){
-//     data.select=true;
-//     setlocationData(locationData);
-    
-//   }
-//   if(data.id!==loca.id){
-//     data.select=false;
-//     setlocationData(locationData);
-//   }
-// })
-
-//     dispatch(
-//       mediawithlocation(
-//         category_name,
-//         city_name,
-//         loca.location,
-//         noOfLogo
-//       )
-//     );
-//   }
-
- 
-
-
-  // function mediaTypeFilter(cate) {
-  //   ILLUMINATION.forEach((el) => {
-  //     if (el === cate && singlemedia.indexOf(el) > -1) {
-  //       singlemedia.splice(singlemedia.indexOf(el), 1);
-  //       setsingleMedia(singlemedia);
-  //     } else if (el === cate && !singlemedia.indexOf(el) > -1) {
-  //       singlemedia.push(cate);
-  //       setsingleMedia(singlemedia);
-  //     }
-  //   });
-  //   dispatch(
-  //     mediaFilters(
-  //       category_name,
-  //       singlemedia,
-  //       categoryArray,
-  //       city_name,
-  //       locationCkheckbox
-  //     )
-  //   );
-  // }
-
-  // const mapData = async (meta_title, category_name) => {
-  //   dispatch(singlemnedia(meta_title, category_name)).then(() => {
-  //     router.push("/map");
-  //   });
-  // };
-
-
-  const view = () => {
-    setMulticard(!multicard);
-  };
-
-  const togle = () => {
+  const toggle = () => {
     setListings(!listings);
     setOverview(!overview);
   };
+    const getCardData = async () => {
+    dispatch(mediawithcity(category_name, city_name, noOfLogo));
+  };
+  useEffect(() => {
+    getCardData();
+  }, []);
+
+  console.log(slice);
 
   return (
     <>
@@ -236,10 +121,10 @@ const { search, loading } = useSelector((state) => state.search);
       <Medialogo category_name={category_name} city_name={city_name} />
       <div className=" container-xxl  container-xl container-lg container-md  mt-4 mb-5 p-0 media-con rounded">
         <div className={`mt-md-5 pt-md-3  list ${styles.media_choice} d-flex`}>
-          <h2 aria-expanded={listings} onClick={togle}>
+          <h2 aria-expanded={listings} onClick={toggle}>
             Listings
           </h2>
-          <h2 aria-expanded={overview} onClick={togle}>
+          <h2 aria-expanded={overview} onClick={toggle}>
             Overview
           </h2>
         </div>
@@ -392,7 +277,7 @@ const { search, loading } = useSelector((state) => state.search);
                 })}
      
      
-                {/* {multicard ? (
+                {multicard ? (
                   <Multicard
                     MdOutlineShoppingCart={MdOutlineShoppingCart}
                     slice={slice}
@@ -414,11 +299,11 @@ const { search, loading } = useSelector((state) => state.search);
                     addonCart={addonCart}
                     removefroCart={removefroCart}
                   />
-                )} */}
+                )} 
               </div>
 
 
-              {/* {loading ? (
+              {loading ? (
                 <> </>
               ) : (
                 <>
@@ -454,7 +339,7 @@ const { search, loading } = useSelector((state) => state.search);
                     </>
                   )}
                 </>
-              )}  */}
+              )} 
             </div>
           </div>
         )}

@@ -68,7 +68,7 @@ const Trendingcity = () => {
                         <div className="row  ">
                           <div className="col p-3 ">
                             <Link
-                              href={`/services/${pos.category_name}/${pos.meta_title}`}
+                              href={`/seedetails/${pos.category_name}/${pos.meta_title}`}
                             >
                               <div className="trending-card-img  rounded-2">
                                 <img

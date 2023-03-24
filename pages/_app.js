@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import "@/styles/globals.scss";
 import { Provider } from "react-redux";
@@ -12,9 +11,12 @@ import { SSRProvider } from "react-bootstrap";
 import AccountProvider from "@/allApi/apicontext";
 import Footer from "@/components/footer";
 import Feedback from "@/components/feedback";
+import { createWrapper } from 'next-redux-wrapper'
 
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore);
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
 
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.js");
@@ -31,3 +33,5 @@ export default function App({ Component, pageProps }) {
     </Provider> 
   );
 }  
+
+export default wrapper.withRedux(App);
