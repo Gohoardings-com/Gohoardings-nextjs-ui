@@ -14,9 +14,7 @@ const MyComponent = dynamic(() => import('@/components/navbar/flotingnavbar'), {
 });
 
 export default function Home() {
-  const dispatch = useDispatch()
- 
-  dispatch(mediawithcity("traditional-ooh-media","delhi"))
+
   return (
     <>
       <Head>

@@ -6,6 +6,7 @@ import Loader from "../components/loader";
 const Trendingcity = () => {
   const { search, loading } = useSelector((state) => state.search);
 
+
   {
     var settings = {
       dots: false,

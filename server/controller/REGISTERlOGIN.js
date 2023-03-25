@@ -116,9 +116,9 @@ exports.googleLogin = catchError(async (req, res, next) => {
 
 
 exports.linkdinLogin = catchError(async (req, res) => {
-    console.log("hii");
+
     const {nickname, name, picture, email, sub} = req.body
-    console.log(req.body);
+
     db.changeUser({database: "gohoardi_crmapp"})
     {
         nickname, name, picture, email, sub ?

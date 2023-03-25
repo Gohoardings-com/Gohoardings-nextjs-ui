@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import "./feedback.scss";
 import axios from "axios";
 import { GiCrossMark } from "react-icons/gi";
 import {

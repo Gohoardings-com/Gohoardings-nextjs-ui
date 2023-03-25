@@ -12,7 +12,7 @@ const ErrorHandle = require("../utils/Errorhandler");
 
 exports.sendOTP = catchError(async (req, res) => {
     const {email} =req.params
-    console.log(email);
+
     if (!email) {
         res.status(206).json({success:false, message: "Wrong Input"})
     }
@@ -103,7 +103,7 @@ exports.checkOTP = catchError(async (req, res, next) => {
 })
 
 exports.changePassword = catchError(async (req, res, next) => {
-    console.log(req.body);
+
     const {password, confirmpasswords, expire} = req.body
     if (!expire) {
         return res.status(206).json({success:false, message: "Otp Expire"});

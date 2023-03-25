@@ -40,7 +40,7 @@ passport.use(new LinkedInStrategy({
                 }
             } else {
                 const userid = selectResult[0].userid
-                console.log("hii");
+    
                 return done(null, profile);
                 // res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                 // token(userid, 200, res)

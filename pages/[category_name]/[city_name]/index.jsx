@@ -112,7 +112,6 @@ const Media = () => {
     getCardData();
   }, []);
 
-  console.log(slice);
 
   return (
     <>
@@ -277,7 +276,7 @@ const Media = () => {
                 })}
      
      
-                {multicard ? (
+                {/* {multicard ? (
                   <Multicard
                     MdOutlineShoppingCart={MdOutlineShoppingCart}
                     slice={slice}
@@ -299,11 +298,11 @@ const Media = () => {
                     addonCart={addonCart}
                     removefroCart={removefroCart}
                   />
-                )} 
+                )}  */}
               </div>
 
 
-              {loading ? (
+           {loading ? (
                 <> </>
               ) : (
                 <>

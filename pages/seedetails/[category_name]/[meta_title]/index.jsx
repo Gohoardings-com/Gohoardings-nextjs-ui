@@ -8,19 +8,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import instance from "@/allApi/axios";
 import Fixednavbar from "../../../../components/navbar/fixednavbar";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
 import { Carousel } from "react-responsive-carousel";
 import Loader from "@/components/loader";
-import { addItem, removeItem, singlemnedia  } from "@/redux/adminAction";
+import { addItem, removeItem, singlemnedia } from "@/redux/adminAction";
 import { useRouter } from "next/router";
 
-
 const Details = () => {
-  const dispatch = useDispatch();   
+  const dispatch = useDispatch();
   const router = useRouter();
   const { category_name, meta_title } = router.query;
 
-  console.log(category_name, meta_title);
   const { addRemove } = useContext(AccountContext);
   const [markers, setPosts] = useState([]);
 
@@ -75,11 +73,10 @@ const Details = () => {
         meta_title: meta_title,
         category_name: category_name,
       });
-      console.log(data);
-      setPosts(data); 
+
+      setPosts(data);
     }
   };
-
 
   const locatetologin = async () => {
     localStorage.setItem("locate", `/services/${category_name}/${meta_title}`);
@@ -407,6 +404,158 @@ const Details = () => {
           ))}
         </>
       )}
+      <style jsx>
+        {`
+    .detail-container {
+      margin-top: 6%;
+    }   
+      h2 {
+        font-size: 2.1rem;
+      }
+      h3 {
+        color: #4f4a4c;
+        font-size: 1.7rem;
+      }
+      h5 {
+        font-size: 1.1rem;
+        color: #4f4a4c;
+      }
+      h6 {
+        color: #373435;
+        font-size: 1rem;
+      }
+      p,
+      span {
+        color: #373435;
+      }
+     
+    
+      .detail-mg {
+        background-color: #fdfdfd;
+        box-shadow: rgba(98, 98, 105, 0.2) 0px 7px 29px 0px;
+      }
+   
+    
+      .detail-img {
+        height: 390px;
+        width: 605px !important;
+      }
+    
+      .view {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .view:hover {
+        color: black;
+      }
+      .location {
+        background-color: #e8e8e8;
+        cursor: pointer;}
+
+        #detail-map-location {
+          height: 36px;
+          width: 36px;
+        }
+      
+      .cart-btn {
+        background-color: #fff212;
+        cursor: pointer;
+        color: #3d3933;
+      }
+      .detail-map {
+        background-color: #fdfdfd;
+
+        box-shadow: rgba(98, 98, 105, 0.2) 0px 7px 29px 0px;
+      }
+        .map_sectionD {
+          height: 60vh;
+          width: 100%;
+        }
+      
+    
+      .detail-form {
+        background-color: #fdfdfd;
+        box-shadow: rgba(98, 98, 105, 0.2) 0px 7px 29px 0px;
+      }
+        .txt-clr-tlk {
+          color: #373435;
+          font-size: 2.2rem;
+        }
+        .txt-clr {
+          color: #373435;
+        }
+        .form-control {
+          border: none !important;
+          border-bottom: 1px solid #b5b4b4 !important;
+        }
+        label {
+          color: #6c757d !important;
+          font-size: 0.9rem;
+        }
+      
+        .message-btn {
+          background-color: #373435;
+          color: rgb(237, 237, 237);
+          font-size: 1rem;
+          border-radius: 4px !important;
+        }
+        .message-btn:hover {
+          background-color: #4a494a;
+          color: rgb(237, 237, 237);
+        }
+      
+      @media screen and (max-width: 1366px) {
+        h2 {
+          font-size: 1.9rem;
+        }
+        h3 {
+          color: #4f4a4c;
+          font-size: 1.5rem;
+        }
+        h5 {
+          font-size: 1rem;
+          color: #4f4a4c;
+        }
+        h6 {
+          color: #373435;
+          font-size: 0.9rem;
+        }
+    
+        .detail-img {
+          height: 370px;
+          width: 585px !important;
+        }
+        .map_sectionD {
+          height: 55vh;
+        }
+      }
+    
+      @media screen and (max-width: 1024px) {
+        h2 {
+          font-size: 1.7rem;
+        }
+        h3 {
+          color: #4f4a4c;
+          font-size: 1.3rem;
+        }
+        h5 {
+          font-size: 0.9rem;
+          color: #4f4a4c;
+        }
+        h6 {
+          color: #373435;
+          font-size: 0.8rem;
+        }
+    
+        .detail-img {
+          height: 375px;
+          width: 550px !important;
+        }
+        .map_sectionD {
+          height: 45vh;
+        }
+    `}
+      </style>
     </>
   );
 };

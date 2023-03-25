@@ -69,31 +69,31 @@ const Footer = () => {
   const logo = [
     {
       id: 1,
-      img: "../images/all_Image/facebook.png",
+      img: "../../images/all_Image/facebook.png",
       alt: "logo1",
       link: "https://www.facebook.com/gohoardings/",
     },
     {
       id: 2,
-      img: "../images/all_Image/insta.png",
+      img: "../../images/all_Image/insta.png",
       alt: "logo2",
       link: "https://www.instagram.com/gohoardings/",
     },
     {
       id: 3,
-      img: "../images/all_Image/twiter.png",
+      img: "../../images/all_Image/twiter.png",
       alt: "logo3",
       link: "https://twitter.com/gohoardings",
     },
     {
       id: 4,
-      img: "../images/all_Image/linkdin.png",
+      img: "../../images/all_Image/linkdin.png",
       alt: "logo4",
       link: "https://www.linkedin.com/company/gohoardings/",
     },
     {
       id: 5,
-      img: "../images/all_Image/meail.png",
+      img: "../../images/all_Image/meail.png",
       alt: "logo5",
       link: "mailto:info@gohoardings.com",
     },
@@ -132,7 +132,7 @@ const Footer = () => {
           <div className="col-md-3 pt-1">
             <a href="/">
               <img
-                src="../images/all_image/logo.png"
+                src="../../images/all_image/logo.png"
                 alt="gohoardings"
                 className="brand-logo-footer "
               />
