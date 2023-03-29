@@ -1,4 +1,19 @@
 @import "../assets/scss/variables";
+
+.center {
+  position: relative ;
+}
+
+.nnbb{
+  margin: 0;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 70vw !important;
+  height: 70vh !important;
+}
+
 .icon-clr,
 .icon_clr {
   color: $icon ;
@@ -33,6 +48,7 @@
   .dropdown-menu {
     width: 22vw;
     padding: 0px;
+   
     --bs-dropdown-link-active-bg: #f1e615;
   }
   .dropdown-toggle::after {
@@ -48,20 +64,24 @@
   }
   .dropdown-menu {
     --bs-dropdown-link-active-bg: #f1e615 ;
+
   }
 }
 .fnav{
   .dropdown-toggle::after {
-    display: none;
+   float: right;
+   margin-top: 9px;
   }
     .dropdown-menu {
-      width: 19vw;
+      width: 18vw;
       padding: 0px  ;
-     
+      background-color:#212121 ;
+     color: white;
       cursor: pointer;
     }
     .dropdown-menu {
-      --bs-dropdown-link-active-bg: #f1e615 ;
+      --bs-dropdown-link-active-bg: #d1c601 ;
+          --bs-dropdown-link-hover-bg: #303030;
     }
   
 }
@@ -139,6 +159,10 @@ input:focus {
 }
 
 .detail-container{
+  #detail-map-location {
+    height: 36px;
+    width: 36px;
+  }
    .carousel .control-prev.control-arrow:before {
         border-right: 12px solid #ffffff !important;
       }

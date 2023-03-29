@@ -4,9 +4,13 @@ import { FiPhoneCall } from "react-icons/fi";
 import { BiMailSend } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
-import { enquiryApi, emailformate, changefooter, CityNameImage } from "../allApi/apis";
+import {
+  enquiryApi,
+  emailformate,
+  changefooter,
+  CityNameImage,
+} from "../allApi/apis";
 import instance from "@/allApi/axios";
-
 
 // function useWindowSize() {
 //   const [size, setSize] = useState([window.innerWidth]);
@@ -122,7 +126,7 @@ const Footer = () => {
     {
       name: "Mumbai",
       city: "mumbai",
-    }, 
+    },
   ];
   // useEffect(() => {}, [window.location.pathname]);
   return (
@@ -164,8 +168,7 @@ const Footer = () => {
                     Login As Media Owner
                   </a>
                 </li>
-              
-            
+
                 <li className="py-md-2">
                   {" "}
                   <a
@@ -237,18 +240,16 @@ const Footer = () => {
               <h4 className=" f-heading  ">Popular Services</h4>
               <ul className=" pt-md-3   ps-0">
                 {CityNameImage.map((el, i) => (
-                  <li className="py-md-2" key={i}>
-                    <Link
-                      key={i}
-                      href="#"
+                  <Link
+                    key={i}
+                    href="#"
                     //  href={`/${el.value}/${value[2] ? value[2] : "delhi"}`}
-                      className="   text-decoration-none f-heading-clr text-light"
-                      // onClick={topFunction}
-                    >
+                    className="text-decoration-none "
+                  >
+                    <li className=" py-md-2  text-decoration-none f-heading-clr ">
                       {el.label}
-                      <br />
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>
@@ -258,17 +259,15 @@ const Footer = () => {
             <ul className=" pt-md-3   ps-0 ">
               <span className="pos-absolute end-0 top-0 me-5">
                 {cities.map((el, i) => (
-                  <li className="py-md-2" key={i}>
-                    <Link
-                      key={i}
-                      href={`/${"traditional-ooh-media"}/${el.city}`}
-                      // onClick={topFunction}
-                      className="   text-decoration-none f-heading-clr text-light"
-                    >
-                      {el.name}
-                      <br />
-                    </Link>
-                  </li>
+                  <Link
+                    key={i}
+                    href={`/${"traditional-ooh-media"}/${el.city}`}
+                    className="text-decoration-none "
+                  >
+                    <li className=" py-md-2  text-decoration-none f-heading-clr ">
+                    {el.name}
+                    </li>
+                  </Link>
                 ))}
               </span>
             </ul>
@@ -311,9 +310,7 @@ const Footer = () => {
         </div>
         <div className="row  payment-footer-section ">
           <div className="col text-light " id="letHide"></div>
-          <div className="col text-light  mt-md-0">
-            
-          </div>
+          <div className="col text-light  mt-md-0"></div>
           <div className="col text-light  offset-md-3">
             <h4 className="f-heading  text-nowrap  ">
               Best deals in your inbox
@@ -335,7 +332,6 @@ const Footer = () => {
               <button
                 className=" btn   w-25  border-0 rounded-0 rounded-end mt-md-2 p-0"
                 type="submit"
-              
               >
                 Contact{" "}
               </button>
@@ -358,156 +354,156 @@ const Footer = () => {
           </div>
         </div>
         <div className="row my-2 text-center">
-        <p className="  text-light f-heading-clr ">
-              copyrights &#169; 2023 Gohoardings Solutions LLP
-            </p>
+          <p className="  text-light f-heading-clr ">
+            copyrights &#169; 2023 Gohoardings Solutions LLP
+          </p>
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
+          #not-work {
+            color: rgb(220, 220, 220);
+            font-size: 1.1rem;
+          }
           cnt-input-box:focus {
             border: none;
           }
           #footer-input:focus {
             outline: none;
           }
-          
+
           .footerN-content {
-            background-color: black;
+            background-color: #212121;
           }
-            button{
-           color: black;
-           font-weight: 500;
-              background-color: #FFF323;
-            }
-            button:hover{
-              color: black;
-              font-weight: 500;
-              background-color: #EDE111;
-            }
-            .footer-branding {
-              border-bottom: 2px solid rgb(211, 211, 211);
-            }
+          button {
+            color: black;
+            font-weight: 500;
+            background-color: #fff323;
+          }
+          button:hover {
+            color: black;
+            font-weight: 500;
+            background-color: #ede111;
+          }
+          .footer-branding {
+            border-bottom: 2px solid rgb(211, 211, 211);
+          }
+          .brand-logo-footer {
+            width: 250px;
+          }
+          .f-heading {
+            color: #ffff;
+            font-size: 1.6rem;
+            font-weight: 600;
+          }
+          .f-second-heading {
+            color: rgb(220, 220, 220);
+            font-size: 1.1rem;
+            font-weight: 400;
+          }
+          .f-heading-clr {
+            color: rgb(220, 220, 220);
+            font-size: 1.1rem;
+          }
+
+          .f-heading-clr:hover {
+            color: #fff320;
+          }
+          .reach-clr {
+            color: rgb(220, 220, 220);
+            font-size: 1.1rem;
+          }
+          li {
+            list-style-type: none;
+          }
+          .grid-container1 {
+            width: 300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          }
+          .grid-item {
+            transition: transform 0.3s;
+            text-align: start;
+          }
+          .logo-img {
+            height: 28px;
+            width: 28px;
+          }
+          .tawk-min-container .tawk-button-circle.tawk-button-large {
+            background-color: #d5d509 !important;
+          }
+          .grid-item:hover {
+            transform: scale(1.2);
+          }
+          .payment-footer-section {
+            margin-top: -3%;
+          }
+
+          @media screen and (max-width: 1366px) {
             .brand-logo-footer {
-              width: 250px;
-              box-shadow: rgba(23, 23, 23, 0.02) 0px 1px 3px 0px,
-                rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+              width: 200px !important;
             }
             .f-heading {
-              color: #ffff;
-              font-size: 1.6rem;
-              font-weight: 600;
+              font-size: 1.5rem;
             }
             .f-second-heading {
-              color: rgb(220, 220, 220);
-              font-size: 1.1rem;
-              font-weight: 400;
+              font-size: 1rem;
             }
             .f-heading-clr {
-              color: rgb(220, 220, 220);
-              font-size: 1.1rem;
-            }
-            .f-heading-clr:hover {
-              color: #fff320;
+              font-size: 1rem;
             }
             .reach-clr {
-              color: rgb(220, 220, 220);
-              font-size: 1.1rem;
-            }
-            li {
-              list-style-type: none;
+              font-size: 1rem;
             }
             .grid-container1 {
-              width: 300px;
-              display: grid;
-              grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+              width: 260px;
             }
             .grid-item {
-              transition: transform 0.3s;
               text-align: start;
-            }
-            .logo-img {
-              height: 28px;
-              width: 28px;
-            }
-            .tawk-min-container .tawk-button-circle.tawk-button-large {
-              background-color: #d5d509 !important;
-            }
-            .grid-item:hover {
-              transform: scale(1.2);
-            }
-            .payment-footer-section {
-              margin-top: -3%;
-            }
-          
-            @media screen and (max-width: 1366px) {
-              .brand-logo-footer {
-                width: 200px !important;
-              }
-              .f-heading {
-                font-size: 1.5rem;
-              }
-              .f-second-heading {
-                font-size: 1rem;
-              }
-              .f-heading-clr {
-                font-size: 1rem;
-              }
-              .reach-clr {
-                font-size: 1rem;
-              }
-              .grid-container1 {
-                width: 260px;
-              }
-              .grid-item {
-                text-align: start;
-                .logo-img {
-                  height: 26px;
-                  width: 26px;
-                }
+              .logo-img {
+                height: 26px;
+                width: 26px;
               }
             }
-            
-            @media screen and (max-width: 1024px) {
-              .brand-logo-footer {
-                width: 140px !important;
-              }
-              .f-heading {
-                font-size: 1rem;
-              }
-              .f-second-heading {
-                font-size: .8rem;
-              }
-              .f-heading-clr {
-                font-size: 0.8rem;
-              }
-              .reach-clr {
-                font-size: .8rem;
-              }
-              .grid-container1 {
-                width: 230px;
-              }
-              .grid-item {
-                text-align: start;
-                .logo-img {
-                  height: 20px;
-                  width: 20px;
-                }
-              }
-              #letHide{
-                display: none;
-              }
-              .smv{
-                height: 45px;
-              }
-              .head6{
-                font-size: 0.6rem;;
+          }
+
+          @media screen and (max-width: 1024px) {
+            .brand-logo-footer {
+              width: 140px !important;
+            }
+            .f-heading {
+              font-size: 1rem;
+            }
+            .f-second-heading {
+              font-size: 0.8rem;
+            }
+            .f-heading-clr {
+              font-size: 0.8rem;
+            }
+            .reach-clr {
+              font-size: 0.8rem;
+            }
+            .grid-container1 {
+              width: 230px;
+            }
+            .grid-item {
+              text-align: start;
+              .logo-img {
+                height: 20px;
+                width: 20px;
               }
             }
-          
-          `
-        }
+            #letHide {
+              display: none;
+            }
+            .smv {
+              height: 45px;
+            }
+            .head6 {
+              font-size: 0.6rem;
+            }
+          }
+        `}
       </style>
     </>
   );

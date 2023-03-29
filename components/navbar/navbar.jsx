@@ -4,13 +4,35 @@ import {MdLocationPin} from "react-icons/md"
 import Navbar from "react-bootstrap/Navbar";
 import Userdetail from "./userdetail";
 import styles from "../../styles/navbarHome.module.scss";
+import LoginN from "@/pages/login/loginParent";
 
 const NavbarH = () => {
-  const [posts, setPosts] = useState()
+  // const [posts, setPosts] = useState(true)
+  // const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-  setPosts(posts)
-}, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrollY(window.scrollY);
+  //   };
+  //   handleScroll();
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+
+  // }, []);
+
+ 
+//   useEffect(() => {
+//     if(scrollY>=500){
+//       setPosts(false)
+//     }
+//     else{
+//       setPosts(true) 
+//     }
+// }, [scrollY]);
+
+
    
   return (
     <>
@@ -45,14 +67,28 @@ const NavbarH = () => {
             
 
               <Nav.Link
-                className={`${styles.mapLink} ${styles.font_map_btn} text-center  text-nowrap rounded-pill`}
+             className={`ms-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 href="/map"
               >
-                {/* <MdLocationPin className={`ps-0 p-0   pb-1 ${styles.font_map_logo} icon-clr`} /> */}
                 Map View
               </Nav.Link>
-              
-              <Userdetail posts={posts} setPosts={setPosts}/>
+              <div className={`  me-md-0   ${styles.fixed_login}  text-center`}>
+              <Userdetail />
+          
+              </div>
+<div
+            className="modal fade" id="exampleLoginModall" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered nnbb" role="document">
+              <div className="modal-content nnbb">
+                <div className="modal-body p-0 text-center nnbb">
+                <LoginN />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
             </Nav>
           </Navbar.Collapse>
         </div>

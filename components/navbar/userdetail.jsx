@@ -18,10 +18,15 @@ import styles from "../../styles/navbarHome.module.scss";
 import { MdDashboard } from "react-icons/md";
 import { CgUserlane } from "react-icons/cg";
 import { BiLogOut, BiLogIn } from "react-icons/bi";
-import { FaHandsHelping, FaUserCircle } from "react-icons/fa";
-import { ImEnter } from "react-icons/im";
+import { FaUserCircle } from "react-icons/fa";
+// import { FaUserCircle
+// } from "react-icons/im";
+
+import LoginN from "@/pages/login/loginParent";
 
 const Userdetail = () => {
+
+
   // const dispatch = useDispatch();
   // const { addRemove } = useContext(AccountContext);
   // const { initalState } = useContext(AccountContext);
@@ -85,15 +90,23 @@ const Userdetail = () => {
   //     client_id: clientId,
   //   },
   // });
-  const route=useRouter();
+  // console.log(scrollY);
+
+
+  const route = useRouter();
   const loading = true;
   return (
     <>
       {loading == false ? (
-        <div className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}>
+        <div
+          className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}
+        >
           <Dropdown className={styles.login_profile}>
-            <Dropdown.Toggle variant="transparent" className={styles.drop_togel}>
-              <FaUserCircle className={`${styles.login_icon}  pt-0 mb-1 icon-clr`} />
+            <Dropdown.Toggle
+              variant="transparent"
+              className={styles.drop_togel}
+            >
+              <FaUserCircle className={`${styles.login_icon}  pt-0 mb-1 `} />
             </Dropdown.Toggle>
 
             <Dropdown.Menu className={` ${styles.dropdown_menu_end} pt-0 pb-0`}>
@@ -101,7 +114,7 @@ const Userdetail = () => {
                 className={`${styles.drop_item} rounded-top  ps-2 pt-2 pb-2`}
                 disabled={true}
               >
-                <CgUserlane className={`mb-1 icon-clr}`}/>
+                <CgUserlane className={`mb-1 icon-clr}`} />
                 {/* {user[0].firstname.toUpperCase()} */}
               </Dropdown.Item>
               <hr className=" m-0" />
@@ -133,38 +146,27 @@ const Userdetail = () => {
             <span>
               <img
                 src="../../images/all_image/hoarding.png"
-                className={`${styles.login_icon_cart} icon-clr`}
+                className={`${styles.login_icon_cart} `}
               />
             </span>
             <span></span>
           </div>
         </div>
       ) : (
-        <Dropdown className={`border-0  ms-2  pt-1 p-0 me-md-0  ${styles.user_detail_login} usrdtl`}>
-          <Dropdown.Toggle variant="transparent" className={`pt-0 ${styles.drop_togel} border-0`}>
-            <ImEnter className={`${styles.login_icon}  pt-0 mb-1 icon-clr`} />
-          </Dropdown.Toggle>
+        <>
 
-          <Dropdown.Menu className={`${styles.dropdown_menu_end}  p-0`}>
-            <Dropdown.Item
-              variant="transparent"
-              className={`rounded-top ps-2 pt-2 pb-2 ${styles.drop_item}`}
-             
-              onClick={()=>route.push("/login")}
-            >
-              <BiLogIn className={"icon-clr"} /> Sign in
-            </Dropdown.Item>
-            <hr className="p-0 m-0" />
-            <Dropdown.Item
-              className={`rounded-bottom ps-2 pt-2 pb-2 ${styles.drop_item}`}
-             
-              onClick={()=>route.push("/contact-us")}
-            >
-              <FaHandsHelping className="icon-clr" /> Help?
-            </Dropdown.Item>
-          </Dropdown.Menu>
-          <ToastContainer />
-        </Dropdown>
+ 
+          <div
+            className={`pt-0 ${styles.drop_togel} border-0 usrdtl`}
+            data-bs-toggle="modal"
+            data-bs-target="#exampleLoginModall"
+          >
+            Login{" "}
+            <FaUserCircle
+              className={`${styles.login_icon} ps-0 p-0  ms-0 mb-1`}
+            />
+          </div>
+        </>
       )}
     </>
   );

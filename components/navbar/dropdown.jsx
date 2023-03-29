@@ -15,7 +15,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/traditional-ooh-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                  
                     Traditional OOH
@@ -25,7 +25,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/mall-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                    
                     Mall Media
@@ -35,7 +35,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/airport-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                    
                     Airport Media
@@ -46,7 +46,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/office-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                    
                     Office Branding
@@ -60,7 +60,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/digital-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                     Digital Screen
                   </Link>
@@ -69,7 +69,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/inFlight-branding/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                     InFlight Branding
                   </Link>
@@ -78,7 +78,7 @@ const navbarDropdown = () => {
                 
                   <Link
                     href={`/transit-media/delhi`}
-                    className="button text-dark text-nowrap is-small is-info text-decoration-none"
+                    className="button text-light text-nowrap is-small is-info text-decoration-none"
                   >
                     Transit Media
                   </Link>
@@ -89,19 +89,19 @@ const navbarDropdown = () => {
               <ul className="list-none">
                 <li>
                 
-                  <Link  href="/about-us" className="text-decoration-none text-dark">
+                  <Link  href="/about-us" className="text-decoration-none text-light">
                     About Us
                   </Link>
                 </li>
                 <li>
                 
-                  <Link  href="/team" className="text-decoration-none text-dark">
+                  <Link  href="/team" className="text-decoration-none text-light">
                     Team
                   </Link>
                 </li>
                 <li>
                 
-                  <Link  href="/media-and-news" className="text-decoration-none text-dark">
+                  <Link  href="/media-and-news" className="text-decoration-none text-light">
                     News & Media
                   </Link>
                 </li>
@@ -112,7 +112,7 @@ const navbarDropdown = () => {
                 </li> */}
                 <li>
                 
-                  <Link  href="/contact-us" className="text-decoration-none text-dark">
+                  <Link  href="/contact-us" className="text-decoration-none text-light">
                     Contact
                   </Link>
                 </li>
@@ -123,7 +123,7 @@ const navbarDropdown = () => {
               <li>
                 
                 <Link  href="/testimonial"
-                  className="text-decoration-none text-dark"
+                  className="text-decoration-none text-light"
                 >
                   Testimonials
                 </Link>
@@ -131,7 +131,7 @@ const navbarDropdown = () => {
                 <li>
                 
                   <Link  href="https://www.gohoardings.com/blog/"
-                    className="text-decoration-none text-dark"
+                    className="text-decoration-none text-light"
                     target="_blank"
                   >
                     Blogs
@@ -139,7 +139,7 @@ const navbarDropdown = () => {
                 </li>
                 <li>
                 
-                  <Link  href="/faq" className="text-decoration-none text-dark">
+                  <Link  href="/faq" className="text-decoration-none text-light">
                     FAQs
                   </Link>
                 </li>
@@ -156,17 +156,13 @@ const navbarDropdown = () => {
           {
             `
             #de {
-              background: #f1f1f1;
-           
-              opacity: 93%;
-              width: 90%;
-              margin: .2%;
-              margin-left: 3%;
+              background: #212121;
+              opacity: 98% !important;
+              width: 93%;
               padding-top: 1.4%;
               box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
                 rgba(0, 0, 0, 0.22) 0px 15px 12px;
               border: none;
-              
             }
             .write {
                 height: 36px;
@@ -177,14 +173,17 @@ const navbarDropdown = () => {
             }
             .drop-data ul li {
               color: rgb(103, 103, 103);
+              transition: all 0.1s ease-out;
+              width:130px;
               padding: 4px;
-            
+       
+            border-bottom: 1px solid transparent;
               cursor: pointer;
               list-style-type: none;
             }
             .drop-data ul li:hover {
-            
-              font-weight: 600;
+              border-bottom: 1px solid white;
+              // font-weight: 600;
             }
             
             .border-box {

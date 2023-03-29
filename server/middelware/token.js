@@ -14,6 +14,7 @@ exports.token = catchError(async (userid, statuscode, res) => {
         httpOnly: false,
         sameSite: 'strict',
     }
+
   
     return res.status(statuscode).setHeader("Set-Cookie",cookie.serialize(String(userid), token, option)).json({
         success: true,

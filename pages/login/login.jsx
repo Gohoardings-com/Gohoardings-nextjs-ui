@@ -1,10 +1,10 @@
 import React from 'react';
 import GoogleLinkdinAuthentication from "./googleLogin";
 import styles from '../../styles/login.module.scss'  ;
-const Login = ({ onSignIn,sendOtp, withOtp, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
+const Login = ({ onSignIn,sendOtp, withOtp,success, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
   return (
     <>
-      <h2 className="mt-5 fw-bold">Login to Continue</h2>
+      <h2 className=" fw-bold ">Login to Continue</h2>
       <h5 className="mt-3">Please login to access your account</h5>
       {withOtp ? <>
         <div className="form-floating mt-5 d-flex">
@@ -16,8 +16,8 @@ const Login = ({ onSignIn,sendOtp, withOtp, setWithOtp, email, setEmail, signIn,
             placeholder="123-456-789" 
             // value={number}
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={e => setNumber(e.target.value)}
-          /><button className=' border-0 ' id='sendf' onClick={onForget} >Send</button>
-          <p className="ms-2 p-0 text ">{emailsValidate}</p>
+          /><button className=' border-0 ' id={styles.sendf} onClick={onForget} >Send</button>
+          <p className={`ms-2 p-0 ${styles.text} `}>{emailsValidate}</p>
           <label htmlFor="floatingInput">Phone number</label>
         </div>
         {sendOtp &&    <div className="form-floating  mt-3 mb-1">
@@ -54,7 +54,7 @@ onClick={checkOTPForLogin}
                 setEmail(e.target.value);
               }}
             />
-            <p className="ms-2 p-0 text ">{emailsValidate}</p>
+            {/* <p className={`ms-2 p-0 ${styles.text} `}>{emailsValidate}</p> */}
             <label htmlFor="floatingInput">Email address</label>
           </div>
           <div className="form-floating  mt-3 mb-1">
@@ -77,12 +77,20 @@ onClick={checkOTPForLogin}
             Forget Password?
           </p>
           <div className="d-grid mt-5">
-            <button
+            {success?<button
+              data-bs-dismiss="modal"
               type="submit"
               className="border-0 rounded btn-lg  mb-2 "
             >
               Login
-            </button>{" "}
+            </button> : <button
+            
+              type="submit"
+              className="border-0 rounded btn-lg  mb-2 "
+            >
+              Login
+            </button> }
+            
             <ToastContainer />
           </div>
 
@@ -96,24 +104,7 @@ onClick={checkOTPForLogin}
         Don’t have an account? <span className={`fw-bold ${styles.switch} `} onClick={ toggleSignUp}>Sign Up</span>
       </h6>
 
-
-      {/* <div className="col">
-       <form onSubmit={onForget}>
-       <label for="phone">Enter your phone number:</label>
-        <input type="number" id="phone" name="phone" placeholder="Phone_Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={e => setNumber(e.target.value)}/>
-        <input type="submit" value="Login"/>
-       </form>
-      
-        </div>
-       <div className="col">
-       <form onSubmit={checkOTPForLogin}>
-       <label for="phone">Enter Your Otp into otp field:</label>
-        <input type="number" id="phone" name="phone" placeholder="OTP" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" onChange={e => setOtp(e.target.value)}/>
-        <input type="submit" value="Login"/>
-       </form>
-      
-        </div>  */}
-      <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}
+      <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}  success={success}
         withOtp={withOtp}
       />
     </>

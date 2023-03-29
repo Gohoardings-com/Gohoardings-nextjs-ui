@@ -1,7 +1,7 @@
 import React from "react";
 import { FiArrowLeftCircle, FiLogIn } from "react-icons/fi";
 import { ToastContainer } from "react-toastify";
-
+import styles from '../../styles/login.module.scss'  ;
 import Countdown from "./countDown";
 
 const ForgetPass = ({
@@ -10,6 +10,7 @@ const ForgetPass = ({
   setSendOtp,
   setOtp,
   otp,
+  success,
   toast,
   checkOTP,
   changePassword,
@@ -38,12 +39,12 @@ const ForgetPass = ({
     <>
       <div className=" mt-3 text-start">
         <h2 className="">Did you forget your password ?</h2>
-        <a className="forgetpass  me-4 mb-2" onClick={() => goBack()}>
+        <a className={`${styles.forgetpass}  me-4 mb-2`} onClick={() => goBack()}>
           <FiArrowLeftCircle /> GoBack
         </a>
       </div>
       {pass ? (
-        <div className="forget-content animate__animated  animate__fadeIn">
+        <div className={`${styles.forget_content} animate__animated  animate__fadeIn`}>
       
           <form onSubmit={changePassword} novalidate>
       
@@ -77,9 +78,21 @@ const ForgetPass = ({
             </div>
 
             <div className="d-grid mt-5">
-              <button type="submit" className="border-0 rounded btn-lg   ">
-                SET PASSWORD
-              </button>{" "}
+              {success? 
+               <button type="submit" className="border-0 rounded btn-lg" data-bs-dismiss="modal"  >
+                
+               SET PASSWORD
+             </button>
+             :
+             <button type="submit" className="border-0 rounded btn-lg"   >
+                
+             SET PASSWORD
+           </button>
+
+              }
+            
+            
+             
               <ToastContainer />
             </div>
           </form>
@@ -87,7 +100,7 @@ const ForgetPass = ({
       ) : (
         <>
           {sendOtp ? (
-            <div className="forget-content animate__animated  animate__fadeIn">
+            <div className={`${styles.forget_content} animate__animated  animate__fadeIn`}>
               <form onSubmit={checkOTP} novalidate>
 
 
@@ -115,7 +128,7 @@ const ForgetPass = ({
                   <label htmlFor="floatingInput"> Enter your OTP</label>
                 </div>
                 <div className="d-grid mt-5">
-                  <button type="submit" className="border-0 rounded btn-lg   ">
+                  <button type="submit" className="border-0 rounded btn-lg   "   data-bs-dismiss="modal">
                     SUBMIT
                   </button>{" "}
                   <ToastContainer />
@@ -123,7 +136,7 @@ const ForgetPass = ({
               </form>
             </div>
           ) : (
-            <div className="forget-content animate__animated  animate__fadeIn">
+            <div className={`${styles.forget_content} animate__animated  animate__fadeIn`}>
               <form onSubmit={onForget} novalidate>
               <div className="form-floating mt-5">
       <input

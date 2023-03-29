@@ -5,8 +5,8 @@ import { toast, ToastContainer } from "react-toastify";
 const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password, setEmail, email, emailsValidate, numbervalidate, phone, AiFillEye, AiFillEyeInvisible, setNumber, nameValidate, setName, name, onRegister, onForget, setOtp, checkOTPForLogin, registerOtp}) => {
   return (
     <> 
-    <h2 className="mt-4 fw-bold">Sign up</h2>
-    <h5 className="mt-3">Please fill all the fields</h5>
+    <h2 className=" fw-bold ">Sign up to Continue</h2>
+    {/* <h5 className="mt-3">Please fill all the fields</h5> */}
     <form onSubmit={ registerOtp}>
     <div className="form-floating mt-4">
       <input
@@ -84,6 +84,8 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
       <button
         type="submit"
         className="border-0 rounded btn-lg  mb-2 "
+        
+        data-bs-dismiss="modal"
       >
         Sign up
       </button>{" "}
@@ -102,7 +104,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
     </form>
 
     <h6 className="mt-2">
-    Already have an account?  <span className="fw-bold switch " onClick={() => toggleSignUp()}>Login</span>
+    Already have an account?  <span className={`fw-bold ${styles.switch} `} onClick={() => toggleSignUp()}>Login</span>
     </h6>
 
     <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber}  onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin}/>

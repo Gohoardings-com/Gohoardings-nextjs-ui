@@ -9,7 +9,7 @@ import { CityNameImage } from "@/allApi/apis";
 import { useDispatch, useSelector } from "react-redux";
 import Userdetail from "./userdetail";
 import { MdOutlineSearch, MdLocationPin } from "react-icons/md";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 // import { mediawithcity } from "../../action/adminAction";
@@ -30,7 +30,7 @@ const Fixednavbar = () => {
   const [userType, setUserType] = useState("");
   const [userPath, setUserPath] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const route=useRouter();
+  const route = useRouter();
   // function closeSearch() {
   //   useEffect(() => {
   //     const where = window.location.pathname;
@@ -85,39 +85,43 @@ const Fixednavbar = () => {
         expand={`lg px-md-0 p-1 m-0 border-0 ${styles.navbar_main_floating} fixed-top`}
       >
         <div className={styles.sss}></div>
- 
-        
-       
+
         <Navbar.Brand
           id={styles.home}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          
         >
+          {/* <GiHamburgerMenu
+            className={`${styles.GiHamburgerMenu}  me-3 `}
+          /> */}
+
+          <div className={`${styles.nav_icon_6} me-3`} aria-expanded={showMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
           <img
             alt="gohoardings"
             src="../../images/all_image/logo.png"
-            className={`border-0 brand ${styles.float_brand}`}
-            onClick={()=>route.push("/")}
+            className={`border-0 brand ${styles.float_brand} ms-2`}
+            onClick={() => route.push("/")}
           />
           <div className={`dropdown-menu ${showMenu ? "show" : ""} p-0 m-0`}>
-         <NavbarDropdown/>
+            <NavbarDropdown />
           </div>
           <style jsx>{`
             .dropdown-menu.show {
               display: block;
             }
           `}</style>
-          <RiArrowDropDownLine
-            className={`${styles.riArrowDropDownLine} icon-clr`}
-          />
         </Navbar.Brand>
-    
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
         <Navbar.Collapse id={styles.basic_navbar_nav}>
           <Nav className={`navbar-nav mx-auto  ${styles.search_inner_drop} `}>
-            <InputGroup className="">
-              <Citylocation InputGroup={InputGroup} setValue={setValue} />
+            <InputGroup className=" me-3">
+              {/* <Citylocation InputGroup={InputGroup} setValue={setValue} /> */}
               <Form.Control
                 placeholder="Search your location"
                 aria-describedby="basic-addon1"
@@ -131,23 +135,25 @@ const Fixednavbar = () => {
 
             <div
               className={
-                focus ? "dropdown-menu border-0 show  mt-5  " : "dropdown-menu "
+                focus
+                  ? "dropdown-menu border-0 show  mt-5  ms-0"
+                  : "dropdown-menu "
               }
               id={styles.xyz}
             >
               {city.map((item, i) => (
                 <div
-                  className="border-1 rounded-3"
+                  className={`${styles.border_1} rounded-3`}
                   key={i}
                   onClick={() => onSearch(item.name)}
                 >
-                  <option value={item.name} className=" text-dark mt-1 ps-3 ">
+                  <option value={item.name} className=" text-light mt-1 ps-3 ">
                     {item.name}
                   </option>
                 </div>
               ))}
             </div>
-            <div className="p-0 m-0 fnav">
+            <div className="p-0 m-0 fnav ms-3" onFocus={() => setFocus(false)}>
               <DropdownButton
                 title={userType ? selecType : "Select your media type"}
                 id={styles.select_media_box}
@@ -156,10 +162,10 @@ const Fixednavbar = () => {
                 {CityNameImage.map((el, i) => (
                   <Dropdown.Item
                     eventKey={el.value}
-                    className="p-2 mt-0 "
+                    className="p-2 mt-0 text-light"
                     key={i}
                   >
-                    <span className={`${styles.select_media_icon} icon-clr`}>
+                    <span className={`${styles.select_media_icon} text-light`}>
                       {" "}
                       {el.icon}{" "}
                     </span>
@@ -170,39 +176,41 @@ const Fixednavbar = () => {
             </div>
 
             <Button
-              className="border-0 btn "
+              className="ms-3"
               onClick={(a, b) => mavigatetoMediaPage(userType, value)}
               id={styles.search_button_flotnav}
             >
               <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
             </Button>
           </Nav>
-          <form className="  text-center">
+          <form className="  text-center me-4">
             {userPath ? (
               <Nav.Link
-                className={`${styles.mapLink} ${styles.float_map_btn} text-light   p-0  rounded-pill`}
-                id={styles.float_map_btn_id}
+                className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}
               >
-                {/* <MdLocationPin
-                  className={`${styles.float_map_logo} ps-0 p-0  ms-0 mb-1  icon-clr`}
-                /> */}
-                Map View
+                Map
+                <MdLocationPin
+                  className={`${styles.GiHamburgerMenu} ps-0 p-0  ms-0 `}
+                />
               </Nav.Link>
             ) : (
               <Nav.Link
-                className={`${styles.mapLink} ${styles.float_map_btn}    p-0 rounded-pill pt-1`}
+                className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}
                 href="/map"
               >
-                {/* <MdLocationPin
-                  className={`${styles.float_map_logo} ps-0 p-0  ms-0 mb-1 icon-clr   `}
-                /> */}
-                Map View
+                Map
+                <MdLocationPin
+                  className={`${styles.GiHamburgerMenu} ps-0 p-0  ms-0`}
+                />
               </Nav.Link>
             )}
           </form>
-          <form className="form-inline mt-2 me-auto">
-            <Userdetail posts={posts} setPosts={setPosts} />
+
+          <form className="text-center">
+            <Userdetail />
           </form>
+
+          <div className={styles.sss}></div>
         </Navbar.Collapse>
       </Navbar>
     </>

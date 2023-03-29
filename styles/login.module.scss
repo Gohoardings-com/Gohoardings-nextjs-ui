@@ -2,8 +2,9 @@
 
 
 #sendf {
-    background-color: #9c9696;
-    color: #ffffff;
+  transition: all 0.1s ease-out;
+  background-color: #7d7c7c;
+      color: #EAEAEA;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
@@ -13,8 +14,8 @@
   }
 
   #sendf:hover {
-    background-color: #7c7474;
-    color: #ffffff;
+    background-color: #5d5c5c;
+    color: #f4f2f2;
   }
   #mnd {
     border-top-right-radius: 0px;
@@ -22,37 +23,39 @@
   }
   .wrapper {
     position: relative;
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     background-image: linear-gradient(to right, #616161, #363636);
-  
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
     .opacitydiv {
       border: 1px ridge rgb(220, 220, 220);
       position: absolute;
-      top: 10%;
-      left: 10%;
+      top: 9%;
+      left: 9%;
       box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
       border-radius: 5px;
       background-color: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(5px);
-      height: 80vh;
-      width: 65vh;
+      height: 58vh;
+      width: 54vh;
     }
   
     .title {
       opacity: 85%;
+      text-align: left;
       h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 700;
         color: #ffffff;
       }
       h4 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         color: #ffffff;
         margin-top: 10px;
       }
       h6 {
-        font-size: 1rem;
+        font-size: .9rem;
         color: #ffffff;
         font-weight: 400;
         margin-top: 10px;
@@ -60,23 +63,22 @@
     }
   
     .img_responsive {
-      height: 68vh;
+      height: 48vh;
       position: fixed;
-      top: 14.9%;
-      left: -16%;
+      top: 17%;
+      left: 0%;
     }
   
     .img_responsive2 {
-      height: 54vh;
+      height: 38vh;
       position: fixed;
-      top: 32.4%;
-      left: 3%;
+      top: 34.4%;
+      left: 19%;
     }
   }
   .login_container2 {
-    padding: 25%;
-    padding-bottom: 0%;
-    padding-top: 20%;
+    padding: 2%;
+ 
   
     h2,
     h5 {

@@ -452,10 +452,7 @@ const Details = () => {
         background-color: #e8e8e8;
         cursor: pointer;}
 
-        #detail-map-location {
-          height: 36px;
-          width: 36px;
-        }
+       
       
       .cart-btn {
         background-color: #fff212;

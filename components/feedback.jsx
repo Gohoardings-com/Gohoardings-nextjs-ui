@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import "./feedback.scss";
 import axios from "axios";
 import { GiCrossMark } from "react-icons/gi";
 import {
@@ -78,7 +79,7 @@ const ips = async() => {
 }
 
 
- setTimeout(ips, 40000);
+ setTimeout(ips, 4000);
 
   const changeStatus = async (id) => {
     const data = [...logo];
@@ -103,7 +104,7 @@ const ips = async() => {
       window.sessionStorage.setItem("done","stop")
     }
     else{
-      document.getElementById("exampleFormControlTextarea1").style.border = "1px solid red";
+      document.getElementById("exampleFormControlTextarea1").style.border = "1px solid orangered";
     }
   };
 
@@ -111,7 +112,7 @@ const ips = async() => {
   return (
     <div className="card  feedback-card  fixed-bottom border-0 animate__animated animate__backInUp" id="demo">
       <div className="heading-bg rounded-top">
-        <span className="">
+        <span className="float-end">
           <GiCrossMark className=" mt-1 me-1 text-light" onClick={closeFeedback} id='closeicon'/>
         </span>
         <h3 className="text-center p-2   mb-1 heading">Your feedback</h3>
@@ -167,15 +168,14 @@ const ips = async() => {
         {
           `
           #closeicon{
-            display: flex;
-            float: right;
+            
             cursor: pointer;
             color: #fff212;
           }
           .feedback-card {
             display: none;
-            left: 79%;
-            bottom: 2%;
+            left: 79.5%;
+            bottom: 1%;
             height: auto;
             width: 20vw;
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

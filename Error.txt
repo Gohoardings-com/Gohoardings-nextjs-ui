@@ -170,3 +170,18 @@
  Error: Cannot enqueue Query after fatal error. arrived on Sat Mar 25 2023 10:44:40 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
  Error: ER_NO_SUCH_TABLE: Table 'gohoardi_goh.goh_testimonials' doesn't exist arrived on Sat Mar 25 2023 14:42:19 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_testimonials
  Error: ER_NO_SUCH_TABLE: Table 'gohoardi_goh.goh_testimonials' doesn't exist arrived on Sat Mar 25 2023 14:42:19 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_testimonials
+ Error: ER_CANT_AGGREGATE_2COLLATIONS: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '=' arrived on Mon Mar 27 2023 12:48:00 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT * FROM goh_media_office WHERE city_name='Nāngloi Jāt'
+ Error: ER_CANT_AGGREGATE_2COLLATIONS: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '=' arrived on Mon Mar 27 2023 12:48:00 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT * FROM goh_media_office WHERE city_name='Nāngloi Jāt'
+ Email Invalid arrived on Mon Mar 27 2023 17:28:24 GMT+0530 (India Standard Time) at The query in which error occurred sendPasswordEmail Api
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:01 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:01 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:02 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:02 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:02 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:02 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:13 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:13 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:14 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:14 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:14 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
+ Error: Cannot enqueue Query after fatal error. arrived on Tue Mar 28 2023 10:09:14 GMT+0530 (India Standard Time) at The query in which error occurred SELECT DISTINCT ip_address from goh_review
