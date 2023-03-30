@@ -49,6 +49,22 @@
 
 .login_profile {
   
+  .drop_togel[aria-expanded=true]{
+    margin-top: -4px !important;
+    margin-left: 8px;
+    border: transparent !important;
+      color: #f2f2f2 !important;
+      font-weight: 600 !important;
+  }
+  .login_icon[aria-expanded=true] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 34px;
+    transition: 0.2s;
+  }
+  .drop_togel[aria-expanded=true]:hover .login_icon{
+    color: #d8d8d8!important ;
+  }
 
   @media screen and (max-width: 1366px) {
     .drop_togel {
@@ -57,15 +73,16 @@
     }
   }
   .drop_item {
-    color: #373435 !important;
-    font-weight: 600 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
     span {
       padding: 0px !important;
 
       color: #373435 !important;
-      font-weight: 600 !important;
+      font-weight: 500 !important;
     }
   }
+
 }
   .drop_togel{
     margin-top: 6px;
@@ -79,6 +96,29 @@
     font-size: 34px;
     transition: 0.2s;
   }
+  
+  .drop_togel[aria-expanded=true]{
+    margin-top: 2.4px;
+    margin-left: 6px;
+    border: transparent !important;
+      color: #373435 !important;
+      font-weight: 600 !important;
+  }
+  .login_icon[aria-expanded=true] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 34px;
+    transition: 0.2s;
+  }
+  .drop_togel[aria-expanded=true]:hover{
+    cursor: pointer;
+    color: #636363!important ;
+  }
+  .drop_togel[aria-expanded=true]:hover .login_icon{
+    color: #636363!important ;
+  }
+
+
   .drop_togel:hover{
     cursor: pointer;
     color: #d8d7d7!important ;
@@ -130,7 +170,10 @@
   margin-top: 10px;
   height: 42px;
 }
-
+.login_icon_cart[aria-expanded=true] {
+  margin-top: 0px;
+  height: 42px;
+}
 @media screen and (max-width: 1366px) {
   .fixd_nabar {
     .brand_logo {
@@ -146,6 +189,17 @@
 
   .font_map_logo {
     height: 21px !important;
+  }
+  .drop_togel[aria-expanded=true]{
+    margin-top: .7px;
+    margin-left: 10px;
+   
+  }
+  .login_icon[aria-expanded=true] {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 34px;
+    transition: 0.2s;
   }
 }
 

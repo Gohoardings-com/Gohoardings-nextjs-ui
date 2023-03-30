@@ -63,7 +63,14 @@
     display: none;
   }
   .dropdown-menu {
-    --bs-dropdown-link-active-bg: #f1e615 ;
+    background-color:#212121 ;
+    color: white ;
+    border-radius: 0%;
+    left: -75% !important;
+     cursor: pointer;
+     opacity: 89% ;
+     --bs-dropdown-link-active-bg: #d1c601 ;
+     --bs-dropdown-link-hover-bg: #303030;
 
   }
 }

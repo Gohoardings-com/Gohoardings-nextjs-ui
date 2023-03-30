@@ -7,33 +7,8 @@ import styles from "../../styles/navbarHome.module.scss";
 import LoginN from "@/pages/login/loginParent";
 
 const NavbarH = () => {
-  // const [posts, setPosts] = useState(true)
-  // const [scrollY, setScrollY] = useState(0);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrollY(window.scrollY);
-  //   };
-  //   handleScroll();
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-
-  // }, []);
-
- 
-//   useEffect(() => {
-//     if(scrollY>=500){
-//       setPosts(false)
-//     }
-//     else{
-//       setPosts(true) 
-//     }
-// }, [scrollY]);
 
 
-   
   return (
     <>
       <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
@@ -72,8 +47,8 @@ const NavbarH = () => {
               >
                 Map View
               </Nav.Link>
-              <div className={`  me-md-0   ${styles.fixed_login}  text-center`}>
-              <Userdetail />
+              <div className={`  me-md-0   ${styles.fixed_login}  text-center `}>
+              <Userdetail/>
           
               </div>
 <div

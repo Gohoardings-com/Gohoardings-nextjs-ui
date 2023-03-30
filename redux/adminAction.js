@@ -25,7 +25,7 @@ export const mediawithcity  = (category_name, city_name)  => async(dispatch) =>{
     }
 }
 
-export const mediawithlocation  = ( category_name,
+ export const mediawithlocation  = ( category_name,
     city_name,
     loca,
     noOfLogo)  => async(dispatch) =>{

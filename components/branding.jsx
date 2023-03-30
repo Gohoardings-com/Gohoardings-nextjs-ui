@@ -29,7 +29,7 @@ const Branding = (props) => {
             background: linear-gradient(
               to top,
               rgba(32, 52, 76, 0.64) 14%,
-              rgba(0, 0, 0, 0.55) 66%
+              #393939 66%
             );
             top: 0;
             bottom: 0;

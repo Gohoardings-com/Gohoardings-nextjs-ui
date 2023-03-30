@@ -38,6 +38,7 @@ export const registerReducer = (state = {register:[]}, action) =>{
             return state;
     }
 }
+
 export const UserReducer = (state = {user:[]}, action) =>{
     switch (action.type) {
         case "UserRequest":
@@ -100,8 +101,6 @@ export const IconFilterReducer = (state = {iconfilter:[]}, action) =>{
             return state;
     }
 }
-
-
 
 export const CartReducer = (state = {items:{}}, action) =>{
     switch (action.type) {

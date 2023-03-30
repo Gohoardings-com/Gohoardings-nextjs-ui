@@ -5,7 +5,10 @@ import { Link } from "next/link";
 import {
   MdLocalOffer,
 } from "react-icons/md";
+
+import styles from '../../../styles/media.module.scss';
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
+import Loader from "@/components/loader";
 
 
 const Multicard = ({
@@ -21,7 +24,7 @@ const Multicard = ({
         <>
           <div className=" container ">
             <div className="row  text-center ">
-              <Loader />
+             <Loader/>
             </div>
           </div>
         </>
@@ -29,7 +32,7 @@ const Multicard = ({
         <>
           {slice.length == 0 ? (
             <div className="container">
-              <div className={`${no_data} row  text-center my-3`}>
+              <div className={`${styles.no_data} row  text-center my-3`}>
                 <img src="../../clientslogo/no-data.png" alt="No Data" className="" />
               
               </div>
@@ -37,12 +40,12 @@ const Multicard = ({
           ) : (
             <>
               {slice.map((item, i) => (
-                <div className="project   mt-4" key={i}>
-                  <div className="img-responsive  figure">
-                  <Link
-                      to={`/services/${item.category_name}/${item.meta_title}`}
+                <div className={`${styles.project}   mt-4"`} key={i}>
+                  <div className={`${styles.img_responsive} ${styles.figure}  `}>
+                  {/* <Link
+                      href={`/services/${item.category_name}/${item.meta_title}`}
                       className="text-decoration-none"
-                    >
+                    > */}
                     <img
                       className="img-responsive-media rounded-top"
                       alt={item.mediaownercompanyname}
@@ -65,20 +68,20 @@ const Multicard = ({
                         (e.target.src = "../../images/all_image/alter-img.png")
                       }
                     />
-                       </Link>
+                       {/* </Link> */}
                   
                
                     <figcaption className="rounded-top">
-                      <Link
+                      {/* <Link
                         to={`/services/${item.category_name}/${item.meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                         <span className="project-details">
                         {item.subcategory} at{" "}
                           {item.medianame.substring(0,12).split(",") }
                           
                         </span>
-                      </Link>
+                      {/* </Link> */}
                       <span className="project-creator mt-2 ms-0 ">
                         <HiOutlineCurrencyRupee className="rupees-logo icon-clr" />{" "}
                         Price {""}

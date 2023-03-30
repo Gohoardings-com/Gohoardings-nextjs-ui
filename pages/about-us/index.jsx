@@ -27,9 +27,14 @@ const About = () => {
 
 </div>
    <Fixednavbar/>
-      <div className="d-hide drop-nd"></div>
+      <div className="d-hide drop-nd">
+
+      </div>
+      <section className="fvf">
+
       <Branding title="About Us" />
-      <section className="mt-2">
+      </section>
+      <section>
         <div className="container mt-2">
           <div className="row">
             <div className="col-md-7  text-container text-center mt-3">
@@ -212,7 +217,9 @@ const About = () => {
       <style>
 {
   `
-  
+  .fvf{
+    margin-top: 4.1%;
+  }
   .text-container {
     padding-top: 7%;
     opacity: 75%;

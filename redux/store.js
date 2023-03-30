@@ -13,33 +13,33 @@ const reducer = combineReducers({
     userItems: cartitems,
 })
 
-async function savetoLocalStorage(state) {
-    try{
-        const serialsedState = JSON.stringify(state);
-        localStorage.setItem('goh',serialsedState)
-    }catch(e){
-       return false
-    }
-}
+// async function savetoLocalStorage(state) {
+//     try{
+//         const serialsedState = JSON.stringify(state);
+//         localStorage.setItem('goh',serialsedState)
+//     }catch(e){
+//        return false
+//     }
+// }
 
-function loasdFromLocalStorage(){
-    try{
-        const serialsedState = localStorage.getItem('goh');
-        if(serialsedState === null) return undefined;
-        return JSON.parse(serialsedState)
-    }catch(e){
-        return undefined;
-    }
-}
+// function loasdFromLocalStorage(){
+//     try{
+//         const serialsedState = localStorage.getItem('goh');
+//         if(serialsedState === null) return undefined;
+//         return JSON.parse(serialsedState)
+//     }catch(e){
+//         return undefined;
+//     }
+// }
 
 const middleware = [thunk];
 
 const store = createStore(
     reducer,  
-    loasdFromLocalStorage(),
+    // loasdFromLocalStorage(),
     composeWithDevTools(applyMiddleware( ...middleware)),
 )
 
-store.subscribe(() => savetoLocalStorage(store.getState()))
+// store.subscribe(() => savetoLocalStorage(store.getState()))
 
 export default store;

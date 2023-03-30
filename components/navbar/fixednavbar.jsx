@@ -19,6 +19,7 @@ import Citylocation from "../cityLocation";
 import styles from "../../styles/fixedNavbar.module.scss";
 import NavbarDropdown from "./dropdown";
 // import Citylocation from "../cityLocation/citylocation";
+// import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 
 const Fixednavbar = () => {
@@ -31,6 +32,8 @@ const Fixednavbar = () => {
   const [userPath, setUserPath] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const route = useRouter();
+
+  // console.log(router.pathname);
   // function closeSearch() {
   //   useEffect(() => {
   //     const where = window.location.pathname;
@@ -52,12 +55,15 @@ const Fixednavbar = () => {
       selecType = el.label;
     }
   });
+
   const onChange = async (event) => {
+    // console.log(event);
     setValue(event.target.value);
     const cities = event.target.value;
     const data = await getAllCity(cities);
     setCity(data);
   };
+// console.log(city)
   const mavigatetoMediaPage = (userType, value) => {
     if (userPath == true && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
@@ -183,7 +189,7 @@ const Fixednavbar = () => {
               <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
             </Button>
           </Nav>
-          <form className="  text-center me-4">
+          <form className="  text-center me-3">
             {userPath ? (
               <Nav.Link
                 className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}

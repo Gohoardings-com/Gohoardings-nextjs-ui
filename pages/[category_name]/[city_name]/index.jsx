@@ -16,6 +16,7 @@ import Fixednavbar from "@/components/navbar/fixednavbar";
 import Medialogo from "@/components/mediaBranding";
 import Singlecard from "./single";
 import Multicard from "./multicard";
+
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 
@@ -274,7 +275,19 @@ const Media = () => {
                     );
                   }
                 })}
-     
+     <Multicard
+                    MdOutlineShoppingCart={MdOutlineShoppingCart}
+                    slice={slice}
+                    search={search}
+                    More={More}
+                    Less={Less}
+                    addonCart={addonCart}
+                    loading={loading}
+                    removefroCart={removefroCart}
+                    add={add}
+                    remove={remove}
+                    locatetologin={locatetologin}
+                  />
      
                 {/* {multicard ? (
                   <Multicard
