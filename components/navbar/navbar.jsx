@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Userdetail from "./userdetail";
 import styles from "../../styles/navbarHome.module.scss";
 import LoginN from "@/pages/login/loginParent";
+import Link from "next/link";
 
 const NavbarH = () => {
 
@@ -45,6 +46,7 @@ const NavbarH = () => {
              className={`ms-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 href="/map"
               >
+                
                 Map View
               </Nav.Link>
               <div className={`  me-md-0   ${styles.fixed_login}  text-center `}>

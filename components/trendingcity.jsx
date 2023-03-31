@@ -99,7 +99,7 @@ const Trendingcity = () => {
                                 />
 
                                 <div className="bottom-left">
-                                      Delhi
+                             {pos.city_name}
                                 </div>
                                 <div className="bottom-left-media">
                                   {pos.medianame.substring(0,20)}...

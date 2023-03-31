@@ -79,7 +79,7 @@ const ips = async() => {
 }
 
 
- setTimeout(ips, 40000);
+ setTimeout(ips, 55000);
 
   const changeStatus = async (id) => {
     const data = [...logo];

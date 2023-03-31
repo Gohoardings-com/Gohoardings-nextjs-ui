@@ -118,7 +118,7 @@ const Userdetail = () => {
 
   return (
     <>
-      {loading !== false ? (
+      {loading == false ? (
         <div
           className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}
         >

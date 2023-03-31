@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState, useCallback} from "react";
 import {AccountContext} from "@/allApi/apicontext";
-import style from '../../styles/map.module.scss'
+import styles from '../../styles/map.module.scss'
 import { useSelector, useDispatch} from "react-redux";
 import { Link } from "next/link";
 import Mapfilter from './mapfilters'
@@ -12,6 +12,7 @@ import {BsListUl} from 'react-icons/bs'
 import {MdAddLocationAlt ,MdArrowUpward, MdOutlineArrowDownward} from 'react-icons/md'
 import {FaFilter,FaRupeeSign,FaMapMarked} from 'react-icons/fa'
 import { useRouter } from 'next/router';
+import Fixednavbar from "@/components/navbar/fixednavbar";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -132,10 +133,11 @@ const Map = () => {
   
   return (
   <>
-  <div className="container-fluid" id="map-body">
-      <div className="row" id={style.map_view_row}>
+  <Fixednavbar/>
+  <div className="container-fluid" id={styles.map_body}>
+      <div className="row" id={styles.map_view_row}>
         <div className="col-lg-3 col-md-3 col-sm-12 p-0 border-end position-relative">
-          <div className={`row ${style.filter_icons} mt-5 pt-3`}>
+          <div className={`row ${styles.filter_icons} mt-5 pt-3`}>
             <div
               className="col-4 list d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
               data-bs-toggle="collapse"
@@ -168,7 +170,7 @@ const Map = () => {
 
           <div id="accordionTest">
             <div
-              className={`${style.media_items} ${style.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
+              className={`${styles.media_items} ${styles.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
               id="collapseT1"
               data-bs-parent="#accordionTest"
             >
@@ -190,7 +192,7 @@ const Map = () => {
                               <div
                               >
                                 <div className="row m-0">
-                                  <div className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${style.map_media_items}`}>
+                                  <div className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${styles.map_media_items}`}>
                                   {/* <Link
   href={`/services/${item.category_name}/${item.meta_title}`}
   passHref
@@ -239,20 +241,20 @@ const Map = () => {
 
                                       <li>
                                         Price: {parseInt(item.price/30)}         
-                                                <span className={`${style.project_price} float-end`}>
+                                                <span className={`${styles.project_price} float-end`}>
                         {item.isDelete == 0 ? (
                           <img
                           alt="check"
                             src="../../clientslogo/A-chek.png"
                             onClick={() => removefromCart(item.code, item.category_name)}
-                            className={`${style.addonCart} icon-clr`}
+                            className={`${styles.addonCart} icon-clr`}
                           />
                         ) : (
                           <img
                           alt="cart-icon"
                             src="../../clientslogo/A-cart.png"
                             onClick={(e,i) => addonCart(item.code)}
-                            className={`${style.addonCart} icon-clr`}
+                            className={`${styles.addonCart} icon-clr`}
                           />
                         )}
                       </span>
@@ -265,7 +267,7 @@ const Map = () => {
                               </div>
                             </div>
                             {slice.length == 1 && <div>
-                              <button  className={` ${style.btn_hover} buttonload`} onClick={getRelateddata}>Get Related Data</button>
+                              <button  className={` ${styles.btn_hover} buttonload`} onClick={getRelateddata}>Get Related Data</button>
                               </div>}
                           </>
                         ))}
@@ -276,7 +278,7 @@ const Map = () => {
              
 
 
-                <div className={`${style.map_btn_more} text-center`}>
+                <div className={`${styles.map_btn_more} text-center`}>
                 {loading ? (
         <>
         <h5 className="text-center">No Data Found</h5> 
@@ -296,7 +298,7 @@ const Map = () => {
                     </>
                   ) : (
                     <button
-                      className={` ${style.btn_hover} buttonload`}
+                      className={` ${styles.btn_hover} buttonload`}
                       onClick={() => More()}
                     >
                       View More <MdOutlineArrowDownward className="icon-clr" />
@@ -308,7 +310,7 @@ const Map = () => {
                      </>
                   ) : (
                     <button
-                      className={` ${style.btn_hover} buttonload mt-0`}
+                      className={` ${styles.btn_hover} buttonload mt-0`}
                       onClick={() => Less()}
                     >
                       View Less <MdArrowUpward className="icon-clr" />
@@ -330,8 +332,8 @@ const Map = () => {
       
           </div>
 
-          <div id={` ${style.map_view_mobile}`}>
-            <div className={`${style.aval_hoarding} d-inline-block position-absolute`}>
+          <div id={` ${styles.map_view_mobile}`}>
+            <div className={`${styles.aval_hoarding} d-inline-block position-absolute`}>
               <div className="map-btns d-inline-block p-1 pe-2 border-end">
                 <img
                   src="./assests/map-icons/billboard.png"

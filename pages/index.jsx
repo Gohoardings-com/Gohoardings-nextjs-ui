@@ -1,3 +1,4 @@
+import React,{useState,useEffect} from "react";
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import Ourservices from "@/components/ourServices";
@@ -14,6 +15,22 @@ const MyComponent = dynamic(() => import("@/components/navbar/flotingnavbar"), {
 });
 
 export default function Home() {
+  // const dispatch = useDispatch();
+  // const [city, setCity] = useState();
+  // var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
+  // function random_item() {
+  //   return setCity(items[Math.floor(Math.random() * items.length)]);
+  // }
+  // const data = async () => {
+  //   const category_name = "traditional-ooh-media";
+  //   const city_name = city;
+  //   const limit = 9
+  //   dispatch(mediawithcity(category_name, city_name, limit));
+  // };
+  // useEffect(() => {
+  //   random_item()
+  //   data()
+      // },[city])
   return (
     <>
       <Head>
@@ -55,7 +72,7 @@ export default function Home() {
           <Enquire />
         </section>
         <section>
-          <Trendingcity />
+          <Trendingcity/>
         </section>
       </main>
     </>

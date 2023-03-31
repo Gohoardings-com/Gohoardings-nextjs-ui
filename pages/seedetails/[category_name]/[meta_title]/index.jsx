@@ -4,7 +4,6 @@ import { Link } from "next/link";
 import { enquiryApi, emailformate } from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-// import "./details.scss";
 import { toast, ToastContainer } from "react-toastify";
 import instance from "@/allApi/axios";
 import Fixednavbar from "../../../../components/navbar/fixednavbar";
@@ -165,7 +164,7 @@ const Details = () => {
                                   .toLowerCase()}/media/images/new${element}`
                           }
                           onError={(e) =>
-                            (e.target.src = "../../clientslogo/alter-img.png")
+                            (e.target.src = "../../images/all_image/alter-img.png")
                           }
                           className="rounded-3 detail-img"
                         />

@@ -1,30 +1,19 @@
 import React from "react";
 import { TfiEye } from "react-icons/tfi";
-// import Loader from "../components/loader";
-import { Link } from "next/link";
-import {
-  MdLocalOffer,
-} from "react-icons/md";
-
-import styles from '../../../styles/media.module.scss';
+import { MdLocalOffer } from "react-icons/md";
+import Link from "next/link";
+import styles from "../../../styles/media.module.scss";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import Loader from "@/components/loader";
 
-
-const Multicard = ({
-  slice,
-  loading,
-  addonCart,
-  removefroCart,
-}) => {
+const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
   return (
-
     <>
       {loading ? (
         <>
           <div className=" container ">
             <div className="row  text-center ">
-             <Loader/>
+              <Loader />
             </div>
           </div>
         </>
@@ -33,84 +22,97 @@ const Multicard = ({
           {slice.length == 0 ? (
             <div className="container">
               <div className={`${styles.no_data} row  text-center my-3`}>
-                <img src="../../clientslogo/no-data.png" alt="No Data" className="" />
-              
+                <img
+                  src="../images/all_image/no-data.png"
+                  alt="No Data"
+                  className=""
+                />
               </div>
             </div>
           ) : (
             <>
               {slice.map((item, i) => (
-                <div className={`${styles.project}   mt-4"`} key={i}>
-                  <div className={`${styles.img_responsive} ${styles.figure}  `}>
-                  {/* <Link
-                      href={`/services/${item.category_name}/${item.meta_title}`}
+                <div className={`${styles.project}   mt-4 `} key={i}>
+                  <div
+                    className={`${styles.img_responsive} ${styles.figure}  `}
+                  >
+                    <Link
+                      href={`/seedetails/${item.category_name}/${item.meta_title}`}
                       className="text-decoration-none"
-                    > */}
-                    <img
-                      className="img-responsive-media rounded-top"
-                      alt={item.mediaownercompanyname}
-                      src={
-                        item.thumb.startsWith("https")
-                          ? item.thumb
-                          : `https://${item.mediaownercompanyname
-                              .trim()
-                              .split(" ")
-                              .slice(0, 2)
-                              .join("_")
-                              .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
-                              .trim()
-                              .split(" ")
-                              .slice(0, 2)
-                              .join("_")
-                              .toLowerCase()}/media/images/new${item.thumb}`
-                      }
-                      onError={(e) =>
-                        (e.target.src = "../../images/all_image/alter-img.png")
-                      }
-                    />
-                       {/* </Link> */}
-                  
-               
+                    >
+                      <img
+                        className={`${styles.img_responsive_media} rounded_top`}
+                        alt={item.mediaownercompanyname}
+                        src={
+                          item.thumb.startsWith("https")
+                            ? item.thumb
+                            : `https://${item.mediaownercompanyname
+                                .trim()
+                                .split(" ")
+                                .slice(0, 2)
+                                .join("_")
+                                .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
+                                .trim()
+                                .split(" ")
+                                .slice(0, 2)
+                                .join("_")
+                                .toLowerCase()}/media/images/new${item.thumb}`
+                        }
+                        onError={(e) =>
+                          (e.target.src =
+                            "../../images/all_image/alter-img.png")
+                        }
+                      />
+                    </Link>
+
                     <figcaption className="rounded-top">
-                      {/* <Link
-                        to={`/services/${item.category_name}/${item.meta_title}`}
+                      <Link
+                        href={`/seedetails/${item.category_name}/${item.meta_title}`}
                         className="text-decoration-none"
-                      > */}
-                        <span className="project-details">
-                        {item.subcategory} at{" "}
-                          {item.medianame.substring(0,12).split(",") }
-                          
+                      >
+                        <span className={styles.project_details}>
+                          {item.subcategory} at{" "}
+                          {item.medianame.substring(0, 12).split(",")}
                         </span>
-                      {/* </Link> */}
-                      <span className="project-creator mt-2 ms-0 ">
-                        <HiOutlineCurrencyRupee className="rupees-logo icon-clr" />{" "}
+                      </Link>
+                      <span className={`${styles.project_creator} mt-2 ms-0 `}>
+                        <HiOutlineCurrencyRupee
+                          className={`${styles.rupees_logo} icon-clr`}
+                        />{" "}
                         Price {""}
-                        <span className="text-muted text-decoration-line-through">
+                        <span
+                          className={`text-muted ${styles.text_decoration_line_through}`}
+                        >
                           {" "}
-                          {parseInt(((item.price * 11) / 10)/30)}{" "}
+                          {parseInt((item.price * 11) / 10 / 30)}{" "}
                         </span>
-                        <span className=" ms-2 off-text"> 9% off</span>
+                        <span className={`ms-2 ${styles.off_text}`}>
+                          {" "}
+                          9% off
+                        </span>
                       </span>
-                      <span className="project-creator mt-2 ms-0">
-                        <MdLocalOffer className="offer-logo icon-clr" /> Offer{" "}
-                        {""}
-                        {parseInt((item.price)/30)}
+                      <span className={` ${styles.project_creator} mt-2 ms-0`}>
+                        <MdLocalOffer
+                          className={`${styles.offer_logo} icon-clr`}
+                        />{" "}
+                        Offer {""}
+                        {parseInt(item.price / 30)}
                       </span>
 
-                      <span className="project-price">
+                      <span className={styles.project_price}>
                         {item.isDelete === 0 ? (
                           <img
-                          alt="check"
-                            src="../../clientslogo/A-chek.png"
+                            alt="check"
+                            src="../../images/all_image/A-chek.png"
                             onClick={() => removefroCart(item)}
-                            className="addonCart icon-clr  "
+                            className={` ${styles.addonCart} `}
                           />
                         ) : (
                           <img
-                          alt="cart-icon"
-                            src="../../clientslogo/A-cart.png"
+                            alt="cart-icon"
+                            src="../../images/all_image/A-cart.png"
                             onClick={() => addonCart(item)}
-                            className="addonCart icon-clr "
+                            className={` ${styles.addonCart} `}
                           />
                         )}
                       </span>
@@ -122,8 +124,6 @@ const Multicard = ({
           )}
         </>
       )}
-   
-   
     </>
   );
 };
