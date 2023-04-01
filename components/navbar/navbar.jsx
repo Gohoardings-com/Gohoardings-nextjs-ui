@@ -53,7 +53,7 @@ const NavbarH = () => {
               <Userdetail/>
           
               </div>
-<div
+{/* <div
             className="modal fade" id="exampleLoginModall" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
           >
             <div className="modal-dialog modal-dialog-centered nnbb" role="document">
@@ -63,7 +63,7 @@ const NavbarH = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
 
             </Nav>

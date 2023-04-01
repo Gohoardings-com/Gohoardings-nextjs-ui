@@ -22,6 +22,8 @@ import { FaUserCircle } from "react-icons/fa";
 // import { FaUserCircle
 // } from "react-icons/im";
 import { useRouter } from "next/router";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
 
 const Userdetail = () => {
@@ -115,6 +117,11 @@ const Userdetail = () => {
       setPosts(true);
     }
   }, [scrollY]);
+  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -164,10 +171,10 @@ const Userdetail = () => {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <div className={`${styles.cart} ms-2`}  >
+          <div className={`${styles.cart} ms-2`}>
             <span>
               <img
-                 aria-expanded={posts}
+                aria-expanded={posts}
                 src="../../images/all_image/hoarding.png"
                 className={`${styles.login_icon_cart} `}
               />
@@ -180,8 +187,7 @@ const Userdetail = () => {
           <div
             aria-expanded={posts}
             className={`pt-0 ${styles.drop_togel} border-0 usrdtl`}
-            data-bs-toggle="modal"
-            data-bs-target="#exampleLoginModall"
+            onClick={handleShow}
           >
             Login{" "}
             <FaUserCircle
@@ -189,6 +195,18 @@ const Userdetail = () => {
               className={`${styles.login_icon} ps-0 p-0  ms-0 mb-1`}
             />
           </div>
+          <>
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <LoginN />
+            </Modal>
+          </>
         </>
       )}
     </>

@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { AccountContext } from "../../apis/apicontext";
+// import { AccountContext } from "../../apis/apicontext";
+import { AccountContext } from "@/allApi/apicontext";
 import { Dropdown } from "react-bootstrap";
-import "react-calendar/dist/Calendar.css";
+// import "react-calendar/dist/Calendar.css";
 import { Link } from "next/link";
 import navigation  from "next/navigation";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaRupeeSign } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa"; 
-import "./cart.scss";
-import instance from "../../apis/axios";
+// import "./cart.scss";
+import instance from "@/allApi/axios";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import { toast, ToastContainer } from "react-toastify";
-import { cartitems, mediawithcity, removeItem, userDetails } from "../../action/adminAction";
-import Loader from "../components/loader";
-import Seohelmet from "../../components/seohelper/seohelmet";
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
+ import { cartitems, mediawithcity, removeItem, userDetails } from "@/redux/adminAction";
+import Loader from "@/components/loader";
+// import "react-date-range/dist/styles.css"; // main css file
+// import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
 
@@ -51,19 +51,19 @@ const Cart = () => {
     document.documentElement.scrollTop = 0;
   }
 
-  const setDays = async () => {
-    const data = [...items];
-    data.map((obj, i) => {
-      obj["days"] = 5;
-      obj["startDate"] = Start;
-      obj["endDate"] = End;
-    });
+  // const setDays = async () => {
+  //   const data = [...items];
+  //   data.map((obj, i) => {
+  //     obj["days"] = 5;
+  //     obj["startDate"] = Start;
+  //     obj["endDate"] = End;
+  //   });
 
-    setPosts(data);
-  };
-  useEffect(() => {
-    setDays();
-  }, []);
+  //   setPosts(data);
+  // };
+  // useEffect(() => {
+  //   setDays();
+  // }, []);
 
   const SelectDate = (obj) => {
     var diff = state[0].endDate - state[0].startDate;
@@ -152,8 +152,6 @@ const submitAllProduct = async () => {
 
   return (
     <>
-      <Seohelmet />
-
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
       <div className="container-xxl  container-xl container-lg container-md  cart-content ">
@@ -190,10 +188,10 @@ const submitAllProduct = async () => {
                               key={i}
                             >
                               <div className="col-md-4 pe-0 me-0 ">
-                              <Link
+                              {/* <Link
                         to={`/services/${obj.category_name}/${obj.meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                                 <img
                                   src={
                                     obj.thumb.startsWith("https")
@@ -219,18 +217,18 @@ const submitAllProduct = async () => {
                                   className="img-fluid w-100 rounded-2  m-2 cart-media-img"
                                   alt={obj.mediaownercompanyname}
                                 />
-                                </Link>
+                                {/* </Link> */}
                               </div>
                               <div className="col-md-8 ms-0  ">
                                 <div className="card-body ps-md-4">
                      
                                   <h4 className="card-title  pt-1 ">
-                                  <Link
+                                  {/* <Link
                         to={`/services/${obj.category_name}/${obj.meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                                   <span className="text-dark">{obj.illumination} - {obj.medianame} </span>  
-                                    </Link>
+                                    {/* </Link> */}
                                     <span
                                       className="float-end"
                                       onClick={() => removefroCart(obj)}
@@ -452,7 +450,7 @@ const submitAllProduct = async () => {
                       <div className="modal-content">
                         <div className="modal-body pb-0 text-center">
 
-                        <img src="../../clientslogo/celebration.png" className="celebration-logo w-50 h-50" alt="celebration"/>
+                        <img src="../images/all_image/celebration.png" className="celebration-logo w-50 h-50" alt="celebration"/>
 
 
                           <h5 className="mt-2 fw-bold">
@@ -502,7 +500,7 @@ const submitAllProduct = async () => {
                     <div className="  my-3">
                       <img
                         alt="empty-cart"
-                        src="../../clientslogo/empty-cart.gif"
+                        src="../images/all_image/empty-cart.gif"
                         className="empty-cart text-center"
                       />
                       <h2 className="empty-cart-text"> Your Cart is empty</h2>
@@ -514,6 +512,278 @@ const submitAllProduct = async () => {
           )}
         </div>
       </div>
+      <style jsx>
+        {
+          `
+          
+.cart-content {
+  margin-top: 85px;
+  margin-bottom: 65px;
+}
+
+.continue{
+  border: none !important;
+  width: 200px  ;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: rgb(48, 47, 47) !important;
+  background-color: #FFF323 !important;
+  text-transform: uppercase;
+  padding: 5px 20px !important;
+}
+.cart-media-img {
+  height: 230px !important;
+}
+
+.delet-icon {
+  font-size: 23px;
+  cursor: pointer;
+  transition: 0.7s;
+  color: #c8c7c7;
+}
+
+.card-title {
+  font-size: 19px;
+}
+#fgb{
+  cursor: not-allowed;
+  
+  
+}
+.card-text {
+  font-size: 14px;
+}
+// #exampleModal{
+//   .form-control{
+//     box-shadow: none;
+//   }
+//   .form-control:focus {
+//     border: 1px solid #f0e512f1;
+//   }
+ 
+// }
+.maincard {
+  box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 2px 0px !important;
+  border: none !important ;
+}
+.maincard:hover{
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+  border-radius: 6px;
+}
+
+.maincard:hover .delet-icon{
+  color:#808080 !important;
+  transform: scale(1.1) ;
+}
+
+.chek-avl-btn {
+  border: none;
+  width: 100% !important ;
+
+
+  color: rgb(48, 47, 47) !important;
+  background-color: #FFF323;
+  padding: 5px 25px;
+}
+  h5 {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+
+.news-headings {
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background-color: #e1e1e1;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+#ereday{
+  font-size: 12px;
+}
+
+.des {
+  color: #666464;
+}
+.tag-headd {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.tag-head {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+  .input-2 {
+    // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    //   rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 3px;
+    width: 70px !important;
+    font-size: 16px !important ;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    height: 35px;
+  }
+  .input-1 {
+    // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    //   rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 3px;
+    width: 70px !important;
+    font-size: 7px !important ;
+    padding-top: 2%;
+    height: 35px;
+  }
+  .calender-logos {
+    font-size: 25px !important ;
+    color: #7d7c7c;
+  }
+
+  .calender-logo {
+    font-size: 25px !important ;
+    margin-left: 24px;
+    margin-right:24px ;
+    color: #5f5f61;
+  }
+  // .dropdown-toggle::after {
+  //   display: none;
+  // }
+
+.total-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border: none;
+  background-color: #f7f7f7;
+}
+  h2 {
+    color: black;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+
+  .empty-cart {
+    height: 200px;
+    width: auto;
+  }
+  .empty-cart-text {
+    color: #798ba1;
+    font-size: 1.5rem;
+  }
+
+
+@media screen and (max-width: 1366px) {
+ 
+    .empty-cart {
+      height: 190px;
+    }
+    .empty-cart-text {
+      font-size: 1.3rem;
+    }
+  
+  .button-section {
+    margin-top: 15px !important;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+  .card-text-price {
+    font-size: 12px;
+  }
+  .card-text {
+    font-size: 12px;
+  }
+  .cart-media-img {
+    height: 220px !important;
+  }
+  .quantitey {
+    margin-left: 4px;
+    height: 15px;
+    width: 15px;
+  }
+
+  .delet-icon {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .news-headings {
+    font-size: 1.3rem;
+  }
+ 
+    h2 {
+      font-size: 1.3rem;
+    }
+    .tag-headd {
+      font-size: 1rem;
+    }
+    .tag-head {
+      font-size: 1rem;
+    }
+  
+
+    input {
+      width: 70px !important;
+      font-size: 13px !important ;
+      height: 30px;
+    }
+    .input-1 {
+      width: 150px !important;
+
+      height: 30px;
+    }
+    .calender-logos {
+      font-size: 16px !important ;
+    }
+
+    .calender-logo {
+      font-size: 16px !important ;
+    }
+  
+ 
+    .empty-cart {
+      height: 160px;
+    }
+    .empty-cart-text {
+      font-size: 1.1rem;
+    
+  }
+
+
+  .quantitey {
+    font-size: medium;
+  }
+  .card-title {
+    font-size: 17px;
+  }
+  .card-text {
+    font-size: 12px;
+  }
+  .des{
+    font-size: 13px;
+  }
+  .off-text {
+    font-size: 6px !important;
+  }
+  
+}
+
+.rupees-logo {
+  font-size: 12px;
+  margin-bottom: 2px !important;
+}
+
+.off-text {
+  color: #388e3c;
+  font-size: small;
+}
+
+          
+          `
+        }
+      </style>
     </>
   );
 };

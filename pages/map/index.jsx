@@ -1,49 +1,54 @@
-import React, {useContext, useEffect, useState, useCallback} from "react";
-import {AccountContext} from "@/allApi/apicontext";
-import styles from '../../styles/map.module.scss'
-import { useSelector, useDispatch} from "react-redux";
+import React, { useContext, useEffect, useState, useCallback } from "react";
+import { AccountContext } from "@/allApi/apicontext";
+import styles from "../../styles/map.module.scss";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "next/link";
-import Mapfilter from './mapfilters'
-import {useJsApiLoader} from "@react-google-maps/api"; 
+import Mapfilter from "./mapfilters";
+import { useJsApiLoader } from "@react-google-maps/api";
 import Markers from "./marker";
 import Iconsselection from "./iconsselection";
-import { addItem, markersPosition, mediawithcity, nearProduct, removeItem } from "@/redux/adminAction";
-import {BsListUl} from 'react-icons/bs'
-import {MdAddLocationAlt ,MdArrowUpward, MdOutlineArrowDownward} from 'react-icons/md'
-import {FaFilter,FaRupeeSign,FaMapMarked} from 'react-icons/fa'
-import { useRouter } from 'next/router';
+import {
+  addItem,
+  markersPosition,
+  mediawithcity,
+  nearProduct,
+  removeItem,
+} from "@/redux/adminAction";
+import { BsListUl } from "react-icons/bs";
+import {
+  MdAddLocationAlt,
+  MdArrowUpward,
+  MdOutlineArrowDownward,
+} from "react-icons/md";
+import { FaFilter, FaRupeeSign, FaMapMarked } from "react-icons/fa";
+import { useRouter } from "next/router";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 
 const Map = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const {search, loading} = useSelector((state) => state.search);
+  const { search, loading } = useSelector((state) => state.search);
   const { state, addRemove } = useContext(AccountContext);
   const [noOfLogo, setnoOfLogo] = useState(8);
-  const [zoom,setZoom] = useState(15)
-
- 
+  const [zoom, setZoom] = useState(15);
 
   var slice;
 
   if (!loading) {
-
-
-    slice =  search.slice(0, noOfLogo);
+    slice = search.slice(0, noOfLogo);
   }
 
-  function topFunction() {
-    document.body.scrollTop = 0; // htmlFor Safari
-    document.documentElement.scrollTop = 0; // htmlFor Chrome, Firefox, IE and Opera
-  }
+  // function topFunction() {
+  //   document.body.scrollTop = 0; // htmlFor Safari
+  //   document.documentElement.scrollTop = 0; // htmlFor Chrome, Firefox, IE and Opera
+  // }
 
-
-  useEffect(() => {
-    topFunction();
-  }, []);
+  // useEffect(() => {
+  //   topFunction();
+  // }, []);
 
   const [mapMarker, setPosts] = useState([]);
- 
+
   const addonCart = async (code, category_name) => {
     if (!localStorage.getItem(true)) {
       window.localStorage.setItem("locate", `/map`);
@@ -63,14 +68,12 @@ const Map = () => {
       setPosts(temp);
     });
   };
- 
 
-   const removefromCart = async (code) => {
+  const removefromCart = async (code) => {
     dispatch(removeItem(code));
     addRemove({ type: "DECR" });
     remove(code);
   };
-
 
   const remove = (code) => {
     let temp = [...slice];
@@ -78,44 +81,39 @@ const Map = () => {
     temp.forEach((element) => {
       if (element.code == code) {
         element.isDelete = 1;
-  
       }
-      setPosts(data)
+      setPosts(data);
     });
   };
 
-
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_MapAPI,
+    googleMapsApiKey:"AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE",
   });
 
-  const getRelateddata  = () => {
+  const getRelateddata = () => {
     // if(slice.length > 1) {
     const value = [...search];
     const code = value[0].code;
     const category_name = value[0].category_name;
-    const data = noOfLogo + 2
-    dispatch(
-      nearProduct(code,category_name, data)
-    );
-  //   }
-  }
-
+    const data = noOfLogo + 2;
+    dispatch(nearProduct(code, category_name, data));
+    //   }
+  };
 
   const More = async () => {
     if (search.length >= noOfLogo) {
       await setnoOfLogo(noOfLogo + 6);
-       if(zoom>=13){
-        setZoom(zoom-1)
-       } 
+      if (zoom >= 13) {
+        setZoom(zoom - 1);
+      }
     }
   };
   const Less = async () => {
     if (noOfLogo >= 2) {
       await setnoOfLogo(noOfLogo - 6);
-      if(zoom>=13){
-        setZoom(zoom-1)
-       } 
+      if (zoom >= 13) {
+        setZoom(zoom - 1);
+      }
     }
   };
   // const data = useCallback(() => {
@@ -123,81 +121,95 @@ const Map = () => {
   //     dispatch(mediawithcity("traditional-ooh-media","delhi",noOfLogo)).then(() => {
   //      window.location.reload()
   //    })
-    
+
   //   }
   // },[nearProduct])
 
   // useEffect(() => {
   // data()
   // },[])
-  
-  return (
-  <>
-  <Fixednavbar/>
-  <div className="container-fluid" id={styles.map_body}>
-      <div className="row" id={styles.map_view_row}>
-        <div className="col-lg-3 col-md-3 col-sm-12 p-0 border-end position-relative">
-          <div className={`row ${styles.filter_icons} mt-5 pt-3`}>
-            <div
-              className="col-4 list d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseT1"
-              aria-expanded="true"
-              aria-controls="collapseT1"
-            >
-              <BsListUl className="icons-sizes icon-clr"/>
-            </div>
-            <div
-              className="col-4 poi d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-              id="test"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseT2"
-              aria-expanded="false"
-              aria-controls="collapseT2"
-            >
-              <MdAddLocationAlt className="icons-sizes icon-clr "/>
-            </div>
-            <div
-              className="col-4 filter d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseT3"
-              aria-expanded="false"
-              aria-controls="collapseT3"
-            >
-              <FaFilter className="icons-sizes icon-clr"/>
-            </div>
-          </div>
 
-          <div id="accordionTest">
-            <div
-              className={`${styles.media_items} ${styles.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
-              id="collapseT1"
-              data-bs-parent="#accordionTest"
-            >
+  //   const data = async () => {
+  //   const category_name = "traditional-ooh-media";
+  //   const city_name = "delhi";
+  //   const limit = noOfLogo
+  //   dispatch(mediawithcity(category_name, city_name, limit));
+  // };
+
+  // useEffect(() => {
+  //   data()
+  //     },[noOfLogo])
+
+  return (
+    <>
+      <Fixednavbar />
+      <div className="container-fluid" id={styles.map_body}>
+        <div className="row" id={styles.map_view_row}>
+          <div className="col-lg-3 col-md-3 col-sm-12 p-0 border-end position-relative">
+            <div className={`row ${styles.filter_icons} mt-5 pt-3`}>
               <div
-                className="accordion items mb-2 rounded"
-                id="accordionExample"
+                className="col-4 list d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseT1"
+                aria-expanded="true"
+                aria-controls="collapseT1"
               >
-              {loading ? (
-            <></>
-                ) : (
-                  <>
-                    {slice.length == 0 ? (
-                      <h5 className="text-center">No Data Found</h5>
-                    ) : (
-                      <>
-                        {slice.map((item, i) => (
-                          <>
-                            <div className=" border rounded mb-2" key={i}>
-                              <div
-                              >
-                                <div className="row m-0">
-                                  <div className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${styles.map_media_items}`}>
-                                  {/* <Link
+                <BsListUl className={`${styles.icons_sizes} icon-clr`} />
+              </div>
+              <div
+                className="col-4 poi d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
+                id="test"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseT2"
+                aria-expanded="false"
+                aria-controls="collapseT2"
+              >
+                <MdAddLocationAlt
+                  className={`${styles.icons_sizes} icon-clr`}
+                />
+              </div>
+              <div
+                className="col-4 filter d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseT3"
+                aria-expanded="false"
+                aria-controls="collapseT3"
+              >
+                <FaFilter className={`${styles.icons_sizes} icon-clr`} />
+              </div>
+            </div>
+
+            <div id="accordionTest">
+              <div
+                className={`${styles.media_items} ${styles.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
+                id="collapseT1"
+                data-bs-parent="#accordionTest"
+              >
+                <div
+                  className="accordion items mb-2 rounded"
+                  id="accordionExample"
+                >
+                  {loading ? (
+                    <></>
+                  ) : (
+                    <>
+                      {slice.length == 0 ? (
+                        <h5 className="text-center">No Data Found</h5>
+                      ) : (
+                        <>
+                          {slice.map((item, i) => (
+                            <>
+                              <div className=" border rounded mb-2" key={i}>
+                                <div>
+                                  <div className="row m-0">
+                                    <div
+                                      className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${styles.map_media_items}`}
+                                    >
+                                      {/* <Link
   href={`/services/${item.category_name}/${item.meta_title}`}
   passHref
->
-  <a className="text-decoration-none">
+> */}
+  {/* <a className="text-decoration-none"> */}
                                     <img
                                     
                                       src={
@@ -222,119 +234,140 @@ const Map = () => {
                                       }
                                       className="w-100 h-75 mt-2 pt-2"
                                     />
-                                    </a>
+                                    {/* </a>
 </Link> */}
-                                  </div>
-                                  <div className="col-xl-8 col-lg-12 col-md-12 col-sm-6">
-                                    <ul className="list-unstyled pt-1">
-                                    {/* <Link
+                                    </div>
+                                    <div className="col-xl-8 col-lg-12 col-md-12 col-sm-6">
+                                      <ul className="list-unstyled pt-1">
+                                        {/* <Link
                         href={`/services/${item.category_name}/${item.meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                                       <li title={item.page_title} className='text-dark'>
                                         {item.page_title.substring(0, 20) +
                                           "..."}
                                       </li>
-                                      </Link> */}
-                                      <li>FTF : {item.ftf}</li>
-                                      <li>Size : {item.size} feet</li>
+                                      {/* </Link> */}
+                                        <li>FTF : {item.ftf}</li>
+                                        <li>Size : {item.size} feet</li>
 
-                                      <li>
-                                        Price: {parseInt(item.price/30)}         
-                                                <span className={`${styles.project_price} float-end`}>
-                        {item.isDelete == 0 ? (
-                          <img
-                          alt="check"
-                            src="../../clientslogo/A-chek.png"
-                            onClick={() => removefromCart(item.code, item.category_name)}
-                            className={`${styles.addonCart} icon-clr`}
-                          />
-                        ) : (
-                          <img
-                          alt="cart-icon"
-                            src="../../clientslogo/A-cart.png"
-                            onClick={(e,i) => addonCart(item.code)}
-                            className={`${styles.addonCart} icon-clr`}
-                          />
-                        )}
-                      </span>
-                                  
-                                      </li>
-                                    </ul>
+                                        <li>
+                                          Price: {parseInt(item.price / 30)}
+                                          <span
+                                            className={`${styles.project_price} float-end`}
+                                          >
+                                            {item.isDelete == 0 ? (
+                                              <img
+                                                alt="check"
+                                                src="../images/all_image/A-chek.png"
+                                                onClick={() =>
+                                                  removefromCart(
+                                                    item.code,
+                                                    item.category_name
+                                                  )
+                                                }
+                                                className={`${styles.addonCart} icon-clr`}
+                                              />
+                                            ) : (
+                                              <img
+                                                alt="cart-icon"
+                                                src="../images/all_image/A-cart.png"
+                                                onClick={(e, i) =>
+                                                  addonCart(item.code)
+                                                }
+                                                className={`${styles.addonCart} icon-clr`}
+                                              />
+                                            )}
+                                          </span>
+                                        </li>
+                                      </ul>
+                                    </div>
                                   </div>
-                  
                                 </div>
                               </div>
+                              {slice.length == 1 && (
+                                <div>
+                                  <button
+                                    className={` ${styles.btn_hover}  ${styles.buttonload}`}
+                                    onClick={getRelateddata}
+                                  >
+                                    Get Related Data
+                                  </button>
+                                </div>
+                              )}
+                            </>
+                          ))}
+                        </>
+                      )}
+                    </>
+                  )}
+
+                  <div className={`${styles.map_btn_more} text-center`}>
+                    {loading ? (
+                      <>
+                        <h5 className="text-center">No Data Found</h5>
+                      </>
+                    ) : (
+                      <>
+                        {" "}
+                        {slice.length < 8 ? (
+                          <></>
+                        ) : (
+                          <>
+                            <div className="position-relative my-5 ">
+                              <div className=" position-absolute mt-4 top-0 start-50 translate-middle">
+                                {slice.length == search.length ? (
+                                  <>
+                                    <h5 className="text-center">
+                                      No Data Found
+                                    </h5>
+                                  </>
+                                ) : (
+                                  <button
+                                    className={` ${styles.btn_hover}  ${styles.buttonload}`}
+                                    onClick={() => More()}
+                                  >
+                                    View More{" "}
+                                    <MdOutlineArrowDownward className="icon-clr" />
+                                  </button>
+                                )}
+                                {slice.length <= 9 ? (
+                                  <>
+                                    <h5 className="text-center">
+                                
+                                    </h5>
+                                  </>
+                                ) : (
+                                  <button
+                                    className={` ${styles.btn_hover} ${styles.buttonload}  mt-0`}
+                                    onClick={() => Less()}
+                                  >
+                                    View Less{" "}
+                                    <MdArrowUpward className="icon-clr" />
+                                  </button>
+                                )}
+                              </div>
                             </div>
-                            {slice.length == 1 && <div>
-                              <button  className={` ${styles.btn_hover} buttonload`} onClick={getRelateddata}>Get Related Data</button>
-                              </div>}
                           </>
-                        ))}
+                        )}
                       </>
                     )}
-                  </>
-                )} 
-             
-
-
-                <div className={`${styles.map_btn_more} text-center`}>
-                {loading ? (
-        <>
-        <h5 className="text-center">No Data Found</h5> 
-        </>
-      ) : (
-        <>
-          {" "}
-          {slice.length < 8 ? (
-            <></>
-          ) : (
-            <>
-              <div className="position-relative my-5 ">
-                <div className=" position-absolute mt-4 top-0 start-50 translate-middle">
-                  {slice.length == search.length ? (
-                    <> 
-                    <h5 className="text-center">No Data Found</h5>
-                    </>
-                  ) : (
-                    <button
-                      className={` ${styles.btn_hover} buttonload`}
-                      onClick={() => More()}
-                    >
-                      View More <MdOutlineArrowDownward className="icon-clr" />
-                    </button>
-                  )}
-                  {slice.length <= 9 ? (
-                    <>
-                    <h5 className="text-center">No Data Found</h5>
-                     </>
-                  ) : (
-                    <button
-                      className={` ${styles.btn_hover} buttonload mt-0`}
-                      onClick={() => Less()}
-                    >
-                      View Less <MdArrowUpward className="icon-clr" />
-                    </button>
-                  )}
+                  </div>
                 </div>
               </div>
-            </>
-          )}
-        </>
-      )}
-                </div>
-              </div>
+              {search && search.length > 0 ? (
+                <Iconsselection
+                  slice={slice}
+                  loading={loading}
+                  fnmedia={search}
+                />
+              ) : null}
+              <Mapfilter search={search} />
             </div>
-            {search && search.length > 0 ? (
-              <Iconsselection slice={slice} loading={loading} fnmedia={search} />
-            ) : null}
-           <Mapfilter search={search} />
-      
-          </div>
 
-          <div id={` ${styles.map_view_mobile}`}>
+            {/* <div id={` ${styles.map_view_mobile}`}>
             <div className={`${styles.aval_hoarding} d-inline-block position-absolute`}>
-              <div className="map-btns d-inline-block p-1 pe-2 border-end">
+              <div className={`${styles.map_btns} d-inline-block p-1 pe-2 border-end`}>
                 <img
                   src="./assests/map-icons/billboard.png"
                   alt="billboard"
@@ -342,7 +375,8 @@ const Map = () => {
                 />
                 <span className="pe-2">Available</span>
               </div>
-              <div className="map-btns d-inline-block p-1 pe-2">
+
+              <div className={`${styles.map_btns} d-inline-block p-1 pe-2`}>
                 <img
                   src="./assests/map-icons/billboard.png"
                   alt="billboard"
@@ -352,30 +386,36 @@ const Map = () => {
               </div>
             </div>
 
+          </div> */}
           </div>
-        </div>
-        <div className="col-9 p-0 mt-5 pt-3" id="map-view">
-        <button className="Load-more ms-2"    onClick={() => More()}>Load more </button>
-   
-          <div className="d-inline-block position-absolute bottom-0 mb-2 aval-hoarding bg-warning p-2  pb-0">
-            <div className="d-inline-block border-0 ">
-              <p className="">Click on markers to add/remove into cart.</p>
-            </div>
-          </div>
+          <div className="col-9 p-0 mt-5 pt-3" id={styles.map_view}>
+            {/* <button
+              className={`${styles.Load_more} ms-2`}
+              onClick={() => More()}
+            >
+              Load more{" "}
+            </button> */}
 
-          {
+            <div className={`d-inline-block position-absolute bottom-0 mb-2 ${styles.aval_hoarding }bg-warning p-2  pb-0"`}>
+              <div className="d-inline-block border-0 ">
+                <p className="">Click on markers to add/remove into cart.</p>
+              </div>
+            </div>
+
+            {
           !mapMarker.length > 0 ?
           isLoaded && slice && slice.length > 0 ? (
             <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} zoom={zoom} />
-          ) :      <h5 className="text-center m-3">No Data Found</h5>
+          ) : 
+          
+          <h5 className="text-center m-3">No Data Found dfgdefr</h5>
         :
         <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} zoom={zoom} />
         }
+          </div>
         </div>
-        
       </div>
-    </div>
-  </>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 const GoogleStreetView = dynamic(() => import('react-google-streetview'), {
   ssr: false // Set ssr to false to only load this module on the client-side
 });
+
 const Streetview = ({latitude, longitude, closeKeyword}) => {
 
     const googleMapsApiKey = process.env.REACT_APP_MapAPI

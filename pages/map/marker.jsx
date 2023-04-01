@@ -4,6 +4,7 @@ import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { useDispatch } from "react-redux";
 import {Link} from 'next/link'
 import Streetview from "./streetview";
+import styles from '../../styles/markers.module.scss'
 import { markersPosition } from "@/redux/adminAction";
 
 const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
@@ -212,8 +213,6 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
           <GoogleMap
             onLoad={handleOnLoad}
             zoom={"8"}
-          
- 
             onClick={() => setActiveMarker(null)}
             mapContainerStyle={{ height: "100%" }}
             options={{
@@ -248,18 +247,18 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
                   <Marker
                     key={id}
                    
-                    icon={isDelete==0?"../../markerIcon/placeholder2.png":"../../markerIcon/placeholder.png"}
+                    icon={isDelete==0?"../images/all_image/placeholder2.png":"../images/all_image/placeholder.png"}
                     position={position}
                     onClick={() => handleActiveMarker(id)}
                   >
                     {activeMarker === id  ? (
                       <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                        <div className="infoWindow">
-                          <div className="media-image">
-                          <Link
+                        <div className={styles.infoWindow}>
+                          <div className={styles.media_image}>
+                          {/* <Link
                         to={`/services/${category_name}/${meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                             <img
                               src={
                                 thumb.startsWith("https")
@@ -279,16 +278,16 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
                               alt="About media"
                               className="rounded-top"
                             />
-                               </Link>
+                               {/* </Link> */}
                           </div>
 
-                          <div className="info-window bg-white">
-                          <Link
+                          <div className={`${styles.info_window} bg-white`}>
+                          {/* <Link
                         to={`/services/${category_name}/${meta_title}`}
                         className="text-decoration-none"
-                      >
+                      > */}
                             <h5  className=" text-dark" >{illumination + "-" + medianame}</h5>
-                            </Link>
+                            {/* </Link> */}
                             <p>
                               <span>Media Type : </span>
                               {subcategory}
@@ -304,23 +303,23 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
                               <span>FTF : </span>
                               {ftf}
                             </p>
-                            <img src="../../clientslogo/streetv.gif" className="streetv "      onClick={(e, i) => onStreet(latitude, longitude)}/>
+                            <img src="../images/all_image/streetv.gif" className={styles.streetv}      onClick={(e, i) => onStreet(latitude, longitude)}/>
                            
                             {isDelete === 0 ? (
                               <img
-                                src="../../clientslogo/A-chek.png"
+                                src="../images/all_image/A-chek.png"
                                 onClick={() =>
                                   removefromCart(code)
                                 }
-                                className="addonCart icon-clr sitemark "
+                                className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
                                 alt="check_button"
                               />
                             ) : (
                               <img
                                 alt="cart_icon"
-                                src="../../clientslogo/A-cart.png"
+                                src="../images/all_image/A-cart.png"
                                 onClick={() => addonCart(code, category_name)}
-                                className="addonCart icon-clr sitemark "
+                                className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
                               />
                             )}
                           </div>
@@ -337,13 +336,13 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
             iconfilter.map(({ id, position, name, lat, lng }) => (
               <Marker
                 key={id}
-                icon={"../../markerIcon/restaurant.png"}
+                icon={"../images/all_image/restaurant.png"}
                 position={position}
                 onClick={() => handleActiveMarker(id)}
               >
                 {activeMarker === id && (
                   <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                    <div className="infoWindow">
+                    <div className={styles.infoWindow}>
                       <p>{name}</p>
                       <p>
                         {lat},{lng}
@@ -359,117 +358,6 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
         </>
       )}
 
-      <style jsx>
-        {
-          `
-          .back-map {
-            z-index: 5;
-            width: 80px;
-            background-color: #ffffff;
-            border-radius: 2px;
-            border: none;
-            // font-weight: 600;
-            position: absolute;
-            height: 40px;
-            vertical-align: middle;
-            color: rgb(0, 0, 0);
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 18px;
-            border-bottom-left-radius: 2px;
-            border-top-left-radius: 2px;
-            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
-          }
-          .this-area{
-            z-index: 5;
-            text-align: center;
-            padding:6px 24px ;
-            height: 40px;
-            vertical-align: middle;
-            color: rgb(0, 0, 0);
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 18px;
-            border-bottom-left-radius: 2px;
-            border-top-left-radius: 2px;
-            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
-            width: 160px;
-            background-color: #ffffff;
-            border: none;
-            // font-weight: 600;
-            position: absolute;
-             left: 83%;
-             top: 9.5%;
-           width: 200px; 
-          }
-          .streetv {
-            height: 49px;
-            cursor: pointer;
-            position: absolute;
-            bottom: 3%;
-            right: 15%;
-          }
-          
-          .Load-more{
-            padding:6px 10px ;
-            z-index: 5;
-            background-color: #ffffff;
-            border-radius: 2px;
-            border: none;
-            // font-weight: 600;
-            position: absolute;
-            // left: 3%;
-            top: 94%;
-            height: 40px;
-            vertical-align: middle;
-            color: rgb(0, 0, 0);
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 18px;
-            border-bottom-left-radius: 2px;
-            border-top-left-radius: 2px;
-            box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px;
-          }
-          .back-map:hover {
-            background-color: #dddada;
-          }
-          .Load-more:hover {
-            background-color: #dddada;
-          }
-          .infoWindow {
-            width: 300px;
-            height: 210px;
-            .media-image img {
-              width: 100%;
-              position: absolute;
-              top: -20px;
-              left: 0;
-            }
-          }
-          .sitemark {
-            height: 25px;
-            width: 20px;
-            margin-left: 6px;
-          }
-          .info-window {
-            width: 100%;
-            height: 110px;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            line-height: 0.2;
-            padding: 7px;
-            .sitemark {
-              height: 36px;
-              width: 38px;
-              position: absolute;
-              bottom: 0;
-              right: 0;
-              padding: 0px 0px;
-              margin: 0px 10px 10px;
-            }
-          }
-          
-          `
-        }
-      </style>
       
     </>
   );

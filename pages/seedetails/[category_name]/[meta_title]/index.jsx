@@ -72,7 +72,6 @@ const Details = () => {
         meta_title: meta_title,
         category_name: category_name,
       });
-
       setPosts(data);
     }
   };
@@ -118,6 +117,7 @@ const Details = () => {
       setPosts(data);
     });
   };
+
   useEffect(() => {
     getMedia();
   }, [category_name, meta_title]);
