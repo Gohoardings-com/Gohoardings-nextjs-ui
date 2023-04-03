@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useState,createContext, useReducer } from 'react';
 
 export const AccountContext = createContext();
 
@@ -16,12 +16,18 @@ const reducer = (state, action) => {
 };
 
 export const AccountProvider = ({ children }) => {
+  
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const addRemove = (action) => dispatch(action);
 
   return (
-    <AccountContext.Provider value={{ state, addRemove }}>
+    <AccountContext.Provider value={{ state, addRemove,show, handleClose, handleShow }}>
       {children}
     </AccountContext.Provider>
   );

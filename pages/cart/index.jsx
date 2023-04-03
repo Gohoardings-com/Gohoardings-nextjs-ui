@@ -154,7 +154,7 @@ const submitAllProduct = async () => {
     <>
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
-      <div className="container-xxl  container-xl container-lg container-md  cart-content ">
+      <div className={`container-xxl  container-xl container-lg container-md  cart-content`}>
         <div className="row mt-4 ">
           {loading ? (
             <>

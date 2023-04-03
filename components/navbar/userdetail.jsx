@@ -10,7 +10,7 @@ import { GoogleLogout } from "react-google-login";
 //   logoutUser,
 //   refreshToken,
 // } from "../../apis/apis";
-// import { AccountContext } from "../../apis/apicontext";
+import { AccountContext } from "@/allApi/apicontext";
 // import { cartitems, userDetails } from "../../action/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
 // import { useAuth0 } from "@auth0/auth0-react";
@@ -28,7 +28,7 @@ import LoginN from "@/pages/login/loginParent";
 
 const Userdetail = () => {
   // const dispatch = useDispatch();
-  // const { addRemove } = useContext(AccountContext);
+  const { handleClose, handleShow,show } = useContext(AccountContext);
   // const { initalState } = useContext(AccountContext);
   // const { user, loading } = useSelector((state) => state.user);
   // const { logout } = useAuth0();
@@ -118,10 +118,10 @@ const Userdetail = () => {
     }
   }, [scrollY]);
   
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   return (
     <>
