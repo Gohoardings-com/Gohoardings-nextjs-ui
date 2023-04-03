@@ -1,19 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { useGoogleOneTapLogin } from "react-google-one-tap-login";
-// import { useRouter } from "next/navigation";
 import { GoogleLogout } from "react-google-login";
-// import {
-//   clientId,
-//   googleLogin,
-//   logoutUser,
-//   refreshToken,
-// } from "../../apis/apis";
+import {
+  clientId,
+  googleLogin,
+  logoutUser,
+  refreshToken,
+} from "@/allApi/apis";
 import { AccountContext } from "@/allApi/apicontext";
-// import { cartitems, userDetails } from "../../action/adminAction";
+import { cartitems, userDetails } from "@/redux/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
-// import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../../styles/navbarHome.module.scss";
 import { MdDashboard } from "react-icons/md";
 import { CgUserlane } from "react-icons/cg";
@@ -22,17 +19,17 @@ import { FaUserCircle } from "react-icons/fa";
 // import { FaUserCircle
 // } from "react-icons/im";
 import { useRouter } from "next/router";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
 
 const Userdetail = () => {
-  // const dispatch = useDispatch();
-  const { handleClose, handleShow,show } = useContext(AccountContext);
-  // const { initalState } = useContext(AccountContext);
-  // const { user, loading } = useSelector((state) => state.user);
-  // const { logout } = useAuth0();
-
+  const dispatch = useDispatch();
+  const route = useRouter()
+  const { handleClose, handleShow,show, addRemove, initalState } = useContext(AccountContext);
+  const pth = route.asPath;
+  const [posts, setPosts] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+  const { user, loading } = useSelector((state) => state.user);
   // const oneTap = async (response) => {
   //   const data = await googleLogin(response);
   //   if (data.success === true) {
@@ -42,45 +39,43 @@ const Userdetail = () => {
   //   }
   // };
 
-  // let firstRender = true;
+  let firstRender = true;
 
-  // const handelLogout = async () => {
-  //   await logoutUser();
-  //   logout();
-  //   localStorage.removeItem("true");
-  //   navigate("/");
-  // };
+  const handelLogout = async () => {
+    await logoutUser();
+  };
 
   // const profile = async () => {
   //   navigate("/profile");
   // };
-  // const cart = async () => {
-  //   await dispatch(cartitems()).then(() => {
-  //     navigate("/cart");
-  //   });
-  // };
 
-  // const getUser = async () => {
-  //   addRemove({ type: "DECR" });
-  //   dispatch(userDetails);
-  // };
+  const cart = async () => {
+    await dispatch(cartitems()).then(() => {
+  route.push('/cart')
+    });
+  };
 
-  // const refreshUser = async () => {
-  //   const data = await refreshToken();
-  //   return data;
-  // };
+  const getUser = async () => {
+    addRemove({ type: "DECR" });
+    dispatch(userDetails);
+  };
 
-  // useEffect(() => {
-  //   if (firstRender) {
-  //     firstRender = true;
-  //     getUser();
-  //   } else {
-  //     let interval = setInterval(() => {
-  //       refreshUser();
-  //     }, 6 * 24 * 3600000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, []);
+  const refreshUser = async () => {
+    const data = await refreshToken();
+    return data;
+  };
+
+  useEffect(() => {
+    if (firstRender) {
+      firstRender = true;
+      getUser();
+    } else {
+      let interval = setInterval(() => {
+        refreshUser();
+      }, 6 * 24 * 3600000);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   // useGoogleOneTapLogin({
   //   onSuccess: (response) => oneTap(response),
@@ -90,15 +85,9 @@ const Userdetail = () => {
   //     client_id: clientId,
   //   },
   // });
-  // console.log(scrollY);
 
-  const route = useRouter();
-  const loading = true;
-  const pth = route.asPath;
 
-  const [posts, setPosts] = useState(true);
-  const [scrollY, setScrollY] = useState(0);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -118,11 +107,7 @@ const Userdetail = () => {
     }
   }, [scrollY]);
   
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
+  
   return (
     <>
       {loading == false ? (
@@ -144,7 +129,7 @@ const Userdetail = () => {
                 disabled={true}
               >
                 <CgUserlane className={`mb-1 } text-light`} />
-                {/* {user[0].firstname.toUpperCase()} */}
+                {user[0].firstname.toUpperCase()}
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
@@ -156,22 +141,22 @@ const Userdetail = () => {
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
-                // onClick={handelLogout}
+                onClick={handelLogout}
                 className={`${styles.drop_item} rounded-bottom ps-2 pt-2 pb-2 text-light`}
               >
                 <BiLogOut className=" text-light" />{" "}
-                {/* <GoogleLogout
+                <GoogleLogout
                   className="border-0 bg-transparent"
                   clientId={clientId}
                   buttonText={"Logout"}
                   onLogoutSuccess={handelLogout}
                   icon={false}
-                  id={log_bttn}
-                /> */}
+                  id={styles.log_bttn}
+                />
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <div className={`${styles.cart} ms-2`}>
+          <div className={`${styles.cart} ms-2`} onClick={cart}>
             <span>
               <img
                 aria-expanded={posts}
@@ -179,7 +164,7 @@ const Userdetail = () => {
                 className={`${styles.login_icon_cart} `}
               />
             </span>
-            <span></span>
+            <span>{initalState}</span>
           </div>
         </div>
       ) : (
