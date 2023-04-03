@@ -88,12 +88,12 @@ export const getAllCity = async(value) =>{
 };
 
 export const logoutUser = async() =>{
-    const data = await instance.post("registration/logout", null);
+    const data = await instance.get("sociallogin", null);
     return data;    
 }
 
 export const refreshToken = async() => {
-    const {data} = await instance.get(`registration/logout`,{withCredentials:true})
+    const {data} = await instance.get(`seedetails`,{withCredentials:true})
       return data
 }
 
