@@ -136,11 +136,10 @@ exports.processdCart = catchError(async (req, res, next) => {
 exports.deleteFromCart = catchError(async (req, res, next) => {
     const userid = req.id
     const { code } = req.body;  
-    const sql =await executeQuery("UPDATE goh_shopping_carts_item SET isDelete=1 WHERE userid='" + userid + "' && mediaid='" + code + "'", "gohoardi_goh",next)
+    const sql = await executeQuery("UPDATE goh_shopping_carts_item SET isDelete=1 WHERE userid='" + userid + "' && mediaid='" + code + "'", "gohoardi_goh",next)
             if (!sql) {
                 return res.status(206).json({success:false, message : "Can't Delete this Item"})
             } else {
-         
                 return res.send(sql);
             }
         }
