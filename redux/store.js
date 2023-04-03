@@ -32,23 +32,7 @@ export let store = createStore(
 persistedReducer,
 composeWithDevTools(applyMiddleware(...middleware))  
     )
-// composeWithDevTools(applyMiddleware(...middleware))
+
 
 export let persistor = persistStore(store);
   
-
-
-
-
-
-
-
-// const store = createStore(
-//   reducer,
-//   // loasdFromLocalStorage(),
-//   composeWithDevTools(applyMiddleware(...middleware))
-// );
-
-// store.subscribe(() => savetoLocalStorage(store.getState()))
-
-// export default store;

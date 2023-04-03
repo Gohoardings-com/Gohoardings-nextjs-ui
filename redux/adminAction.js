@@ -118,7 +118,7 @@ export const addItem = (mediaid, mediatype) => async (dispatch) => {
   try {
     dispatch({ type: "CartRequest" });
 
-    const { data } = await instance.post(`cart/addOnCart`, {
+    const { data } = await instance.put(`cart`, {
       mediaid,
       mediatype,
     });
@@ -132,7 +132,7 @@ export const removeItem = (code) => async (dispatch) => {
   try {
     dispatch({ type: "CartRequest" });
 
-    const { data } = await instance.post(`cart/deleteFromCart`, { code });
+    const { data } = await instance.patch(`cart`, { code });
     dispatch({ type: "CartSuccess", payload: data });
   } catch (error) {
     dispatch({ type: "CartFail", payload: error.response.data });

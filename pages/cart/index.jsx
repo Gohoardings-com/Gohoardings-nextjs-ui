@@ -122,7 +122,7 @@ const submitAllProduct = async () => {
       end_date: addDays(el.endDate, 1),
     });
   });
-  const { data } = await instance.post("cart/processdCart", {
+  const { data } = await instance.post("cart", {
     products: products,
     campainName: campainName,
   });

@@ -17,10 +17,8 @@ const Details = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { category_name, meta_title } = router.query;
-
   const { addRemove } = useContext(AccountContext);
   const [markers, setPosts] = useState([]);
-
   const [name, setName] = useState("");
   const [phone, setNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -81,16 +79,16 @@ const Details = () => {
     router.push("/login");
   };
   const addonCart = async (e) => {
-    if (!localStorage.getItem(true)) {
-      localStorage.setItem("locate", `/${meta_title}/${category_name}`);
-      router.push("/login");
-    } else {
+    // if (!localStorage.getItem(true)) {
+    //   localStorage.setItem("locate", `/${meta_title}/${category_name}`);
+    //   router.push("/login");
+    // } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
 
       add(e);
-    }
+    // }
   };
   const removefroCart = async (obj) => {
     await dispatch(removeItem(obj.code));
