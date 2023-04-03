@@ -1,40 +1,33 @@
 import React, { useState,createContext, useReducer } from 'react';
-import instance from './axios';
 
-export const AccountContext = createContext(null);
+export const AccountContext = createContext();
+
+const initialState = 0;
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCR':
+      return state + 1;
+    case 'DECR':
+      return state > 0 ? state - 1 : state;
+    default:
+      return state;
+  }
+};
 
 export const AccountProvider = ({ children }) => {
   
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const [show, setShow] = useState(false);
-  var [initalState, setInitalState] = useState(0)
-
-  const item = async () => {
-    const { data } = await instance.get(`forgetPass`)
-    setInitalState(data[0].item);
-    return initalState;
-  }
-
-  const reducer = (state, action) => {
-    if (action.type === 'INCR') {
-      state = state + 1;
-    }
-    if (state > 0 && action.type === 'DECR') {
-      state = state - 1;
-    }
-
-    return state
-  };
-
-  const [state, addRemove] = useReducer(reducer, (item()))
-
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const addRemove = (action) => dispatch(action);
 
   return (
-    <AccountContext.Provider value={{initalState,  state, addRemove,show, handleClose, handleShow }}>
+    <AccountContext.Provider value={{ state, addRemove,show, handleClose, handleShow }}>
       {children}
     </AccountContext.Provider>
   );

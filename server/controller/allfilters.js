@@ -1,36 +1,30 @@
-const db = require("../conn/conn");
+
 const catchError = require('../middelware/catchError')
 const jwtToken = require('jsonwebtoken')
+const  {executeQuery} = require("../conn/conn");
 
 
-exports.categorieFilter = catchError(async (req, res) => {
-    db.changeUser({database: "gohoardi_goh"});
-    db.query("SELECT p_id,name FROM tblmedia_categories", async (err, result) => {
-        if (err) {
-            return res.status(206).json({success:false, message: "No Data Found On this city"})
-        } else {
+exports.categorieFilter = catchError(async (req, res, next) => {
+    const result = await executeQuery("SELECT p_id,name FROM tblmedia_categories", "gohoardi_goh",next)
+    if (result)  {
             return res.status(200).json(result);
-        }
-    });
-})
-
-
-exports.mapFilter = catchError(async (req, res) => {
-    const {distance, selected, tbl, city} = req.body;
-    db.query("SELECT  * FROM " + tbl + " WHERE illumination='" + illumna + "' || subcategory= '" + catego + "'  &&  subcategory= '" + catego + "' &&  illumination='" + illumna + "'", async (err, result) => {
-        if (err) {
-
-            return res.status(206).json({err: err, message: "Wrong Data"})
-        } else if (result.length == 0) {
-            return res.status(206).json({success:false, message: "No data"})
-        } else {
-            return res.send(result);
         }
     })
 
-})
 
-exports.locationFilter = catchError(async (req, res) => {
+
+exports.mapFilter = catchError(async (req, res, next) => {
+    const {distance, selected, tbl, city} = req.body;
+   const result = await executeQuery("SELECT  * FROM " + tbl + " WHERE illumination='" + illumna + "' || subcategory= '" + catego + "'  &&  subcategory= '" + catego + "' &&  illumination='" + illumna + "'","gohoardi_goh",next ) 
+      if (result) {
+          return res.status(206).json({success:false, message: "No data"})
+          
+    } else {
+            return res.send(result);
+        } 
+    })
+
+exports.locationFilter = catchError(async (req, res, next) => {
     const {category_name, price, illumination, table, city, locations} = req.body;
     const SubCategory = category_name.toString()
     const newSubCate = SubCategory.replace(/,/g, "','")
@@ -78,18 +72,15 @@ exports.locationFilter = catchError(async (req, res) => {
       if(newLocation){
         addlovationQuery =  "&& location IN (" + newLocation  + ")"
     }
-
-    db.changeUser({database: "gohoardi_goh"});
-    const sql = "SELECT * FROM " + table_name + " WHERE city_name='" + city + "' AND  price BETWEEN " + min + " AND " + max + " "+addsubcategoryQuery+" "+addillumantionQuery+" "+addlovationQuery+" ";
-    db.query(sql, async (err, result) => {
-        if (err) {
-            return res.status(400).json({success:false, message: "Data Not Found"})
-        } else {
+    const result = await executeQuery( "SELECT * FROM " + table_name + " WHERE city_name='" + city + "' AND  price BETWEEN " + min + " AND " + max + " "+addsubcategoryQuery+" "+addillumantionQuery+" "+addlovationQuery+" ","gohoardi_goh",next);
+        if (result) {
             return res.status(200).json(result)
+        } else {
+            return res.status(400).json({success:false, message: "Data Not Found"})
         }
     })
-})
-exports.iconFilter = catchError(async (req, res) => {
+
+exports.iconFilter = catchError(async (req, res, next) => {
     const {distance, datas,  tbl, city, minLatitude, maxLatitude, uniqueValues} = req.body;
     const promise = []
     let data = ''
@@ -97,7 +88,6 @@ exports.iconFilter = catchError(async (req, res) => {
         data = datas.flat(Infinity)
     }
     // const tables = datas.flat(Infinity);
-    db.changeUser({database: "gohoardi_goh"});
     data.forEach(element => {
         switch (element) {
             case "restaurant":
@@ -109,14 +99,14 @@ exports.iconFilter = catchError(async (req, res) => {
             default:
                 table_name = "testing_only_restaurants";
         }
-        const sql = "SELECT * FROM "+table_name+" WHERE mp_lat IN (" + uniqueValues + ")"
-        promise.push(new Promise((resolve, reject) => {
+        promise.push(new Promise(async(resolve, reject) => {
+        const sql =await executeQuery("SELECT * FROM "+table_name+" WHERE mp_lat IN (" + uniqueValues + ")","gohoardi_goh" ,next)
             db.query(sql, (err, result) => {
-                if (err) {
+                if (!sql) {
                  
                     reject(err)
                 } else {
-                    resolve(result)
+                    resolve(sql)
                 }
             });    
         }))
@@ -148,7 +138,7 @@ exports.filterData = catchError(async (req, res, next) => {
     if (!cookieData) {
         return res.status(204).json({ message: "No Cookie Found" })
     }
-        db.changeUser({database: "gohoardi_goh"});
+    executeQuery('', "gohoardi_goh", next)
         switch (category_name) {
             case "traditional-ooh-media":
                 table_name = "goh_media";
@@ -187,28 +177,22 @@ exports.filterData = catchError(async (req, res, next) => {
               if(newLocation){
                 addlovationQuery =  "&& location IN (" + newLocation  + ")"
             }
-            const sql = "SELECT * FROM " + table_name + " WHERE  city_name='"+city_name+"' "+addsubcategoryQuery+" "+addillumantionQuery+" "+addlovationQuery+""
-            
-           db.query(sql,async (err,result) => {
-                if (err) {
-                 
-                    return res.status(206).json({success:false, message: "Database Error"})
-                } else {
-                    return res.status(200).json(result)
+            const sql =await  executeQuery("SELECT * FROM " + table_name + " WHERE  city_name='"+city_name+"' "+addsubcategoryQuery+" "+addillumantionQuery+" "+addlovationQuery+"","gohoardi_goh", next)
+                if (sql) {
+                    return res.status(200).json(sql)
                 }
-            })
+       
         
 })
 
 
-exports.mapMarkersData = catchError(async(req,res) => {
+exports.mapMarkersData = catchError(async(req,res, next) => {
     const {NorthLat, SouthLat, NorthLong, SouthLong} = req.body;
     const cookieData = req.cookies
     if (!cookieData) {
         return res.status(204).json({ message: "No Cookie Found" })
     }
 
-    db.changeUser({database: "gohoardi_goh"});
     const positions = "WHERE  media.latitude BETWEEN  '" + SouthLat + "' AND  '" + NorthLat + "' &&  media.longitude BETWEEN  '" + SouthLong  + "'  AND  '" + NorthLong + "'"
     const data = "id, illumination, height, width,ftf,code, latitude, longitude,meta_title,mediaownercompanyname, thumb, category_name, meta_title, subcategory, medianame, price, city_name" 
     const data2 = "media.id, media.illumination, media.height, media.width,media.ftf,media.code, media.latitude, media.longitude,media.meta_title,media.mediaownercompanyname,media.price, media.thumb, media.category_name, media.meta_title, media.subcategory, media.medianame, media.price, media.city_name, media.page_title" 
@@ -218,24 +202,18 @@ exports.mapMarkersData = catchError(async(req,res) => {
     const token = Object.values(cookieData)[0];
     return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
-            sql ="SELECT "+data2+" FROM goh_media as media "+positions+" UNION SELECT "+data2+" FROM goh_media_digital as media "+positions+" UNION SELECT "+data2+" FROM goh_media_transit as media "+positions+" UNION SELECT "+data2+" FROM goh_media_mall as media "+positions+" UNION SELECT "+data2+" FROM goh_media_airport as media "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight as media "+positions+" UNION SELECT "+data2+" FROM goh_media_office as media "+positions+""
+            sql =await executeQuery("SELECT "+data2+" FROM goh_media as media "+positions+" UNION SELECT "+data2+" FROM goh_media_digital as media "+positions+" UNION SELECT "+data2+" FROM goh_media_transit as media "+positions+" UNION SELECT "+data2+" FROM goh_media_mall as media "+positions+" UNION SELECT "+data2+" FROM goh_media_airport as media "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight as media "+positions+" UNION SELECT "+data2+" FROM goh_media_office as media "+positions+"","gohoardi_goh",next)
 
         } else {
             const userID = user.id;
             const userquery = "AS media LEFT JOIN goh_shopping_carts_item AS cart ON media.code=cart.mediaid AND cart.userid = '" + userID + "'"
-            sql  =  "SELECT "+data2+" FROM goh_media "+userquery+" "+positions+" UNION SELECT "+data2+" FROM goh_media_digital "+userquery+"   "+positions+" UNION SELECT "+data2+" FROM goh_media_transit "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_mall "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_airport "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_office "+userquery+" "+positions+""
+            sql =await executeQuery("SELECT "+data2+" FROM goh_media "+userquery+" "+positions+" UNION SELECT "+data2+" FROM goh_media_digital "+userquery+"   "+positions+" UNION SELECT "+data2+" FROM goh_media_transit "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_mall "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_airport "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight "+userquery+"  "+positions+" UNION SELECT "+data2+" FROM goh_media_office "+userquery+" "+positions+"","gohoardi_goh",next)
            
         }
-        db.changeUser({ database: "gohoardi_goh" });
-   
-        db.query(sql, async(err, result) => {
-            if (err) {
-
-                return res.status(206).json({success:false, message: "No Data Found"})
-            }else{
+            if (sql) {
+        
               return  res.status(200).json(result)
             }
         });  
     }
     )
-})

@@ -25,7 +25,8 @@ import LoginN from "@/pages/login/loginParent";
 const Userdetail = () => {
   const dispatch = useDispatch();
   const route = useRouter()
-  const { handleClose, handleShow,show, addRemove, initalState } = useContext(AccountContext);
+  const { handleClose, handleShow,show, addRemove } = useContext(AccountContext);
+  const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
   const [posts, setPosts] = useState(true);
   const [scrollY, setScrollY] = useState(0);
@@ -164,7 +165,7 @@ const Userdetail = () => {
                 className={`${styles.login_icon_cart} `}
               />
             </span>
-            <span>{initalState}</span>
+            <span>{items && items.legth}</span>
           </div>
         </div>
       ) : (

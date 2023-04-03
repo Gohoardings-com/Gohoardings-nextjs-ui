@@ -19,8 +19,8 @@ import Citylocation from "../cityLocation";
 import styles from "../../styles/fixedNavbar.module.scss";
 import NavbarDropdown from "./dropdown";
 // import Citylocation from "../cityLocation/citylocation";
-// import { useRouter } from "next/router";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
+
 
 const Fixednavbar = () => {
   const dispatch = useDispatch();
@@ -48,6 +48,9 @@ const Fixednavbar = () => {
   // useEffect(() => {
   //   closeSearch();
   // }, []);
+  const getMap = () => {
+    route.push('/map')
+  }
 
   let selecType;
   CityNameImage.map((el) => {
@@ -57,13 +60,12 @@ const Fixednavbar = () => {
   });
 
   const onChange = async (event) => {
-    // console.log(event);
     setValue(event.target.value);
     const cities = event.target.value;
     const data = await getAllCity(cities);
     setCity(data);
   };
-// console.log(city)
+
   const mavigatetoMediaPage = (userType, value) => {
     if (userPath == true && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
@@ -97,10 +99,7 @@ const Fixednavbar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {/* <GiHamburgerMenu
-            className={`${styles.GiHamburgerMenu}  me-3 `}
-          /> */}
-
+        
           <div className={`${styles.nav_icon_6} me-3`} aria-expanded={showMenu}>
             <span></span>
             <span></span>
@@ -202,7 +201,7 @@ const Fixednavbar = () => {
             ) : (
               <Nav.Link
                 className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}
-                href="/map"
+               onClick={getMap}
               >
                 Map
                 <MdLocationPin

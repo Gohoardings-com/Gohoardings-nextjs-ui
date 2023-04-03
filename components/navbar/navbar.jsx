@@ -3,12 +3,16 @@ import Nav from "react-bootstrap/Nav";
 import {MdLocationPin} from "react-icons/md" 
 import Navbar from "react-bootstrap/Navbar";
 import Userdetail from "./userdetail";
+import { useRouter } from "next/router";
 import styles from "../../styles/navbarHome.module.scss";
 import LoginN from "@/pages/login/loginParent";
 import Link from "next/link";
 
 const NavbarH = () => {
-
+const route = useRouter()
+  const getMap = () => {
+    route.push('/map')
+  }
 
   return (
     <>
@@ -44,7 +48,7 @@ const NavbarH = () => {
 
               <Nav.Link
              className={`ms-2  me-md-0   ${styles.nav_text_btn}  text-center`}
-                href="/map"
+             onClick={getMap}
               >
                 
                 Map View

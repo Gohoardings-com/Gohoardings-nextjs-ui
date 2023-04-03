@@ -25,8 +25,7 @@ export const mediawithcity = (category_name, city_name) => async (dispatch) => {
   }
 };
 
-export const mediawithlocation =
-  (category_name, city_name, loca, noOfLogo) => async (dispatch) => {
+export const mediawithlocation =(category_name, city_name, loca, noOfLogo) => async (dispatch) => {
     try {
       dispatch({ type: "MediaWithCityRequest" });
       const { data } = await instance.post(`product/NearproductByLocation`, {
@@ -47,7 +46,7 @@ export const priceSubIllu =
     try {
       dispatch({ type: "MediaWithCityRequest" });
 
-      const { data } = await instance.post(`filter/categoryfilter`, {
+      const { data } = await instance.post(`filters`, {
         category_name,
         price,
         illumination,
@@ -67,7 +66,7 @@ export const mediaFilters =
   async (dispatch) => {   
     try {
       dispatch({ type: "MediaWithCityRequest" });
-      const { data } = await instance.post(`filter/filterData`, {
+      const { data } = await instance.put(`filters`, {
         category_name,
         illunation,
         categorys,
@@ -87,7 +86,7 @@ export const iconFiltersData =
     try {
       dispatch({ type: "IconFilterRequest" });
 
-      const { data } = await instance.post(`filter/mapFilter`, {
+      const { data } = await instance.post(`filters`, {
         distance,
         datas,
         table,
@@ -170,7 +169,7 @@ export const markersPosition =
   (NorthLat, SouthLat, NorthLong, SouthLong) => async (dispatch) => {
     try {
       dispatch({ type: "MediaWithCityRequest" });
-      const { data } = await instance.post("filter/markersdata", {
+      const { data } = await instance.post("team", {
         NorthLat,
         SouthLat,
         NorthLong,

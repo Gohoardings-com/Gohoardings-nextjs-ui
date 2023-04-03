@@ -10,18 +10,15 @@ const ErrorHandle = require("../utils/Errorhandler");
 
 
 
-exports.sendOTP = catchError(async (req, res) => {
+exports.sendOTP = catchError(async (req, res, next) => {
     const {email} =req.params
 
     if (!email) {
         res.status(206).json({success:false, message: "Wrong Input"})
     }
-    db.changeUser({database: "gohoardi_crmapp"})
-    const sql = "SELECT email from tblcontacts WHERE phonenumber=" + email + ""
-    db.query(sql, (err, result) => {
-        if (err) {
-            res.status(400).json({message: err.message})
-        } else if (result.length == 0) {
+
+    const result =await executeQuery("SELECT email from tblcontacts WHERE phonenumber=" + email + "","gohoardi_crmapp",next)
+     if (result.length == 0) {
             return res.status(206).json({success:false,message: "Account Not Found"})
 
         } else {
@@ -37,23 +34,21 @@ exports.sendOTP = catchError(async (req, res) => {
                     'route': process.env.otpRoute,
                     'DLT_TE_ID': process.env.otpDLT_TE_ID
                 }
-            }, function (error, response, body) {
+            },async function (error, response, body) {
                 if (error) {
                     res.status(400).json({message: error.message})
                 } else {
-                    const sql = "UPDATE tblcontacts SET phone_otp= " + otp + " WHERE phonenumber=" + email + ""
-                    db.query(sql, async (err, result) => {
-                        if (err) {
-                            res.status(400).json({message: err.message})
-                        } else {
+                    const sql = await executeQuery("UPDATE tblcontacts SET phone_otp= " + otp + " WHERE phonenumber=" + email + "","gohoardi_crmapp",next)
+            
+                        if (sql) {
                             return res.status(200).json({success: true, message: "Mobile OTP Send.."})
                         }
-                    })
+                   
                 }
             })
         }
     })
-})
+
 
 
 exports.sendPasswordEmail = catchError(async (req, res, next) => {
@@ -126,15 +121,15 @@ exports.changePassword = catchError(async (req, res, next) => {
     }
 })
 
-exports.loginwithOTP = catchError(async (req, res) => {
+exports.loginwithOTP = catchError(async (req, res, next) => {
     const {otp} = req.body
     if (!otp) {
         return res.status(206).json({success:false, message: "OTP Invalid"})
     }
-    db.changeUser({database: "gohoardi_crmapp"})
-    const sql = "SELECT userid from tblcontacts WHERE phone_otp=" + otp + ""
-    db.query(sql, (err, result) => {
-        if (err) {
+
+    const sql =await executeQuery( "SELECT userid from tblcontacts WHERE phone_otp=" + otp + "", "gohoardi_crmapp", next)
+
+        if (!sql) {
             return res.status(206).json({success:false, message: "OTP Invalid"})
         } else if (result.length == 0) {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
@@ -143,5 +138,5 @@ exports.loginwithOTP = catchError(async (req, res) => {
             res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
             token(userid, 200, res)
         }
-    })
+
 })
