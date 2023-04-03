@@ -51,19 +51,19 @@ const Cart = () => {
     document.documentElement.scrollTop = 0;
   }
 
-  // const setDays = async () => {
-  //   const data = [...items];
-  //   data.map((obj, i) => {
-  //     obj["days"] = 5;
-  //     obj["startDate"] = Start;
-  //     obj["endDate"] = End;
-  //   });
+  const setDays = async () => {
+    const data = [...items];
+    data.map((obj, i) => {
+      obj["days"] = 5;
+      obj["startDate"] = Start;
+      obj["endDate"] = End;
+    });
 
-  //   setPosts(data);
-  // };
-  // useEffect(() => {
-  //   setDays();
-  // }, []);
+    setPosts(data);
+  };
+  useEffect(() => {
+    setDays();
+  }, []);
 
   const SelectDate = (obj) => {
     var diff = state[0].endDate - state[0].startDate;
@@ -476,7 +476,7 @@ const submitAllProduct = async () => {
                               type="button"
                               className="btn continue w-100 me-1"
                               data-bs-dismiss="modal"
-                              onClick={submitAllProduct}
+                              // onClick={submitAllProduct}
                             >
                               Done
                             </button>

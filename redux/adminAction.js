@@ -106,8 +106,7 @@ export const iconFiltersData =
 export const cartitems = () => async (dispatch) => {
   try {
     dispatch({ type: "CartRequest" });
-
-    const { data } = await instance.get(`cart/cartitems`);
+    const { data } = await instance.get(`cart`);
     dispatch({ type: "CartSuccess", payload: data });
   } catch (error) {
     dispatch({ type: "CartFail", payload: error.response.data });

@@ -157,8 +157,6 @@ exports.useritems = catchError(async (req, res, next) => {
         }
     );
 
-
-
 exports.getUserCartItem = catchError(async (req, res, next) => {
     const user = req.id
      const result = await   executeQuery(`SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `, "gohoardi_goh", next)
@@ -173,8 +171,9 @@ exports.cartiemfromdb = async (req, res, next) => {
     const arr = req.data;
     var table_name;
     let promises = [];
-    await executeQuery('',"gohoardi_goh", next);
+    executeQuery('', "gohoardi_goh", next)
     arr.map((obj) => {
+ 
         try {
             switch (obj.mediatype) {
                 case "traditional-ooh-media":
@@ -201,12 +200,12 @@ exports.cartiemfromdb = async (req, res, next) => {
                 default:
                     table_name = "goh_media";
             }
+
             promises.push(
                 new Promise(async (resolve, reject) => {
-                   const result = await executeQuery("SELECT media.*,cart.isDelete FROM  " + table_name + " AS media INNER JOIN goh_shopping_carts_item AS cart ON media.code='" + obj.mediaid + "' && cart.isDelete = 0  WHERE cart.userid = '" + obj.userid + "'", "gohoardi_goh",next)
-                      
-                            if (!result) {
-                                reject(err);
+                   const result = await executeQuery("SELECT media.*,cart.isDelete FROM  " + table_name + " AS media INNER JOIN goh_shopping_carts_item AS cart ON media.code='" + obj.mediaid + "' && cart.isDelete = 0  WHERE cart.userid = '" + obj.userid + "'", "gohoardi_goh",next)      
+                   if (!result) {
+                                reject(result);
                             } else {
                                 resolve(result);
                             }
