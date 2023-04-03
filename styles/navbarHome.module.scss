@@ -15,37 +15,24 @@
 }
 .nav_text_btn {
   color: #373435;
-  font-weight: 600 !important;
+  font-size: 1.1rem;
+  font-weight: 400;
   display: inline-block;
   width: auto !important;
 }
 
 .nav_text_btn::after {
-  content: "" !important;
-  display: block !important;
-  width: 0 !important;
-  height: 4px !important;
-  background: #f8eb00 !important;
-  transition: width 0.4s ease-in !important;
+  content: "" ;
+  display: block ;
+  width: 0 ;
+  height: 3px;
+  background: #f8eb00;
+  transition: width 0.4s ease-in;
 }
 
 .nav_text_btn:hover::after {
   width: 100% !important;
 }
-
-
-
-// .fixed_login {
-//       // border: transparent;
-//       // color: #ffffff;
-//       background-color: rgba(255, 255, 255, 0.15);
-//       backdrop-filter: blur(5px);
-//       font-weight: 500;
-//       padding-top: 6px !important;
-//       // height: 38px ;
-//       // width: 120px;
-     
-//     }
 
 .login_profile {
   
@@ -72,14 +59,15 @@
       margin-left: 8px !important;
     }
   }
+
   .drop_item {
     color: #ffffff !important;
     font-weight: 500 !important;
     span {
       padding: 0px !important;
-
-      color: #373435 !important;
-      font-weight: 500 !important;
+font-size: 17px !important;
+      color: #ffffff !important;
+    font-weight: 500 !important;
     }
   }
 
@@ -91,7 +79,7 @@
       font-weight: 500 !important;
   }
   .login_icon {
-    background-color: black;
+    background-color: #565656;
     border-radius: 50%;
     font-size: 34px;
     transition: 0.2s;
@@ -133,6 +121,8 @@
   }
 
 
+  
+
 
 // .login_profile {
 //   .login_icon {
@@ -150,6 +140,7 @@
 //     font-weight: 600 !important;
 //   }
 // }
+
 .font_map_btn {
   color: #373435 !important;
   font-weight: 600 !important;
@@ -167,12 +158,35 @@
   text-decoration: none;
 }
 .login_icon_cart {
-  margin-top: 10px;
-  height: 42px;
+  margin-top: 8px;
+  height: 45px;
+  
+  cursor: pointer;
 }
 .login_icon_cart[aria-expanded=true] {
-  margin-top: 0px;
-  height: 42px;
+  margin-top: -2px;
+  cursor: pointer;
+
+  height: 45px;
+}
+.cart span:nth-child(2) {
+  color: #565656;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  top: 1.4px;
+  left: -26.5px;
+}
+  
+.cart span:nth-child(2)[aria-expanded=true] {
+  color: #565656;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  top: -4.7px;
+  left: -27px;
 }
 @media screen and (max-width: 1366px) {
   .fixd_nabar {

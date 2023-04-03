@@ -46,9 +46,9 @@ const Userdetail = () => {
     await logoutUser();
   };
 
-  // const profile = async () => {
-  //   navigate("/profile");
-  // };
+  const profile = async () => {
+    route.push('/profile')
+  };
 
   const cart = async () => {
     await dispatch(cartitems()).then(() => {
@@ -110,7 +110,7 @@ const Userdetail = () => {
   
   
   return (
-    <>
+<>
       {loading == false ? (
         <div
           className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}
@@ -130,11 +130,11 @@ const Userdetail = () => {
                 disabled={true}
               >
                 <CgUserlane className={`mb-1 } text-light`} />
-                {user[0].firstname.toUpperCase()}
+                {" "}  {user[0].firstname.toUpperCase()}
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
-                // onClick={profile}
+                 onClick={profile}
                 className={`${styles.drop_item}  ps-2 pt-2 pb-2 text-light`}
               >
                 {" "}
@@ -165,7 +165,7 @@ const Userdetail = () => {
                 className={`${styles.login_icon_cart} `}
               />
             </span>
-            <span>{items && items.legth}</span>
+            <span aria-expanded={posts}>{initalState}</span>
           </div>
         </div>
       ) : (
@@ -181,18 +181,19 @@ const Userdetail = () => {
               className={`${styles.login_icon} ps-0 p-0  ms-0 mb-1`}
             />
           </div>
+
           <>
             <Modal
               show={show}
               onHide={handleClose}
-              backdrop="static"
-              keyboard={false}
               aria-labelledby="contained-modal-title-vcenter"
               centered
             >
               <LoginN />
             </Modal>
+            
           </>
+
         </>
       )}
     </>

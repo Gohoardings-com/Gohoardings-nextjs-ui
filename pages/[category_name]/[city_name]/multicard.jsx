@@ -72,7 +72,7 @@ const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
                       >
                         <span className={styles.project_details}>
                           {item.subcategory} at{" "}
-                          {item.medianame.substring(0, 12).split(",")}
+                          {item.medianame.substring(0, 18).split(" ")}
                         </span>
                       </Link>
                       <span className={`${styles.project_creator} mt-2 ms-0 `}>

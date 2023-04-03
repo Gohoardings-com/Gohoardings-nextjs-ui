@@ -1,4 +1,9 @@
 @import "../assets/scss/variables";
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .center {
   position: relative ;
@@ -24,14 +29,33 @@
     border: 1px solid #f0e512f1;
   }
 }
-.modal-content{
-  margin: 0;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 70vw !important;
-  height: 70vh !important;
+
+  .modal-content{
+    margin: 0;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 70vw !important;
+    height: 70vh !important;
+  }
+#exampleModal{
+  .form-control{
+    box-shadow: none;
+  }
+  .form-control:focus {
+    border: 1px solid #f0e512f1;
+  }
+  .modal-content{
+    margin: 0;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 35vw !important;
+    height: auto !important;
+  }
+ 
 }
 
 .icon-clr,
@@ -92,6 +116,15 @@
      --bs-dropdown-link-active-bg: #d1c601 ;
      --bs-dropdown-link-hover-bg: #303030;
 
+  }
+
+}
+
+.cart-content{
+
+
+   .dropdown-toggle::after {
+    display: none;
   }
 }
 .fnav{

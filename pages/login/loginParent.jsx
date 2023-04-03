@@ -37,6 +37,7 @@ const LoginN = ({scrollY}) => {
   const [password, setPassword] = useState("");
   const [passwordsValidate, setPasswordsValidate] = useState();
   const [phone, setNumber] = useState("");
+  const { handleClose,handleShow} = useContext(AccountContext);
   const [numbervalidate, setNumbervalidate] = useState();
   const [forget, setForget] = useState(false);
   const [pass, setPass] = useState(false);
@@ -58,6 +59,7 @@ const LoginN = ({scrollY}) => {
     // const locate = localStorage.getItem("locate");
     // const backlink = locate ? locate : "/";  
     // localStorage.removeItem("locate"); 
+    handleClose()
    setSuccess(true);
     setSendOtp(false);
   };

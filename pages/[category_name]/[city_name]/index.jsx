@@ -27,6 +27,7 @@ const Media = () => {
 
   const { search, loading } = useSelector((state) => state.search);
   const router = useRouter();
+  const { handleClose,handleShow} = useContext(AccountContext);
   const { category_name, city_name } = router.query;
   const { addRemove } = useContext(AccountContext);
   const [query, setQuery] = useState("");
@@ -52,15 +53,15 @@ const Media = () => {
   };
 
   const addonCart = async (e) => {
-    if (!localStorage.getItem(true)) {
-      window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-      router.push("/login");
-    } else {
+    // if (!localStorage.getItem(true)) {
+    //   window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
+    //  handleShow()
+    // } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
       add(e);
-    }
+    // }
   };
 
   const locatetologin = async () => {
@@ -383,7 +384,7 @@ const Media = () => {
                     removefroCart={removefroCart}
                     add={add}
                     remove={remove}
-                    locatetologin={locatetologin}
+                   
                   />
                 ) : (
                   <Singlecard
