@@ -85,7 +85,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
         type="submit"
         className="border-0 rounded btn-lg  mb-2 "
         
-        data-bs-dismiss="modal"
+        
       >
         Sign up
       </button>{" "}

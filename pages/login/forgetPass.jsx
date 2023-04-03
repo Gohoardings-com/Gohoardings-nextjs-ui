@@ -79,7 +79,7 @@ const ForgetPass = ({
 
             <div className="d-grid mt-5">
               {success? 
-               <button type="submit" className="border-0 rounded btn-lg" data-bs-dismiss="modal"  >
+               <button type="submit" className="border-0 rounded btn-lg"   >
                 
                SET PASSWORD
              </button>
@@ -128,7 +128,7 @@ const ForgetPass = ({
                   <label htmlFor="floatingInput"> Enter your OTP</label>
                 </div>
                 <div className="d-grid mt-5">
-                  <button type="submit" className="border-0 rounded btn-lg   "   data-bs-dismiss="modal">
+                  <button type="submit" className="border-0 rounded btn-lg   "   >
                     SUBMIT
                   </button>{" "}
                   <ToastContainer />

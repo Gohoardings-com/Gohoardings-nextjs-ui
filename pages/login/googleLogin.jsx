@@ -32,7 +32,7 @@ const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp,success}) => {
        
       
         
-        <a href="/api/linkedin"   data-bs-dismiss="modal">
+        <a href="/api/linkedin"   >
         <img
         alt="linkdin"
           src="../../images/all_image/linkdin.png"
@@ -40,7 +40,7 @@ const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp,success}) => {
         />
         </a>
         
-     <FcGoogle className={`${styles.google_icon} offset-1`} onClick={signIn}   data-bs-dismiss="modal" />
+     <FcGoogle className={`${styles.google_icon} offset-1`} onClick={signIn}    />
       </div>
     </>
   );

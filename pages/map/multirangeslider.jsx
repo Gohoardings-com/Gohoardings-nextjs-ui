@@ -52,7 +52,7 @@ const Multirangeslider = ({ min, max, onChange }) => {
           const value = Math.min(Number(event.target.value), maxVal - 1);
           setMinVal(value);
           minValRef.current = value;
-        }}
+        }} 
         className="thumb thumb--left"
         style={{ zIndex: minVal > max - 100 && "5" }}
       />

@@ -21,6 +21,7 @@ export default function Home() {
   // function random_item() {
   //   return setCity(items[Math.floor(Math.random() * items.length)]);
   // }
+  
   // const data = async () => {
   //   const category_name = "traditional-ooh-media";
   //   const city_name = city;

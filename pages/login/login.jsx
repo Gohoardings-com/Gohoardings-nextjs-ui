@@ -78,7 +78,7 @@ onClick={checkOTPForLogin}
           </p>
           <div className="d-grid mt-5">
             {success?<button
-              data-bs-dismiss="modal"
+              
               type="submit"
               className="border-0 rounded btn-lg  mb-2 "
             >

@@ -154,7 +154,7 @@ const submitAllProduct = async () => {
     <>
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
-      <div className="container-xxl  container-xl container-lg container-md  cart-content ">
+      <div className={`container-xxl  container-xl container-lg container-md  cart-content`}>
         <div className="row mt-4 ">
           {loading ? (
             <>
@@ -475,7 +475,7 @@ const submitAllProduct = async () => {
                             <button
                               type="button"
                               className="btn continue w-100 me-1"
-                              data-bs-dismiss="modal"
+                         
                               onClick={submitAllProduct}
                             >
                               Done
