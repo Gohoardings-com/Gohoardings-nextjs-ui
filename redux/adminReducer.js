@@ -83,7 +83,6 @@ export const CartReducer = (state = {items:{}}, action) =>{
     }
 }
 
-
 export const CartData = (state = {items:{}}, action) =>{
     switch (action.type) {
         case "CartItemRequest":

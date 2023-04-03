@@ -16,14 +16,13 @@ const reducer = (state, action) => {
 };
 
 export const AccountProvider = ({ children }) => {
+  
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () =>{
-    console.log("hii");
-    setShow(true);}
+  const handleShow = () => setShow(true);
 
   const addRemove = (action) => dispatch(action);
 
