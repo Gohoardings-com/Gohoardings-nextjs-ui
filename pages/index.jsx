@@ -5,7 +5,7 @@ import City from "@/components/cityList";
 import Enquire from "@/components/enquire/enquire";
 import Searchmedia from "@/components/searchMedia";
 import Trendingcity from "@/components/trendingcity";
-// import NavbarH from "@/components/navbar/navbar";
+import NavbarH from "@/components/navbar/navbar";
 import dynamic from "next/dynamic";
 
 const MyComponent = dynamic(() => import("@/components/navbar/flotingnavbar"), {
@@ -40,7 +40,7 @@ export default function Home() {
         />
       </Head>
       <main>
-        {/* <NavbarH /> */}
+        <NavbarH />
         <MyComponent />
         <section>
           <Searchmedia />
@@ -54,9 +54,9 @@ export default function Home() {
         <section>
           <Enquire />
         </section>
-        <section>
+        {/* <section>
           <Trendingcity/>
-        </section>
+        </section> */}
       </main>
     </>
   );

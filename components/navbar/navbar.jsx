@@ -22,8 +22,8 @@ const NavbarH = () => {
             <Nav className=" ms-auto ">
               <Nav.Link
                 className={`me-2  me-md-0   ${styles.nav_text_btn}  text-center`}
-                href="https://odoads.com/"
-                target="_blank"
+                // href="https://odoads.com/"
+                // target="_blank"
               >
                 Odoads
               </Nav.Link>

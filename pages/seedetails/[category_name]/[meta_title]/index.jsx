@@ -18,6 +18,7 @@ const Details = () => {
   const router = useRouter();
   const { category_name, meta_title } = router.query;
   const { addRemove } = useContext(AccountContext);
+  const { handleClose,handleShow} = useContext(AccountContext);
   const [markers, setPosts] = useState([]);
   const [name, setName] = useState("");
   const [phone, setNumber] = useState("");
@@ -76,19 +77,19 @@ const Details = () => {
 
   const locatetologin = async () => {
     localStorage.setItem("locate", `/services/${category_name}/${meta_title}`);
-    router.push("/login");
+    handleShow()
   };
   const addonCart = async (e) => {
-    // if (!localStorage.getItem(true)) {
-    //   localStorage.setItem("locate", `/${meta_title}/${category_name}`);
-    //   router.push("/login");
-    // } else {
+    if (!localStorage.getItem(true)) {
+      localStorage.setItem("locate", `/${meta_title}/${category_name}`);
+      handleShow()
+    } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
 
       add(e);
-    // }
+    }
   };
   const removefroCart = async (obj) => {
     await dispatch(removeItem(obj.code));
@@ -280,7 +281,6 @@ const Details = () => {
                       item.longitude +
                       "&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     }
-                    // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.203386323958!2d77.31864131492027!3d28.59367469258985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f0a89ce605%3A0xfd09bf1f744de96f!2sGohoardings!5e0!3m2!1sen!2sin!4v1667808584343!5m2!1sen!2sin"
                     className="map_sectionD rounded"
                     allowFullScreen={true}
                     loading="lazy"

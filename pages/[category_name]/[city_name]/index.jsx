@@ -27,6 +27,7 @@ const Media = () => {
 
   const { search, loading } = useSelector((state) => state.search);
   const router = useRouter();
+  const { handleClose,handleShow} = useContext(AccountContext);
   const { category_name, city_name } = router.query;
   const { addRemove } = useContext(AccountContext);
   const [query, setQuery] = useState("");
@@ -54,7 +55,7 @@ const Media = () => {
   const addonCart = async (e) => {
     if (!localStorage.getItem(true)) {
       window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-      router.push("/login");
+     handleShow()
     } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
