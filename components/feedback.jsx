@@ -53,8 +53,8 @@ const Feedback = () => {
     if(sessionStorage.getItem("done")) {
       document.getElementById("demo").style.display = "none";
     }
-    const {data} = await axios.get("https://api.ipify.org?format=json")
-    setIP(data.ip)
+    // const {data} = await axios.get("https://api.ipify.org?format=json")
+    // setIP(data.ip)
 } 
 useEffect(() => {
   getData()

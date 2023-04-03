@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "@/styles/globals.scss";
 import {store, persistor} from "@/redux/store";
-
 import { Provider } from "react-redux";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "slick-carousel/slick/slick.css";
@@ -16,9 +15,9 @@ import Footer from "@/components/footer";
 import dynamic from "next/dynamic";
 import { createWrapper } from "next-redux-wrapper";
 
-const MyComponent = dynamic(() => import("@/components/feedback"), {
-  ssr: false,
-});
+// const MyComponent = dynamic(() => import("@/components/feedback"), {
+//   ssr: false,
+// });
 
 const makeStore = () => store;
 const wrapper = createWrapper(makeStore);
@@ -34,7 +33,7 @@ function App({ Component, pageProps }) {
       <SSRProvider>
         <AccountProvider>
           <Component {...pageProps} />
-          <MyComponent />
+          {/* <MyComponent /> */}
           <Footer />
         </AccountProvider>
       </SSRProvider>

@@ -1,11 +1,28 @@
+import React,{useState, useEffect} from "react";
 import Slider from "react-slick";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Loader from "../components/loader";
+import { mediawithcity } from "@/redux/adminAction";
 
 const Trendingcity = () => {
   const { search, loading } = useSelector((state) => state.search);
-
+ const dispatch = useDispatch();
+  const [city, setCity] = useState();
+  var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
+  function random_item() {
+    return setCity(items[Math.floor(Math.random() * items.length)]);
+  }
+  const data = async () => {
+    const category_name = "traditional-ooh-media";
+    const city_name = city;
+    const limit = 9
+    dispatch(mediawithcity(category_name, city_name, limit));
+  };
+  useEffect(() => {
+    random_item()
+    data()
+      },[city])
 
   {
     var settings = {
