@@ -49,7 +49,7 @@ const Searchmedia = () => {
               </div>
               <div className={`${styles.mnc} mt-4`} >
                 <a className="text-decoration-none">
-                  <button className= {`${styles.button}`}>
+                  <button className= {`${styles.button}`} onClick={()=>route.push(`/contact-us`)}>
                     <span>Enquire now</span>
                   </button>
                 </a>

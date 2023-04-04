@@ -30,7 +30,6 @@ const Map = () => {
   const { search, loading } = useSelector((state) => state.search);
   const { state, addRemove } = useContext(AccountContext);
   const [noOfLogo, setnoOfLogo] = useState(8);
-  const [zoom, setZoom] = useState(15);
 
   var slice;
 
@@ -103,17 +102,13 @@ const Map = () => {
   const More = async () => {
     if (search.length >= noOfLogo) {
       await setnoOfLogo(noOfLogo + 6);
-      if (zoom >= 13) {
-        setZoom(zoom - 1);
-      }
+
     }
   };
   const Less = async () => {
     if (noOfLogo >= 2) {
       await setnoOfLogo(noOfLogo - 6);
-      if (zoom >= 13) {
-        setZoom(zoom - 1);
-      }
+
     }
   };
   // const data = useCallback(() => {
@@ -362,7 +357,7 @@ const Map = () => {
                   fnmedia={search}
                 />
               ) : null}
-              <Mapfilter search={search} />
+              {/* <Mapfilter search={search} /> */}
             </div>
 
             {/* <div id={` ${styles.map_view_mobile}`}>
@@ -405,12 +400,12 @@ const Map = () => {
             {
           !mapMarker.length > 0 ?
           isLoaded && slice && slice.length > 0 ? (
-            <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} zoom={zoom} />
+            <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} />
           ) : 
           
           <h5 className="text-center m-3">No Data Found dfgdefr</h5>
         :
-        <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} zoom={zoom} />
+        <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart}  />
         }
           </div>
         </div>

@@ -124,10 +124,10 @@ const submitAllProduct = async () => {
   });
   if (data.success == true) {
     addRemove({ type: "DECR" });
-    dispatch(cartitems());
-    setPosts([]);
+    // dispatch(cartitems());
+    // setPosts([]);
     toast(data.message);
-    topFunction();
+    // topFunction();
     setCampains("");
     dispatch(
       mediawithcity({
@@ -472,7 +472,7 @@ const submitAllProduct = async () => {
                               type="button"
                               className={`${styles.continue} btn w-100 me-1`}
                               data-bs-dismiss="modal"
-                              // onClick={submitAllProduct}
+                              onClick={submitAllProduct}
                             >
                               Done
                             </button>

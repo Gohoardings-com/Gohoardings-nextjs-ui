@@ -7,13 +7,13 @@ import Searchmedia from "@/components/searchMedia";
 import Trendingcity from "@/components/trendingcity";
 import NavbarH from "@/components/navbar/navbar";
 import dynamic from "next/dynamic";
+import Floatingnavbar from "@/components/navbar/flotingnavbar";
 
-const MyComponent = dynamic(() => import("@/components/navbar/flotingnavbar"), {
-  ssr: false,
-});
+// const MyComponent = dynamic(() => import("@/components/navbar/flotingnavbar"), {
+//   ssr: false,
+// });
 
 export default function Home() {
- 
   return (
     <>
       <Head>
@@ -23,7 +23,6 @@ export default function Home() {
           needs.
         </title>
         <meta charSet="utf-8" />
-
         <link
           rel="icon"
           href="https://www.gohoardings.com/assets/images/favicon.png"
@@ -41,7 +40,8 @@ export default function Home() {
       </Head>
       <main>
         <NavbarH />
-        <MyComponent />
+        {/* <MyComponent /> */}
+        <Floatingnavbar/>
         <section>
           <Searchmedia />
         </section>

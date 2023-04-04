@@ -17,6 +17,7 @@ import AccountProvider from "@/allApi/apicontext";
 import Footer from "@/components/footer";
 import dynamic from "next/dynamic";
 import { createWrapper } from "next-redux-wrapper";
+import Feedback from "@/components/feedback";
 
 // const MyComponent = dynamic(() => import("@/components/feedback"), {
 //   ssr: false,
@@ -39,6 +40,7 @@ function App({ Component, pageProps, session }) {
           <Component {...pageProps} />
           </SessionProvider>
           {/* <MyComponent /> */}
+          <Feedback/>
           <Footer />
         </AccountProvider>
       </SSRProvider>

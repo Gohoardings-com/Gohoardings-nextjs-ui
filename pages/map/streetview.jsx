@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 
 const GoogleStreetView = dynamic(() => import('react-google-streetview'), {
-  ssr: false // Set ssr to false to only load this module on the client-side
+  ssr: false
 });
 
 const Streetview = ({latitude, longitude, closeKeyword}) => {
 
-    const googleMapsApiKey = process.env.REACT_APP_MapAPI
+    const googleMapsApiKey = "AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE"
 
     const streetViewPanoramaOptions = {
       position: { lat: parseFloat(latitude), lng: parseFloat(longitude) },
