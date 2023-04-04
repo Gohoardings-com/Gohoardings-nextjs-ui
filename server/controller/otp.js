@@ -1,24 +1,23 @@
 const db = require("../conn/conn");
 const catchError = require("../middelware/catchError");
 const request = require('request')
-const  {executeQuery} = require("../conn/conn");
 const bcrypt = require("bcryptjs");
 const jwtToken = require('jsonwebtoken');
 const {token} = require("../middelware/token");
 const {sendEmail} = require("../middelware/sendEmail");
-const ErrorHandle = require("../utils/Errorhandler");
 
 
-
-exports.sendOTP = catchError(async (req, res, next) => {
-    const {email} =req.params
-
+exports.sendOTP = catchError(async (req, res) => {
+    const {email} = req.body
     if (!email) {
         res.status(206).json({success:false, message: "Wrong Input"})
     }
-
-    const result =await executeQuery("SELECT email from tblcontacts WHERE phonenumber=" + email + "","gohoardi_crmapp",next)
-     if (result.length == 0) {
+    db.changeUser({database: "gohoardi_crmapp"})
+    const sql = "SELECT email from tblcontacts WHERE phonenumber=" + email + ""
+    db.query(sql, (err, result) => {
+        if (err) {
+            res.status(400).json({message: err.message})
+        } else if (result.length == 0) {
             return res.status(206).json({success:false,message: "Account Not Found"})
 
         } else {
@@ -34,32 +33,35 @@ exports.sendOTP = catchError(async (req, res, next) => {
                     'route': process.env.otpRoute,
                     'DLT_TE_ID': process.env.otpDLT_TE_ID
                 }
-            },async function (error, response, body) {
+            }, function (error, response, body) {
                 if (error) {
                     res.status(400).json({message: error.message})
                 } else {
-                    const sql = await executeQuery("UPDATE tblcontacts SET phone_otp= " + otp + " WHERE phonenumber=" + email + "","gohoardi_crmapp",next)
-            
-                        if (sql) {
+                    const sql = "UPDATE tblcontacts SET phone_otp= " + otp + " WHERE phonenumber=" + email + ""
+                    db.query(sql, async (err, result) => {
+                        if (err) {
+                            res.status(400).json({message: err.message})
+                        } else {
                             return res.status(200).json({success: true, message: "Mobile OTP Send.."})
                         }
-                   
+                    })
                 }
             })
         }
     })
-
+})
 
 
 exports.sendPasswordEmail = catchError(async (req, res, next) => {
-    const {email} = req.query
+    const {email} = req.body
     if (!email) {
         res.status(206).json({message: "Wrong Input"})
     }
-
-   const confirm = await  executeQuery("SELECT userid from tblcontacts WHERE  email='" + email + "'","gohoardi_crmapp", next)
-       if (confirm.length == 0) {
-        next(new ErrorHandle("Email Invalid", `The query in which error occurred sendPasswordEmail Api`,206))
+    db.changeUser({database: "gohoardi_crmapp"})
+    db.query("SELECT userid from tblcontacts WHERE  email='" + email + "'", async (err, confirm) => {
+        if (err) {
+            return res.status(400).json({message: err.message})
+        } else if (confirm.length == 0) {
             return res.status(206).json({success:false, message: "Email Invalid"})
         } else {
             let otp = Math.floor(100000 + Math.random() * 900000);
@@ -68,75 +70,90 @@ exports.sendPasswordEmail = catchError(async (req, res, next) => {
             try {
                 await sendEmail({email: email, subject: subject, message: message});
                 const sql = "UPDATE tblcontacts SET email_otp=" + otp + " WHERE email='" + email + "'"
-                await executeQuery(sql,"gohoardi_crmapp", next)
-                 return res.status(200).json({success: true, message: `Email send on ${email}`})
+                db.query(sql, async (err, result) => {
+                    if (err) {
+                        return res.status(400).json({message: err.message})
+                    } else {
+                        return res.status(200).json({success: true, message: `Email send on ${email}`})
+                    }
+                })
             } catch (error) {
                 return res.status(500).json({message: error.message})
             }
         }
     })
+})
 
 
-exports.checkOTP = catchError(async (req, res, next) => {
+exports.checkOTP = catchError(async (req, res) => {
     const {otp} = req.body
     if (!otp) {
         return res.status(206).json({success:false, message: "OTP Invalid"})
     }
-    const sql =await  executeQuery("SELECT userid from tblcontacts WHERE phone_otp=" + otp + " || email_otp=" + otp + "","gohoardi_crmapp", next )
+    db.changeUser({database: "gohoardi_crmapp"})
+    const sql = "SELECT userid from tblcontacts WHERE phone_otp=" + otp + " || email_otp=" + otp + ""
 
-   
-        if (sql.length == 0) {
+    db.query(sql, (err, result) => {
+        if (err) {
+            return res.status(206).json({success:false, message: "OTP Invalid"})
+        } else if (result.length == 0) {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
         } else {
-            const userid = sql[0].userid;
-            const token = jwtToken.sign({id: userid}, "thisismysecretejsonWebToken", {
+            const userid = result[0].userid;
+            const token = jwtToken.sign({id: userid}, process.env.jwt_secret, {
                 expiresIn: "60000",
             });
             return res.status(200).json({success: true, message: token})
         }
-   
+    })
 })
 
-exports.changePassword = catchError(async (req, res, next) => {
-
+exports.changePassword = catchError(async (req, res) => {
     const {password, confirmpasswords, expire} = req.body
     if (!expire) {
         return res.status(206).json({success:false, message: "Otp Expire"});
     }
     if (password == confirmpasswords) {
-        jwtToken.verify(expire, "thisismysecretejsonWebToken", async (err, user) => {
+        jwtToken.verify(expire, process.env.jwt_secret, async (err, user) => {
             if (err) {
-                return res.status(206).json({success:false, message: "Time Out"});
+                return res.status(206).json({success:false, message: "InValid Token"});
             } else {
                 const userid = user.id;
                 const finalPassword = bcrypt.hashSync(password, 8)
-                const sqlQuery = await executeQuery("UPDATE tblcontacts SET password ='" + finalPassword + "' WHERE userId = " + userid + "", "gohoardi_crmapp",next);
-    if(sqlQuery){
-        token(userid, 200, res)
-    }
-       }
+                db.changeUser({database: "gohoardi_crmapp"})
+                const sqlQuery = "UPDATE tblcontacts SET password ='" + finalPassword + "' WHERE userId = " + userid + "";
+                db.query(sqlQuery, async (err, result) => {
+                    if (err) {
+
+                        return res.status(500).json({message: err.message})
+                    } else {
+                        token(userid, 200, res)
+                    }
+                })
+            }
         })
     } else {
         return res.status(500).json({message: "Password not matched"})
     }
 })
 
-exports.loginwithOTP = catchError(async (req, res, next) => {
+exports.loginwithOTP = catchError(async (req, res) => {
     const {otp} = req.body
     if (!otp) {
         return res.status(206).json({success:false, message: "OTP Invalid"})
     }
-
-    const sql =await executeQuery( "SELECT userid from tblcontacts WHERE phone_otp=" + otp + "", "gohoardi_crmapp", next)
-
-        if (!sql) {
+    db.changeUser({database: "gohoardi_crmapp"})
+    const sql = "SELECT userid from tblcontacts WHERE phone_otp=" + otp + ""
+    db.query(sql, (err, result) => {
+        if (err) {
             return res.status(206).json({success:false, message: "OTP Invalid"})
         } else if (result.length == 0) {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
         } else {
             const userid = result[0].userid;
-            res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+            res.clearCookie(String(userid))
+            req.cookies[`${String(userid)}`] = " ";
             token(userid, 200, res)
         }
-
+    })
 })

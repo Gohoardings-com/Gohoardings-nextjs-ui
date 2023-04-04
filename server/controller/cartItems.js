@@ -1,7 +1,6 @@
 const db = require("../conn/conn");
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError');
-const  {executeQuery} = require("../conn/conn");
 const fetch = require('node-fetch');
 const {sendEmail} = require("../middelware/sendEmail");
 
@@ -48,79 +47,102 @@ async function planMail(data, email) {
   
 
 
-exports.addOnCart = catchError(async (req, res, next) => {
-  
+exports.addOnCart = catchError(async (req, res) => {
     const cookieData = req.cookies
     if (!cookieData) {
         return res.status(206).json({success:false, message: "No Cookie Found" })
     }
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
+    return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
         if (err) {
             return res.status(206).json({success:false, message: "Login First" })
         } else {
             const userid = user.id
             const { mediaid, mediatype } = req.body;
-            const result  = await executeQuery("INSERT INTO goh_shopping_carts_item (userid, mediaid, campaigid, mediatype, status) VALUES ('" +
-            userid +
-            "','" +
-            mediaid +
-            "','" +
-            userid +
-            "','" +
-            mediatype +
-            "',0)", "gohoardi_goh",next)
-          if (result) {   
-  
-                    return res.send(result);
+            db.changeUser({ database: "gohoardi_goh" });
+            db.query("INSERT INTO goh_shopping_carts_item (userid, mediaid, campaigid, mediatype, status) VALUES ('" +
+                userid +
+                "','" +
+                mediaid +
+                "','" +
+                userid +
+                "','" +
+                mediatype +
+                "',0)",
+                async (err, result) => {
+                    if (err) {
+                        return res.status(400).json({success:false, message: "Database Error"})
+                    } else {
+                        return res.send(result);
+                    }
                 }
+            )
         }
     })
 })
 
 
 exports.campaineId = catchError(async (req,res, next) => {
- const result =    await executeQuery("SELECT MAX(campaigid) as campaigid FROM goh_shopping_carts_item","gohoardi_goh", next)
-    if (result){ 
-        campaign_id = (result[0].campaigid) + 1; 
+    db.changeUser({ database: "gohoardi_goh" });
+    const userId = req.id;
+    let promises = [];
+    db.query(
+        "SELECT MAX(campaigid) as campaigid FROM goh_shopping_carts_item",
+        async (err, result) => {
+            if (err) throw err;
+             campaign_id = (result[0].campaigid) + 1; 
+                next()   
+                
+           
+})
+})
 
-     
-        next() }               
-           })
-
-
-exports.processdCart = catchError(async (req, res, next) => {
+exports.processdCart = catchError(async (req, res) => {
     var { products, campainName } = req.body;
     const newCampain = campainName.replace(/ /g,"_");
+
     const userId = req.id;
     const campaign_name = campaign_id;
     let promises = [];
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
-     const result =    await executeQuery("SELECT * FROM tblcontacts WHERE userid='" + userId + "'","gohoardi_crmapp",next)
-            if (result) 
+        db.changeUser({database: "gohoardi_crmapp"})
+        db.query("SELECT * FROM tblcontacts WHERE userid='" + userId + "'", async (err, result) => {
+            if (err) {
                 return res.status(206).json({success:false ,message:"User Not Found"})
+            };
               const phone = result[0].phonenumber
               const userEmail = result[0].email
-
+    db.changeUser({ database: "gohoardi_goh" });
                 products.map((el) => {
                     promises.push(
                         new Promise(async (resolve,reject ) => {
-                    const data = await executeQuery("INSERT into goh_serach_activities (user, phone, campaign_name, start_date, end_date, campaign_city, media_type, address, city) VALUES (" + userId + ",'" + phone + "', '"+newCampain+"-"+ campaign_name+ "','" + el.start_date + "','" + el.end_date + "','" + el.medianame + "','" + el.category_name + "','" + el.address + "','" + el.city_name + "') ", "gohoardi_goh", next)
-                            if (data) {         
-                                const sql = await executeQuery("UPDATE goh_shopping_carts_item SET isDelete=1,status=1, campaigid = "+campaign_id+" WHERE userid=" + userId + " && mediaid='" + el.code + "'",  "gohoardi_goh", next);
-                                        if (!sql) {
+                    const sql = "INSERT into goh_serach_activities (user, phone, campaign_name, start_date, end_date, campaign_city, media_type, address, city) VALUES (" + userId + ",'" + phone + "', '"+newCampain+"-"+ campaign_name+ "','" + el.start_date + "','" + el.end_date + "','" + el.medianame + "','" + el.category_name + "','" + el.address + "','" + el.city_name + "') ";
+                    db.query(
+                        sql,
+                        async (err, code) => {
+                            if (err) {
+                                   return reject(err)
+                            } else {
+                                const sql = "UPDATE goh_shopping_carts_item SET isDelete=1,status=1, campaigid = "+campaign_id+" WHERE userid=" + userId + " && mediaid='" + el.code + "'";
+                                db.query(
+                                    sql,
+                                    async (err, data) => {
+
+                                        if (err) {
                                           
                                       return reject(err)
                                         } else {
 
-                                            return resolve(sql)
+                                            return resolve(data)
                                         }
-                                    }
-                                  
-                            }))
-                })    
+                                    })
+                            }
+                        }
+                    );
+                    }))
+                });
                 try {
                     const data = await Promise.all(promises);
         // await   sendEmail({email: "bussduro@gmail.com", subject: "Gohoadings Solutions : India's Largest Outdoor Advertising Company", message: "message" });
@@ -130,49 +152,66 @@ exports.processdCart = catchError(async (req, res, next) => {
                   return res.status(400).json({success:false, message:"Try Later"})
                 }
         }
-    })
-
+)}
+})
 
 exports.deleteFromCart = catchError(async (req, res, next) => {
     const userid = req.id
     const { code } = req.body;  
-    const sql = await executeQuery("UPDATE goh_shopping_carts_item SET isDelete=1 WHERE userid='" + userid + "' && mediaid='" + code + "'", "gohoardi_goh",next)
-            if (!sql) {
+    db.changeUser({ database: "gohoardi_goh" });
+    const sql = "UPDATE goh_shopping_carts_item SET isDelete=1 WHERE userid='" + userid + "' && mediaid='" + code + "'"
+    db.query(sql,
+        async (err, result) => {
+            if (err) {
+           
                 return res.status(206).json({success:false, message : "Can't Delete this Item"})
             } else {
-                return res.send(sql);
+         
+                return res.send(result);
             }
         }
     );
-
+})
 
 
 exports.useritems = catchError(async (req, res, next) => {
     const user = req.id
-   const data = await executeQuery(`SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0 `, "gohoardi_goh", next)
-            if (data){
-                return res.status(200).json(data)
+    db.changeUser({ database: "gohoardi_goh" });
+    db.query(
+        `SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0 `,
+        (err, result) => {
+            if (err) {
+                return res.send(err)
+            } else {
+                return res.status(200).json(result)
             }
         }
     );
+})
+
 
 exports.getUserCartItem = catchError(async (req, res, next) => {
     const user = req.id
-     const result = await   executeQuery(`SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `, "gohoardi_goh", next)
-            if (result) {
+    db.changeUser({ database: "gohoardi_goh" });
+    db.query(
+        `SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `,
+        (err, result) => {
+            if (err) {
+                return res.status(400).json({success:false, message: "Database Error"})
+            } else {
                 req.data = result;
                 next();
             }
         }
     );
+})
 
 exports.cartiemfromdb = async (req, res, next) => {
     const arr = req.data;
     var table_name;
     let promises = [];
-    executeQuery('', "gohoardi_goh", next)
+    db.changeUser({ database: "gohoardi_goh" });
     arr.map((obj) => {
- 
         try {
             switch (obj.mediatype) {
                 case "traditional-ooh-media":
@@ -199,19 +238,20 @@ exports.cartiemfromdb = async (req, res, next) => {
                 default:
                     table_name = "goh_media";
             }
-
             promises.push(
                 new Promise(async (resolve, reject) => {
-                   const result = await executeQuery("SELECT media.*,cart.isDelete FROM  " + table_name + " AS media INNER JOIN goh_shopping_carts_item AS cart ON media.code='" + obj.mediaid + "' && cart.isDelete = 0  WHERE cart.userid = '" + obj.userid + "'", "gohoardi_goh",next)      
-                   if (!result) {
-                                reject(result);
+                    db.query(
+                        "SELECT media.*,cart.isDelete FROM  " + table_name + " AS media INNER JOIN goh_shopping_carts_item AS cart ON media.code='" + obj.mediaid + "' && cart.isDelete = 0  WHERE cart.userid = '" + obj.userid + "'",
+                        async (err, result) => {
+                            if (err) {
+                                reject(err);
                             } else {
                                 resolve(result);
                             }
                         }
-                  
-                ))
-            
+                    );
+                })
+            );
         } catch (err) {
             return res.status(400).json({success:false, message: "Database Error"})
         }

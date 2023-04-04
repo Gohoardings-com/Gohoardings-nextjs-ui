@@ -1,33 +1,51 @@
 import React, { useState,createContext, useReducer } from 'react';
+import instance from './axios';
+import { useDispatch, useSelector } from "react-redux";
 
-export const AccountContext = createContext();
-
-const initialState = 0;
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INCR':
-      return state + 1;
-    case 'DECR':
-      return state > 0 ? state - 1 : state;
-    default:
-      return state;
-  }
-};
+export const AccountContext = createContext(null);
 
 export const AccountProvider = ({ children }) => {
   
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+  const { user, loading } = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
+  var [initalState, setInitalState] = useState(0)
+  const item = async () => {
+    if(loading == false && user.message !== "No Token Found"){
+    const { data } = await instance.get(`forgetPass`)
+    console.log(data);
+    if(data.message == "InValid Token"){
+      setInitalState(0);
+      return initalState;
+
+    }else{
+      setInitalState(data[0].item);
+      return initalState;
+    }
+  }else{
+    return initalState
+  }
+}
+
+  const reducer = (state, action) => {
+    if (action.type === 'INCR') {
+      state = state + 1;
+    }
+    if (state > 0 && action.type === 'DECR') {
+      state = state - 1;
+    }
+
+    return state
+  };
+
+  const [state, addRemove] = useReducer(reducer, (item()))
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const addRemove = (action) => dispatch(action);
 
   return (
-    <AccountContext.Provider value={{ state, addRemove,show, handleClose, handleShow }}>
+    <AccountContext.Provider value={{initalState,  state, addRemove,show, handleClose, handleShow }}>
       {children}
     </AccountContext.Provider>
   );

@@ -37,7 +37,6 @@ exports.verifyToken = catchError(async (req, res, next) => {
             if (err) {
                 return res.status(400).json({message: "InValid Token"});
             } else {
-                
                 req.id = user.id;
                 next()
             }
