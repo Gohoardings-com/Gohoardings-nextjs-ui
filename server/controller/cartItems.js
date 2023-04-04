@@ -322,14 +322,9 @@ exports.processdCart = catchError(async (req, res) => {
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
-<<<<<<< HEAD
         db.changeUser({database: "gohoardi_crmapp"})
         db.query("SELECT * FROM tblcontacts WHERE userid='" + userId + "'", async (err, result) => {
             if (err) {
-=======
-     const result =    await executeQuery("SELECT * FROM tblcontacts WHERE userid='" + userId + "'","gohoardi_crmapp",next)
-            if (!result) 
->>>>>>> 0dab8f342597320e57fccc478b9775cfadb2f6bc
                 return res.status(206).json({success:false ,message:"User Not Found"})
             };
               const phone = result[0].phonenumber
@@ -354,12 +349,8 @@ exports.processdCart = catchError(async (req, res) => {
                                           
                                       return reject(err)
                                         } else {
-<<<<<<< HEAD
 
                                             return resolve(data)
-=======
-                                            return resolve(sql)
->>>>>>> 0dab8f342597320e57fccc478b9775cfadb2f6bc
                                         }
                                     })
                             }

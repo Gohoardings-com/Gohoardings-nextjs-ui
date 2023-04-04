@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
 import instance from "@/allApi/axios";
+import { use } from "passport";
 
 const Userdetail = () => {
   const dispatch = useDispatch();
@@ -56,11 +57,20 @@ useEffect(() =>{
 },[session])
 
   const handelLogout = async () => {
-    signOut()
-    await logoutUser()
-     route.push('/')
-  };
+    signOut().then(async() =>{
+      await logoutUser()
+      localStorage.removeItem("goh",true) 
+      
+       route.push('/')
 
+    })
+  };
+  const data = localStorage.getItem("goh",true)
+useEffect(() =>{
+if(!data){
+  dispatch(userDetails)
+}
+},[data])
   const profile = async () => {
     route.push('/profile')
   };
@@ -109,11 +119,10 @@ useEffect(() =>{
     }
   }, [scrollY]);
   
-  
+  if(loading == false && user !== "No Token Found"){
   return (
-<>
-      {loading == false ? (
-        <div
+
+    <div
           className={`p-0 m-0  d-flex ${styles.userDetail2} my-2 my-lg-0 usrdtl`}
         >
           <Dropdown className={`${styles.login_profile} me-2`}>
@@ -143,18 +152,19 @@ useEffect(() =>{
               </Dropdown.Item>
               <hr className=" m-0" />
               <Dropdown.Item
-                onClick={handelLogout}
+                onClick={() =>handelLogout()}
                 className={`${styles.drop_item} rounded-bottom ps-2 pt-2 pb-2 text-light`}
               >
                 <BiLogOut className=" text-light" /> {" "}
-                <GoogleLogout
+                Logout
+                {/* <GoogleLogout
                   className="border-0 bg-transparent"
                   clientId={clientId}
                   buttonText={"Logout"}
                   onLogoutSuccess={handelLogout}
                   icon={false}
                   id={styles.log_bttn}
-                />
+                /> */}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -168,37 +178,36 @@ useEffect(() =>{
             </span>
             <span aria-expanded={posts}>{initalState}</span>
           </div>
-        </div>
-      ) : (
-        <>
-          <div
-            aria-expanded={posts}
-            className={`pt-0 ${styles.drop_togel} border-0 usrdtl`}
-            onClick={handleShow}
-          >
-            Login{" "}
-            <FaUserCircle
-              aria-expanded={posts}
-              className={`${styles.login_icon} ps-0 p-0  ms-0 mb-1`}
-            />
-          </div>
-
-          <>
-            <Modal
-              show={show}
-              onHide={handleClose}
-              aria-labelledby="contained-modal-title-vcenter"
-              centered
-            >
-              <LoginN />
-            </Modal>
-            
-          </>
-
-        </>
-      )}
-    </>
-  );
+        </div> 
+  )
+     }else{
+   return(
+      <>
+ <div
+ aria-expanded={posts}
+ className={`pt-0 ${styles.drop_togel} border-0 usrdtl`}
+ onClick={handleShow}
+>
+ Login{" "}
+ <FaUserCircle
+   aria-expanded={posts}
+   className={`${styles.login_icon} ps-0 p-0  ms-0 mb-1`}
+ />
+</div>
+ <Modal
+ show={show}
+ onHide={handleClose}
+ aria-labelledby="contained-modal-title-vcenter"
+ centered
+>
+ <LoginN />
+</Modal>
+</>
+)
+     }
+    
+  
+ 
 };
 
 export default Userdetail;
