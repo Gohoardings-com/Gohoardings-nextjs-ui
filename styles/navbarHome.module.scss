@@ -74,9 +74,9 @@ font-size: 17px !important;
 }
   .drop_togel{
     margin-top: 6px;
-    border: transparent !important;
-      color: #ffffff !important;
-      font-weight: 500 !important;
+    border: transparent ;
+      color: #ffffff ;
+      font-weight: 500 ;
   }
   .login_icon {
     background-color: #565656;
@@ -89,8 +89,9 @@ font-size: 17px !important;
     margin-top: 2.4px;
     margin-left: 6px;
     border: transparent !important;
-      color: #373435 !important;
-      font-weight: 600 !important;
+    color: #373435;
+    font-size: 1.1rem !important;
+    font-weight: 400 !important;
   }
   .login_icon[aria-expanded=true] {
     background-color: rgb(255, 255, 255);

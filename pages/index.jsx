@@ -54,9 +54,9 @@ export default function Home() {
         <section>
           <Enquire />
         </section>
-        {/* <section>
+        <section>
           <Trendingcity/>
-        </section> */}
+        </section>
       </main>
     </>
   );
