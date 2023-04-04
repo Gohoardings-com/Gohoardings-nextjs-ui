@@ -57,7 +57,7 @@ const Fixednavbar = () => {
     const data = await getAllCity(cities);
     setCity(data);
   };
-
+   
   const mavigatetoMediaPage = (userType, value) => {
     if (pathname === "/map" && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
