@@ -126,7 +126,7 @@ const Fixednavbar = () => {
         <Navbar.Collapse id={styles.basic_navbar_nav}>
           <Nav className={`navbar-nav mx-auto  ${styles.search_inner_drop} `}>
             <InputGroup className=" me-3">
-              {/* <Citylocation InputGroup={InputGroup} setValue={setValue} /> */}
+            
               <Form.Control
                 placeholder="Search your location"
                 aria-describedby="basic-addon1"

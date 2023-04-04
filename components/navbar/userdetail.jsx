@@ -47,8 +47,9 @@ const Userdetail = () => {
 
   const handelLogout = async () => {
     await logoutUser()
-
-     route.push('/')
+    dispatch(userDetails)
+    localStorage.removeItem("goh")
+    // route.reload(window.location.pathname)
   };
 
   const profile = async () => {
@@ -67,9 +68,7 @@ const Userdetail = () => {
     return data;
   };
 
-useEffect(() =>{
 
-},[loading])
 
   // useGoogleOneTapLogin({
   //   onSuccess: (response) => oneTap(response),
@@ -138,7 +137,7 @@ useEffect(() =>{
                 onClick={handelLogout}
                 className={`${styles.drop_item} rounded-bottom ps-2 pt-2 pb-2 text-light`}
               >
-                <BiLogOut className=" text-light" />
+                <BiLogOut className=" text-light" /> {" "}
                 <GoogleLogout
                   className="border-0 bg-transparent"
                   clientId={clientId}

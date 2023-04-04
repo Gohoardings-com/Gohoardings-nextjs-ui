@@ -80,14 +80,14 @@ const Details = () => {
     handleShow()
   };
   const addonCart = async (e) => {
-    if (!localStorage.getItem(true)) {
-      localStorage.setItem("locate", `/${meta_title}/${category_name}`);
+    if (!localStorage.getItem("goh")) {
       handleShow()
-    } else {
+     
+    } 
+    else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
-
       add(e);
     }
   };

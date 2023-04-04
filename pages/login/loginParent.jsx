@@ -55,10 +55,7 @@ const LoginN = ({scrollY}) => {
   const navigate = useRouter()
 
   const afterLogin = async () => {
-    // localStorage.setItem(true, "long");
-    // const locate = localStorage.getItem("locate");
-    // const backlink = locate ? locate : "/";  
-    // localStorage.removeItem("locate"); 
+     localStorage.setItem("goh", true);
     dispatch(userDetails);
     addRemove({ type: "DECR" });
     handleClose()

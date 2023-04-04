@@ -53,21 +53,17 @@ const Media = () => {
   };
 
   const addonCart = async (e) => {
-    // if (!localStorage.getItem(true)) {
-    //   window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-    //  handleShow()
-    // } else {
+    if (!localStorage.getItem("goh")) {
+     handleShow()
+    } else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
       add(e);
-    // }
+    }
   };
 
-  const locatetologin = async () => {
-    window.localStorage.setItem("locate", `/${category_name}/${city_name}`);
-    router.push("/login");
-  };
+
   const removefroCart = async (obj) => {
     dispatch(removeItem(obj.code));
     addRemove({ type: "DECR" });
