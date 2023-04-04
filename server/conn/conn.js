@@ -58,3 +58,22 @@ const executeQuery = (query, arraParms, next) =>{
 
 
 module.exports = {executeQuery};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

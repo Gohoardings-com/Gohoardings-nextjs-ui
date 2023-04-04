@@ -37,7 +37,7 @@ const LoginN = ({scrollY}) => {
   const [password, setPassword] = useState("");
   const [passwordsValidate, setPasswordsValidate] = useState();
   const [phone, setNumber] = useState("");
-  const { handleClose,handleShow} = useContext(AccountContext);
+  const { handleClose,addRemove} = useContext(AccountContext);
   const [numbervalidate, setNumbervalidate] = useState();
   const [forget, setForget] = useState(false);
   const [pass, setPass] = useState(false);
@@ -59,6 +59,8 @@ const LoginN = ({scrollY}) => {
     // const locate = localStorage.getItem("locate");
     // const backlink = locate ? locate : "/";  
     // localStorage.removeItem("locate"); 
+    dispatch(userDetails);
+    addRemove({ type: "DECR" });
     handleClose()
    setSuccess(true);
     setSendOtp(false);
@@ -70,10 +72,7 @@ const LoginN = ({scrollY}) => {
     const profile = res.profileObj;
     const data = await googleLogin(profile);
     if (data.success === true) {
-
-      dispatch(userDetails)
       afterLogin()
-     
     } else {
       toast(data.message);
     }

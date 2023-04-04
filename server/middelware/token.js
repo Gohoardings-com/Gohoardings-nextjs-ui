@@ -14,7 +14,6 @@ exports.token = catchError(async (userid, statuscode, res) => {
         httpOnly: false,
         sameSite: 'strict',
     }
-
   
     return res.status(statuscode).setHeader("Set-Cookie",cookie.serialize(String(userid), token, option)).json({
         success: true,
@@ -38,7 +37,6 @@ exports.verifyToken = catchError(async (req, res, next) => {
             if (err) {
                 return res.status(400).json({message: "InValid Token"});
             } else {
-                
                 req.id = user.id;
                 next()
             }

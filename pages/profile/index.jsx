@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { profileDetails } from "@/allApi/apis";
+// import { profileDetails } from "@/allApi/apis";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import Campaings from "./userdata";
 import Changepassword from "./changepassword";
 import Companyprofile from "./companyprofile";
-import "./profile.scss";
 import Userprofile from "./userprofile";
 import Campign from "./campign";
 import Profoma from "./profoma";
 import Invoice from "./invoice";
 import Announcement from "./announcement";
-import {BiEditAlt} from 'react-icons/bi'
+import { BiEditAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
@@ -20,20 +19,20 @@ const Profile = () => {
   const [capm, setCamp] = useState(false);
   const [profoma, setProfoma] = useState(false);
   const [invoice, setInvoice] = useState(false);
-  const [announce ,setAnnounce] = useState(false);
+  const [announce, setAnnounce] = useState(false);
   const { user, loading } = useSelector((state) => state.user);
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-  useEffect(() => {
-    topFunction();
-  }, []);
+
+  // function topFunction() {
+  //   document.body.scrollTop = 0; // For Safari
+  //   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  // }
+  // useEffect(() => {
+  //   topFunction();
+  // }, []);
 
   const userData = async () => {
-    const data = await profileDetails();
-
-    setPosts(data.message);
+    // const data = await profileDetails();
+    // setPosts(data.message);
   };
 
   const showCompaney = () => {
@@ -56,7 +55,6 @@ const Profile = () => {
     setProfile(false);
     setCompaney(false);
     setCamp(false);
-    
   };
 
   const showProforma = () => {
@@ -65,7 +63,7 @@ const Profile = () => {
     setCamp(true);
     setProfoma(true);
   };
-  
+
   const showInvoise = () => {
     setProfile(false);
     setCompaney(false);
@@ -79,34 +77,30 @@ const Profile = () => {
     setCamp(true);
     setProfoma(false);
     setInvoice(false);
-    setAnnounce(true)
+    setAnnounce(true);
   };
-
 
   useEffect(() => {
     userData();
   }, []);
 
-  
   return (
     <>
       <Fixednavbar />
-      <div className="d-hide drop-nd" >
-      </div>
-      <div className=" container-xxl  container-xl container-lg container-md my-5">
+      <div className=" container-xxl  container-xl container-lg container-md my-5 prf-content">
         <div className="row  p-5">
           <div className="col-md-3">
             <div className="card">
-             {loading == false &&  
-             <img
-                src={user[0].profile_image}
-                className="card-img-top p-3 pb-2"
-                alt="user-profile"
-                onError={(e) =>
-                  (e.target.src = "../../clientslogo/user-profile.png")
-                }
-               
-              /> }
+              {loading == false && (
+                <img
+                  src={user[0].profile_image}
+                  className="card-img-top p-3 pb-2"
+                  alt="user-profile"
+                  onError={(e) =>
+                    (e.target.src = "../images/all_image/user-profile.png")
+                  }
+                />
+              )}
               <div className="card-body text-light  row text-center pt-0 pb-2">
                 <div className="col pe-0 ">
                   <div className="p-1 border prf-btn " onClick={showProfile}>
@@ -196,7 +190,7 @@ const Profile = () => {
               <div className="col-md-6 ">
                 {profile ? (
                   <>
-                    <Userprofile  />
+                    <Userprofile />
                   </>
                 ) : (
                   <>
@@ -205,12 +199,23 @@ const Profile = () => {
                         {profoma ? (
                           <Profoma />
                         ) : (
-                          <>{invoice ? <Invoice posts={posts}/> : <>{announce? <Announcement posts={posts}/>:  <Campaings posts={posts} /> }  </> }</>
+                          <>
+                            {invoice ? (
+                              <Invoice posts={posts} />
+                            ) : (
+                              <>
+                                {announce ? (
+                                  <Announcement posts={posts} />
+                                ) : (
+                                  <Campaings posts={posts} />
+                                )}{" "}
+                              </>
+                            )}
+                          </>
                         )}
                       </>
                     ) : (
-            
-                      <Campign posts={posts}/> 
+                      <Campign posts={posts} />
                     )}
                   </>
                 )}
@@ -295,6 +300,82 @@ const Profile = () => {
           )}
         </div>
       </div>
+      <style jsx>
+        {`
+          .update-btn {
+            background-color: #000000 !important;
+            color: #f0f0f0 !important;
+          }
+
+          .prf-btn {
+            width: auto !important;
+            border-radius: 5px;
+            background-color: #000000;
+            cursor: pointer;
+          }
+          .nav-tabs {
+            padding-bottom: 0;
+            margin-bottom: 25px;
+            background: 0 0;
+            border-radius: 1px;
+            padding-left: 0;
+            padding-right: 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+          }
+          .nav-tabs > li.active > a,
+          .nav-tabs > li.active > a:focus,
+          .nav-tabs > li.active > a:hover,
+          .nav-tabs > li > a:focus,
+          .nav-tabs > li > a:hover {
+            border: 0;
+            border-radius: 0;
+            border-bottom: 2px solid #000000;
+            background: 0 0;
+            color: #000000;
+          }
+          .tab-content > .active {
+            display: block;
+          }
+
+          .tab-content > .tab-pane {
+            display: none;
+          }
+
+          .tab-pane {
+            min-height: 462px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            padding: 0px 5px;
+          }
+
+          .nav-tabs > li > a {
+            margin-right: 2px;
+            line-height: 1.42857143;
+            border: 1px solid transparent;
+            border-radius: 4px 4px 0 0;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            background: 0 0;
+            color: #333;
+            padding: 12px 13px 12px 13px;
+            font-weight: 400;
+            margin-right: 2px;
+            line-height: 1.42857143;
+            border-radius: 4px 4px 0 0;
+          }
+
+          .nav > li > a {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+          }
+          table.dataTable thead tr > th {
+            color: #4e75ad;
+          }
+        `}
+      </style>
     </>
   );
 };

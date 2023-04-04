@@ -94,8 +94,8 @@ exports.login = catchError(async (req, res, next) => {
 
 exports.googleLogin = catchError(async (req, res, next) => {
     const {name, email, givenName, imageUrl} = req.body
-  const selectResult = await executeQuery("SELECT * FROM tblcontacts WHERE email='" + email + "'","gohoardi_crmapp", next)
-        if (selectResult.length == 0) {
+  const selectResult = await executeQuery("SELECT * FROM tblcontacts WHERE email='" + email + "'", "gohoardi_crmapp", next)
+  if (selectResult.length == 0) {
           const result =  await executeQuery("SELECT userid From tblcontacts ORDER By userid DESC LIMIT 1","gohoardi_crmapp", next) 
             const userid = JSON.stringify((result[0].userid) + 1)
              const  password = bcrypt.hashSync(userid, 8)
@@ -199,6 +199,7 @@ exports.refreshToken = catchError(async (req, res, next) => {
 
 exports.getuser = catchError(async (req, res, next) => {
     const userId = req.id;
+  
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
@@ -213,13 +214,21 @@ exports.getuser = catchError(async (req, res, next) => {
 })
 
 exports.logout = catchError(async (req, res) => {
-    const user = req.id
-    if (!user) {
+    const userid = req.id
+    if (!userid) {
         return res.status(206).json({success: false,message:"No user found Plese Login Again"})
     }
-    res.clearCookie(`${user}`)
-    req.cookies[`${user}`] = "";
-    return res.status(200).json({success: false,message: "User Logout SuccessFully"})
+    const option = {
+        path: '/',
+        httpOnly:true,
+        expires: new Date(0),
+        httpOnly: false,
+        sameSite: 'strict',
+    }
+    return res.status(200).setHeader("Set-Cookie",cookie.serialize(String(userid), "thisismysecretejsonWebToken", option)).json({
+        success: true,
+        message: "User Logout SuccessFully"
+    })
 })
 
 exports.companyDetails =  catchError(async (req,res) =>{

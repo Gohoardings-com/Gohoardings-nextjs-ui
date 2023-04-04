@@ -40,10 +40,15 @@ const Userdetail = () => {
   //   }
   // };
 
-  let firstRender = true;
+
+
+
+  
 
   const handelLogout = async () => {
-    await logoutUser();
+    await logoutUser()
+
+     route.push('/')
   };
 
   const profile = async () => {
@@ -56,27 +61,15 @@ const Userdetail = () => {
     });
   };
 
-  const getUser = async () => {
-    addRemove({ type: "DECR" });
-    dispatch(userDetails);
-  };
 
   const refreshUser = async () => {
     const data = await refreshToken();
     return data;
   };
 
-  useEffect(() => {
-    if (firstRender) {
-      firstRender = true;
-      getUser();
-    } else {
-      let interval = setInterval(() => {
-        refreshUser();
-      }, 6 * 24 * 3600000);
-      return () => clearInterval(interval);
-    }
-  }, []);
+useEffect(() =>{
+
+},[loading])
 
   // useGoogleOneTapLogin({
   //   onSuccess: (response) => oneTap(response),
@@ -145,7 +138,7 @@ const Userdetail = () => {
                 onClick={handelLogout}
                 className={`${styles.drop_item} rounded-bottom ps-2 pt-2 pb-2 text-light`}
               >
-                <BiLogOut className=" text-light" />{" "}
+                <BiLogOut className=" text-light" />
                 <GoogleLogout
                   className="border-0 bg-transparent"
                   clientId={clientId}

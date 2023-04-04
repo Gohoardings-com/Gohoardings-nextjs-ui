@@ -1,4 +1,33 @@
 @import "../assets/scss/variables";
+.prf-content{
+
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#list-tab{
+  .list-group-item{
+      border: transparent !important;
+  }
+  .list-group-item.active{
+      background-color:#000000 !important ;
+  }
+}
+.form-control {  
+
+  box-shadow: none !important;
+}
+.form-control:focus {
+  border: 1px solid #f0e512f1;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
