@@ -213,13 +213,23 @@ exports.getuser = catchError(async (req, res, next) => {
 })
 
 exports.logout = catchError(async (req, res) => {
-    const user = req.id
+    const userid = req.id
     if (!user) {
         return res.status(206).json({success: false,message:"No user found Plese Login Again"})
     }
-    res.clearCookie(`${user}`)
-    req.cookies[`${user}`] = "";
-    return res.status(200).json({success: false,message: "User Logout SuccessFully"})
+    // setCookie(res, "auth", "0", {
+    //     ...cookieOptions,
+    //     path: "/",
+    //     maxAge: 1,
+    //   });
+
+    // res.clearCookie(`${user}`)
+    // req.cookies[`${user}`] = "";
+    return res.status(200).setHeader("Set-Cookie",cookie.serialize(String(userid), "token", {maxAge: 1})).json({
+        success: true,
+        message: "User Logout SuccessFully"
+    })
+    // return res.status(200).json({success: false,message: "User Logout SuccessFully"})
 })
 
 exports.companyDetails =  catchError(async (req,res) =>{
