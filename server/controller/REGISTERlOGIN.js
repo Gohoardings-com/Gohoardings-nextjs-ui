@@ -2,75 +2,93 @@ const bcrypt = require("bcryptjs");
 const db = require('../conn/conn');
 const cookie = require('cookie')
 const request = require('request')
-const {executeQuery} =  require('../conn/conn')
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError');
 const {token} = require('../middelware/token');
 
-exports.register = catchError(async (req, res, next) => {
+
+exports.register = catchError(async (req, res) => {
     const { email, phone} = req.body
- if(!req.body){
-   return res.status(206).json({success: false, message: "User data Null"})
- }
-    const data = await executeQuery("SELECT email FROM tblcontacts WHERE email='" + email + "' ||  phonenumber=" + phone + "","gohoardi_crmapp", next) 
-        if (data.length == []) {
-          
-            const user = await executeQuery("SELECT userid  FROM  tblcontacts ORDER BY userid DESC LIMIT 1","gohoardi_crmapp", next )         
-            const userid = (user[0].userid) + 1
+    db.changeUser({database: "gohoardi_crmapp"})
+    db.query("SELECT email FROM tblcontacts WHERE email='" + email + "' ||  phonenumber=" + phone + "", async (err, result) => {
+        if (err) {
+            return res.status(206).json({success:false, message:err.message})
+        };
+
+        if (result.length == []) {
+            req.body ? db.query("SELECT userid  FROM  tblcontacts ORDER BY userid DESC LIMIT 1", async (err, user) => {
+                    if (err)  {
+                        return res.status(206).json({success:false, message:err.message})
+                    };;
+                        const userid = (user[0].userid) + 1
                         let otp = Math.floor(100000 + Math.random() * 900000);
                         request({
-                            url: 'https://api.msg91.com/api/sendhttp.php',
-                            method: 'POST',
+                            url: process.env.otpUrl,
+                            method: process.env.otpMethod,
                             form: {
-                                'authkey': '280862A8xB5Zeo9OK45d020be9',
+                                'authkey': process.env.otpauthkey,
                                 'mobiles': phone,
                                 'message': `${otp} is your one-time OTP for login into the Gohoardings account.`,
-                                'sender':'GOHOOH',
-                                'route': '4',
-                                'DLT_TE_ID': '1307165770131175060'
+                                'sender': process.env.otpSender,
+                                'route': process.env.otpRoute,
+                                'DLT_TE_ID': process.env.otpDLT_TE_ID
                             }
-                        },async function (error, response, body) {
+                        }, function (error, response, body) {
                             if (error) {
-                            res.status(400).json({message: error.message})
+                                res.status(400).json({message: error.message})
                             } else {
-                               const hello = await executeQuery("INSERT INTO  tblcontacts (phone_otp,userid) VALUES  (" + otp + "," + userid + ")","gohoardi_crmapp", next) 
-                           if(hello){
-                        const sql = "Insert into tblclients (userid) values ("+userid+")"
-                          await  executeQuery(sql, "gohoardi_crmapp", next)
-                           return res.status(200).json({success: true, message: "your otp sent on your mobile number"})
-                            }        
+                                db.query("INSERT INTO  tblcontacts (phone_otp,userid) VALUES  (" + otp + "," + userid + ")", async (err, checking) => {
+                                    if (err) {
+                                        return res.status(206).json({err: err.message, message: "Something Wrong here"})
+                                    } else {
+                                     const sql = "Insert into tblclients (userid) values ("+userid+")"
+                                        db.query(sql)
+                                        res.status(200).json({success: true, message: "your otp sent on your mobile number"})
+                                    }
+                                })
                             }
-                        })           
+                        })         
+                })
+                : res.status(206).json({success: false, message: "User data Null"})
         } else {
             return res.status(206).json({
                 success: false,
                 message: "Profile Already Exists"
             })
         }
+    })
 })
 
-exports.registerLogin = catchError(async(req,res, next) => {
+exports.registerLogin = catchError(async(req,res) => {
     const {name, email, phone, password: Npassword, otp} = req.body;
     const password = bcrypt.hashSync(Npassword, 8)
-         const data =  await  executeQuery("UPDATE tblcontacts SET firstname = '"+name+"', email='"+email+"', phonenumber="+phone+", password='"+password+"'  WHERE phone_otp = "+otp+" ","gohoardi_crmapp", next) 
-               if(data){
+    db.changeUser({database: "gohoardi_crmapp"})
+            db.query("UPDATE tblcontacts SET firstname = '"+name+"', email='"+email+"', phonenumber="+phone+", password='"+password+"'  WHERE phone_otp = "+otp+" ", async (err,result) => {
+                if(err) throw err;
                 const sql = "SELECT userid FROM tblcontacts WHERE phone_otp = "+otp+" "
-              const user = await executeQuery(sql,"gohoardi_crmapp", next) 
-                  if(user.length == 0){
-                    return res.status(206).json({success: false, message: "Otp Invalid"});
-                        } else {
-                           const userid = user[0].userid
-                           res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
-                            token(userid, 200, res)
-                        } 
-               } 
+                    db.query(sql, async (err,user) => {
+                       if (err) {
+                        return res.status(206).json({success: false, message: "Otp Invalid"});
+                       }else if(user.length == 0){
+                        return res.status(206).json({success: false, message: "Otp Invalid"});
+                            } else {
+                               const userid = user[0].userid
+                               res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                             
+                                token(userid, 200, res)
+                            }
+                    })
+            })          
 })
 
-exports.login = catchError(async (req, res, next) => {
+exports.login = catchError(async (req, res) => {
     const {email, password} = req.body;
-  const data = await executeQuery("SELECT * FROM tblcontacts WHERE email ='" + email + "' ", "gohoardi_crmapp", next)
-         if (!data.length == 0) {
-            const keypassword = data[0].password;
+    db.changeUser({database: "gohoardi_crmapp"})
+    db.query("SELECT * FROM tblcontacts WHERE email ='" + email + "' ", async (err, result) => {
+        if (err) {
+            return res.json({message: "No User Found"})
+        } else if (!result.length == 0) {
+            const keypassword = result[0].password;
             if (!keypassword) {
                 return res.status(206).json({success: false, message: "Invalid Email and password"});
             } else {
@@ -81,56 +99,69 @@ exports.login = catchError(async (req, res, next) => {
                         message: "Wrong Email & Password"
                     });
                 }
-
-                const userid = data[0].userid
+                const userid = result[0].userid
                 res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                 token(userid, 200, res)
             }
         } else {
             return res.status(206).json({success: false,message: "Invalid Email and password"});
         }
- 
+    })
 })
 
-exports.googleLogin = catchError(async (req, res, next) => {
+exports.googleLogin = catchError(async (req, res) => {
     const {name, email, givenName, imageUrl} = req.body
-  const selectResult = await executeQuery("SELECT * FROM tblcontacts WHERE email='" + email + "'", "gohoardi_crmapp", next)
-  if (selectResult.length == 0) {
-          const result =  await executeQuery("SELECT userid From tblcontacts ORDER By userid DESC LIMIT 1","gohoardi_crmapp", next) 
-            const userid = JSON.stringify((result[0].userid) + 1)
-             const  password = bcrypt.hashSync(userid, 8)
+    db.changeUser({database: "gohoardi_crmapp"});
+    db.query("SELECT * FROM tblcontacts WHERE email='" + email + "'", async (err, selectResult) => {
+        if (err) {
+            return res.status(206).json({success: false,message: "Wrong Data"})
+        }
+
+        if (selectResult.length == 0) {
+            db.query("SELECT userid From tblcontacts ORDER By userid DESC LIMIT 1", async (err, result) => {
+                if (err) {
+                    return res.status(404).json(err.message)
+                } else {
+
+                    const userid = JSON.stringify((result[0].userid) + 1)
+                
+                  const  password = bcrypt.hashSync(userid, 8)
               
-               const data = await executeQuery("Insert into tblcontacts (firstname, email, password, userid, profile_image, provider, phonenumber) VALUES ('"+name+"','"+email+"','"+password+"',"+userid+",'"+imageUrl+"','Google', 00000)","gohoardi_crmapp", next )
-                        if (data) {
+                    db.query("Insert into tblcontacts (firstname, email, password, userid, profile_image, provider, phonenumber) VALUES ('"+name+"','"+email+"','"+password+"',"+userid+",'"+imageUrl+"','Google', 00000)", async (err, result) => {
+                        if (err) {
+                            return res.status(400).json({err: err.message})
+                        } else {
                     const sql = "Insert into tblclients (userid) values ("+userid+")"
-                       await executeQuery(sql, "gohoardi_crmapp", next)
-                       res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                                        db.query(sql)
+                                        res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                             token(userid, 200, res)
                         }
+                    })
+                }
+            })
+
         } else {
             const userid = selectResult[0].userid
-          
-
+            res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
             token(userid, 200, res)
         }
     })
-
+})
 
 exports.linkdinLogin = catchError(async (req, res) => {
 
-    const {nickname, name, picture, email, sub} = req.body
-
+    const {session} = req.body
+    if(!session){
+        return res.status(204).json({message:"user undefined"})
+    }
+    const {email,name, image } = session.user
     db.changeUser({database: "gohoardi_crmapp"})
-    {
-        nickname, name, picture, email, sub ?
+    { email,name, image ?
             db.query("SELECT * FROM tblcontacts WHERE email='" + email + "'", async (err, selectResult) => {
                 if (err) {
-
-
                     return res.status(206).json({success: false,message: "Wrong Data"})
                 }
                 if (selectResult.length == 0) {
-
                     db.query("SELECT userid From tblcontacts ORDER By userid DESC LIMIT 1", async (err, result) => {
                         if (err) {
 
@@ -139,17 +170,14 @@ exports.linkdinLogin = catchError(async (req, res) => {
                             const userid = JSON.stringify((result[0].userid) + 1)
                            
                                const password = bcrypt.hashSync(userid, 8)
-                         
-            
                            
-                            db.query(`Insert into tblcontacts (firstname, email, password, userid, profile_image, provider) VALUES ('${name}','${email}','${password}','${userid}','${picture}','${sub}')`, async (err, result) => {
+                            db.query(`Insert into tblcontacts (firstname, email, password, userid, profile_image, provider) VALUES ('${name}','${email}','${password}','${userid}','${image}','linkdin')`, async (err, result) => {
                                 if (err) {
-
                                     return res.status(400).json({err: err.message})
                                 } else {
                                 const  sql = "Insert into tblclients (userid) values ("+userid+")"
                                     db.query(sql)
-                                     res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                                    res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
                                     token(userid, 200, res)
                                 }
                             })
@@ -174,13 +202,15 @@ exports.refreshToken = catchError(async (req, res, next) => {
     if (!token) {
         return res.status(206).json({success: false,message: "No Token Found"})
     } else {
-        return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
+        return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
             if (err) {
                 return res.status(206).json({success: false,message: "InValid Token"});
             } else {
-                res.setHeader("Set-Cookie",cookie.serialize(String(user.id),{expires: Date.now()}))
-                const token = jwtToken.sign({id: user.id}, "thisismysecretejsonWebToken", {
-                    expiresIn: "7d"
+                res.clearCookie(`${user.id}`)
+                req.cookies[`${user.id}`] = "";
+
+                const token = jwtToken.sign({id: user.id}, process.env.jwt_secret, {
+                    expiresIn: "6d"
                 });
                 res.cookie(String(user.id), token, {
                     path: '/',
@@ -197,19 +227,19 @@ exports.refreshToken = catchError(async (req, res, next) => {
 
 })
 
-exports.getuser = catchError(async (req, res, next) => {
+exports.getuser = catchError(async (req, res) => {
     const userId = req.id;
-  
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
-       const data = await executeQuery("SELECT userid,firstname, email, phonenumber,profile_image, provider  FROM tblcontacts WHERE userid='" + userId + "'", "gohoardi_crmapp", next)
-            if (!data) {
+        db.changeUser({database: "gohoardi_crmapp"})
+        db.query("SELECT userid,firstname, email, phonenumber,profile_image, provider  FROM tblcontacts WHERE userid='" + userId + "'", async (err, result) => {
+            if (err) {
                 return res.status(206).json({success:false, message: "User Not found"})
             } else {
-                return res.status(200).json(data)
+                return res.status(200).json(result)
             }
-   
+        })
     }
 })
 
@@ -263,7 +293,7 @@ exports.resetPasswordEmail = catchError(async (req, res, next) => {
         return res.status(400).json({message: "No Token Found"})
     } else {
         if (token === code) {
-            return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
+            return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
                 if (err) {
                     return res.status(400).json({message: "InValid Token"});
                 } else {
@@ -319,6 +349,7 @@ exports.changepasswoed = catchError(async (req, res, next) => {
 
     } else {
         return res.status(206).json({success:false,message: "Your Password Not Matched"})
+
 
     }
     

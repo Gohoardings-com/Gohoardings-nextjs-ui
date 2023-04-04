@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {useSession, signIn, signOut} from 'next-auth/react'
 import { FcGoogle } from "react-icons/fc";
 import instance from "@/allApi/axios";
 import styles from '../../styles/login.module.scss'  ;
 
-const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp,success}) => {
-
-
+const LoginOauth = ({ googleSignIn, afterLogin,setWithOtp ,withOtp,success}) => {
 
 
   return (
@@ -32,15 +31,15 @@ const LoginOauth = ({ signIn, afterLogin,setWithOtp ,withOtp,success}) => {
        
       
         
-        <a href="/api/linkedin"   >
-        <img
+       <img
         alt="linkdin"
           src="../../images/all_image/linkdin.png"
           className={`${styles.linkdin_icon} offset-1`}
+          onClick={() =>signIn()}
         />
-        </a>
+       
         
-     <FcGoogle className={`${styles.google_icon} offset-1`} onClick={signIn}    />
+     <FcGoogle className={`${styles.google_icon} offset-1`} onClick={googleSignIn}  />
       </div>
     </>
   );

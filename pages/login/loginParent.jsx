@@ -363,7 +363,7 @@ const LoginN = ({scrollY}) => {
                     AiFillEyeInvisible={AiFillEyeInvisible}
                     clickforget={clickforget}
                     ToastContainer={ToastContainer}
-                    signIn={signIn}
+                    googleSignIn={signIn}
                     toggleSignUp={toggleSignUp}
                     onForget={onForget}
                     

@@ -12,13 +12,13 @@ export const AccountProvider = ({ children }) => {
   const item = async () => {
     if(loading == false && user.message !== "No Token Found"){
     const { data } = await instance.get(`forgetPass`)
-    console.log(data);
+
     if(data.message == "InValid Token"){
       setInitalState(0);
       return initalState;
 
     }else{
-      setInitalState(data[0].item);
+      setInitalState(0);
       return initalState;
     }
   }else{

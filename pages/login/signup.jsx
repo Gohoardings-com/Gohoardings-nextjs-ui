@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLinkdinAuthentication from "./googleLogin";
 import styles from '../../styles/login.module.scss'  ;
 import { toast, ToastContainer } from "react-toastify";
-const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password, setEmail, email, emailsValidate, numbervalidate, phone, AiFillEye, AiFillEyeInvisible, setNumber, nameValidate, setName, name, onRegister, onForget, setOtp, checkOTPForLogin, registerOtp}) => {
+const Sign = ({ googleSignIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password, setEmail, email, emailsValidate, numbervalidate, phone, AiFillEye, AiFillEyeInvisible, setNumber, nameValidate, setName, name, onRegister, onForget, setOtp, checkOTPForLogin, registerOtp}) => {
   return (
     <> 
     <h2 className=" fw-bold ">Sign up to Continue</h2>
@@ -107,7 +107,7 @@ const Sign = ({ signIn, toggleSignUp,sendOtp,  setPassword, afterLogin, password
     Already have an account?  <span className={`fw-bold ${styles.switch} `} onClick={() => toggleSignUp()}>Login</span>
     </h6>
 
-    <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber}  onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin}/>
+    <GoogleLinkdinAuthentication googleSignIn={googleSignIn} afterLogin={afterLogin} setNumber={setNumber}  onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin}/>
     </>
   );
 }

@@ -9,8 +9,9 @@ import Campign from "./campign";
 import Profoma from "./profoma";
 import Invoice from "./invoice";
 import Announcement from "./announcement";
-import { BiEditAlt } from "react-icons/bi";
+
 import { useSelector } from "react-redux";
+
 
 const Profile = () => {
   const [profile, setProfile] = useState(false);
@@ -35,7 +36,7 @@ const Profile = () => {
     // setPosts(data.message);
   };
 
-  const showCompaney = () => {
+  const showCompaney =async () => {
     setCompaney(true);
     setProfile(false);
   };

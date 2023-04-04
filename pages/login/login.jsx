@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleLinkdinAuthentication from "./googleLogin";
 import styles from '../../styles/login.module.scss'  ;
-const Login = ({ onSignIn,sendOtp, withOtp,success, setWithOtp, email, setEmail, signIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
+const Login = ({ onSignIn,sendOtp, withOtp,success, setWithOtp, email, setEmail, googleSignIn, toggleSignUp, ToastContainer, clickforget, afterLogin, AiFillEyeInvisible, onVisible, AiFillEye, eyeViseble, emailsValidate, password, setPassword, passwordValidate, onForget, setOtp, setNumber, checkOTPForLogin }) => {
   return (
     <>
       <h2 className=" fw-bold ">Login to Continue</h2>
@@ -104,7 +104,7 @@ onClick={checkOTPForLogin}
         Don’t have an account? <span className={`fw-bold ${styles.switch} `} onClick={ toggleSignUp}>Sign Up</span>
       </h6>
 
-      <GoogleLinkdinAuthentication signIn={signIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}  success={success}
+      <GoogleLinkdinAuthentication googleSignIn={googleSignIn} afterLogin={afterLogin} setNumber={setNumber} onForget={onForget} setOtp={setOtp} checkOTPForLogin={checkOTPForLogin} setWithOtp={setWithOtp}  success={success}
         withOtp={withOtp}
       />
     </>

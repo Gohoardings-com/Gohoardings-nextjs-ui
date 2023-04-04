@@ -133,8 +133,8 @@ export const profileDetails = async() =>{
  return data
 }
 
-export const updateProfile = async(formData) =>{
-    const {data} =  await instance.post("registration/updateProfile",formData);
+export const updateProfile = async(img, firstname, phonenumber) =>{
+    const {data} =  await instance.post("profile",{img, firstname, phonenumber});
  return data
 }
 export const emailOTP = async(email) =>{
@@ -218,12 +218,12 @@ return data
 }
 
 export const companydata = async(inputs) =>{
-  const {data} =  await instance.post("registration/companydata",{ company:inputs.company, city: inputs.city, phone:inputs.phone, address:inputs.address, website:inputs.website, state:inputs.state, zip_code:inputs.zip_code, pan:inputs.pan, gstin:inputs.gstin});
+  const {data} =  await instance.patch("profile",{ company:inputs.company, city: inputs.city, phone:inputs.phone, address:inputs.address, website:inputs.website, state:inputs.state, zip_code:inputs.zip_code, pan:inputs.pan, gstin:inputs.gstin});
 return data
 }
 
 export const allcompanydata = async() =>{
-  const {data} =  await instance.get("registration/allcompany");
+  const {data} =  await instance.get("profile");
 return data
 }
 

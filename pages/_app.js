@@ -12,6 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 import { SSRProvider } from "react-bootstrap";
+import {SessionProvider} from 'next-auth/react'
 import AccountProvider from "@/allApi/apicontext";
 import Footer from "@/components/footer";
 import dynamic from "next/dynamic";
@@ -24,7 +25,7 @@ import { createWrapper } from "next-redux-wrapper";
 const makeStore = () => store;
 const wrapper = createWrapper(makeStore);
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, session }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.js");
   }, []);
@@ -34,7 +35,9 @@ function App({ Component, pageProps }) {
         <PersistGate loading={null} persistor={persistor}>
       <SSRProvider>
         <AccountProvider>
+          <SessionProvider session={session}>
           <Component {...pageProps} />
+          </SessionProvider>
           {/* <MyComponent /> */}
           <Footer />
         </AccountProvider>

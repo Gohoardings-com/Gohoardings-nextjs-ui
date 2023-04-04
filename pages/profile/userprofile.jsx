@@ -13,7 +13,7 @@ const Userprofile = () => {
   const [imge, setImage] = useState([]);
   const [posts, setPosts] = useState([]);
   const getUser = async () => {
-    const { data } = await instance.get("registration/user");
+    const { data } = await instance.get("loginApis");
     setPosts(data);
   };
   useEffect(() => {
@@ -28,12 +28,13 @@ const Userprofile = () => {
   };
 
   const handelSubmit = async (e) => {
+    console.log(firstname, phonenumber);
     e.preventDefault();
     const formData = new FormData();
-    formData.append("photo", imge);
+    // formData.append("photo", imge);
     formData.append("firstname", firstname);
     formData.append("phonenumber", phonenumber);
-    const data = await updateProfile(formData);
+    const data = await updateProfile(imge, firstname, phonenumber);
     if (data.sucess == true) {
       toast(data.message);
       window.location.reload();
@@ -60,16 +61,16 @@ const Userprofile = () => {
               <div className="col-md-12">
                 <div className="form-group">
                   <div className="form-group">
-                    <label for="profile_image" className="profile-image">
+                   {/*   <label for="profile_image" className="profile-image">
                       Profile image
                     </label>
-                    <Form.Control
+                   <Form.Control
                       className="form-control"
                       type="file"
                       accept="image/png, image/jpg, image/jpeg"
                       name="photo"
                       onChange={(e) => sendImagefile(e)}
-                    />
+                    /> */}
                     {/* <Form.Control
                    className="form-control"
                   type='file' name='photo' onChange={sendImagefile}
@@ -110,13 +111,13 @@ const Userprofile = () => {
                   />
                 </div>
               </div>
-              <div className="row p15">
-                <div className="col-md-12 text-right mtop20">
-                  <div className="form-group mb-0">
+              <div className="row ">
+                <div className="col-md-12 text-right">
+                  <div className="form-group mb-0 update-btn mt-3">
                     <Form.Control
                       type="submit"
                       value="UPDATE"
-                      className="btn update-btn text-light"
+                      className="btn  text-light"
                     />
                     <ToastContainer />
                   </div>
@@ -128,7 +129,7 @@ const Userprofile = () => {
         <style jsx>
           {`
             .update-btn {
-              background-color: #000000 !important;
+              background-color: black !important;
               color: #f0f0f0 !important;
             }
             .campaign-box {

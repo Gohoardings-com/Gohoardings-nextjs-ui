@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+import {useSession, signIn, signOut} from 'next-auth/react'
 import { GoogleLogout } from "react-google-login";
 import {
   clientId,
@@ -21,10 +22,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
+import instance from "@/allApi/axios";
 
 const Userdetail = () => {
   const dispatch = useDispatch();
   const route = useRouter()
+  const {data:session} = useSession()
   const { handleClose, handleShow,show, addRemove ,initalState} = useContext(AccountContext);
   const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
@@ -43,11 +46,18 @@ const Userdetail = () => {
 
 
 
-  
+
+useEffect(() =>{
+  if(session){
+    const data = async() => await instance.post('linkedin',{session})
+    data().then(() =>{dispatch(userDetails);
+      addRemove({ type: "DECR" });})
+  }
+},[session])
 
   const handelLogout = async () => {
+    signOut()
     await logoutUser()
-
      route.push('/')
   };
 
