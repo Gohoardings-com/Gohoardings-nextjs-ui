@@ -41,9 +41,13 @@ const Userdetail = () => {
   // };
 
 
+
+
+  
+
   const handelLogout = async () => {
     await logoutUser()
-    
+
      route.push('/')
   };
 
