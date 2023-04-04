@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { useDispatch } from "react-redux";
@@ -7,8 +7,10 @@ import Streetview from "./streetview";
 import styles from '../../styles/markers.module.scss'
 import { markersPosition } from "@/redux/adminAction";
 
-const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
+const Markers = ({ markers, removefromCart, addonCart}) => {
+  
   const [map, setMap] = useState(null);
+  const [hasmarker, sethasmarker] = useState(false);
   const dispatch = useDispatch()
   const { iconfilter, loading } = useSelector((state) => state.iconfilter);
 
@@ -197,7 +199,16 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
   const closeKeyword = () =>  { 
     setStreetView(!streetView)
     setActiveMarker(null);
+    sethasmarker(false);
   }
+
+
+    useEffect(() => {
+    if (markers?.[markers.length - 1].position) {
+      sethasmarker(true);
+    }
+    console.log(streetView);
+    },[streetView])
 
   return (
     <>
@@ -221,7 +232,7 @@ const Markers = ({ markers, removefromCart, addonCart,zoom}) => {
             streetView={activeMarker}
           >
        <button>Load more  </button> 
-            {!markers ? (
+            {!hasmarker ? (
               <h1>Loading.... Please Wait</h1>
             ) : (
               markers.map(
