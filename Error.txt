@@ -482,5 +482,3 @@
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete= 0 
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete=0 
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete=0 
- Error: connect ECONNREFUSED 127.0.0.1:3306 arrived on Tue Apr 04 2023 10:21:10 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM tblcontacts WHERE email='deepak.Gathwal@gohoardings.com'
- Error: Cannot enqueue Query after fatal error. arrived on Tue Apr 04 2023 10:22:30 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM tblcontacts WHERE email='deepak.Gathwal@gohoardings.com'
