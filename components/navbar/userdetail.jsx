@@ -25,7 +25,7 @@ import LoginN from "@/pages/login/loginParent";
 const Userdetail = () => {
   const dispatch = useDispatch();
   const route = useRouter()
-  const { handleClose, handleShow,show, addRemove } = useContext(AccountContext);
+  const { handleClose, handleShow,show, addRemove ,initalState} = useContext(AccountContext);
   const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
   const [posts, setPosts] = useState(true);

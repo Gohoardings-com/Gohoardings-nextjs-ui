@@ -28,7 +28,7 @@ export const mediawithcity = (category_name, city_name) => async (dispatch) => {
 export const mediawithlocation =(category_name, city_name, loca, noOfLogo) => async (dispatch) => {
     try {
       dispatch({ type: "MediaWithCityRequest" });
-      const { data } = await instance.post(`product/NearproductByLocation`, {
+      const { data } = await instance.put(`team`, {
         category_name,
         city_name,
         loca,

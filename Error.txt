@@ -482,3 +482,21 @@
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT * FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete= 0 
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete=0 
  Error: Cannot enqueue Query after fatal error. arrived on Mon Apr 03 2023 15:59:06 GMT+0530 (India Standard Time) at The query in which error occurred SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = 5746 && isDelete=0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 1. Logout and cookies handel,2. Markers in map,3. Street view in map,4. ppt/excel send on mail in cart page on done click,5. Profile page,6. change two dynamic route to one dynamic route for speed navigate,7. contextApi error before login,
+
