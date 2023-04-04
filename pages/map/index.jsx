@@ -349,13 +349,13 @@ const Map = () => {
                   </div>
                 </div>
               </div>
-              {search && search.length > 0 ? (
+              {/* {search && search.length > 0 ? (
                 <Iconsselection
                   slice={slice}
                   loading={loading}
                   fnmedia={search}
                 />
-              ) : null}
+              ) : null} */}
               <Mapfilter search={search} />
             </div>
 
