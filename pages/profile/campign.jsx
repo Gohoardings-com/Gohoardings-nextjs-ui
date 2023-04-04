@@ -9,25 +9,26 @@ const Campign = ({ posts }) => {
   const [campingid, setCampingid] = useState();
   const campaigns = posts.map((el) => el.campaign_name);
   const campaign = [...new Set(campaigns)];
-  
 
   const excel = async () => {
     try {
       // Make a request to the server to download the file
       let response;
       await fetch(`${process.env.REACT_APP_URL}datafiles/excel`, {
-        method: "POST",  
+        method: "POST",
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ID: campingid}),
+        body: JSON.stringify({ ID: campingid }),
         credentials: "include",
-      }).then((data) => {
-        response = data;
-      }).catch((err) =>{
-        toast(err.message)
       })
+        .then((data) => {
+          response = data;
+        })
+        .catch((err) => {
+          toast(err.message);
+        });
       const blob = await response.blob();
 
       // Create a new Blob object that represents the file
@@ -56,14 +57,14 @@ const Campign = ({ posts }) => {
       await fetch(`${process.env.REACT_APP_URL}datafiles/powerpoint`, {
         method: "POST",
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ID: campingid}),
+        body: JSON.stringify({ ID: campingid }),
         credentials: "include",
       }).then((data) => {
         response = data;
-      })
+      });
 
       const blob = await response.blob();
 
@@ -86,12 +87,11 @@ const Campign = ({ posts }) => {
     }
   };
 
-const  getData = (text) =>{
-  setCampings(text);
- const id = text.split("-")[1]
-  setCampingid(id);
-}
-
+  const getData = (text) => {
+    setCampings(text);
+    const id = text.split("-")[1];
+    setCampingid(id);
+  };
 
   return (
     <div className="card p-3 mid-card">
@@ -114,25 +114,30 @@ const  getData = (text) =>{
                     onClick={(e) => getData(data)}
                     data-bs-toggle="collapse"
                     data-bs-target={`#${abc}`}
-                  
                   >
                     <h4>
-                      <BsFillCircleFill className="point me-2" /> {data.split("-")[0]}
+                      <BsFillCircleFill className="point me-2" />{" "}
+                      {data.split("-")[0]}
                       <IoIosArrowDown className="down" />
                     </h4>
                   </p>
                   <div className="collapse" id={abc}>
                     <div className="card-body  p-2 pt-0">
-                    <div className="camp-ppt mb-2 m-0">
-                        <button className="btn btn-success me-4" onClick={excel}>EXCEL</button>
-                        <button className="btn btn-danger" onClick={powerpoint}>PPT</button>
-                        <ToastContainer/>
-                        </div>
+                      <div className="camp-ppt mb-2 m-0">
+                        <button
+                          className="btn btn-success me-4"
+                          onClick={excel}
+                        >
+                          EXCEL
+                        </button>
+                        <button className="btn btn-danger" onClick={powerpoint}>
+                          PPT
+                        </button>
+                        <ToastContainer />
+                      </div>
                       <div>
                         <thead>
                           <tr>
-                        
-                        
                             <th>Category</th>
                             <th>Address</th>
                             <th>Start</th>
@@ -145,28 +150,25 @@ const  getData = (text) =>{
                             posts.map((el, i) => {
                               return (
                                 el.campaign_name == campings && (
-                                
-                                 <tr key={i}>
-                                  <td>{el.subcategory}</td>
-                                  <td>{el.address} {el.city}</td>
-                                  <td>{el.start_date.slice(0, 10)}</td>
-                                  <td>{el.end_date.slice(0, 10)}</td>
-                                  <Link
-                                  to={`/services/${el.media_type}/${el.meta_title}`}
-                                  className="text-decoration-none"
-                                  >
-                                  <td>View</td>
-                                  
-                                </Link>
-                                </tr>
-                                  
+                                  <tr key={i}>
+                                    <td>{el.subcategory}</td>
+                                    <td>
+                                      {el.address} {el.city}
+                                    </td>
+                                    <td>{el.start_date.slice(0, 10)}</td>
+                                    <td>{el.end_date.slice(0, 10)}</td>
+                                    <Link
+                                      to={`/services/${el.media_type}/${el.meta_title}`}
+                                      className="text-decoration-none"
+                                    >
+                                      <td>View</td>
+                                    </Link>
+                                  </tr>
                                 )
                               );
                             })}
                         </tbody>
                       </div>
-
-                      
                     </div>
                   </div>
                 </div>
@@ -175,6 +177,59 @@ const  getData = (text) =>{
           </div>
         </div>
       </div>
+      <style jsx>
+        {`
+          td {
+            padding: 2px 6px;
+          }
+          th {
+            padding: 2px 6px;
+          }
+          p {
+            cursor: pointer;
+            font-size: 16px;
+            color: rgb(57, 55, 55);
+          }
+          .down {
+            float: right;
+            color: rgb(89, 85, 85);
+          }
+          .point {
+            font-size: 14px;
+            color: rgb(136, 133, 133);
+          }
+
+          #booked_media {
+            height: 10vh;
+          }
+
+          .tab-content > .active {
+            display: block;
+          }
+
+          .tab-content > .tab-pane {
+            display: none;
+          }
+
+          .tab-pane {
+            min-height: 462px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            padding: 0px 5px;
+          }
+
+          .btn {
+            text-transform: uppercase;
+            font-size: 13.5px;
+            outline-offset: 0;
+            border: 1px solid transparent;
+            transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            -moz-transition: all 0.15s ease-in-out;
+            -webkit-transition: all 0.15s ease-in-out;
+          }
+        `}
+      </style>
     </div>
   );
 };
