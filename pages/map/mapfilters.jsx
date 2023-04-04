@@ -115,12 +115,12 @@ const Mapfilters = ({ search }) => {
   }, []);
   return (
     <div
-      className="filter-items p-2 accordion accordion-collapse collapse"
+      className={`${styles.filter_items} p-2 accordion accordion-collapse collapse filter-item-map`}
       id="collapseT3"
       data-bs-parent="#accordionTest"
     >
-      <div id="accordionTest2">
-        <div className="accordion-item mb-2 mt-1 d-none">
+      <div id={styles.accordionTest2}>
+        {/* <div className="accordion-item mb-2 mt-1 d-none">
           <h2 className="accordion-header" id="flush-headingOne">
             <button
               className="accordion-button collapsed bg-secondary bg-opacity-25 pt-3 ps-4 text-dark"
@@ -147,7 +147,7 @@ const Mapfilters = ({ search }) => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Illumination Filter  */}
         <div className="accordion-item mb-2">
           <h2 className="accordion-header" id="flush-headingFour">
@@ -168,7 +168,7 @@ const Mapfilters = ({ search }) => {
             aria-labelledby="flush-headingFour"
             data-bs-parent="#accordionTest2"
           >
-            <div className="accordion-body pt-0">
+            <div className="accordion-body pt-0" >
               <div className="pe-3 mb-2 pt-1">
                 <input
                   type="search"
@@ -178,7 +178,7 @@ const Mapfilters = ({ search }) => {
                 />
               </div>
 
-              <div className="checkbox-items py-2">
+              <div className={ `${styles.checkbox_items} py-2`}>
                 {ILLUMINATION.filter((obj) => {
                   if (query == "") {
                     return obj;
@@ -240,7 +240,7 @@ const Mapfilters = ({ search }) => {
                 />
               </div>
 
-              <div className="checkbox-items py-2">
+              <div className={ `${styles.checkbox_items} py-2`}>
                 {category
                   .filter((obj) => {
                     if (query == "") {
@@ -301,7 +301,7 @@ const Mapfilters = ({ search }) => {
                   onChange={(event) => setQuery(event.target.value)}
                 />
               </div>
-              <div className="checkbox-items py-2">
+              <div className={ `${styles.checkbox_items} py-2`}>
                 {locations
                   .filter((obj) => {
                     if (query == "") {
@@ -331,14 +331,16 @@ const Mapfilters = ({ search }) => {
             </div>
           </div>
         </div>
-        <div className="accordion-item mb-2">
+
+        
+        {/* <div className="accordion-item mb-2">
           <div
             id="flush-collapseFour"
             className="accordion-collapse collapse bg-secondary bg-opacity-25"
             aria-labelledby="flush-headingFour"
             data-bs-parent="#accordionTest2"
           ></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

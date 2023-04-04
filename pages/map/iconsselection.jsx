@@ -127,7 +127,7 @@ const Iconsselection = ({slice}) => {
           {Icons.map((icon, i) => (
             <div className="col-4 d-inline-block text-center pb-3 shadow-sm border position-relative collapsed" key={i} data-bs-toggle="collapse" data-bs-target={`#${icon.name}`} aria-expanded="false" >
               <input type="checkbox" id={icon.id} value={icon.name} onClick={(e) => multichecked(e)} />
-              <label htmlFor={icon.id}>
+              <label htmlFor={icon.id} className="icons-sizes">
                 {icon.value}
                 </label>
                 <span className="icone-name-map pb-2">{icon.name} </span>
@@ -145,6 +145,29 @@ const Iconsselection = ({slice}) => {
       <style jsx>
         {
           `
+          .icons-sizes {
+            font-size: 24px;
+          }
+          .btn-hover {
+            width: 150px;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            margin: 20px;
+            height: 45px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 5px;
+            background-color: #373435;
+            --moz-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+          }
+    
+          .Load_more:hover {
+            background-color: #dddada;
+          }
           .poi-item input[type="checkbox"][id^="cb"] {
             display: none;
           }
@@ -190,6 +213,7 @@ const Iconsselection = ({slice}) => {
           }
           .icone-name-map {
             text-transform: uppercase;
+
           }
           
           @media screen and (max-width: 1024px) {
@@ -209,9 +233,7 @@ const Iconsselection = ({slice}) => {
               font-size: small;
             }
           }
-          #notWorking:hover{
-            cursor: not-allowed;
-          }
+         
           `
         }
       </style>

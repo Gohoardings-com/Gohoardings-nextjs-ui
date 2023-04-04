@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { useDispatch } from "react-redux";
-import {Link} from 'next/link'
+import Link from 'next/link'
 import Streetview from "./streetview";
 import styles from '../../styles/markers.module.scss'
 import { markersPosition } from "@/redux/adminAction";
@@ -266,10 +266,10 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
                       <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                         <div className={styles.infoWindow}>
                           <div className={styles.media_image}>
-                          {/* <Link
-                        to={`/services/${category_name}/${meta_title}`}
-                        className="text-decoration-none"
-                      > */}
+                          <Link
+                      href={`/seedetails/${category_name}/${meta_title}`}
+                      className="text-decoration-none"
+                    >
                             <img
                               src={
                                 thumb.startsWith("https")
@@ -288,17 +288,19 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
                               }
                               alt="About media"
                               className="rounded-top"
+                              id={styles.mark_img}
+
                             />
-                               {/* </Link> */}
+                               </Link>
                           </div>
 
                           <div className={`${styles.info_window} bg-white`}>
-                          {/* <Link
-                        to={`/services/${category_name}/${meta_title}`}
-                        className="text-decoration-none"
-                      > */}
+                          <Link
+                      href={`/seedetails/${category_name}/${meta_title}`}
+                      className="text-decoration-none"
+                    >
                             <h5  className=" text-dark" >{illumination + "-" + medianame}</h5>
-                            {/* </Link> */}
+                            </Link>
                             <p>
                               <span>Media Type : </span>
                               {subcategory}

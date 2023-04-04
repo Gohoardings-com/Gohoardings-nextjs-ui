@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useCallback } from "react";
 import { AccountContext } from "@/allApi/apicontext";
 import styles from "../../styles/map.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "next/link";
+import Link from "next/link";
 import Mapfilter from "./mapfilters";
 import { useJsApiLoader } from "@react-google-maps/api";
 import Markers from "./marker";
@@ -30,7 +30,7 @@ const Map = () => {
   const { search, loading } = useSelector((state) => state.search);
   const { state, addRemove } = useContext(AccountContext);
   const [noOfLogo, setnoOfLogo] = useState(8);
-
+  const { handleClose,handleShow} = useContext(AccountContext);
   var slice;
 
   if (!loading) {
@@ -49,10 +49,10 @@ const Map = () => {
   const [mapMarker, setPosts] = useState([]);
 
   const addonCart = async (code, category_name) => {
-    if (!localStorage.getItem(true)) {
-      window.localStorage.setItem("locate", `/map`);
-      navigate("/login");
-    } else {
+    if (!localStorage.getItem("goh")) {
+      handleShow()
+     } else {
+
       dispatch(addItem(code, category_name));
       addRemove({ type: "INCR" });
       add(code);
@@ -169,7 +169,7 @@ const Map = () => {
                 data-bs-target="#collapseT3"
                 aria-expanded="false"
                 aria-controls="collapseT3"
-              >
+              > 
                 <FaFilter className={`${styles.icons_sizes} icon-clr`} />
               </div>
             </div>
@@ -200,11 +200,10 @@ const Map = () => {
                                     <div
                                       className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${styles.map_media_items}`}
                                     >
-                                      {/* <Link
-  href={`/services/${item.category_name}/${item.meta_title}`}
-  passHref
-> */}
-  {/* <a className="text-decoration-none"> */}
+ <Link
+                      href={`/seedetails/${item.category_name}/${item.meta_title}`}
+                      className="text-decoration-none"
+                    >
                                     <img
                                     
                                       src={
@@ -229,20 +228,20 @@ const Map = () => {
                                       }
                                       className="w-100 h-75 mt-2 pt-2"
                                     />
-                                    {/* </a>
-</Link> */}
+       
+</Link> 
                                     </div>
                                     <div className="col-xl-8 col-lg-12 col-md-12 col-sm-6">
                                       <ul className="list-unstyled pt-1">
-                                        {/* <Link
-                        href={`/services/${item.category_name}/${item.meta_title}`}
-                        className="text-decoration-none"
-                      > */}
+                                      <Link
+                      href={`/seedetails/${item.category_name}/${item.meta_title}`}
+                      className="text-decoration-none"
+                    >
                                       <li title={item.page_title} className='text-dark'>
                                         {item.page_title.substring(0, 20) +
                                           "..."}
                                       </li>
-                                      {/* </Link> */}
+                                      </Link>
                                         <li>FTF : {item.ftf}</li>
                                         <li>Size : {item.size} feet</li>
 
@@ -357,7 +356,7 @@ const Map = () => {
                   fnmedia={search}
                 />
               ) : null}
-              {/* <Mapfilter search={search} /> */}
+              <Mapfilter search={search} />
             </div>
 
             {/* <div id={` ${styles.map_view_mobile}`}>
@@ -403,7 +402,7 @@ const Map = () => {
             <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} />
           ) : 
           
-          <h5 className="text-center m-3">No Data Found dfgdefr</h5>
+          <h5 className="text-center m-3">No Data Found </h5>
         :
         <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart}  />
         }
