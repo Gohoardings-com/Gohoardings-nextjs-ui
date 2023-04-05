@@ -12,24 +12,32 @@ import {CgGym } from "react-icons/cg";
 const Iconsselection = ({slice}) => {
   const dispatch = useDispatch()
   const [distance, Setdistance] = useState(0);
-  const [datas, setData] = useState([])
 
-  let hording = [];
+  const [hording, setHording] = useState([]);
 
   function multichecked(e) {
+    const value = e.target.value;
     if (e.currentTarget.checked) {
-      hording.push(e.target.value)
+      setHording((prevHording) => {
+        if (prevHording.includes(value)) {
+          return prevHording;
+        } else {
+          return [...prevHording, value];
+        }
+      });
     } else {
-      // htmlFor (let i = 0; i < hording.length; i++) {
-      // if (e.target.value == hording[i]) {
-      var index = hording.indexOf(e.target.value)
-      if (index > -1) { // only splice array when item is found
-        hording.splice(index, 1); // 2nd parameter means remove one item only
-      }
+      setHording((prevHording) => {
+        const index = prevHording.indexOf(value);
+        if (index === -1) {
+          return prevHording;
+        } else {
+          return [...prevHording.slice(0, index), ...prevHording.slice(index + 1)];
+        }
+      });
     }
-    setData(cat => [...cat, hording])
   }
-
+  
+console.log("33",hording);
   // function HandleDistance(Dis) {
   //   Setdistance(Dis)
   // }
@@ -114,7 +122,7 @@ const Iconsselection = ({slice}) => {
   let array = [...uniqueValues];
   let arrayJJson = JSON.stringify(array);
   let newString = arrayJJson.replace(/\[|\]/g, '');
-  dispatch(iconFiltersData(distance, datas, table, city, minLatitude, maxLatitude , newString))
+  dispatch(iconFiltersData(distance, hording, table, city, minLatitude, maxLatitude , newString))
 
   }
 
@@ -123,14 +131,14 @@ const Iconsselection = ({slice}) => {
       <div className="poi-items accordion-collapse collapse" id="collapseT2" data-bs-parent="#accordionTest">
         <div className="row poi-item">
           {Icons.map((icon, i) => (
-            <div className="col-4 d-inline-block text-center pb-3 shadow-sm border position-relative collapsed" key={i} data-bs-toggle="collapse" data-bs-target={`#${icon.name}`} aria-expanded="false" >
-              <input type="checkbox" id={icon.id} value={icon.name} onClick={(e) => multichecked(e)} />
-              <label htmlFor={icon.id} className="icons-sizes">
-                {icon.value}
-                </label>
-                <span className="icone-name-map pb-2">{icon.name} </span>
-            </div>
-          ))}
+          <div className="col-4 d-inline-block text-center pb-3 shadow-sm border position-relative collapsed" key={i} data-bs-toggle="collapse" data-bs-target={`#${icon.name}`} aria-expanded="false" >
+            <input type="checkbox" id={icon.id} value={icon.name} onClick={(e) => multichecked(e)} />
+            <label htmlFor={icon.id} className="icons-sizes">
+              {icon.value}
+            </label>
+            <span className="icone-name-map pb-2">{icon.name} </span>
+          </div>
+        ))}
         </div>
       
        <div className="text-center map-btn-more"  >
