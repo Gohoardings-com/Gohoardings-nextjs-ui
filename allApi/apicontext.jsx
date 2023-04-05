@@ -38,7 +38,7 @@ export const AccountProvider = ({ children }) => {
     return state
   };
 
-  const [state, addRemove] = useReducer(reducer, 0)
+  const [state, addRemove] = useReducer(reducer, (item()))
 
 
   const handleClose = () => setShow(false);
