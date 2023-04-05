@@ -158,7 +158,7 @@ const Campign = ({ posts }) => {
                                     <td>{el.start_date.slice(0, 10)}</td>
                                     <td>{el.end_date.slice(0, 10)}</td>
                                     <Link
-                                      to={`/services/${el.media_type}/${el.meta_title}`}
+                                      href={`/services/${el.media_type}/${el.meta_title}`}
                                       className="text-decoration-none"
                                     >
                                       <td>View</td>

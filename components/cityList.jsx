@@ -95,7 +95,7 @@ const City = () => {
             </Link>
           </div>
           <div className="col col-md-4">
-            <Link href={`/cities/hyderabad`}>
+            <Link href={`/cities/pune`}>
               <div className="city-img-container ">
                 <img
                   src="../images/all_image/home6.jpg"

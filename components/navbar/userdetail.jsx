@@ -59,12 +59,12 @@ const handelLogout = async () => {
   route.push('/')
     signOut().then(async() =>{
       await logoutUser()
-      localStorage.removeItem("goh",true) 
+      localStorage.removeItem("permissions",true) 
       Cookies.remove("LoggedIn")
     })
   };
 
-const data = localStorage.getItem("goh",true)
+const data = localStorage.getItem("permissions",true)
 useEffect(() =>{
 if(!data){
   dispatch(userDetails)

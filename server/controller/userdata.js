@@ -5,7 +5,6 @@ const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError');
 const {token} = require('../middelware/token');
 
-
 exports.allcompanyData = catchError(async (req,res) => {
     const userId = req.id;
     db.changeUser({database: "gohoardi_crmapp"})
@@ -37,7 +36,6 @@ exports.Profile = catchError(async (req, res, next) => {
 exports.getItemid = catchError(async(req,res, next) => {
     const userId = req.id;
     db.changeUser({database:"gohoardi_goh"})
-
     const sql = "select mediaid, mediatype From goh_shopping_carts_item WHERE userid="+userId+""
     db.query(sql,async(err,results) =>{
         if(err){
@@ -45,7 +43,6 @@ exports.getItemid = catchError(async(req,res, next) => {
         }else{
             const newdata = await alldata(results)
             const data = req.getItemId;
-
             for (let i = 0; i < data.length; i++) {
                 data[i].meta_title = newdata[i].meta_title;
                 data[i].illumination = newdata[i].illumination;
@@ -121,4 +118,4 @@ const alldata = async (data) => {
     } catch (err) {
         return err
     }
-    }
+}

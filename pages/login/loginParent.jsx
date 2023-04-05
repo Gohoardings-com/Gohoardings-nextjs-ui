@@ -56,7 +56,7 @@ const LoginN = () => {
   const navigate = useRouter()
 
   const afterLogin = async () => {
-     localStorage.setItem("goh", true);
+     localStorage.setItem("permissions", true);
      Cookies.set("LoggedIn",true);
     dispatch(userDetails);
     addRemove({ type: "DECR" });
