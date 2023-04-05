@@ -107,9 +107,9 @@ const Campign = ({ posts }) => {
             {campaign.map((data, index) => {
               let abc = "a" + data;
               return (
-                <div className={`${styles.campaign_box} mt-0`}>
+                <div className={`${styles.campaign_box} mt-0`}    key={index}>
                   <p
-                    key={index}
+                 
                     className=" toggle-btn p-0 mb-0 "
                     onClick={(e) => getData(data)}
                     data-bs-toggle="collapse"

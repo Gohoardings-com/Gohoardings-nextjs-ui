@@ -98,13 +98,13 @@ const Footer = () => {
       <div className=" footerN-content  pb-3  p-0 px-3 px-md-5 py-md-1  pt-md-5 ">
         <div className="row footer-branding pb-md-4 pb-2">
           <div className="col-md-3 pt-1">
-            <a href="/">
+            <Link href="/">
               <img
                 src="../../images/all_image/logo.png"
                 alt="gohoardings"
                 className="brand-logo-footer "
               />
-            </a>
+            </Link>
           </div>
           <div className="col-md-9 ">
             <h4 className="f-heading pt-2 pt-md-0">
@@ -124,69 +124,69 @@ const Footer = () => {
               <ul className="position-relative  pt-md-3  ps-0">
                 <li className="py-md-2">
                   {" "}
-                  <a
-                    className=" text-decoration-none f-heading-clr"
+                  <Link
+                    className=" text-decoration-none f-heading-clr  text-light"
                     href="https://odoads.com/register"
                     target="_blank"
                   >
                     Login As Media Owner
-                  </a>
+                  </Link>
                 </li>
 
-                <li className="py-md-2 text-decoration-none f-heading-clr" onClick={handleShow} id="footerPopUp">        
+                <li className="py-md-2 text-decoration-none f-heading-clr text-light" onClick={handleShow} id="footerPopUp">        
                     Login As Advertiser
                 </li>
                 <span className="pos-absolute">
                   <li className="py-md-2">
-                    <a
+                    <Link
                       href="https://www.odoads.com/"
                       target="_blank"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       Odoads
-                    </a>
+                    </Link>
                   </li>
                   <li className="py-md-2">
-                    <a
+                    <Link
                       href="https://www.gohoardings.com/blog/"
                       target="_blank"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </li>
                   <li className="py-md-2">
-                    <a
+                    <Link
                       href="/about-us"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       About Us
-                    </a>{" "}
+                    </Link>{" "}
                   </li>
                   <li className="py-md-2">
-                    <a
+                    <Link
                       href="/team"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       Team
-                    </a>
+                    </Link>
                   </li>
                   <li className="py-md-2">
-                    <a
+                    <Link
                       href="/contact-us"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       Contact
-                    </a>
+                    </Link>
                   </li>
                   <li className="py-md-2 text-decoration-none ">
                     {" "}
-                    <a
+                    <Link
                       href="/privacy-policy"
-                      className=" text-decoration-none f-heading-clr"
+                      className=" text-decoration-none f-heading-clr text-light"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </span>
               </ul>
@@ -359,13 +359,13 @@ const Footer = () => {
             font-weight: 400;
           }
           .f-heading-clr {
-            color: rgb(220, 220, 220);
+            color: rgb(220, 220, 220) ;
             font-size: 1.1rem;
           }
 
-          .f-heading-clr:hover {
-            color: #fff320;
-          }
+          // .f-heading-clr:hover {
+          //   color: #fff320;
+          // }
           .reach-clr {
             color: rgb(220, 220, 220);
             font-size: 1.1rem;
