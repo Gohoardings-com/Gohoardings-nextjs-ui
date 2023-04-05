@@ -35,7 +35,7 @@ const Searchmedia = () => {
           <div className="row">
             <div className="col-md-8 ps-0">
               <div className={`${styles.heading_text} mt-4`}>
-                <h2>India's Largest</h2>
+                <h2>India&#39;s Largest</h2>
 
                 <h1>
                   Outdoor Advertising <br />

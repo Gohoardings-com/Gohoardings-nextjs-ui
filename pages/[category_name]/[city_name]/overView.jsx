@@ -29,7 +29,7 @@ details, features of your product.</li>
       </div>
 
       <p>
-      That's why hoarding advertising is always the first choice among marketers. Hoarding advertising is already an
+      That&#39;s why hoarding advertising is always the first choice among marketers. Hoarding advertising is already an
 effective marketing method, but we will make it more effective with our selected location, high-quality eye-catching
 banner & techniques.<br/>
 Design of the hoarding also matters; we all know that attractive design will attract more eyeballs; the design is also
@@ -38,7 +38,7 @@ affordable for small business & startups, in our long journey, we help hundreds 
 business & services provide to grow their business in their locality.
       </p>
       <h6 className='fw-bold'>
-      Hire us as you’re hoarding advertising partner we got covered, dial our number or whatsapp +91-777-787-1717
+      Hire us as you&#39;re hoarding advertising partner we got covered, dial our number or whatsapp +91-777-787-1717
 email us info@gohoardings.com, we will take care of your marketing.
       </h6>
     </div>

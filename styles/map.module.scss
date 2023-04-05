@@ -93,7 +93,7 @@
 
 .checkbox_items {
   overflow-y: scroll;
-  max-height: 25vh;
+  height: 20vh;
 }
 // .checkbox_items::-webkit-scrollbar-track {
 //   border: 1px solid #000;
@@ -167,7 +167,7 @@
 @media only screen and (max-height: 750px) {
   .checkbox_items {
     overflow-y: scroll;
-    max-height: 25vh;
+    height: 80px;
   }
 }
 #mmm:hover{
@@ -225,5 +225,6 @@
   }
 }
 #accordion_button:focus{
+
 box-shadow: none !important;
 }

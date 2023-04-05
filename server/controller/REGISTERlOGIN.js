@@ -9,7 +9,6 @@ const {token} = require('../middelware/token');
 
 exports.register = catchError(async (req, res) => {
     const { email, phone} = req.body
-    console.log(req.body);
     db.changeUser({database: "gohoardi_crmapp"})
     db.query("SELECT email FROM tblcontacts WHERE email='" + email + "' ||  phonenumber=" + phone + "", async (err, result) => {
         if (err) {

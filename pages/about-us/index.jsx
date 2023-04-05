@@ -129,7 +129,7 @@ const About = () => {
                 bridge between your brand and customer.
               </p>
               <p className="descrption">
-                We do it in a different way.We've got the creative eye and the
+                We do it in a different way.We&#39;ve got the creative eye and the
                 perfect equation of ideas.We help you grow by adding the word
                 called success to your brand.Thus to conclude our vision is to
                 be the master touch, you need, to be visible and heard.
@@ -160,10 +160,10 @@ const About = () => {
               <h2>Our Mission</h2>
 
               <p className="descrption">
-                We aim to become the world's best OOH and DOOH advertising
+                We aim to become the world&#39;s best OOH and DOOH advertising
                 company.Our mission is to guide you to find your brand’s voice
                 and help you to tell a bigger story through our best services
-                available in city."Quality never goes out of style" and we
+                available in city.&#34;Quality never goes out of style&#34; and we
                 ensure to provide the best one.
               </p>
 
@@ -208,7 +208,7 @@ const About = () => {
                 className="load-button mt-3 mb-5 p-2 "
                 onClick={() => toContact()}
               >
-                Let's Talk <i className="bi bi-arrow-right-square"></i>
+                Let&#39;s Talk <i className="bi bi-arrow-right-square"></i>
               </button>
             )}
           </div>

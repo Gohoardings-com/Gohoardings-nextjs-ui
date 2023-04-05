@@ -16,7 +16,9 @@
     height: 34px;
     width: 34px;
   }
-
+.float_btn_notalowed{
+  cursor: not-allowed !important;
+}
   .nav_icon_6 {
     width: 30px;
     height: 25px;
@@ -127,11 +129,11 @@
     width: 24px;
   }
   #search_button_flotnav:hover {
-    background-color: #ffffff;
-    border: 2px solid #ffffff;
+    // background-color: #ffffff;
+    border: 2px solid #e4e4e4;
   }
   #search_button_flotnav:hover .search_logo {
-    color: #171717 !important;
+    color:  #e4e4e4!important;
   }
 
   #float_map_btn_id {

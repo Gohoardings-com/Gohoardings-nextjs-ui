@@ -199,8 +199,8 @@ const Footer = () => {
                 {CityNameImage.map((el, i) => (
                   <Link
                     key={i}
-                    href="#"
-                    //  href={`/${el.value}/${value[2] ? value[2] : "delhi"}`}
+                  //  href="#"
+                     href={`/${el.value}/delhi`}
                     className="text-decoration-none "
                   >
                     <li className=" py-md-2  text-decoration-none f-heading-clr ">

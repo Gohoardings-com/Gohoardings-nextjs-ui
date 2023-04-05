@@ -37,7 +37,6 @@ const Iconsselection = ({slice}) => {
     }
   }
   
-console.log("33",hording);
   // function HandleDistance(Dis) {
   //   Setdistance(Dis)
   // }
