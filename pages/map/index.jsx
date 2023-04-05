@@ -43,7 +43,7 @@ const Map = () => {
   const [mapMarker, setPosts] = useState([]);
 
   const addonCart = async (code, category_name) => {
-    if (!localStorage.getItem("permissions")) {
+    if (!localStorage.getItem("goh")) {
       handleShow()
      } else {
 

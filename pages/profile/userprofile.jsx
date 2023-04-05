@@ -112,7 +112,7 @@ const Userprofile = () => {
               </div>
               <div className="row ">
                 <div className="col-md-12 text-right">
-                  <div className="form-group mb-0 update-btn mt-3">
+                  <div className="form-group mb-0 update-btn mt-3 rounded">
                     <Form.Control
                       type="submit"
                       value="UPDATE"
@@ -128,8 +128,8 @@ const Userprofile = () => {
         <style jsx>
           {`
             .update-btn {
-              background-color: black !important;
-              color: #f0f0f0 !important;
+              background-color: #212529 !important;
+              color: white !important;
             }
             .campaign-box {
               td {
@@ -369,6 +369,7 @@ const Userprofile = () => {
            
 
               .text-right {
+            
                 text-align: right;
               }
             

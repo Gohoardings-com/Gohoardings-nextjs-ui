@@ -171,14 +171,23 @@ const Fixednavbar = () => {
                 ))}
               </DropdownButton>
             </div>
-
+            {userType && value ? 
             <Button
               className="ms-3"
               onClick={(a, b) => mavigatetoMediaPage(userType, value)}
               id={styles.search_button_flotnav}
             >
               <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
-            </Button>
+            </Button> : 
+             <Button
+             className={`ms-3 ${styles.float_btn_notalowed}`}
+             
+             id={styles.search_button_flotnav }
+           >
+             <MdOutlineSearch className={`${styles.search_logo} icon-clr ${styles.float_btn_notalowed}`} />
+           </Button>
+            
+            }
 
           </Nav>
           <form className="  text-center me-3">
