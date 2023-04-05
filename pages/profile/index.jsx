@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { profileDetails } from "@/allApi/apis";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import Campaings from "./userdata";
+import { useRouter } from "next/router";
 import Changepassword from "./changepassword";
 import Companyprofile from "./companyprofile";
 import Userprofile from "./userprofile";
@@ -14,6 +15,7 @@ import { useSelector } from "react-redux";
 
 
 const Profile = () => {
+  const route = useRouter()
   const [profile, setProfile] = useState(false);
   const [companey, setCompaney] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -78,7 +80,8 @@ const Profile = () => {
   useEffect(() => {
     userData();
   }, []);
-
+  const value = localStorage.getItem("permissions")
+if(value){
   return (
     <>
       <Fixednavbar />
@@ -373,6 +376,9 @@ const Profile = () => {
       </style>
     </>
   );
+}else{
+  route.push('/')
+}
 };
 
 export default Profile;

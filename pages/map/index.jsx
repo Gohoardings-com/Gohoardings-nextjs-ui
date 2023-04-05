@@ -279,8 +279,8 @@ const Map = () => {
                               {slice.length == 1 && (
                                 <div>
                                   <button
-                                    className={` ${styles.btn_hover}  ${styles.buttonload}`}
-                                    onClick={getRelateddata}
+                                    className={` ${styles.btn_hover}  ${styles.buttonload} disabled`}
+                                    // onClick={getRelateddata}
                                   >
                                     Get Related Data
                                   </button>
