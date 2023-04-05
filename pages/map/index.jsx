@@ -43,7 +43,7 @@ const Map = () => {
   const [mapMarker, setPosts] = useState([]);
 
   const addonCart = async (code, category_name) => {
-    if (!localStorage.getItem("permissions")) {
+    if (!localStorage.getItem("goh")) {
       handleShow()
      } else {
 
@@ -279,8 +279,8 @@ const Map = () => {
                               {slice.length == 1 && (
                                 <div>
                                   <button
-                                    className={` ${styles.btn_hover}  ${styles.buttonload}`}
-                                    onClick={getRelateddata}
+                                    className={` ${styles.btn_hover}  ${styles.buttonload} disabled`}
+                                    // onClick={getRelateddata}
                                   >
                                     Get Related Data
                                   </button>

@@ -321,7 +321,7 @@ exports.resetPasswordEmail = catchError(async (req, res, next) => {
     }
 })
 
-exports.changepasswoed = catchError(async (req, res, next) => {
+exports.changeProfilepassword = catchError(async (req, res, next) => {
     const userId = req.id;
     if (!userId) {
         return res.status(206).json({success:false, message: "User not found"})

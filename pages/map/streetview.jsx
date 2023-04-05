@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
-
+import styles from '../../styles/markers.module.scss'
 const GoogleStreetView = dynamic(() => import('react-google-streetview'), {
   ssr: false
 });
@@ -19,9 +19,9 @@ const Streetview = ({latitude, longitude, closeKeyword}) => {
     };
 
     return (
-      <div className="container-fluid h-100">
+      <div className="container-fluid h-100 p-0">
   
-      <button className="back-map mt-1 ms-2 p-2" onClick={closeKeyword}>Back</button>
+      <button className={`${styles.back_map}  p-2`} onClick={closeKeyword}>Back</button>
 
    
         {latitude != undefined && 

@@ -56,8 +56,10 @@
     "redux-thunk": "^2.4.2",
     "request": "^2.88.2",
     "sass": "^1.59.3",
+    "sitemap": "^7.1.1",
     "slick-carousel": "^1.8.1",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@types/cookie": "^0.5.1"

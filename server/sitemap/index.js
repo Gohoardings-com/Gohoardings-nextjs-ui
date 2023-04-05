@@ -1,6 +1,6 @@
 const express = require("express")
 const	{ SitemapStream, streamToPromise } = require('sitemap')
-	const db = require('../conn/conn')
+const db = require('../../server/conn/conn')
 const	date = new Date().toISOString()
 const	zlib = require("zlib")
 const	router = express.Router();

@@ -7,7 +7,6 @@
     box-sizing: border-box;
   }
  
-
   #list-tab {
     .list-group-item {
       border: transparent !important;
@@ -66,8 +65,15 @@ input::-webkit-inner-spin-button {
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   width: 70vw !important;
-  height: 70vh !important;
+  height: auto !important;
 }
+// @media screen and (max-width: 1366px) {  
+//   .modal-content {
+//     height: auto !important;
+//   }
+
+// }
+
 #exampleModal {
   .form-control {
     box-shadow: none;
