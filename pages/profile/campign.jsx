@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
 import { toast, ToastContainer } from "react-toastify";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "next/link";
+import  Link from "next/link";
 const Campign = ({ posts }) => {
   const [campings, setCampings] = useState();
   const [campingid, setCampingid] = useState();
@@ -123,7 +123,7 @@ const Campign = ({ posts }) => {
                   </p>
                   <div className="collapse" id={abc}>
                     <div className="card-body  p-2 pt-0">
-                      <div className="camp-ppt mb-2 m-0">
+                      {/* <div className="camp-ppt mb-2 m-0">
                         <button
                           className="btn btn-success me-4"
                           onClick={excel}
@@ -134,7 +134,7 @@ const Campign = ({ posts }) => {
                           PPT
                         </button>
                         <ToastContainer />
-                      </div>
+                      </div> */}
                       <div>
                         <thead>
                           <tr>
@@ -158,7 +158,7 @@ const Campign = ({ posts }) => {
                                     <td>{el.start_date.slice(0, 10)}</td>
                                     <td>{el.end_date.slice(0, 10)}</td>
                                     <Link
-                                      href={`/services/${el.media_type}/${el.meta_title}`}
+                                      href={`/seedetails/${el.media_type}/${el.meta_title}`}
                                       className="text-decoration-none"
                                     >
                                       <td>View</td>
@@ -179,56 +179,9 @@ const Campign = ({ posts }) => {
       </div>
       <style jsx>
         {`
-          td {
-            padding: 2px 6px;
-          }
-          th {
-            padding: 2px 6px;
-          }
-          p {
-            cursor: pointer;
-            font-size: 16px;
-            color: rgb(57, 55, 55);
-          }
-          .down {
-            float: right;
-            color: rgb(89, 85, 85);
-          }
-          .point {
-            font-size: 14px;
-            color: rgb(136, 133, 133);
-          }
+        
 
-          #booked_media {
-            height: 10vh;
-          }
-
-          .tab-content > .active {
-            display: block;
-          }
-
-          .tab-content > .tab-pane {
-            display: none;
-          }
-
-          .tab-pane {
-            min-height: 462px;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            padding: 0px 5px;
-          }
-
-          .btn {
-            text-transform: uppercase;
-            font-size: 13.5px;
-            outline-offset: 0;
-            border: 1px solid transparent;
-            transition: all 0.15s ease-in-out;
-            -o-transition: all 0.15s ease-in-out;
-            -moz-transition: all 0.15s ease-in-out;
-            -webkit-transition: all 0.15s ease-in-out;
-          }
-        `}
+      `}    
       </style>
     </div>
   );

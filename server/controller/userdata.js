@@ -27,7 +27,7 @@ exports.Profile = catchError(async (req, res, next) => {
           
             return res.status(401).json({message: err.message})
         } else {
-             req.getItemId = result
+             req.getItemdata = result
             next()
         }
     })
@@ -42,7 +42,7 @@ exports.getItemid = catchError(async(req,res, next) => {
             return res.status(206).json({success:false, err: err, message: "Wrong Data"})
         }else{
             const newdata = await alldata(results)
-            const data = req.getItemId;
+            const data = req.getItemdata;
             for (let i = 0; i < data.length; i++) {
                 data[i].meta_title = newdata[i].meta_title;
                 data[i].illumination = newdata[i].illumination;

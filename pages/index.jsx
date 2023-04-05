@@ -4,14 +4,11 @@ import Ourservices from "@/components/ourServices";
 import City from "@/components/cityList";
 import Enquire from "@/components/enquire/enquire";
 import Searchmedia from "@/components/searchMedia";
-import Trendingcity from "@/components/trendingcity";
 import NavbarH from "@/components/navbar/navbar";
 import dynamic from "next/dynamic";
 import Floatingnavbar from "@/components/navbar/flotingnavbar";
 
-// const MyComponent = dynamic(() => import("@/components/navbar/flotingnavbar"), {
-//   ssr: false,
-// });
+const Trendingcity = dynamic(() => import("@/components/trendingcity"));
 
 export default function Home() {   
   return (

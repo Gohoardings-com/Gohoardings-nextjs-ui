@@ -118,7 +118,7 @@ if(!data){
       setPosts(true);
     }
   }, [scrollY]);
-  
+
   if(loading == false && user !== "No Token Found"){
   return (
 
@@ -157,14 +157,7 @@ if(!data){
               >
                 <BiLogOut className=" text-light" /> {" "}
                 Logout
-                {/* <GoogleLogout
-                  className="border-0 bg-transparent"
-                  clientId={clientId}
-                  buttonText={"Logout"}
-                  onLogoutSuccess={handelLogout}
-                  icon={false}
-                  id={styles.log_bttn}
-                /> */}
+        
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
