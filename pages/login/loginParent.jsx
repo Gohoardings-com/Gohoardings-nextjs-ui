@@ -18,6 +18,7 @@ import {
   sendOTP,
  emailformate } from "@/allApi/apis";
 import { useGoogleLogin } from "react-google-login";
+import Cookies from "js-cookie";
 import { MdOutlineError } from "react-icons/md";
 import navigate  from "next/navigation";
 import {useRouter} from 'next/navigation'
@@ -26,7 +27,7 @@ import { AccountContext } from "@/allApi/apicontext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
-const LoginN = ({scrollY}) => {
+const LoginN = () => {
   const dispatch = useDispatch()
 
   const [name, setName] = useState("");
@@ -56,6 +57,7 @@ const LoginN = ({scrollY}) => {
 
   const afterLogin = async () => {
      localStorage.setItem("goh", true);
+     Cookies.set("LoggedIn",true);
     dispatch(userDetails);
     addRemove({ type: "DECR" });
     handleClose()

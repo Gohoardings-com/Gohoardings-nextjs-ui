@@ -9,6 +9,7 @@ import {
   logoutUser,
   refreshToken,
 } from "@/allApi/apis";
+import Cookies from "js-cookie";
 import { AccountContext } from "@/allApi/apicontext";
 import { cartitems, userDetails } from "@/redux/adminAction";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -17,8 +18,6 @@ import { MdDashboard } from "react-icons/md";
 import { CgUserlane } from "react-icons/cg";
 import { BiLogOut, BiLogIn } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
-// import { FaUserCircle
-// } from "react-icons/im";
 import { useRouter } from "next/router";
 import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
@@ -36,6 +35,8 @@ const Userdetail = () => {
   const [posts, setPosts] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const { user, loading } = useSelector((state) => state.user);
+
+  
   // const oneTap = async (response) => {
   //   const data = await googleLogin(response);
   //   if (data.success === true) {
@@ -44,8 +45,6 @@ const Userdetail = () => {
   //     getUser();
   //   }
   // };
-
-  console.log(state);
 
 
 
@@ -57,16 +56,16 @@ useEffect(() =>{
   }
 },[session])
 
-  const handelLogout = async () => {
+const handelLogout = async () => {
+  route.push('/')
     signOut().then(async() =>{
       await logoutUser()
       localStorage.removeItem("goh",true) 
-      
-       route.push('/')
-
+      Cookies.remove("LoggedIn")
     })
   };
-  const data = localStorage.getItem("goh",true)
+
+const data = localStorage.getItem("goh",true)
 useEffect(() =>{
 if(!data){
   dispatch(userDetails)
@@ -102,6 +101,7 @@ if(!data){
 
  
   useEffect(() => {
+    dispatch(cartitems())
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
