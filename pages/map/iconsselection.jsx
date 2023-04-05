@@ -105,14 +105,12 @@ const Iconsselection = ({slice}) => {
   // JSON.stringify(uniqueValues)
 
   const submitfilters = async () => {
-
     const value = [...slice];
     const table = value[0].category_name;
     const city = value[0].city_name;
     const latitudes = slice.map(item => item.latitude);
   const minLatitude = Math.min(...latitudes);
   const maxLatitude = Math.max(...latitudes);
-
   let array = [...uniqueValues];
   let arrayJJson = JSON.stringify(array);
   let newString = arrayJJson.replace(/\[|\]/g, '');

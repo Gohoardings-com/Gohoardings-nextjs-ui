@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
+import { AccountContext } from "@/allApi/apicontext";
 import { FiPhoneCall } from "react-icons/fi";
 import { BiMailSend } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
@@ -10,65 +11,28 @@ import {
   changefooter,
   CityNameImage,
 } from "../allApi/apis";
-import instance from "@/allApi/axios";
-
-// function useWindowSize() {
-//   const [size, setSize] = useState([window.innerWidth]);
-
-//   useEffect(() => {
-//     const handleResize = () => {
-//       setSize([window.innerWidth]);
-//     };
-//     window.addEventListener("resize", handleResize);
-
-//     return () => {
-//       window.removeEventListener("resize", handleResize);
-//     };
-//   }, []);
-//   return size;
-// }
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
 
 const Footer = () => {
   const [email, setEmail] = useState([]);
-  // const locate = window.location.pathname;
-  // const value = locate.split("/");
+  const { handleClose,handleShow} = useContext(AccountContext);
 
-  // const [width] = useWindowSize();
-  const [widthcss, setWidthcss] = useState(false);
-  // useEffect(() => {
-  //   const handleCss = () => {
-  //     if (width > 767) {
-  //       setWidthcss(false);
-  //     } else {
-  //       setWidthcss(true);
-  //     }
-  //   };
-  //   handleCss();
-  // }, [width]);
-
-  // const [error, setEror] = useState(false);
-
-  // const handelSubmit = async (e) => {
-  //   let count = 0;
-  //   e.preventDefault();
-  //   if (!emailformate.test(email)) {
-  //     count = +1;
-  //     setEror(true);
-  //   } else if (count === 0) {
-  //     const data = await enquiryApi(email);
-  //     if (data.success == true) {
-  //       setEmail("");
-  //       toast(
-  //         "Thank for becoming our member, You will get best deals from us."
-  //       );
-  //       setEror(false);
-  //     }
-  //   }
-  // };
+  const handelSubmit = async (e) => {
+    let count = 0;
+    e.preventDefault();
+    if (!emailformate.test(email)) {
+      count = +1;
+      setEror(true);
+    } else if (count === 0) {
+      const data = await enquiryApi(email);
+      if (data.success == true) {
+        setEmail("");
+        toast(
+          "Thank for becoming our member, You will get best deals from us."
+        );
+        setEror(false);
+      }
+    }
+  };
 
   const logo = [
     {
@@ -169,15 +133,8 @@ const Footer = () => {
                   </a>
                 </li>
 
-                <li className="py-md-2">
-                  {" "}
-                  <a
-                    className=" text-decoration-none f-heading-clr"
-                    href="/login"
-                    target="_blank"
-                  >
+                <li className="py-md-2 text-decoration-none f-heading-clr" onClick={handleShow} id="footerPopUp">        
                     Login As Advertiser
-                  </a>
                 </li>
                 <span className="pos-absolute">
                   <li className="py-md-2">
@@ -316,7 +273,7 @@ const Footer = () => {
               Best deals in your inbox
             </h4>
             <form
-              // onSubmit={handelSubmit}
+              onSubmit={handelSubmit}
               className="d-flex  p-2 ps-md-1 pt-1 ps-0 smv"
             >
               <input
@@ -420,6 +377,9 @@ const Footer = () => {
             width: 300px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          }
+          #footerPopUp{
+            cursor:pointer;
           }
           .grid-item {
             transition: transform 0.3s;
