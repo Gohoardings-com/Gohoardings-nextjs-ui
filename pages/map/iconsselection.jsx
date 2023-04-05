@@ -116,7 +116,7 @@ const Iconsselection = ({slice}) => {
   let array = [...uniqueValues];
   let arrayJJson = JSON.stringify(array);
   let newString = arrayJJson.replace(/\[|\]/g, '');
-  // dispatch(iconFiltersData(distance, datas, table, city, minLatitude, maxLatitude , newString))
+  dispatch(iconFiltersData(distance, datas, table, city, minLatitude, maxLatitude , newString))
 
   }
 
@@ -136,8 +136,8 @@ const Iconsselection = ({slice}) => {
         </div>
       
        <div className="text-center map-btn-more"  >
-          <button id="notWorking" className="buttonload btn-hover" >
-          {/* <button id="notWorking" className="buttonload btn-hover"  onClick={() => submitfilters()}> */}
+          {/* <button id="notWorking" className="buttonload btn-hover" > */}
+          <button id="notWorking" className="buttonload btn-hover"  onClick={() => submitfilters()}>
             Apply
           </button>
       </div>

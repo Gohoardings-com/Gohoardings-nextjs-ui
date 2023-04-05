@@ -5,6 +5,7 @@ const path = require('path')
 const {sendEmail} = require("../middelware/sendEmail");
 const XLSX = require('xlsx');
 const pptxgen = require ("pptxgenjs");
+const db = require("../conn/conn");
 
 async function planMail(data, email) {
 
@@ -268,7 +269,7 @@ exports.addOnCart = catchError(async (req, res) => {
         return res.status(206).json({success:false, message: "No Cookie Found" })
     }
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+    return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
             return res.status(206).json({success:false, message: "Login First" })
         } else {
@@ -408,8 +409,9 @@ exports.useritems = catchError(async (req, res, next) => {
 exports.getUserCartItem = catchError(async (req, res, next) => {
     const user = req.id
     db.changeUser({ database: "gohoardi_goh" });
+    const sql = `SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `;
     db.query(
-        `SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `,
+        sql,
         (err, result) => {
             if (err) {
                 return res.status(400).json({success:false, message: "Database Error"})

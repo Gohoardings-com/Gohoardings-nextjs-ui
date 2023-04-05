@@ -227,7 +227,6 @@ exports.mapMarkersData = catchError(async(req,res) => {
            
         }
         db.changeUser({ database: "gohoardi_goh" });
-        console.log(sql);
         db.query(sql, async(err, result) => {
             if (err) {
 
