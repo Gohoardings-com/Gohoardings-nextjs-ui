@@ -35,6 +35,9 @@ const Map = () => {
 
   if (!loading) {
     slice = search.slice(0, noOfLogo);
+    if(slice.length === 0){
+      dispatch(mediawithcity("tradition-ooh-media", "delhi"))
+    }
   }
 
   const [mapMarker, setPosts] = useState([]);

@@ -95,7 +95,7 @@ const Media = () => {
     setOverview(!overview);
   };
   const getCardData = async () => {
-    dispatch(mediawithcity(category_name, city_name, noOfLogo));
+    dispatch(mediawithcity(category_name, city_name));
   };
 
   useEffect(() => {

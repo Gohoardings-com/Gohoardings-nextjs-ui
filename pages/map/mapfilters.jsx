@@ -22,10 +22,10 @@ const [city, setCity] = useState([])
  
 
 const apiforFillters = async () => {
-  const value = [...search];
-  const category_name = value[0].category_name;
+ if(search){
+  const category_name = search[0].category_name;
   setCategory(category_name)
-  const city_name = value[0].city_name;
+  const city_name = search[0].city_name;
   setCity(city_name)
   const  data = await mediaDataApi (
     category_name,
@@ -34,6 +34,9 @@ const apiforFillters = async () => {
   setMediadata(data);
   setlocationData(data)
   setcategoryData(data)
+ }
+ 
+ 
 };
 
 let locations;
@@ -74,9 +77,7 @@ function locationFilter(loca) {
   dispatch(priceSubIllu(categoryArray, price, singlemedia, table, city, locationCkheckbox))
 } 
 
-
 function mediaTypeFilter(cate) {
-
 ILLUMINATION.forEach((el) => {
   if (el === cate && singlemedia.indexOf(el) > -1) {
     singlemedia.splice(singlemedia.indexOf(el), 1);
