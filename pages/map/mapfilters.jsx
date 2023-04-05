@@ -91,10 +91,6 @@ dispatch(priceSubIllu(categoryArray, price, singlemedia, table, city, locationCk
 }
 
 
-
-
-
-
 useEffect(() => {
   apiforFillters()
 },[])
@@ -146,7 +142,7 @@ return (
                     data-bs-target="#flush-collapseFour"
                     aria-expanded="false"
                     aria-controls="flush-collapseFour"
-                  >
+                    id={styles.accordion_button} >
                     Illumination  <span>({ILLUMINATION.length})</span>
                   </button>
                 </h2>
@@ -200,7 +196,7 @@ return (
                     data-bs-target="#flush-collapseTwo"
                     aria-expanded="false"
                     aria-controls="flush-collapseTwo"
-                  >
+                    id={styles.accordion_button}>
                   Category Filter  <span>({category.length})</span>
                   </button>
                 </h2>
@@ -214,8 +210,7 @@ return (
                <div className="accordion-body pt-0">
                 <div className="pe-3 mb-2 pt-1">
               <input type="search" placeholder="Search Hoarding Type" className="w-100 form-control"  onChange={event => setQuery(event.target.value)} />
-              </div>
-                   
+              </div>              
                     <div className={ `${styles.checkbox_items} py-2`}>
                     {category.filter(obj => {
               if (query == '') {
@@ -252,7 +247,7 @@ return (
 
               <div className="accordion-item">
               <h2 className="accordion-header" id="flush-headingThree">
-                <button className="accordion-button collapsed bg-secondary bg-opacity-25 pt-3 ps-4 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <button className="accordion-button collapsed bg-secondary bg-opacity-25 pt-3 ps-4 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" id={styles.accordion_button}>
                   Location Filter  <span>({locations.length})</span>
                 </button>
               </h2>

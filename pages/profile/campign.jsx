@@ -1,91 +1,91 @@
 import React from "react";
 import { useState } from "react";
 import { BsFillCircleFill } from "react-icons/bs";
-import { toast, ToastContainer } from "react-toastify";
 import { IoIosArrowDown } from "react-icons/io";
 import  Link from "next/link";
+import styles from '../../styles/campaign.module.scss';
 const Campign = ({ posts }) => {
   const [campings, setCampings] = useState();
   const [campingid, setCampingid] = useState();
   const campaigns = posts.map((el) => el.campaign_name);
   const campaign = [...new Set(campaigns)];
 
-  const excel = async () => {
-    try {
-      // Make a request to the server to download the file
-      let response;
-      await fetch(`${process.env.REACT_APP_URL}datafiles/excel`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ID: campingid }),
-        credentials: "include",
-      })
-        .then((data) => {
-          response = data;
-        })
-        .catch((err) => {
-          toast(err.message);
-        });
-      const blob = await response.blob();
+  // const excel = async () => {
+  //   try {
+  //     // Make a request to the server to download the file
+  //     let response;
+  //     await fetch(`${process.env.REACT_APP_URL}datafiles/excel`, {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ ID: campingid }),
+  //       credentials: "include",
+  //     })
+  //       .then((data) => {
+  //         response = data;
+  //       })
+  //       .catch((err) => {
+  //         toast(err.message);
+  //       });
+  //     const blob = await response.blob();
 
-      // Create a new Blob object that represents the file
-      const file = new Blob([blob], { type: "application/octet-stream" });
+  //     // Create a new Blob object that represents the file
+  //     const file = new Blob([blob], { type: "application/octet-stream" });
 
-      // Create an anchor element
-      const a = document.createElement("a");
+  //     // Create an anchor element
+  //     const a = document.createElement("a");
 
-      // Set the "download" attribute
-      a.setAttribute("download", "Plan.xlsx");
+  //     // Set the "download" attribute
+  //     a.setAttribute("download", "Plan.xlsx");
 
-      // Set the "href" attribute to the Blob object
-      a.href = URL.createObjectURL(file);
+  //     // Set the "href" attribute to the Blob object
+  //     a.href = URL.createObjectURL(file);
 
-      // Trigger the download
-      a.click();
-    } catch (err) {
-      return false;
-    }
-  };
+  //     // Trigger the download
+  //     a.click();
+  //   } catch (err) {
+  //     return false;
+  //   }
+  // };
 
-  const powerpoint = async () => {
-    try {
-      // Make a request to the server to download the file
-      let response;
-      await fetch(`${process.env.REACT_APP_URL}datafiles/powerpoint`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ID: campingid }),
-        credentials: "include",
-      }).then((data) => {
-        response = data;
-      });
+  // const powerpoint = async () => {
+  //   try {
+  //     // Make a request to the server to download the file
+  //     let response;
+  //     await fetch(`${process.env.REACT_APP_URL}datafiles/powerpoint`, {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ ID: campingid }),
+  //       credentials: "include",
+  //     }).then((data) => {
+  //       response = data;
+  //     });
 
-      const blob = await response.blob();
+  //     const blob = await response.blob();
 
-      // Create a new Blob object that represents the file
-      const file = new Blob([blob], { type: "application/octet-stream" });
+  //     // Create a new Blob object that represents the file
+  //     const file = new Blob([blob], { type: "application/octet-stream" });
 
-      // Create an anchor element
-      const a = document.createElement("a");
+  //     // Create an anchor element
+  //     const a = document.createElement("a");
 
-      // Set the "download" attribute
-      a.setAttribute("download", "Plan.pptx");
+  //     // Set the "download" attribute
+  //     a.setAttribute("download", "Plan.pptx");
 
-      // Set the "href" attribute to the Blob object
-      a.href = URL.createObjectURL(file);
+  //     // Set the "href" attribute to the Blob object
+  //     a.href = URL.createObjectURL(file);
 
-      // Trigger the download
-      a.click();
-    } catch (err) {
-      return false;
-    }
-  };
+  //     // Trigger the download
+  //     a.click();
+  //   } catch (err) {
+  //     return false;
+  //   }
+  // };
 
   const getData = (text) => {
     setCampings(text);
@@ -102,12 +102,12 @@ const Campign = ({ posts }) => {
           <div
             role="tabpanel"
             className="tab-pane active row"
-            id="booked_media"
+            id={styles.booked_media}
           >
             {campaign.map((data, index) => {
               let abc = "a" + data;
               return (
-                <div className="campaign-box mt-0">
+                <div className={`${styles.campaign_box} mt-0`}>
                   <p
                     key={index}
                     className=" toggle-btn p-0 mb-0 "
@@ -116,9 +116,9 @@ const Campign = ({ posts }) => {
                     data-bs-target={`#${abc}`}
                   >
                     <h4>
-                      <BsFillCircleFill className="point me-2" />{" "}
+                      <BsFillCircleFill className={`${styles.point} me-2`} />{" "}
                       {data.split("-")[0]}
-                      <IoIosArrowDown className="down" />
+                      <IoIosArrowDown className={styles.down} />
                     </h4>
                   </p>
                   <div className="collapse" id={abc}>
@@ -161,7 +161,7 @@ const Campign = ({ posts }) => {
                                       href={`/seedetails/${el.media_type}/${el.meta_title}`}
                                       className="text-decoration-none"
                                     >
-                                      <td>View</td>
+                                      <td   className="text-dark ">View</td>
                                     </Link>
                                   </tr>
                                 )
@@ -177,12 +177,7 @@ const Campign = ({ posts }) => {
           </div>
         </div>
       </div>
-      <style jsx>
-        {`
-        
-
-      `}    
-      </style>
+   
     </div>
   );
 };
