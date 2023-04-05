@@ -22,7 +22,6 @@ import { useRouter } from "next/router";
 import Modal from "react-bootstrap/Modal";
 import LoginN from "@/pages/login/loginParent";
 import instance from "@/allApi/axios";
-import { use } from "passport";
 
 const Userdetail = () => {
   const dispatch = useDispatch();

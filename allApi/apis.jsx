@@ -129,7 +129,7 @@ export const deleteCartItem = async(obj) => {
 }
 
 export const profileDetails = async() =>{
-    const {data} =  await instance.get("registration/login")
+    const {data} =  await instance.get("linkedin")
  return data
 }
 

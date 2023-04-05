@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { profileDetails } from "@/allApi/apis";
+import { profileDetails } from "@/allApi/apis";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import Campaings from "./userdata";
 import Changepassword from "./changepassword";
@@ -23,17 +23,11 @@ const Profile = () => {
   const [announce, setAnnounce] = useState(false);
   const { user, loading } = useSelector((state) => state.user);
 
-  // function topFunction() {
-  //   document.body.scrollTop = 0; // For Safari
-  //   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  // }
-  // useEffect(() => {
-  //   topFunction();
-  // }, []);
+
 
   const userData = async () => {
-    // const data = await profileDetails();
-    // setPosts(data.message);
+    const data = await profileDetails();
+    setPosts(data.message);
   };
 
   const showCompaney =async () => {
