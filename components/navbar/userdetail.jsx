@@ -46,7 +46,6 @@ const Userdetail = () => {
 
 
 
-
 useEffect(() =>{
   if(session){
     const data = async() => await instance.post('linkedin',{session})

@@ -86,7 +86,7 @@ export const iconFiltersData =
     try {
       dispatch({ type: "IconFilterRequest" });
 
-      const { data } = await instance.post(`filters`, {
+      const { data } = await instance.patch(`filters`, {
         distance,
         datas,
         table,
@@ -95,7 +95,7 @@ export const iconFiltersData =
         maxLatitude,
         uniqueValues,
       });
-
+      
       dispatch({ type: "IconFilterSuccess", payload: data });
     } catch (error) {
       dispatch({ type: "IconFilterFail", payload: error.response.data });
