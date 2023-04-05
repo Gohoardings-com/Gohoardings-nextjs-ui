@@ -92,8 +92,7 @@ const ForgetPass = ({
               }
             
             
-             
-              <ToastContainer />
+     
             </div>
           </form>
         </div>
@@ -131,7 +130,7 @@ const ForgetPass = ({
                   <button type="submit" className="border-0 rounded btn-lg   "   >
                     SUBMIT
                   </button>{" "}
-                  <ToastContainer />
+             
                 </div>
               </form>
             </div>

@@ -29,7 +29,6 @@ const Userdetail = () => {
   const dispatch = useDispatch();
   const route = useRouter()
   const {data:session} = useSession()
-  const state = useSelector((state)=>state.cartitems) 
   const { handleClose, handleShow,show, addRemove ,initalState} = useContext(AccountContext);
   const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
@@ -45,7 +44,6 @@ const Userdetail = () => {
   //   }
   // };
 
-  console.log(state);
 
 
 
@@ -177,7 +175,7 @@ if(!data){
                 className={`${styles.login_icon_cart} `}
               />
             </span>
-            <span aria-expanded={posts}>{state}</span>
+            <span aria-expanded={posts}>{initalState}</span>
           </div>
         </div> 
   )
