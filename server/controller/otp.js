@@ -8,7 +8,7 @@ const {sendEmail} = require("../middelware/sendEmail");
 
 
 exports.sendOTP = catchError(async (req, res) => {
-    const {email} = req.body
+    const {email} = req.query
     if (!email) {
         res.status(206).json({success:false, message: "Wrong Input"})
     }
@@ -53,7 +53,7 @@ exports.sendOTP = catchError(async (req, res) => {
 
 
 exports.sendPasswordEmail = catchError(async (req, res, next) => {
-    const {email} = req.body
+    const {email} = req.query
     if (!email) {
         res.status(206).json({message: "Wrong Input"})
     }

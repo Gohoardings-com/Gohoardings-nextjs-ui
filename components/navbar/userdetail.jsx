@@ -29,7 +29,6 @@ const Userdetail = () => {
   const dispatch = useDispatch();
   const route = useRouter()
   const {data:session} = useSession()
-  const state = useSelector((state)=>state.cartitems) 
   const { handleClose, handleShow,show, addRemove ,initalState} = useContext(AccountContext);
   const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
