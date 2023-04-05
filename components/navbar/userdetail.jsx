@@ -30,7 +30,6 @@ const Userdetail = () => {
   const route = useRouter()
   const {data:session} = useSession()
   const { handleClose, handleShow,show, addRemove ,initalState} = useContext(AccountContext);
-  const { items } = useSelector((state) => state.cart);
   const pth = route.asPath;
   const [posts, setPosts] = useState(true);
   const [scrollY, setScrollY] = useState(0);
@@ -43,6 +42,8 @@ const Userdetail = () => {
   //     getUser();
   //   }
   // };
+
+
 
 
 
