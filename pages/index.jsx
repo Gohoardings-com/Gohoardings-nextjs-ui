@@ -13,7 +13,7 @@ import Floatingnavbar from "@/components/navbar/flotingnavbar";
 //   ssr: false,
 // });
 
-export default function Home() {
+export default function Home() {   
   return (
     <>
       <Head>
@@ -54,7 +54,9 @@ export default function Home() {
         <section>
           <Enquire />
         </section>
-     
+     <section>
+      <Trendingcity/>
+     </section>
       </main>
     </>
   );
