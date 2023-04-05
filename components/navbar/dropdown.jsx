@@ -139,7 +139,7 @@ const navbarDropdown = () => {
                 </li>
                 <li>
                 
-                  <Link  href="/faq" className="text-decoration-none text-light">
+                  <Link  href="/faqs" className="text-decoration-none text-light">
                     FAQs
                   </Link>
                 </li>

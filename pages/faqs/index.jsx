@@ -26,15 +26,15 @@ const Faqs = () => {
           {posts.map((data, index) => {
             let abc = 'a' + data.id;
             return (
-              < div className="question-box mt-3">
+              < div className="question-box mt-3"  key={index}>
                 <p
-                  key={index}
+                 
                   className=" toggle-btn p-3 ps-2 mb-0 "
                   data-bs-toggle="collapse"
                   data-bs-target={`#${abc}`}
                 >
                   <h4>
-                <BsFillCircleFill className="point me-2"/>  {data.subject}<IoIosArrowDown className="down"/>     
+                <BsFillCircleFill className="point me-2"/>  {data.subject}<IoIosArrowDown className="down float-end"/>     
                   </h4>
                 </p>
                 <div className="collapse" id={abc}>

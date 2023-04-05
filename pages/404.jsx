@@ -24,8 +24,8 @@ const ErrorPage = () => {
       >
         {CityNameImage.map((pos, index) => {
           return (
-            <Link href={`/${pos.value}/delhi`} className="text-decoration-none">
-              <div className={styles.container} key={index}>
+            <Link href={`/${pos.value}/delhi`} className="text-decoration-none" key={index}>
+              <div className={styles.container} >
                 <div className={styles.card1}>
                   <div className={styles.logo_img}>{pos.icon}</div>
 

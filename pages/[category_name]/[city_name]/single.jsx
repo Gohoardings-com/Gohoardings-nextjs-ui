@@ -34,10 +34,10 @@ const Singlecard = ({
           ) : (
             <>
               {slice.map((item, i) => (
-                <div className={`row mt-3 ms-3 me-3 detail_mg p-3 rounded-3 ${styles.single_card_container}`}>
+                <div className={`row mt-3 ms-3 me-3 detail_mg p-3 rounded-3 ${styles.single_card_container}`} key={i}>
                   <div className="col-md-4 p-0">
                     {item.thumb.split(",").map((i) => (
-                      <div key={i}>
+                      <div >
                          <Link
                       href={`/seedetails/${item.category_name}/${item.meta_title}`}
                       className="text-decoration-none"
