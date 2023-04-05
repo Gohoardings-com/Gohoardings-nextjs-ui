@@ -217,18 +217,11 @@ const Details = () => {
                   </p>
                   <div className="row p-0">
                     <div className=" col-6 position-relative">
-                      {!localStorage.getItem("true") ? (
-                        <span
-                          className="bottom-0 position-absolute text-decoration-underline view"
-                          onClick={locatetologin}
-                        >
-                          View Price
-                        </span>
-                      ) : (
+                   
                         <span className="bottom-0 position-absolute view">
-                          Price: {parseInt(item.price / 30)}{" "}
+                          Price: {parseInt(item.price / 30)}
                         </span>
-                      )}
+                     
                     </div>
                     <div className="col-2">
                       <div
