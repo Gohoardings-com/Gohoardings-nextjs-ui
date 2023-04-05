@@ -41,7 +41,7 @@ function App({ Component, pageProps, session }) {
           </SessionProvider>
           {/* <MyComponent /> */}
           <Feedback/>
-          {/* <Footer /> */}
+          <Footer />
         </AccountProvider>
       </SSRProvider>
       </PersistGate>

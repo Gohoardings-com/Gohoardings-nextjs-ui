@@ -108,10 +108,10 @@ const Footer = () => {
           </div>
           <div className="col-md-9 ">
             <h4 className="f-heading pt-2 pt-md-0">
-              India's Largest Outdoor Advertising Company
+              India&#39;s Largest Outdoor Advertising Company
             </h4>
             <h6 className="f-second-heading pt-1">
-              It's advertising network spread across 130 cities with more than
+              It&#39;s advertising network spread across 130 cities with more than
               1.2 lakh OOH and DOOH sites offering hassle free branding
               experiences at an unmatched price.
             </h6>
