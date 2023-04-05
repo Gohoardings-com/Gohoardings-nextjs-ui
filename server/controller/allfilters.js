@@ -89,6 +89,9 @@ exports.locationFilter = catchError(async (req, res) => {
         }
     })
 })
+
+
+
 exports.iconFilter = catchError(async (req, res) => {
     const {distance, datas,  tbl, city, minLatitude, maxLatitude, uniqueValues} = req.body;
     const promise = []
@@ -138,6 +141,7 @@ exports.iconFilter = catchError(async (req, res) => {
 //media filters
 exports.filterData = catchError(async (req, res, next) => {
         const {category_name, illunation, categorys, city_name,locations} = req.body
+        console.log(category_name, illunation, categorys, city_name,locations);
         const SubCategory = categorys.toString()
         const illumantios = illunation.toString()
         const newIllumantion = illumantios.replace(/,/g, "','")
@@ -174,6 +178,7 @@ exports.filterData = catchError(async (req, res, next) => {
             default:
                 table_name = "goh_media";
         }
+        console.log(table_name);
             let addsubcategoryQuery = "";
             let addillumantionQuery ="";
             let addlovationQuery ="";
