@@ -19,7 +19,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
   });
  
   if (!loading) {
-    iconfilter.forEach((e) => {
+    iconfilter?.forEach((e) => {
       e["position"] = { lat: e.lat, lng: e.lng };
     });
   }
@@ -207,7 +207,6 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
     if (markers?.[markers.length - 1].position) {
       sethasmarker(true);
     }
-    console.log(streetView);
     },[streetView])
 
   return (

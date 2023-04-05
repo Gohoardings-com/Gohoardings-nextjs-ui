@@ -28,7 +28,6 @@ const Userprofile = () => {
   };
 
   const handelSubmit = async (e) => {
-    console.log(firstname, phonenumber);
     e.preventDefault();
     const formData = new FormData();
     // formData.append("photo", imge);

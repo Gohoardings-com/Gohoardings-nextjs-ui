@@ -66,7 +66,7 @@ export const mediaFilters =
   async (dispatch) => {   
     try {
       dispatch({ type: "MediaWithCityRequest" });
-      const { data } = await instance.put(`filters`, {
+      const { data } = await instance.get(`filters`, {
         category_name,
         illunation,
         categorys,

@@ -10,20 +10,21 @@ export const AccountProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   var [initalState, setInitalState] = useState(0)
   const item = async () => {
-    if(loading == false && user.message !== "No Token Found"){
-    const { data } = await instance.get(`forgetPass`)
-
-    if(data.message == "InValid Token"){
-      setInitalState(0);
-      return initalState;
-
-    }else{
-      setInitalState(0);
-      return initalState;
+    if (localStorage.getItem("goh")) {
+      if(loading == false && user.message !== "No Token Found"){
+        const { data } = await instance.get(`forgetPass`)
+        if(data.message == "InValid Token"){
+          setInitalState(0);
+          return initalState;
+    
+        }else{
+          setInitalState(data[0].item);
+          return initalState;
+        }
+      }else{
+        return initalState
+      }
     }
-  }else{
-    return initalState
-  }
 }
 
   const reducer = (state, action) => {
