@@ -124,10 +124,9 @@ const submitAllProduct = async () => {
   });
   if (data.success == true) {
     addRemove({ type: "DECR" });
-    // dispatch(cartitems());
-    // setPosts([]);
+    dispatch(cartitems());
+    setPosts([]);
     toast(data.message);
-    // topFunction();
     setCampains("");
     dispatch(
       mediawithcity({
