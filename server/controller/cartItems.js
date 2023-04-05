@@ -8,40 +8,50 @@ const pptxgen = require ("pptxgenjs");
 const db = require("../conn/conn");
 
 async function planMail(data, email) {
+ 
+      const excelPath = await excel(data)
+      const PPTPath = await powerpoint(data)
 
-    const excelPath = await excel(data);
-    const PPTPath = await powerpoint(data);
-
-    const message = `Your Media add on a Campaingn your Campain id is campaign-TEST`
-      await sendEmail({
-        email: email,
-        subject: "Gohoadings Solutions : India's Largest Outdoor Advertising Company",
-        message: message,
-        attachments: [
-          { fileName: "test", path: excelPath },
-          { fileName: "test2", path: PPTPath }
-        ]
-      });
+    const message = `Your Media add on a Campaingn your Campain id is campaign-TEST`;
+    await sendEmail({
+      email: email,
+      subject: "Gohoadings Solutions : India's Largest Outdoor Advertising Company",
+      message: message,
+      attachments: [
+        { fileName: "test-1", path: excelPath },
+        { fileName: "test-2", path: PPTPath }
+      ]
+    });
+  
   }
+  
+  
 
-  const excel = async (ID,next) => {
-    if(!ID){
-        return res.status(206).json({success:false, message:"Try Again"})
-    }
-    const sql = "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = "+ID+" && status=1"
-    const res = await executeQuery(sql,  "gohoardi_goh", next);
-    if (!res) {
-        return res.status(400).json({success:false, message: "Database Error"})
-    } else { 
-        let file = await alldata(res,ID);
-        if(!file){
-            return res.status(206).json({success:false, message:"Try Again"})
+  const excel = (ID) => {
+    return new Promise((resolve, reject) => {
+      if (!ID) {
+        reject(new Error("Invalid ID"));
+      }
+      const sql =
+        "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = " +
+        ID +
+        " && status=1";
+      db.query(sql, async (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          let file = await alldata(result, ID);
+          if (!file) {
+            reject(new Error("Invalid file"));
+          }
+          resolve(file);
         }
-        return file;
-    }
-  }
+      });
+    });
+  };
+  
 
-  const alldata = async (data,ID,next) => {
+  const alldata = async (data,ID) => {
     const arr = data;
     var table_name;
     let promises = [];
@@ -75,12 +85,13 @@ async function planMail(data, email) {
             promises.push(
                 new Promise(async (reject, resolve) => {
                     const sql = "SELECT media.id,media.medianame as 'Media name', media.location, media.illumination, media.city_name as City, media.state, media.width as 'Width (feet)', media.height as 'Height (feet)', Media.area as 'Total Area', media.widthunit as 'Area in', media.price as Price, media.pricetype as 'Price type', media.ftf as 'Foot Fall', media.subcategory as Category, media.geolocation FROM  " + table_name + " AS media WHERE media.code='" + obj.mediaid + "'"
-                    const res = await executeQuery(sql,  "gohoardi_goh", next);
-                    if (!res) {             
-                        return reject(err)
-                          } else {
-                              return resolve(res)
-                          }
+                    db.query(sql,async(err,result)=>{
+                        if (err) {             
+                            return reject(err)
+                              } else {
+                                  return resolve(result)
+                              }
+                    });
                 })
             );
         } catch (err) {
@@ -122,24 +133,31 @@ async function planMail(data, email) {
         return filePath;
       }
   
-    const powerpoint = async (ID,next) => {
-        if(!ID){
-            return res.status(206).json({success:false, message:"Try Again"})
-        }
-        const sql = "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = "+ID+" && status=1";
-        const res = await executeQuery(sql,  "gohoardi_goh", next);
-        if (!res) {
-            return res.status(400).json({success:false, message: "Database Error"})
-        } else { 
-            let file = await alldata2(res,ID);
-            if(!file){
-                return res.status(206).json({success:false, message:"Try Again"})
+      const powerpoint = (ID) => {
+        return new Promise((resolve, reject) => {
+          if (!ID) {
+            reject(new Error("Invalid ID"));
+          }
+          const sql =
+            "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = " +
+            ID +
+            " && status=1";
+          db.query(sql, async (err, result) => {
+            if (err) {
+              reject(err);
+            } else {
+              let file = await alldata2(result, ID);
+              if (!file) {
+                reject(new Error("Invalid file"));
+              }
+              resolve(file);
             }
-            return file;
-        }
-    }
+          });
+        });
+      };
+      
 
-    const alldata2 = async (data,ID,next) => {
+    const alldata2 = async (data,ID) => {
         var table_name;
         let promises = [];
         data.map((obj) => {
@@ -172,12 +190,13 @@ async function planMail(data, email) {
                 promises.push(
                     new Promise(async (reject, resolve) => {
                             const sql = "SELECT media.id, media.thumb ,media.medianame, media.mediaownercompanyname ,media.location, media.illumination, media.city_name, media.state, media.area as 'size', media.price, media.pricetype, media.foot_fall, media.subcategory, media.geolocation FROM  " + table_name + " AS media WHERE media.code='" + obj.mediaid + "'";
-                            const res = await executeQuery(sql,  "gohoardi_goh", next);
-                            if (!res) {             
-                                return reject(err)
-                                  } else {
-                                      return resolve(res)
-                                  }
+                            db.query(sql,async(err,result)=>{
+                                if (err) {             
+                                    return reject(err)
+                                      } else {
+                                          return resolve(result)
+                                      }
+                            });
                     })
                 );
             } catch (err) {
