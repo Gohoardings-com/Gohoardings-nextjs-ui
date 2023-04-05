@@ -80,7 +80,7 @@ const Details = () => {
     handleShow()
   };
   const addonCart = async (e) => {
-    if (!localStorage.getItem("goh")) {
+    if (!localStorage.getItem("permissions")) {
       handleShow()
      
     } 

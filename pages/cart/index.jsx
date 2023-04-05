@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/router";
 // import { AccountContext } from "../../apis/apicontext";
 import { AccountContext } from "@/allApi/apicontext";
 import { Dropdown } from "react-bootstrap";
@@ -18,7 +19,12 @@ import Loader from "@/components/loader";
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
 
+
+
+
+
 const Cart = () => {
+  const route = useRouter()
   const dispatch = useDispatch();
   const [Start, setStart] = useState(new Date());
   const { items, loading } = useSelector((state) => state.cart);
@@ -37,6 +43,9 @@ const Cart = () => {
       key: "selection",
     },
   ]);
+
+
+
 
   useEffect(() => {
     dispatch(cartitems());
@@ -144,7 +153,8 @@ const submitAllProduct = async () => {
     (totalPrice, item) => totalPrice + parseInt(item.price * item.days),
     0
   );
-
+const value = localStorage.getItem("permissions")
+if(value){
   return (
     <>
       <Fixednavbar />
@@ -510,5 +520,8 @@ const submitAllProduct = async () => {
     
     </>
   );
+}else{
+  route.push('/')
+}
 };
 export default Cart;

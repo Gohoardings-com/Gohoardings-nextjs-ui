@@ -10,7 +10,7 @@ export const AccountProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   var [initalState, setInitalState] = useState(0)
   const item = async () => {
-    if (localStorage.getItem("goh")) {
+    if (localStorage.getItem("permissions")) {
       if(loading == false && user.message !== "No Token Found"){
         const { data } = await instance.get(`forgetPass`)
         if(data.message == "InValid Token"){

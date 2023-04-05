@@ -53,7 +53,7 @@ const Media = () => {
   };
 
   const addonCart = async (e) => {
-    if (!localStorage.getItem("goh")) {
+    if (!localStorage.getItem("permissions")) {
      handleShow()
     } else {
       addRemove({ type: "INCR" });
