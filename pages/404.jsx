@@ -17,7 +17,7 @@ const ErrorPage = () => {
           width={180}
           height={120}
         />
-        <h2 className="mt-2"> You've found a page that doesn't exist </h2>
+        <h2 className="mt-2"> You&#39;ve found a page that doesn&#39;t exist </h2>
       </div>
       <div
         className={`${styles.grid_containerN} container-xxl  container-xl text-center container-lg container-md my-5 p`}
