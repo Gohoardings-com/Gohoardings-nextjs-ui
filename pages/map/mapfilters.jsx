@@ -161,8 +161,8 @@ return (
               <input type="search" placeholder="Search Hoarding Type" className="w-100 form-control"  onChange={event => setQuery(event.target.value)} />
               </div>
                    
-                    <div className="checkbox-items py-2">
-                      {ILLUMINATION.filter(obj => {
+  <div className={ `${styles.checkbox_items} py-2`}>
+    {ILLUMINATION.filter(obj => {
               if (query == '') {
                 return obj;
               } else if (obj.toLowerCase().includes(query.toLowerCase())  ) {
@@ -216,7 +216,7 @@ return (
               <input type="search" placeholder="Search Hoarding Type" className="w-100 form-control"  onChange={event => setQuery(event.target.value)} />
               </div>
                    
-                    <div className="checkbox-items py-2">
+                    <div className={ `${styles.checkbox_items} py-2`}>
                     {category.filter(obj => {
               if (query == '') {
                 return obj;
@@ -261,7 +261,7 @@ return (
                 <div className="pe-3 mb-2 pt-1">
               <input type="search" placeholder="Search Hoarding Type" className="w-100 form-control"  onChange={event => setQuery(event.target.value)} />
               </div>
-              <div className="checkbox-items py-2">
+              <div className={ `${styles.checkbox_items} py-2`}>
                 
               { locations.filter(obj => {
               if (query == '') {
