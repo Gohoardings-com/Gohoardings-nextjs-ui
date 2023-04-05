@@ -16,8 +16,7 @@ const Trendingcity = () => {
   const data = async () => {
     const category_name = "traditional-ooh-media";
     const city_name = city;
-    const limit = 9
-    dispatch(mediawithcity(category_name, city_name, limit));
+    dispatch(mediawithcity(category_name, city_name));
   };
   useEffect(() => {
     random_item()
@@ -49,6 +48,11 @@ const Trendingcity = () => {
   }
 
   let slider = settings;
+  let slice;
+  if (!loading) {
+    slice = search.slice(0, 7);
+  }
+
 
   return (
     <>
@@ -80,8 +84,8 @@ const Trendingcity = () => {
             ) : (
               <>
                 <Slider {...slider}>
-                  {search &&
-                    search.map((pos, i) => (
+                  {slice &&
+                    slice.map((pos, i) => (
                       <div className="container pt-3" key={i}>
                         <div className="row  ">
                           <div className="col p-3 ">

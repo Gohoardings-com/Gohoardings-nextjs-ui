@@ -84,12 +84,9 @@ const Sign = ({ googleSignIn, toggleSignUp,sendOtp,  setPassword, afterLogin, pa
       <button
         type="submit"
         className="border-0 rounded btn-lg  mb-2 "
-        
-        
       >
         Sign up
       </button>{" "}
-      <ToastContainer />
     </div>:   <div className="d-grid mt-3" >
       <button
       disabled={true}

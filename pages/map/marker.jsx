@@ -17,9 +17,11 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
   markers.forEach((e) => {
     e["position"] = { lat: e.latitude, lng: e.longitude };
   });
- 
+  let combinedArray;
   if (!loading) {
-    iconfilter?.forEach((e) => {
+    // iconfilter.flat(Infinity);
+     combinedArray = [].concat(...iconfilter);
+     combinedArray.forEach((e) => {
       e["position"] = { lat: e.lat, lng: e.lng };
     });
   }
@@ -345,7 +347,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
             {loading ? (
               <h1>Loading.... Please Wait</h1>
             ) : (
-            iconfilter.map(({ id, position, name, lat, lng }) => (
+              combinedArray.map(({ id, position, name, lat, lng }) => (
               <Marker
                 key={id}
                 icon={"../images/all_image/restaurant.png"}

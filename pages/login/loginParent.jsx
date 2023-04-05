@@ -166,10 +166,7 @@ const LoginN = () => {
       }
     }
   };
-  function topFunction() {
-    document.body.scrollTop = 0; // htmlFor Safari
-    document.documentElement.scrollTop = 0; // htmlFor Chrome, Firefox, IE and Opera
-  }
+
 
   const changePassword = async (e) => {
     e.preventDefault();
