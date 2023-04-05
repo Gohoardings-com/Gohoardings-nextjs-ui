@@ -11,7 +11,7 @@ export default function middleware(req){
         return NextResponse.redirect("http://localhost:3000/");
         // handleShow();
     }
-
+    
     // if (verify && url === "http://localhost:3000/") {
     //   return NextResponse.redirect("http://localhost:3000/dashboard");
     // }
