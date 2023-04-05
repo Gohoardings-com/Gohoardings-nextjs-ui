@@ -128,10 +128,10 @@ exports.iconFilter = catchError(async (req, res) => {
     try{
         const data = await Promise.allSettled(promise)
         let result = [];
-        
         data.forEach(element => {
-            result.push(element.value[0])
+            result.push(element.value)
         });
+        
         return res.status(200).json(result)
 }catch(err){
     return false

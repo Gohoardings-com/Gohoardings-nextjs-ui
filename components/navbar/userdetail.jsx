@@ -45,8 +45,6 @@ const Userdetail = () => {
   //   }
   // };
 
-  console.log(state);
-
 
 
 useEffect(() =>{
@@ -177,7 +175,7 @@ if(!data){
                 className={`${styles.login_icon_cart} `}
               />
             </span>
-            <span aria-expanded={posts}>{state}</span>
+            <span aria-expanded={posts}>{initalState}</span>
           </div>
         </div> 
   )
