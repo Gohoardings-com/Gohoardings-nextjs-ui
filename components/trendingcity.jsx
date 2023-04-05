@@ -50,7 +50,7 @@ const Trendingcity = () => {
   let slider = settings;
   let slice;
   if (!loading) {
-    slice = search.slice(0, 7);
+    slice = search.slice(0, 5);
   }
 
 
