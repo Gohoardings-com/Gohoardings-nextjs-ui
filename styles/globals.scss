@@ -97,6 +97,8 @@ input::-webkit-inner-spin-button {
   color: $icon;
   cursor: pointer;
 }
+
+
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -115,7 +117,12 @@ input::-webkit-inner-spin-button {
 ::-webkit-scrollbar-thumb:hover {
   background: #cacaca;
 }
+@media screen and (max-width: 425px) {
+  ::-webkit-scrollbar {
+display: none;
+  }
 
+}
 .sdsd {
   .dropdown-toggle::after {
     display: none;
@@ -134,6 +141,16 @@ input::-webkit-inner-spin-button {
     font-size: 30px;
     color: $icon;
     float: right;
+  }
+  @media screen and (max-width: 425px) {
+    .dropdown-menu {
+      width: 66vw;
+    }
+    .dropdown-toggle::after {
+      margin-top: 6px;
+      font-size: 20px;
+    }
+
   }
 }
 .usrdtl {
@@ -209,6 +226,13 @@ input::-webkit-inner-spin-button {
     color: $icon;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  @media screen and (max-width: 425px) {
+    .slick-prev:before,
+    .slick-next:before {
+display: none;
+    }
+    
   }
 }
 

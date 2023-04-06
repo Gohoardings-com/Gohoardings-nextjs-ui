@@ -85,12 +85,15 @@
     }
   }
   @media screen and (max-width: 425px) {
-    h1 {
-      font-size: 1.6rem !important;
-    }
-    h6 {
-      font-size: 1rem;
-    }
+    br{
+      display: none;
+        }
+    // h1 {
+    //   font-size: 1.6rem !important;
+    // }
+    // h6 {
+    //   font-size: 1rem;
+    // }
     .service_card_img {
       height: 130px;
     }

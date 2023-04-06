@@ -31,12 +31,11 @@ const Searchmedia = () => {
     };
   return (
     <>
-      <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  `}>
+      <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  ms-xs-3`}>
           <div className="row">
-            <div className="col-md-8 ps-0">
+            <div className="col-md-8 ps-2 ps-md-0">
               <div className={`${styles.heading_text} mt-4`}>
                 <h2>India&#39;s Largest</h2>
-
                 <h1>
                   Outdoor Advertising <br />
                   Agency
@@ -47,7 +46,7 @@ const Searchmedia = () => {
                   Media. Check Availability. Book Online.
                 </h6>
               </div>
-              <div className={`${styles.mnc} mt-4`} >
+              <div className={`${styles.mnc} mt-4 ms-2 ms-md-0`} >
                 <a className="text-decoration-none">
                   <button className= {`${styles.button}`} onClick={()=>route.push(`/contact-us`)}>
                     <span>Enquire now</span>
@@ -55,7 +54,7 @@ const Searchmedia = () => {
                 </a>
               </div>
             </div>
-            <div className="col-md-4 text-center p-md-0">
+            <div className="col-md-4 text-center p-md-0 d-none d-md-block">
               <img
                 alt="home-img"
                 src="../images/web_pics/home-img.png"
@@ -66,7 +65,7 @@ const Searchmedia = () => {
           <section className="serchm">
             <div className="container-fluid  mt-5 pt-2  px-5 m-0 ">
               <div className= {`${styles.search_container} row mx-auto mb-5 p-1`}>
-                <div className="col-md-5  me-0 pe-0">
+                <div className="col-md-5 p-0 me-0 pe-0">
                   <div className={styles.search_location}>
                     <div className={styles.search_inner}>
                       <InputGroup className="" id="input-click">
@@ -110,7 +109,7 @@ const Searchmedia = () => {
                   </div>
                 </div>
                 <div
-                  className="col-md-5  ps-0 ms-0 pt-2 pb-2 pe-0 pe-md-2"
+                  className="col-md-5   ps-0 ms-0 pt-2 pb-md-2 pe-0 pe-md-2"
                   onFocus={() => setFocus(false)}
                 >
                   <MediaDropDown userType={userType} setUserType={setUserType} />

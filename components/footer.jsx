@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { AccountContext } from "@/allApi/apicontext";
 import { FiPhoneCall } from "react-icons/fi";
 import { BiMailSend } from "react-icons/bi";
@@ -13,8 +14,9 @@ import {
 } from "../allApi/apis";
 
 const Footer = () => {
+  const route = useRouter();
   const [email, setEmail] = useState([]);
-  const { handleClose,handleShow} = useContext(AccountContext);
+  const { handleClose, handleShow } = useContext(AccountContext);
 
   const handelSubmit = async (e) => {
     let count = 0;
@@ -97,7 +99,7 @@ const Footer = () => {
     <>
       <div className=" footerN-content  pb-3  p-0 px-3 px-md-5 py-md-1  pt-md-5 ">
         <div className="row footer-branding pb-md-4 pb-2">
-          <div className="col-md-3 pt-1">
+          <div className="col-md-3 pt-3 pt-md-1 ">
             <Link href="/">
               <img
                 src="../../images/web_pics/logo.png"
@@ -124,69 +126,75 @@ const Footer = () => {
               <ul className="position-relative  pt-md-3  ps-0">
                 <li className="py-md-2">
                   {" "}
-                  <Link
-                    className=" text-decoration-none f-heading-clr  text-light"
-                    href="https://odoads.com/register"
+                  <p
+                    className=" text-decoration-none f-heading-clr  mb-0"
+                    onClick={() => route.push("https://odoads.com/register")}
                     target="_blank"
                   >
                     Login As Media Owner
-                  </Link>
+                  </p>
                 </li>
 
-                <li className="py-md-2 text-decoration-none f-heading-clr text-light" onClick={handleShow} id="footerPopUp">        
-                    Login As Advertiser
+                <li
+                  className="py-md-2 text-decoration-none f-heading-clr "
+                  onClick={handleShow}
+                  id="footerPopUp"
+                >
+                  Login As Advertiser
                 </li>
                 <span className="pos-absolute">
                   <li className="py-md-2">
-                    <Link
-                      href="https://www.odoads.com/"
+                    <p
+                      onClick={() => route.push("https://www.odoads.com/")}
                       target="_blank"
-                      className=" text-decoration-none f-heading-clr text-light"
+                      className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Odoads
-                    </Link>
+                    </p>
                   </li>
                   <li className="py-md-2">
-                    <Link
-                      href="https://www.gohoardings.com/blog/"
+                    <p
+                      onClick={() =>
+                        route.push("https://www.gohoardings.com/blog/")
+                      }
                       target="_blank"
-                      className=" text-decoration-none f-heading-clr text-light"
+                      className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Blog
-                    </Link>
+                    </p>
                   </li>
                   <li className="py-md-2">
-                    <Link
-                      href="/about-us"
-                      className=" text-decoration-none f-heading-clr text-light"
+                    <p
+                      onClick={() => route.push("/about-us")}
+                      className=" text-decoration-none f-heading-clr mb-0"
                     >
                       About Us
-                    </Link>{" "}
+                    </p>{" "}
                   </li>
                   <li className="py-md-2">
-                    <Link
-                      href="/team"
-                      className=" text-decoration-none f-heading-clr text-light"
+                    <p
+                      onClick={() => route.push("/team")}
+                      className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Team
-                    </Link>
+                    </p>
                   </li>
                   <li className="py-md-2">
-                    <Link
-                      href="/contact-us"
-                      className=" text-decoration-none f-heading-clr text-light"
+                    <p
+                      onClick={() => route.push("/contact-us")}
+                      className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Contact
-                    </Link>
+                    </p>
                   </li>
                   <li className="py-md-2 text-decoration-none ">
                     {" "}
-                    <Link
-                      href="/privacy-policy"
-                      className=" text-decoration-none f-heading-clr text-light"
+                    <p
+                      onClick={() => route.push("/privacy-policy")}
+                      className=" f-heading-clr mb-0"
                     >
                       Privacy Policy
-                    </Link>
+                    </p>
                   </li>
                 </span>
               </ul>
@@ -199,8 +207,8 @@ const Footer = () => {
                 {CityNameImage.map((el, i) => (
                   <Link
                     key={i}
-                  //  href="#"
-                     href={`/${el.value}/delhi`}
+                    //  href="#"
+                    href={`/${el.value}/delhi`}
                     className="text-decoration-none "
                   >
                     <li className=" py-md-2  text-decoration-none f-heading-clr ">
@@ -222,7 +230,7 @@ const Footer = () => {
                     className="text-decoration-none "
                   >
                     <li className=" py-md-2  text-decoration-none f-heading-clr ">
-                    {el.name}
+                      {el.name}
                     </li>
                   </Link>
                 ))}
@@ -266,9 +274,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="row  payment-footer-section ">
-          <div className="col text-light " id="letHide"></div>
-          <div className="col text-light  mt-md-0"></div>
-          <div className="col text-light  offset-md-3">
+          <div className="col text-light d-none d-md-block" id="letHide"></div>
+          <div className="col text-light  mt-md-0 d-none d-md-block" ></div>
+          <div className="col text-light  offset-md-3 d-none d-md-block">
             <h4 className="f-heading  text-nowrap  ">
               Best deals in your inbox
             </h4>
@@ -359,13 +367,14 @@ const Footer = () => {
             font-weight: 400;
           }
           .f-heading-clr {
-            color: rgb(220, 220, 220) ;
+            color: rgb(220, 220, 220);
             font-size: 1.1rem;
+            cursor: pointer;
           }
 
-          // .f-heading-clr:hover {
-          //   color: #fff320;
-          // }
+          .f-heading-clr:hover {
+            color: #fff320;
+          }
           .reach-clr {
             color: rgb(220, 220, 220);
             font-size: 1.1rem;
@@ -378,8 +387,8 @@ const Footer = () => {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
           }
-          #footerPopUp{
-            cursor:pointer;
+          #footerPopUp {
+            cursor: pointer;
           }
           .grid-item {
             transition: transform 0.3s;
@@ -420,10 +429,10 @@ const Footer = () => {
             }
             .grid-item {
               text-align: start;
-              .logo-img {
-                height: 26px;
-                width: 26px;
-              }
+            }
+            .logo-img {
+              height: 26px;
+              width: 26px;
             }
           }
 
@@ -448,10 +457,10 @@ const Footer = () => {
             }
             .grid-item {
               text-align: start;
-              .logo-img {
-                height: 20px;
-                width: 20px;
-              }
+            }
+            .logo-img {
+              height: 20px;
+              width: 20px;
             }
             #letHide {
               display: none;

@@ -176,10 +176,10 @@ if(value){
                   <>
                     <div className=" ">
                       <div className="row">
-                        <div className="col-9 ">
+                        <div className="col-md-9 col-12">
                           <h5 className={`p-2 ps-3 ${styles.news_headings} rounded-2`}>
                             Total Items:{" "}
-                            <span className=" ms-1">
+                            <span className=" ms-md-1">
                               {initalState < 10 ? (
                                 <>0{initalState} </>
                               ) : (
@@ -372,7 +372,7 @@ if(value){
                           ))}
                         </div>
 
-                        <div className="col-3 ">
+                        <div className="col-md-3 col-12 ">
                           <h5 className={`p-2 ps-3 ${styles.news_headings} rounded-2 `}>
                             Gross Total
                           </h5>

@@ -160,7 +160,25 @@ label {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
+@media screen and (max-width: 425px) {
 
+  .txt-clr-tlk {
+      color: #373435;
+      font-size: 1.6rem;
+    }
+    .txt-clr {
+      color: #373435;
+    }
+
+    ::-webkit-input-placeholder {
+      font-size: 0.9rem !important;
+    }
+    .message-btn {
+      font-size: 0.9rem;
+      
+    }
+
+}
 `}
       </style>
     </>

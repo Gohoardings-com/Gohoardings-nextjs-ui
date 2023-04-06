@@ -192,6 +192,11 @@ const Media = () => {
       )
     );
   }
+  const mapData = async () => {
+    // dispatch(singlemnedia(meta_title, category_name)).then(() => {
+      router.push("/map");
+    // });
+  };
 
   return (
     <>
@@ -361,7 +366,7 @@ const Media = () => {
                         <span className="float-end me-2">
                           <MdLocationPin
                             className={`${styles.media_location_logo_map} icon-clr`}
-                          />
+                          onClick={() => router.push("/map")} />
                         </span>
                       </div>
                     );
@@ -402,7 +407,7 @@ const Media = () => {
                   ) : (
                     <>
                       <div className="position-relative my-5 ">
-                        <div className=" position-absolute  top-0 start-50 translate-middle ms-4">
+                        <div className=" position-absolute  top-0 start-50 translate-middle ms-md-4 w-100 text-center">
                           {slice.length == search.length ? (
                             <> </>
                           ) : (

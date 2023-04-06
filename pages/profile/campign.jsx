@@ -4,6 +4,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import  Link from "next/link";
 import styles from '../../styles/campaign.module.scss';
+import { toast, ToastContainer } from "react-toastify";
 const Campign = ({ posts }) => {
   const [campings, setCampings] = useState();
   const [campingid, setCampingid] = useState();
@@ -54,82 +55,88 @@ const Campign = ({ posts }) => {
     }
   };
 
-  // const excel = async () => {
-  //   try {
-  //     // Make a request to the server to download the file
-  //     let response;
-  //     await fetch(`${process.env.REACT_APP_URL}datafiles/excel`, {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ ID: campingid }),
-  //       credentials: "include",
-  //     })
-  //       .then((data) => {
-  //         response = data;
-  //       })
-  //       .catch((err) => {
-  //         toast(err.message);
-  //       });
-  //     const blob = await response.blob();
 
-  //     // Create a new Blob object that represents the file
-  //     const file = new Blob([blob], { type: "application/octet-stream" });
+  
+  const excel = async () => {
+    try {
+      // Make a request to the server to download the file
+      let response;
+      await fetch(`http://localhost:3000/api/excel`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ID: campingid}),
+        credentials: "include",
+      }).then((data) => {
+        response = data;
+      }).catch((err) =>{
+        toast(err.message)
+      })
+      const blob = await response.blob();
 
-  //     // Create an anchor element
-  //     const a = document.createElement("a");
+      // Create a new Blob object that represents the file
+      const file = new Blob([blob], { type: "application/octet-stream" });
 
-  //     // Set the "download" attribute
-  //     a.setAttribute("download", "Plan.xlsx");
+      // Create an anchor element
+      const a = document.createElement("a");
 
-  //     // Set the "href" attribute to the Blob object
-  //     a.href = URL.createObjectURL(file);
+      // Set the "download" attribute
+      a.setAttribute("download", "Plan.xlsx");
 
-  //     // Trigger the download
-  //     a.click();
-  //   } catch (err) {
-  //     return false;
-  //   }
-  // };
+      // Set the "href" attribute to the Blob object
+      a.href = URL.createObjectURL(file);
 
-  // const powerpoint = async () => {
-  //   try {
-  //     // Make a request to the server to download the file
-  //     let response;
-  //     await fetch(`${process.env.REACT_APP_URL}datafiles/powerpoint`, {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ ID: campingid }),
-  //       credentials: "include",
-  //     }).then((data) => {
-  //       response = data;
-  //     });
+      // Trigger the download
+      a.click();
+    } catch (err) {
+      return false;
+    }
+  };
+  
+  
+  
 
-  //     const blob = await response.blob();
+  
+  
 
-  //     // Create a new Blob object that represents the file
-  //     const file = new Blob([blob], { type: "application/octet-stream" });
+  const powerpoint = async () => {
+    try {
+      // Make a request to the server to download the file
+      let response;
+      await fetch(`http://localhost:3000/api/ppt`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ID: campingid }),
+        credentials: "include",
+      }).then((data) => {
+        response = data;
+      });
 
-  //     // Create an anchor element
-  //     const a = document.createElement("a");
+      const blob = await response.blob();
 
-  //     // Set the "download" attribute
-  //     a.setAttribute("download", "Plan.pptx");
+      // Create a new Blob object that represents the file
+      const file = new Blob([blob], { type: "application/octet-stream" });
 
-  //     // Set the "href" attribute to the Blob object
-  //     a.href = URL.createObjectURL(file);
+      // Create an anchor element
+      const a = document.createElement("a");
 
-  //     // Trigger the download
-  //     a.click();
-  //   } catch (err) {
-  //     return false;
-  //   }
-  // };
+      // Set the "download" attribute
+      a.setAttribute("download", "Plan.pptx");
+
+      // Set the "href" attribute to the Blob object
+      a.href = URL.createObjectURL(file);
+
+      // Trigger the download
+      a.click();
+    } catch (err) {
+      return false;
+    }
+  };
 
   const getData = (text) => {
     setCampings(text);
@@ -166,7 +173,7 @@ const Campign = ({ posts }) => {
                   </p>
                   <div className="collapse" id={abc}>
                     <div className="card-body  p-2 pt-0">
-                      {/* <div className="camp-ppt mb-2 m-0">
+                      <div className="camp-ppt mb-2 m-0">
                         <button
                           className="btn btn-success me-4"
                           onClick={excel}
@@ -175,8 +182,8 @@ const Campign = ({ posts }) => {
                         </button> 
                         <button className="btn btn-danger" onClick={powerpoint}>
                           PPT
-                        </button> 
-                        <ToastContainer /> 
+                        </button>
+                        <ToastContainer />
                       </div> */}
                       <div>
                         <thead>

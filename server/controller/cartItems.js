@@ -6,9 +6,11 @@ const {sendEmail} = require("../middelware/sendEmail");
 const XLSX = require('xlsx');
 const pptxgen = require ("pptxgenjs");
 const db = require("../conn/conn");
+const fs = require('fs');
+
 
 async function planMail(data, email) {
- 
+
       const excelPath = await excel(data)
       const PPTPath = await powerpoint(data)
 
@@ -24,6 +26,76 @@ async function planMail(data, email) {
     });
   
   }
+  exports.excel = catchError(async (req, res) => {
+    const {ID} = req.body;
+    if(!ID){
+        return res.status(206).json({success:false, message:"Try Again"})
+    }
+    db.changeUser({ database: "gohoardi_goh" });
+    const sql = "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = "+ID+" && status=1"
+    db.query(
+        sql,
+        async (err, result) => {
+            if (err) {
+                return res.status(400).json({success:false, message: "Database Error"})
+            } else { 
+                let file = await alldata(result,ID);
+                if(!file){
+                    return res.status(206).json({success:false, message:"Try Again"})
+                }
+                const filePath = file;
+                const fileName = "plan.xlsx";
+                const fileStat = fs.statSync(filePath);
+
+                res.writeHead(200, {
+                "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                "Content-Length": fileStat.size,
+                "Content-Disposition": `attachment; filename="${fileName}"`
+                });
+
+                const fileStream = fs.createReadStream(filePath);
+                fileStream.pipe(res);
+
+            }
+        }
+    );
+})
+  
+  
+exports.ppt = catchError(async (req, res) => {
+    const {ID} = req.body;
+    if(!ID){
+        return res.status(206).json({success:false, message:"Try Again"})
+    }
+    db.changeUser({ database: "gohoardi_goh" });
+    const sql = "SELECT DISTINCT mediaid, userid, mediatype FROM goh_shopping_carts_item WHERE campaigid = "+ID+" && status=1"
+    db.query(
+        sql,
+        async (err, result) => {
+            if (err) {
+                return res.status(400).json({success:false, message: "Database Error"})
+            } else { 
+                let file = await alldata2(result,ID);
+                if(!file){
+                    return res.status(206).json({success:false, message:"Try Again"})
+                }
+                const filePath = file;
+                const fileName = "plan.pptx";
+                const fileStat = fs.statSync(filePath);
+
+                res.writeHead(200, {
+                "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                "Content-Length": fileStat.size,
+                "Content-Disposition": `attachment; filename="${fileName}"`
+                });
+
+                const fileStream = fs.createReadStream(filePath);
+                fileStream.pipe(res);
+
+            }
+        }
+    );
+})
   
 
   const excel = (ID) => {
@@ -43,6 +115,7 @@ async function planMail(data, email) {
           if (!file) {
             reject(new Error("Invalid file"));
           }
+          console.log(file);
           resolve(file);
         }
       });
@@ -93,7 +166,7 @@ async function planMail(data, email) {
                 })
             );
         } catch (err) {
-            return res.status(400).json({success:false, message: "Database Error"})
+            return ({success:false, message: "Database Error"})
         }
     });
     try {
@@ -103,7 +176,7 @@ async function planMail(data, email) {
             result.push(element.reason[0])
         });
         if(result.length == 0){
-            return res.status(206).json({success:false, message: "Data Not Found"})
+            return ({success:false, message: "Data Not Found"})
         }
         const file = convertJsonToExcel(result,ID);
         return file;

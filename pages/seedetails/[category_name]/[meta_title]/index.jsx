@@ -72,6 +72,7 @@ const Details = () => {
         category_name: category_name,
       });
       setPosts(data);
+      console.log(data);
     }
   };
 
@@ -140,7 +141,7 @@ const Details = () => {
               className="container-xxl  container-xl container-lg container-md detail-container"
               key={i}
             >
-              <div className="row mt-5 ms-3 me-3 detail-mg p-3 rounded-3">
+              <div className="row mt-3 mt-md-5 ms-md-3 me-md-3 ms-0 me-0 detail-mg p-1 p-md-3 rounded-3">
                 <div className="col-md-6 p-0">
                   <Carousel showThumbs={false} infiniteLoop={true}>
                     {item.thumbnail.split(",").map((element, i) => (
@@ -172,14 +173,14 @@ const Details = () => {
                   </Carousel>
                 </div>
 
-                <div className="col-md-6 p-3  ps-4 rounded-3 text-dark">
+                <div className="col-md-6 p-2 p-md-3  ps-md-4 rounded-3 text-dark">
                   <h5 className=" text-uppercase"> {item.subcategory}</h5>
                   <h2>{item.medianame}</h2>
                   <p>Code : {item.code}</p>
                   <div className="row my-3">
                     <div className="col-4">
                       <h6>Media</h6>
-                      <h6 className="fw-bold">{item.subcategory}/Hoarding</h6>
+                      <h6 className="fw-bold">{item.subcategory}</h6>
                     </div>
                     <div className="col-4 ">
                       <h6>Size</h6>
@@ -229,7 +230,7 @@ const Details = () => {
                         onClick={mapData}
                       >
                         <MdLocationPin
-                          className="icon-clr"
+                          className="icon-clr me-4 me-md-0 mt-1 mt-md-0"
                           id="detail-map-location"
                         />
                       </div>
@@ -260,12 +261,12 @@ const Details = () => {
                 </div>
               </div>
               {/* map section */}
-              <div className="py-5 ">
-                <h3 className="ms-3 fw-bold">
+              <div className="py-4 py-md-5 ">
+                <h3 className="ms-md-3  ms-1 fw-bold">
                   Media Location:{" "}
                   <span className="text-muted fw-normal">{item.location} </span>
                 </h3>
-                <div className="detail-map  p-3 rounded-3 ms-3 me-3">
+                <div className="detail-map ms-md-3 me-md-3 ms-0 me-0 p-1 p-md-3 rounded-3">
                   <iframe
                     src={
                       "https://maps.google.com/maps?q=" +
@@ -283,7 +284,7 @@ const Details = () => {
               </div>
 
               {/* form section */}
-              <div className="detail-form p-3 rounded-3 my-5 ">
+              <div className="detail-form p-3 rounded-3 my-md-5 my-4">
                 <>
                   <h1 className="txt-clr-tlk fw-bold">
                     Get a Free Consultation!
@@ -541,6 +542,37 @@ const Details = () => {
         .map_sectionD {
           height: 45vh;
         }
+       
+
+        @media screen and (max-width: 425px) {
+          // h2 {
+          //   font-size: 1.7rem;
+          // }
+          // h3 {
+          //   color: #4f4a4c;
+          //   font-size: 1.3rem;
+          // }
+          // h5 {
+          //   font-size: 0.9rem;
+          //   color: #4f4a4c;
+          // }
+          // h6 {
+          //   color: #373435;
+          //   font-size: 0.8rem;
+          // }
+          .location {
+            width: 85px;
+            height: 62px;
+           }
+          .detail-img {
+            height: 300px;
+          }
+          .map_sectionD {
+            height: 45vh;
+          }
+        
+         
+
     `}
       </style>
     </>
