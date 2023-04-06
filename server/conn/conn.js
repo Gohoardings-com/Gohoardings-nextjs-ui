@@ -63,9 +63,10 @@
 
 const mysql = require("mysql");
 
+
 const db_config = {
   user: "root",
-  host: process.env.DataBASEHOST,
+  host: "localhost",
   password: "",
   database: "gohoardi_goh",
 };

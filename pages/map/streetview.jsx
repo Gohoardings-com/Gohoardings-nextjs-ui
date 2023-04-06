@@ -7,7 +7,7 @@ const GoogleStreetView = dynamic(() => import('react-google-streetview'), {
 
 const Streetview = ({latitude, longitude, closeKeyword}) => {
 
-    const googleMapsApiKey = process.env.MAP_KEY
+    const googleMapsApiKey = "AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE"
 
     const streetViewPanoramaOptions = {
       position: { lat: parseFloat(latitude), lng: parseFloat(longitude) },

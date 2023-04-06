@@ -2,7 +2,9 @@ const db = require("../conn/conn");
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError')
 const redis = require('redis')
+const client = redis.createClient()
 
+ client.connect()
 
 
 exports.city = catchError(async (req, res, next) => {
@@ -21,7 +23,7 @@ exports.city = catchError(async (req, res, next) => {
             if (err) {
                 return res.status(206).json({success : false, message:"No City Found"})
             };
-            client.setEx("cities", process.env.REDIS_TIMEOUT,JSON.stringify(result))
+            client.setEx("cities", 157788000000,JSON.stringify(result))
 
             res.send(result)
         });
@@ -67,7 +69,7 @@ exports.SearchData = catchError(async (req, res, next) => {
     let sql;
  let limit2
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token,  process.env.JWT_TOKEN, async (err, user) => {
+    return jwtToken.verify(token,  "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
             sql = "SELECT DISTINCT * FROM " + table_name + " WHERE city_name='" + city + "'";
              limit2 = "SELECT DISTINCT * FROM " + table_name + " WHERE city_name='" + city + "' LIMIT 10"
@@ -86,7 +88,7 @@ exports.SearchData = catchError(async (req, res, next) => {
             if (err) {
                 return res.status(206).json({success:false, message: "No Data Found"})
             }
-            client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
+            client.setEx(key, 157788000000,JSON.stringify(result))
             res.send(result)
         });
     } else {
@@ -99,9 +101,10 @@ exports.SearchData = catchError(async (req, res, next) => {
         });
         db.query(sql, async(err, result) => {
             if (err) {
+    
                 return res.status(206).json({success:false, message: "No Data Found"})
             }
-            client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
+            client.setEx(key, 157788000000,JSON.stringify(result))
         });
 
     }

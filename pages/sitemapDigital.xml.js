@@ -10,7 +10,7 @@ function generateSiteMap(data) {
        .map(({ meta_title, category_name}) => {
          return `
        <url>
-           <loc>${`${process.env.URL}/${category_name}/${meta_title}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/${category_name}/${meta_title}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>

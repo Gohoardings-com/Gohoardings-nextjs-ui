@@ -100,7 +100,7 @@ exports.checkOTP = catchError(async (req, res) => {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
         } else {
             const userid = result[0].userid;
-            const token = jwtToken.sign({id: userid},  process.env.JWT_TOKEN, {
+            const token = jwtToken.sign({id: userid},  "thisismysecretejsonWebToken", {
                 expiresIn: "60000",
             });
             return res.status(200).json({success: true, message: token})
@@ -114,7 +114,7 @@ exports.changePassword = catchError(async (req, res) => {
         return res.status(206).json({success:false, message: "Otp Expire"});
     }
     if (password == confirmpasswords) {
-        jwtToken.verify(expire,  process.env.JWT_TOKEN, async (err, user) => {
+        jwtToken.verify(expire,  "thisismysecretejsonWebToken", async (err, user) => {
             if (err) {
                 return res.status(206).json({success:false, message: "InValid Token"});
             } else {

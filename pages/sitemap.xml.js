@@ -6,70 +6,70 @@ function generateSiteMap(data) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-     <loc>${process.env.URL}</loc>
+     <loc>${"http://localhost:3000/api/"}</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
     
      <url>
-     <loc>${process.env.URL}/sitemapDigital.xml</loc>
+     <loc>${"http://localhost:3000/api/"}/sitemapDigital.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
   
      <url>
-     <loc>${process.env.URL}/sitemapAirport.xml</loc>
+     <loc>${"http://localhost:3000/api/"}/sitemapAirport.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
  
      <url>
-     <loc >${process.env.URL}/sitemapMall.xml</loc>
+     <loc >${"http://localhost:3000/api/"}/sitemapMall.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/sitemapTraditional.xml</loc>
+     <loc>${"http://localhost:3000/api/"}/sitemapTraditional.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/sitemaptransit.xml</loc>
+     <loc>${"http://localhost:3000/api/"}/sitemaptransit.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/about-us</loc>
+     <loc>${"http://localhost:3000/api/"}/about-us</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/team</loc>
+     <loc>${"http://localhost:3000/api/"}/team</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/media-and-news</loc>
+     <loc>${"http://localhost:3000/api/"}/media-and-news</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/contact-us</loc>
+     <loc>${"http://localhost:3000/api/"}/contact-us</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${process.env.URL}/testimonial</loc>
+     <loc>${"http://localhost:3000/api/"}/testimonial</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -90,37 +90,37 @@ function generateSiteMap(data) {
        .map(({ name}) => {
          return `
        <url>
-           <loc>${`${process.env.URL}/traditional-ooh-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/traditional-ooh-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${process.env.URL}/mall-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/mall-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${process.env.URL}/airport-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/airport-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${process.env.URL}/office-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/office-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${process.env.URL}/digital-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/digital-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${process.env.URL}/transit-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/api/"}/transit-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>

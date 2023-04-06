@@ -298,7 +298,7 @@ exports.mapMarkersData = catchError(async (req, res) => {
   let sql;
 
   const token = Object.values(cookieData)[0];
-  return jwtToken.verify(token, process.env.JWT_TOKEN, async (err, user) => {
+  return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
     if (err) {
       sql =
         "SELECT " +

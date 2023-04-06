@@ -9,5 +9,5 @@ export default NextAuth({
           clientSecret: process.env.LINKEDIN_CLIENT_SECRET
         })
       ],
-    secret:process.env.JWT_TOKEN
+    secret:"thisismysecretejsonWebToken"
 })

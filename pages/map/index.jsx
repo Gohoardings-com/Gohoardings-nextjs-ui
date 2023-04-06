@@ -80,7 +80,7 @@ const Map = () => {
   };
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:process.env.MAP_KEY,
+    googleMapsApiKey:"AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE",
   });
 
   const getRelateddata = () => {
