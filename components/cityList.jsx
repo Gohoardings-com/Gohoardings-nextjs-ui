@@ -3,7 +3,7 @@ const City = () => {
   return (
     <div className="citylist m-0 mt-3 mt-md-5  py-md-4">
       <section>
-        <h1 className="text-center text-nowrap ">Explore your City Listings</h1>
+        <h1 className="text-center text-nowrap pt-2 pt-md-0">Explore your City Listings</h1>
         <h6 className=" text-center">
           Explore some of the best business from around the
           <br />
@@ -203,7 +203,7 @@ const City = () => {
             height: 100%;
             width: 300px !important;
           }
-          .city-img-container { 
+
             .bottom-left {
               font-size: 1.1rem;
             }
@@ -213,10 +213,10 @@ const City = () => {
             .bottom-left-media-text {
               font-size: 1.1rem;
             }
-          }
+          
         }
         @media screen and (max-width: 425px) {
-          #city-gh{
+          #city_gh{
             padding: 0px;
           }
           h1 {
@@ -227,36 +227,38 @@ const City = () => {
           }
           .iimmgg {
             width: 100%;
-            height: 165px;
+            height: 150px;
             margin: 0px ;
           }
           .city-img-container:before {
             width: 100%!important;
-            height: 165px;
+            height: 150px;
             margin: 0px ;
           }
-          .city-img-container {
+   
       
             .bottom-left {
               position: absolute;
-              bottom: 25px;
+              bottom: 2px;
               color: #ffffff;
               left: 8px;
               font-size: 1rem;
             }
+
+
             .bottom-left-media {
            
-              bottom: 2px;
+              bottom: 22px;
             
               left: 8px;
               font-size: 1.1rem;
-              font-weight: 700;
+              font-weight: 600;
               padding-right: 0px;
             }
             .bottom-left-media-text {
            display: none;
             }
-          }
+          
         }
       }
       `}</style>

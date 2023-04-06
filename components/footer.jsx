@@ -99,7 +99,7 @@ const Footer = () => {
     <>
       <div className=" footerN-content  pb-3  p-0 px-3 px-md-5 py-md-1  pt-md-5 ">
         <div className="row footer-branding pb-md-4 pb-2">
-          <div className="col-md-3 pt-1">
+          <div className="col-md-3 pt-3 pt-md-1 ">
             <Link href="/">
               <img
                 src="../../images/web_pics/logo.png"
@@ -274,9 +274,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="row  payment-footer-section ">
-          <div className="col text-light " id="letHide"></div>
-          <div className="col text-light  mt-md-0"></div>
-          <div className="col text-light  offset-md-3">
+          <div className="col text-light d-none d-md-block" id="letHide"></div>
+          <div className="col text-light  mt-md-0 d-none d-md-block" ></div>
+          <div className="col text-light  offset-md-3 d-none d-md-block">
             <h4 className="f-heading  text-nowrap  ">
               Best deals in your inbox
             </h4>
@@ -429,10 +429,10 @@ const Footer = () => {
             }
             .grid-item {
               text-align: start;
-              .logo-img {
-                height: 26px;
-                width: 26px;
-              }
+            }
+            .logo-img {
+              height: 26px;
+              width: 26px;
             }
           }
 
@@ -457,10 +457,10 @@ const Footer = () => {
             }
             .grid-item {
               text-align: start;
-              .logo-img {
-                height: 20px;
-                width: 20px;
-              }
+            }
+            .logo-img {
+              height: 20px;
+              width: 20px;
             }
             #letHide {
               display: none;

@@ -106,61 +106,49 @@
     }
   }
 }
-// @media screen and (max-width: 425px) {
-//   .our-clients-content {
-//     .trending-cardd {
-//       width: 100px !important;
-//     }
-//   }
-//   .enquire-description {
-//     display: none;
-//   }
+@media screen and (max-width: 425px) {
+  .our_clients_content {
+    .trending_cardd {
+      width: 100px !important;
+    }
+  }
+  .enquire_description {
+    display: none;
+  }
 
-//   .enquire-content {
-//     .enquire-description-row {
-//       width: 95vw !important;
-//     }
+  .enquire_content {
+    .enquire_description_row {
+      width: 95vw !important;
+    }
 
-//     .txt-clr-tlk {
-//       color: #373435;
-//       font-size: 1.6rem;
-//     }
-//     .txt-clr {
-//       color: #373435;
-//     }
+  
 
-//     ::-webkit-input-placeholder {
-//       font-size: 0.9rem !important;
-//     }
-//     .message-btn {
-//       font-size: 0.9rem;
-      
-//     }
+  }
+}
 
-//     @media screen and (max-width: 1366px) {
-//       .enquire-description {
-//         .enquire-qsns-cant {
-//           font-size: 1.1rem;
-//         }
-//         .enquire-qsns-cant-qsn {
-//           font-size: 1.1rem;
-//         }
-//         .enquire-ans-cant {
-//           font-size: small;
-//         }
-//         .hor-border {
-//           width: 110px !important;
-//         }
-//       }
-//       .txt-clr-tlk {
-//         font-size: 2.1rem;
-//       }
-//       label {
-//         font-size: 0.8rem;
-//       }
-//       ::-webkit-input-placeholder {
-//         font-size: 0.9rem !important;
-//       }
-//     }
-//   }
-// }
+
+@media screen and (max-width: 1366px) {
+  .enquire_description {
+    .enquire_qsns_cant {
+      font-size: 1.1rem;
+    }
+    .enquire_qsns_cant_qsn {
+      font-size: 1.1rem;
+    }
+    .enquire_ans_cant {
+      font-size: small;
+    }
+    .hor_border {
+      width: 110px !important;
+    }
+  }
+  // .txt-clr-tlk {
+  //   font-size: 2.1rem;
+  // }
+  // label {
+  //   font-size: 0.8rem;
+  // }
+  // ::-webkit-input-placeholder {
+  //   font-size: 0.9rem !important;
+  // }
+}

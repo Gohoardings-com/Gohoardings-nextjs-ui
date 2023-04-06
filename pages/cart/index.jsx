@@ -176,10 +176,10 @@ if(value){
                   <>
                     <div className=" ">
                       <div className="row">
-                        <div className="col-9 ">
+                        <div className="col-md-9 col-12">
                           <h5 className={`p-2 ps-3 ${styles.news_headings} rounded-2`}>
                             Total Items:{" "}
-                            <span className=" ms-1">
+                            <span className=" ms-md-1">
                               {initalState < 10 ? (
                                 <>0{initalState} </>
                               ) : (
@@ -227,7 +227,7 @@ if(value){
                               <div className="col-md-8 ms-0  ">
                                 <div className="card-body ps-md-4">
                      
-                                  <h4 className={`${styles.card_title} pt-1`}>
+                                  {/* <h4 className={`${styles.card_title} pt-1`}>
                                   <Link
                         href={`/seedetails/${obj.category_name}/${obj.meta_title}`}
                         className="text-decoration-none"
@@ -240,9 +240,9 @@ if(value){
                                     >
                                       <RiDeleteBinLine className={styles.delet_icon} />
                                     </span>
-                                  </h4>
+                                  </h4> */}
 
-                                  <div className="row mt-3">
+                                  {/* <div className="row mt-3">
                                     <div className="col-xl-2 col-lg-3">
                                       <h6>Monthly</h6>
                                       <h6 className="">
@@ -258,8 +258,8 @@ if(value){
                                         {parseInt(((obj.price / 30) * 11) / 10)}
                                       </h6>
                                     </div>
-                                  </div>
-                                  <div className={`row my-2 ${styles.date_select_section}`}>
+                                  </div> */}
+                                  {/* <div className={`row my-2 ${styles.date_select_section}`}>
                                     <div className="col-4">
                                       <h6 className={styles.des} >Calender</h6>
                                       <h6 className="">
@@ -319,8 +319,8 @@ if(value){
                                         )}
                                       </h6>
                                     </div>
-                                  </div>
-                                  <div className="row mt-1">
+                                  </div> */}
+                                  {/* <div className="row mt-1">
                                     <div className="col-3">
                                       <h6 className={styles.des}>Original Price</h6>
                                       <h6 className="">
@@ -365,14 +365,14 @@ if(value){
                                         )}
                                       </h6>
                                     </div>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        <div className="col-3 ">
+                        <div className="col-md-3 col-12 ">
                           <h5 className={`p-2 ps-3 ${styles.news_headings} rounded-2 `}>
                             Gross Total
                           </h5>

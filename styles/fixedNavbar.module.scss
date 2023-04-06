@@ -129,7 +129,6 @@
     width: 24px;
   }
   #search_button_flotnav:hover {
-    // background-color: #ffffff;
     border: 2px solid #e4e4e4;
   }
   #search_button_flotnav:hover .search_logo {
@@ -139,16 +138,7 @@
   #float_map_btn_id {
     cursor: none;
   }
-  // .basic_addon {
-  //   background-color: #ededed ;
-  //   border-top-left-radius: 16px;
-
-  //   border-bottom-left-radius: 16px;
-  //   border: none;
-  //   .basic_addon_icon {
-  //     font-size: 21px;
-  //   }
-  // }
+  
 
   #search_location_box {
     border-radius: 0px;
@@ -213,3 +203,9 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 425px) {
+  .navbar_main_floating {
+display: none;
+  }
+
+}

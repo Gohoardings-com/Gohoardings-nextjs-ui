@@ -33,7 +33,7 @@ const Searchmedia = () => {
     <>
       <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  ms-xs-3`}>
           <div className="row">
-            <div className="col-md-8 ps-3 ps-md-0">
+            <div className="col-md-8 ps-2 ps-md-0">
               <div className={`${styles.heading_text} mt-4`}>
                 <h2>India&#39;s Largest</h2>
                 <h1>
@@ -46,7 +46,7 @@ const Searchmedia = () => {
                   Media. Check Availability. Book Online.
                 </h6>
               </div>
-              <div className={`${styles.mnc} mt-4`} >
+              <div className={`${styles.mnc} mt-4 ms-2 ms-md-0`} >
                 <a className="text-decoration-none">
                   <button className= {`${styles.button}`} onClick={()=>route.push(`/contact-us`)}>
                     <span>Enquire now</span>
