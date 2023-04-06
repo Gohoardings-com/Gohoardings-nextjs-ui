@@ -229,80 +229,62 @@
       width: 87% ;
     }
   }
-  // @media screen and (max-width: 425px) {
-  //   #abcd {
-  //     width: 230px ;
-  //   }
-  //   .search-container {
-  //     width: 100% ;
-  //     .dropdown-menu {
-  //       width: 85vw ;
-  //       padding: 0px;
-  //     }
-  //     .select-media-icon {
-  //       height: 20px ;
-  //     }
-  //   }
-  //   .enquire-now {
-  //     font-size: 13px;
-  //     padding: 4px;
-  //     margin-left: 10px;
-  //     height: 36px;
-  //     width: 115px;
-  //   }
-  //   .search-media-img {
-  //     display: none;
-  //   }
-  //   .heading-text {
-  //     margin: 0px 10px;
-  //     h2 {
-  //       font-size: 1.2rem ;
-  //     }
-  //     h1 {
-  //       font-size: 1.6rem;
-  //     }
-  //     h6 {
-  //       font-size: 0.9rem;
-  //     }
-  //   }
-  //   .search-btn {
-  //     font-size: 13px;
-  //     border-radius: 8px;
-  //     height: 35px;
-  //     border: none;
-  //     border-radius: 8px;
-  //     width: 100%;
-  //     background-color: #373435;
-  //   }
-  //   .dropdown-toggle::after {
-  //     font-size: 20px ;
-  //   }
-  //   #search-location-box {
-  //     font-size: 12px;
-  //     height: 35px;
-  //   }
-  //   .px-5 {
-  //     padding-right: 0.5rem ;
-  //     padding-left: 0.5rem ;
-  //   }
-  //   .pe-0 {
-  //     padding-right: 0 ;
-  //     padding: 0px;
-  //   }
-  //   .pb-2 {
-  //     padding-bottom: 0.1rem ;
-  //   }
-  //   .mt-5 {
-  //     margin-top: 2rem ;
-  //   }
+  @media screen and (max-width: 375px) {
+    #abcd {
+      width: 230px ;
+    }
+    .search_container {
+      width: 100% ;
+     
+      .select_media_con {
+        height: 16px ;
+      }
+    }
+    .enquire_now {
+      font-size: 13px;
+      padding: 4px;
+      margin-left: 10px;
+      height: 34px;
+      width: 110px;
+    }
+    .search_media_img {
+      display: none;
+    }
+    .heading_text {
+      margin: 0px 10px;
+      // h2 {
+      //   font-size: 1.2rem ;
+      // }
+      // h1 {
+      //   font-size: 1.6rem;
+      // }
+      // h6 {
+      //   font-size: 0.9rem;
+      // }
+    }
+    .search_btn {
+      font-size: 13px;
+      border-radius: 8px;
+      height: 35px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      background-color: #373435;
+    }
+  
+    #search_location_box {
+      font-size: 12px;
+     
+    }
+ 
 
-  //   #select-media-box {
-  //     font-size: 12px;
-  //     height: 35px;
-  //     border-radius: 8px;
-  //     width: 100%;
-  //     background-color: #efefef;
-  //     color: #222222;
-  //   }
-  // }
+    #select_media_box {
+      font-size: 12px;
+ 
+      border-radius: 8px;
+      width: 100%;
+      background-color: #efefef;
+      color: #222222;
+    }
+  }
 }

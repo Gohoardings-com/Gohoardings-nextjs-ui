@@ -218,22 +218,9 @@ font-size: 17px !important;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 375px) {
   .fixd_nabar {
-    margin: 0px 10px;
+    display: none;
 
-    .brand_logo {
-      width: 123px;
-    }
-    button:not(:disabled),
-    [type="button"]:not(:disabled) {
-      height: 28px;
-      width: 40px;
-      padding: 0px;
-    }
-    .navbar_toggler_icon {
-      height: 22px !important;
-      width: 30px !important;
-    }
   }
 }
