@@ -58,7 +58,7 @@ const Searchmedia = () => {
             <div className="col-md-4 text-center p-md-0">
               <img
                 alt="home-img"
-                src="../images/all_image/home-img.png"
+                src="../images/web_pics/home-img.png"
                 className={styles.search_media_img}
               />
             </div>

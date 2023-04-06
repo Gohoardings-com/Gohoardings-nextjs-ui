@@ -88,7 +88,7 @@ const Ourservices = () => {
             <div className={`row mx-auto ${styles.add_container} text-center`}>
               <div className="col-3">
                 <img
-                  src="../images/all_image/celebration.png"
+                  src="../images/web_pics/celebration.png"
                   className={styles.celebration_logo}
                   alt="celebration"
                 />

@@ -221,7 +221,7 @@ const Map = () => {
                                             }`
                                       }
                                       onError={(e) =>
-                                        (e.target.src = "../../images/all_image/alter-img.png")
+                                        (e.target.src = "../../images/web_pics/alter-img.png")
                                       }
                                       className="w-100 h-75 mt-2 pt-2"
                                     />
@@ -250,7 +250,7 @@ const Map = () => {
                                             {item.isDelete == 0 ? (
                                               <img
                                                 alt="check"
-                                                src="../images/all_image/A-chek.png"
+                                                src="../images/web_pics/A-chek.png"
                                                 onClick={() =>
                                                   removefromCart(
                                                     item.code,
@@ -262,7 +262,7 @@ const Map = () => {
                                             ) : (
                                               <img
                                                 alt="cart-icon"
-                                                src="../images/all_image/A-cart.png"
+                                                src="../images/web_pics/A-cart.png"
                                                 onClick={(e, i) =>
                                                   addonCart(item.code)
                                                 }

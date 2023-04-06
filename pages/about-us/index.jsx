@@ -55,7 +55,7 @@ const About = () => {
               <img
                 className="img-fluid"
                 id="media-img"
-                src="../../images/all_image/ooh.png"
+                src="../../images/web_pics/ooh.png"
                 alt="img"
               />
             </div>
@@ -140,7 +140,7 @@ const About = () => {
               <img
                 id="map-img"
                 className="img-fluid "
-                src="../../images/all_image/india_map.png"
+                src="../../images/web_pics/india_map.png"
                 alt="map"
               />
             </div>
@@ -152,7 +152,7 @@ const About = () => {
               <img
                 id="care-img"
                 className="img-fluid care"
-                src="../images/all_image/vision.png"
+                src="../images/web_pics/vision.png"
                 alt="care"
               />
             </div>

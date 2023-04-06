@@ -100,7 +100,7 @@ const Fixednavbar = () => {
 
           <img
             alt="gohoardings"
-            src="../../images/all_image/logo.png"
+            src="../../images/web_pics/logo.png"
             className={`border-0 brand ${styles.float_brand} ms-2`}
             onClick={() => route.push("/")}
           />

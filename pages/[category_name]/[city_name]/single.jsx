@@ -28,7 +28,7 @@ const Singlecard = ({
           {slice.length == 0 ? (
             <div className="container">
               <div className={`${styles.no_data} row  text-center my-3`}>
-                <img src="../images/all_image/no-data.png" className="" alt="no-data" />
+                <img src="../images/web_pics/no-data.png" className="" alt="no-data" />
               </div>
             </div>
           ) : (
@@ -63,7 +63,7 @@ const Singlecard = ({
                                   }`
                             }
                             onError={(e) =>
-                              (e.target.src = "../../images/all_image/alter-img.png")
+                              (e.target.src = "../../images/web_pics/alter-img.png")
                             }
                           />
                         </Link>

@@ -217,7 +217,7 @@ if(value){
                                   }
                                   onError={(e) =>
                                     (e.target.src =
-                                      "../../images/all_image/alter-img.png")
+                                      "../../images/web_pics/alter-img.png")
                                   }
                                   className={`img-fluid w-100 rounded-2  m-2 ${styles.cart_media_img}`}
                                   alt={obj.mediaownercompanyname}
@@ -455,7 +455,7 @@ if(value){
                       <div className="modal-content">
                         <div className="modal-body pb-0 text-center">
 
-                        <img src="../images/all_image/celebration.png" className={`${styles.celebration_logo} w-50 h-50`} alt="celebration"/>
+                        <img src="../images/web_pics/celebration.png" className={`${styles.celebration_logo} w-50 h-50`} alt="celebration"/>
 
 
                           <h5 className="mt-2 fw-bold">
@@ -505,7 +505,7 @@ if(value){
                     <div className="  my-3">
                       <img
                         alt="empty-cart"
-                        src="../images/all_image/empty-cart.gif"
+                        src="../images/web_pics/empty-cart.gif"
                         className={`${styles.empty_cart} ext-center`}
                       />
                       <h2 className={styles.empty_cart_text}>  Your Cart is empty</h2>

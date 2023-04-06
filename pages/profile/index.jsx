@@ -95,7 +95,7 @@ if(value){
                   className="card-img-top p-3 pb-2"
                   alt="user-profile"
                   onError={(e) =>
-                    (e.target.src = "../images/all_image/user-profile.png")
+                    (e.target.src = "../images/web_pics/user-profile.png")
                   }
                 />
               )}

@@ -259,7 +259,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
                   <Marker
                     key={id}
                    
-                    icon={isDelete==0?"../images/all_image/placeholder2.png":"../images/all_image/placeholder.png"}
+                    icon={isDelete==0?"../images/web_pics/placeholder2.png":"../images/web_pics/placeholder.png"}
                     position={position}
                     onClick={() => handleActiveMarker(id)}
                   >
@@ -317,11 +317,11 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
                               <span>FTF : </span>
                               {ftf}
                             </p>
-                            <img src="../images/all_image/streetv.gif" className={styles.streetv}      onClick={(e, i) => onStreet(latitude, longitude)}/>
+                            <img src="../images/web_pics/streetv.gif" className={styles.streetv}      onClick={(e, i) => onStreet(latitude, longitude)}/>
                            
                             {isDelete === 0 ? (
                               <img
-                                src="../images/all_image/A-chek.png"
+                                src="../images/web_pics/A-chek.png"
                                 onClick={() =>
                                   removefromCart(code)
                                 }
@@ -331,7 +331,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
                             ) : (
                               <img
                                 alt="cart_icon"
-                                src="../images/all_image/A-cart.png"
+                                src="../images/web_pics/A-cart.png"
                                 onClick={() => addonCart(code, category_name)}
                                 className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
                               />
@@ -350,7 +350,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
               combinedArray.map(({ id, position, name, lat, lng }) => (
               <Marker
                 key={id}
-                icon={"../images/all_image/restaurant.png"}
+                icon={"../images/web_pics/restaurant.png"}
                 position={position}
                 onClick={() => handleActiveMarker(id)}
               >

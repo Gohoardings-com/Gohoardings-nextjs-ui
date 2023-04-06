@@ -23,7 +23,7 @@ const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
             <div className="container">
               <div className={`${styles.no_data} row  text-center my-3`}>
                 <img
-                  src="../images/all_image/no-data.png"
+                  src="../images/web_pics/no-data.png"
                   alt="No Data"
                   className=""
                 />
@@ -60,7 +60,7 @@ const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
                         }
                         onError={(e) =>
                           (e.target.src =
-                            "../../images/all_image/alter-img.png")
+                            "../../images/web_pics/alter-img.png")
                         }
                       />
                     </Link>
@@ -103,14 +103,14 @@ const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
                         {item.isDelete === 0 ? (
                           <img
                             alt="check"
-                            src="../../images/all_image/A-chek.png"
+                            src="../../images/web_pics/A-chek.png"
                             onClick={() => removefroCart(item)}
                             className={` ${styles.addonCart} `}
                           />
                         ) : (
                           <img
                             alt="cart-icon"
-                            src="../../images/all_image/A-cart.png"
+                            src="../../images/web_pics/A-cart.png"
                             onClick={() => addonCart(item)}
                             className={` ${styles.addonCart} `}
                           />
