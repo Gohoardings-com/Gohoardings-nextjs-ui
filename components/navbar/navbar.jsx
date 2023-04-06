@@ -19,7 +19,7 @@ const route = useRouter()
       <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
         <div className="navbar container-xxl  container-xl container-lg container-md">
           <Navbar.Brand>
-            <img src="../images/all_image/logo.png" className={styles.rand_logo} alt="gohoardings" />
+            <img src="../images/web_pics/logo.png" className={styles.rand_logo} alt="gohoardings" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="" />
           <Navbar.Collapse id={styles.basic_navbar_nav}>

@@ -17,7 +17,7 @@ const City = () => {
             <Link href={`/cities/delhi`}>
               <div className="city-img-container ">
                 <img
-                  src="../images/all_image/home.jpg"
+                  src="../images/web_pics/home.jpg"
                   className="rounded iimmgg   "
                   alt="Delhi Hording"
                 />
@@ -32,7 +32,7 @@ const City = () => {
             <Link href={`/cities/mumbai`}>
               <div className="city-img-container ">
                 <img
-                  src="../images/all_image/home1.jpg"
+                  src="../images/web_pics/home1.jpg"
                   className="rounded iimmgg "
                   alt="Mumbai Hording"
                 />
@@ -47,7 +47,7 @@ const City = () => {
             <Link href={`/cities/bengaluru`}>
               <div className="city-img-container">
                 <img
-                  src="../images/all_image/home2.jpg"
+                  src="../images/web_pics/home2.jpg"
                   className="rounded iimmgg  "
                   alt="Bengalore Hording"
                 />
@@ -67,7 +67,7 @@ const City = () => {
             <Link href={`/cities/chennai`}>
               <div className="city-img-container">
                 <img
-                  src="../images/all_image/home3.webp"
+                  src="../images/web_pics/home3.webp"
                   className=" rounded   iimmgg"
                   alt="Chennai Hording"
                 />
@@ -83,7 +83,7 @@ const City = () => {
             <Link href={`/cities/hyderabad`}>
               <div className="city-img-container ">
                 <img
-                  src="../images/all_image/home4.jpg"
+                  src="../images/web_pics/home4.jpg"
                   className="rounded iimmgg "
                   alt="Hyderabad Hording"
                 />
@@ -98,7 +98,7 @@ const City = () => {
             <Link href={`/cities/pune`}>
               <div className="city-img-container ">
                 <img
-                  src="../images/all_image/home6.jpg"
+                  src="../images/web_pics/home6.jpg"
                   className="rounded iimmgg "
                   alt="Hyderabad Hording"
                 />

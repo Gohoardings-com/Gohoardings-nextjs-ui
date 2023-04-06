@@ -37,31 +37,31 @@ const Footer = () => {
   const logo = [
     {
       id: 1,
-      img: "../../images/all_Image/facebook.png",
+      img: "../../images/web_pics/facebook.png",
       alt: "logo1",
       link: "https://www.facebook.com/gohoardings/",
     },
     {
       id: 2,
-      img: "../../images/all_Image/insta.png",
+      img: "../../images/web_pics/insta.png",
       alt: "logo2",
       link: "https://www.instagram.com/gohoardings/",
     },
     {
       id: 3,
-      img: "../../images/all_Image/twiter.png",
+      img: "../../images/web_pics/twiter.png",
       alt: "logo3",
       link: "https://twitter.com/gohoardings",
     },
     {
       id: 4,
-      img: "../../images/all_Image/linkdin.png",
+      img: "../../images/web_pics/linkdin.png",
       alt: "logo4",
       link: "https://www.linkedin.com/company/gohoardings/",
     },
     {
       id: 5,
-      img: "../../images/all_Image/meail.png",
+      img: "../../images/web_pics/meail.png",
       alt: "logo5",
       link: "mailto:info@gohoardings.com",
     },
@@ -100,7 +100,7 @@ const Footer = () => {
           <div className="col-md-3 pt-1">
             <Link href="/">
               <img
-                src="../../images/all_image/logo.png"
+                src="../../images/web_pics/logo.png"
                 alt="gohoardings"
                 className="brand-logo-footer "
               />
@@ -108,10 +108,10 @@ const Footer = () => {
           </div>
           <div className="col-md-9 ">
             <h4 className="f-heading pt-2 pt-md-0">
-              India's Largest Outdoor Advertising Company
+              India&#39;s Largest Outdoor Advertising Company
             </h4>
             <h6 className="f-second-heading pt-1">
-              It's advertising network spread across 130 cities with more than
+              It&#39;s advertising network spread across 130 cities with more than
               1.2 lakh OOH and DOOH sites offering hassle free branding
               experiences at an unmatched price.
             </h6>

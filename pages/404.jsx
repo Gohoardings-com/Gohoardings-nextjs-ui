@@ -12,7 +12,7 @@ const ErrorPage = () => {
       {/* <Branding title="You've found a page that does'nt exist" /> */}
       <div className="mt-5 pt-5">
         <Image
-          src="/images/all_image/404.png"
+          src="/images/web_pics/404.png"
           alt="404 img"
           width={180}
           height={120}

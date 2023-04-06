@@ -281,7 +281,7 @@ const LoginN = () => {
                     <h4>in just one click</h4>
                   </div>
                   <img
-                    src="../../images/all_image/login1.png"
+                    src="../../images/web_pics/login1.png"
                     className={styles.img_responsive}
                     alt="Registraion"
                   />
@@ -300,7 +300,7 @@ const LoginN = () => {
                     </h6>
                   </div>
                   <img
-                    src="../images/all_image/login2.png"
+                    src="../images/web_pics/login2.png"
                     className={styles.img_responsive2}
                     alt="Login image"
                   />
@@ -311,7 +311,7 @@ const LoginN = () => {
         </div>
         <div className="col-md-6 p-4 m-0">
           <div className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}>
-            {/* <img src="../../images/all_image/logo.png" alt="gohoardings" id={styles.brand_logo} /> */}
+            {/* <img src="../../images/web_pics/logo.png" alt="gohoardings" id={styles.brand_logo} /> */}
 
             {forget ? (
               <>

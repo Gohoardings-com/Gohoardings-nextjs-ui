@@ -9,7 +9,7 @@ const Branding = (props) => {
           <div className="row">
             {/* <a href="/">
               <img
-                src="../images/all_image/logo.png"
+                src="../images/web_pics/logo.png"
                 alt="logo"
                 className="logo ps-2" 
               />
@@ -37,7 +37,7 @@ const Branding = (props) => {
             width: 100%;
           }
           .inn-page-bg {
-            background: url('../images/all_image/branding.jpg') no-repeat;
+            background: url('../images/web_pics/branding.jpg') no-repeat;
             background-size: cover;
             position: relative;
             margin-top: 0px;

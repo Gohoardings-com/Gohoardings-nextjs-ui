@@ -14,14 +14,14 @@ const LoginOauth = ({ googleSignIn, afterLogin,setWithOtp ,withOtp,success}) => 
         </div>
         {withOtp?<img
         alt="phone_otp"
-          src="../../images/all_image/gpmpas.png"
+          src="../../images/web_pics/gpmpas.png"
           className={`${styles.otp_icon} offset-1`}
            onClick={()=>setWithOtp(!withOtp)}
          
         />:
         <img
         alt="phone_otp"
-          src="../../images/all_image/otp.png"
+          src="../../images/web_pics/otp.png"
           className={`${styles.otp_icon} offset-1`}
            onClick={()=>setWithOtp(!withOtp)}
          
@@ -33,7 +33,7 @@ const LoginOauth = ({ googleSignIn, afterLogin,setWithOtp ,withOtp,success}) => 
         
        <img
         alt="linkdin"
-          src="../../images/all_image/linkdin.png"
+          src="../../images/web_pics/linkdin.png"
           className={`${styles.linkdin_icon} offset-1`}
           onClick={() =>signIn()}
         />
