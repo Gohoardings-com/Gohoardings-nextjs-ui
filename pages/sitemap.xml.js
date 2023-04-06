@@ -1,21 +1,97 @@
 import instance from "@/allApi/axios";
 
-
 function generateSiteMap(data) {
+    const	date = new Date().toISOString()
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-       <loc>https://contact-us</loc>
+     <loc>http://localhost:3000</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.9</priority>
      </url>
      <url>
-       <loc>https://jsonplaceholder.typicode.com/guide</loc>
+     <loc>http://localhost:3000/about-us</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
      </url>
+     <url>
+     <loc>http://localhost:3000/team</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     <url>
+     <loc>http://localhost:3000/media-and-news</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     <url>
+     <loc>http://localhost:3000/contact-us</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     <url>
+     <loc>http://localhost:3000/testimonial</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     <url>
+     <loc>https://www.gohoardings.com/blog/</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     <url>
+     <loc>https://www.gohoardings.com/faqs</loc>
+       <lastmod>${date}</lastmod>
+       <changefreq>daily</changefreq>
+<priority>0.8</priority>
+     </url>
+     
      ${data
        .map(({ name}) => {
          return `
        <url>
-           <loc>${`${name}`}</loc>
+           <loc>${`http://localhost:3000/traditional-ooh-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
+       </url>
+       <url>
+           <loc>${`http://localhost:3000/mall-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
+       </url>
+       <url>
+           <loc>${`http://localhost:3000/airport-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
+       </url>
+       <url>
+           <loc>${`http://localhost:3000/office-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
+       </url>
+       <url>
+           <loc>${`http://localhost:3000/digital-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
+       </url>
+       <url>
+           <loc>${`http://localhost:3000/transit-media/${name}`}</loc>
+             <lastmod>${date}</lastmod>
+             <changefreq>daily</changefreq>
+<priority>0.8</priority>
        </url>
      `;
        })

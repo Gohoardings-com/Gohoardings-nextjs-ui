@@ -84,13 +84,13 @@ const Map = () => {
   });
 
   const getRelateddata = () => {
-    // if(slice.length > 1) {
+    if(slice.length == 1) {
     const value = [...search];
     const code = value[0].code;
     const category_name = value[0].category_name;
-    const data = noOfLogo + 2;
-    dispatch(nearProduct(code, category_name, data));
-    //   }
+
+    dispatch(nearProduct(code, category_name));
+      }
   };
 
 
@@ -280,7 +280,7 @@ const Map = () => {
                                 <div>
                                   <button
                                     className={` ${styles.btn_hover}  ${styles.buttonload} disabled`}
-                                    // onClick={getRelateddata}
+                                    onClick={getRelateddata}
                                   >
                                     Get Related Data
                                   </button>
