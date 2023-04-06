@@ -7,7 +7,7 @@ import {TbBuildingCommunity} from "react-icons/tb"
 import {TfiLayoutMediaCenterAlt} from "react-icons/tfi"
 import {ImOffice} from "react-icons/im"
 export const emailformate = /^\w+([-,.]?\w+)*@\w+(.-]?\w+)*(\.\w{2,3})+$/;
-export const clientId = '85378901999-efhrgq7ltamh5730qq1776fatpm0mhd0.apps.googleusercontent.com';
+export const clientId = process.env.GoogleKey;
 
   export const CityNameImage = [    
     // {

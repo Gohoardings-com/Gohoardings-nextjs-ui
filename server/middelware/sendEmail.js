@@ -2,17 +2,17 @@ const nodemailer = require('nodemailer')
 exports.sendEmail = async (options) => {
     var transport = nodemailer.createTransport({
 
-        host: "smtp.elasticemail.com",
-        port: 2525,
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
         secureConnection: true,
         auth: {
-            user:  "vivek@gohoardings.com",
-            pass: "FE983315682E55FFC8F24A1E13EAE013D080"
+            user:  process.env.EMAIL_USER,
+            pass:  process.env.EMAIL_PASS,
         }
     });
 
     const mailOptions = {
-        from:   "vivek@gohoardings.com",
+        from: process.env.EMAIL_USER,
         to: options.email,
         subject: options.subject,
         text: options.message,

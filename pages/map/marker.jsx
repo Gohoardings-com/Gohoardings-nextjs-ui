@@ -224,7 +224,9 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
         />
       ) : (
         <>
-             <button className=" this-area" onClick={onBoundsChanged} >Search in this area</button>
+             <div className="text-center me-5 pe-5">
+             <button className={`${styles.back_map} w-25 `} onClick={onBoundsChanged} >Search in this area</button>
+             </div>
           <GoogleMap
             onLoad={handleOnLoad}
             zoom={"8"}

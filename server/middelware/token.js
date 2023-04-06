@@ -4,7 +4,7 @@ const catchError = require('./catchError')
 
 exports.token = catchError(async (userid, statuscode, res) => {
 
-    const token = jwtToken.sign({id: userid}, "thisismysecretejsonWebToken", {
+    const token = jwtToken.sign({id: userid}, process.env.JWT_TOKEN, {
         expiresIn: "7d",
     });
     const option = {
@@ -31,7 +31,7 @@ exports.verifyToken = catchError(async (req, res, next) => {
     if (!token) {
         return res.status(400).json({message: "No Token Found"})
     } else {
-        return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
+        return jwtToken.verify(token,  process.env.JWT_TOKEN, async (err, user) => {
             if (err) {
                 return res.status(400).json({message: "InValid Token"});
             } else {

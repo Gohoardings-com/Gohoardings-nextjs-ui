@@ -202,14 +202,14 @@ exports.refreshToken = catchError(async (req, res, next) => {
     if (!token) {
         return res.status(206).json({success: false,message: "No Token Found"})
     } else {
-        return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+        return jwtToken.verify(token, process.env.JWT_TOKEN, async (err, user) => {
             if (err) {
                 return res.status(206).json({success: false,message: "InValid Token"});
             } else {
                 res.clearCookie(`${user.id}`)
                 req.cookies[`${user.id}`] = "";
 
-                const token = jwtToken.sign({id: user.id}, process.env.jwt_secret, {
+                const token = jwtToken.sign({id: user.id},  process.env.JWT_TOKEN, {
                     expiresIn: "6d"
                 });
                 res.cookie(String(user.id), token, {
@@ -293,7 +293,7 @@ exports.resetPasswordEmail = catchError(async (req, res, next) => {
         return res.status(400).json({message: "No Token Found"})
     } else {
         if (token === code) {
-            return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+            return jwtToken.verify(token, process.env.JWT_TOKEN, async (err, user) => {
                 if (err) {
                     return res.status(400).json({message: "InValid Token"});
                 } else {

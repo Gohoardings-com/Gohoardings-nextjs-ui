@@ -2,8 +2,7 @@ const db = require("../conn/conn");
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError')
 const redis = require('redis')
-const client = redis.createClient()
-client.connect()
+
 
 
 exports.city = catchError(async (req, res, next) => {
@@ -68,7 +67,7 @@ exports.SearchData = catchError(async (req, res, next) => {
     let sql;
  let limit2
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+    return jwtToken.verify(token,  process.env.JWT_TOKEN, async (err, user) => {
         if (err) {
             sql = "SELECT DISTINCT * FROM " + table_name + " WHERE city_name='" + city + "'";
              limit2 = "SELECT DISTINCT * FROM " + table_name + " WHERE city_name='" + city + "' LIMIT 10"

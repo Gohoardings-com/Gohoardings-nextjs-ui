@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 const db = require('../conn/conn');
 const request = require('request')
-const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError');
 const {token} = require('../middelware/token');
 

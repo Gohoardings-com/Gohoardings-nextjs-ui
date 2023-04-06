@@ -29,7 +29,7 @@ exports.review = catchError(async (req, res) => {
             }
             const token = Object.values(cookieData)[0];
             let sql ;
-            return jwtToken.verify(token, process.env.jwt_secret, async (err, user) => {
+            return jwtToken.verify(token,  process.env.JWT_TOKEN, async (err, user) => {
                 if(err){
                   sql = "INSERT into goh_review (uid, Comments, rate, ip_address, source) VALUES ( 'unknown', '" + feedback + "'," + rating + ",'" + ip + "','gohoardings')"
                 }else{

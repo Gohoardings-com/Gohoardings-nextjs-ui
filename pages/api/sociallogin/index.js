@@ -4,8 +4,6 @@ import { googleLogin, linkdinLogin, logout } from '@/server/controller/REGISTERl
 import { verifyToken } from '@/server/middelware/token'
 
 
-
-
 const handler = nc({error})
 handler.put(linkdinLogin)
    handler.post(googleLogin)

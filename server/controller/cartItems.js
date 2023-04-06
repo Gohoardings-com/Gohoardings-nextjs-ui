@@ -25,7 +25,6 @@ async function planMail(data, email) {
   
   }
   
-  
 
   const excel = (ID) => {
     return new Promise((resolve, reject) => {
@@ -49,7 +48,6 @@ async function planMail(data, email) {
       });
     });
   };
-  
 
   const alldata = async (data,ID) => {
     const arr = data;
@@ -114,24 +112,24 @@ async function planMail(data, email) {
     }
     }
 
-    const convertJsonToExcel = async(data,ID) => {
-        const workSheet = XLSX.utils.json_to_sheet(data);
-        const workBook = XLSX.utils.book_new();
-      
-        XLSX.utils.book_append_sheet(workBook, workSheet, "students")
-        // Generate buffer
-        XLSX.write(workBook, { bookType: 'xlsx', type: "buffer" })
+const convertJsonToExcel = async(data,ID) => {
+    const workSheet = XLSX.utils.json_to_sheet(data);
+    const workBook = XLSX.utils.book_new();
+    
+    XLSX.utils.book_append_sheet(workBook, workSheet, "students")
+    // Generate buffer
+    XLSX.write(workBook, { bookType: 'xlsx', type: "buffer" })
 
-        // Binary string
-        XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
-        const dirPath0 = __dirname.replace(/\.next.*/i, '');
-        const dirPath1 = path.join(dirPath0, 'server');
-        const dirPath = dirPath1.replace('\\pages\\api', '');
-        const filePath = path.join(dirPath, 'excel', `GOH${ID}.xlsx`);
-        XLSX.writeFile(workBook, filePath)
+    // Binary string
+    XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
+    const dirPath0 = __dirname.replace(/\.next.*/i, '');
+    const dirPath1 = path.join(dirPath0, 'server');
+    const dirPath = dirPath1.replace('\\pages\\api', '');
+    const filePath = path.join(dirPath, 'excel', `GOH${ID}.xlsx`);
+    XLSX.writeFile(workBook, filePath)
 
-        return filePath;
-      }
+    return filePath;
+    }
   
       const powerpoint = (ID) => {
         return new Promise((resolve, reject) => {
@@ -288,7 +286,7 @@ exports.addOnCart = catchError(async (req, res) => {
         return res.status(206).json({success:false, message: "No Cookie Found" })
     }
     const token = Object.values(cookieData)[0];
-    return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
+    return jwtToken.verify(token,  process.env.JWT_TOKEN, async (err, user) => {
         if (err) {
             return res.status(206).json({success:false, message: "Login First" })
         } else {
