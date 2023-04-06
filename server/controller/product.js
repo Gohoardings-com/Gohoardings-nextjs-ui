@@ -3,7 +3,8 @@ const catchError = require('../middelware/catchError')
 
 
 exports.Nearproduct = catchError(async (req, res, next) => {
-    const { code, category_name, noOfLogo } = req.body
+    const { code, category_name } = req.body
+    const noOfLogo = 2
     db.changeUser({ database: "gohoardi_goh" });
     switch (category_name) {
         case "traditional-ooh-media":

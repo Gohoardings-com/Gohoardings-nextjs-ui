@@ -151,13 +151,13 @@ export const singlemnedia = (meta_title, category_name) => async (dispatch) => {
 };
 
 export const nearProduct =
-  (code, category_name, noOfLogo) => async (dispatch) => {
+  (code, category_name) => async (dispatch) => {
     try {
       dispatch({ type: "MediaWithCityRequest" });
-      const { data } = await instance.post("product/nearproduct", {
+      const { data } = await instance.patch("enquiries", {
         code,
         category_name,
-        noOfLogo,
+
       });
       dispatch({ type: "MediaWithCitySuccess", payload: data });
     } catch (error) {
