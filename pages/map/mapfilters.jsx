@@ -10,7 +10,7 @@ const Mapfilters = ({search}) => {
   const [price, setprice] = useState([]);
   const [mediaData, setMediadata] = useState([]);
 const [locationData, setlocationData] = useState([]);
-const [query,setQuery]=useState('')
+const [query,setQuery]=useState('');
 const [categoryData, setcategoryData] = useState([]);
 const [singlemedia, setsingleMedia] = useState([]);
 const [categoryArray, setCategoryArray] = useState([]);

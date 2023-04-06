@@ -8,15 +8,18 @@ import styles from '../../styles/markers.module.scss'
 import { markersPosition } from "@/redux/adminAction";
 
 const Markers = ({ markers, removefromCart, addonCart}) => {
-  
+  console.log(markers);
   const [map, setMap] = useState(null);
   const [hasmarker, sethasmarker] = useState(false);
   const dispatch = useDispatch()
   const { iconfilter, loading } = useSelector((state) => state.iconfilter);
 
   markers.forEach((e) => {
-    e["position"] = { lat: e.latitude, lng: e.longitude };
+  
+      e["position"] = { lat: parseFloat(e.latitude), lng: parseFloat(e.longitude) };
+
   });
+
   let combinedArray;
   if (!loading) {
     // iconfilter.flat(Infinity);
@@ -221,7 +224,7 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
         />
       ) : (
         <>
-             {/* <button className=" this-area" onClick={onBoundsChanged} >Search in this area</button> */}
+             <button className=" this-area" onClick={onBoundsChanged} >Search in this area</button>
           <GoogleMap
             onLoad={handleOnLoad}
             zoom={"8"}
