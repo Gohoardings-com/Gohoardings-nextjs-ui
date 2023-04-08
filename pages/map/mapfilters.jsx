@@ -94,7 +94,6 @@ dispatch(priceSubIllu(categoryArray, price, singlemedia, table, city, locationCk
 useEffect(() => {
   apiforFillters()
 },[search])
-
 return (
   <div
       className="filter-items p-2 accordion accordion-collapse collapse"

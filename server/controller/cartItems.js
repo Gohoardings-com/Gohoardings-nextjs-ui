@@ -48,7 +48,7 @@ async function planMail(data, email) {
                 const fileStat = fs.statSync(filePath);
 
                 res.writeHead(200, {
-                "Content-Type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                "Content-Type": "application/vnd.ms-excel",
                 "Content-Length": fileStat.size,
                 "Content-Disposition": `attachment; filename="${fileName}"`
                 });
