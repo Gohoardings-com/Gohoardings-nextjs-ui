@@ -93,13 +93,14 @@ dispatch(priceSubIllu(categoryArray, price, singlemedia, table, city, locationCk
 
 useEffect(() => {
   apiforFillters()
-},[])
+},[search])
+
 return (
   <div
-            className="filter-items p-2 accordion accordion-collapse collapse"
-            id="collapseT3"
-            data-bs-parent="#accordionTest"
-          >
+      className="filter-items p-2 accordion accordion-collapse collapse"
+      id="collapseT3"
+      data-bs-parent="#accordionTest"
+    >
             <div id="accordionTest2">
             <div className="accordion-item mb-2 mt-1 d-none">
                 <h2 className="accordion-header" id="flush-headingOne">
@@ -286,19 +287,15 @@ return (
               </div>
             </div> 
               <div className="accordion-item mb-2">
-             
-                <div
+             <div
                   id="flush-collapseFour"
                   className="accordion-collapse collapse bg-secondary bg-opacity-25"
                   aria-labelledby="flush-headingFour"
                   data-bs-parent="#accordionTest2"
                 >
-                 
-                </div>
+               </div>
               </div>
-            </div>
-
-          
+            </div>  
           </div>
 )
 }

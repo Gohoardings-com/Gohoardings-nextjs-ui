@@ -43,10 +43,10 @@ const Map = () => {
   const [mapMarker, setPosts] = useState([]);
 
   const addonCart = async (code, category_name) => {
-    if (!localStorage.getItem("goh")) {
+    if (!localStorage.getItem("permissions")) {
       handleShow()
      } else {
-
+      console.log("hii");
       dispatch(addItem(code, category_name));
       addRemove({ type: "INCR" });
       add(code);
@@ -263,8 +263,7 @@ const Map = () => {
                                               <img
                                                 alt="cart-icon"
                                                 src="../images/web_pics/A-cart.png"
-                                                onClick={(e, i) =>
-                                                  addonCart(item.code)
+                                                onClick={(e) => addonCart(item.code)
                                                 }
                                                 className={`${styles.addonCart} icon-clr`}
                                               />

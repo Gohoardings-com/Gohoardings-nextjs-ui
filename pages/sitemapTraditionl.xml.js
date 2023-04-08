@@ -6,11 +6,10 @@ function generateSiteMap(data) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      
-     ${data
-       .map(({ meta_title, category_name}) => {
+     ${data.map(({ meta_title, category_name}) => {
          return `
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/${category_name}/${meta_title}`}</loc>
+           <loc>${`http://localhost:3000/seedetails/${category_name}/${meta_title}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>

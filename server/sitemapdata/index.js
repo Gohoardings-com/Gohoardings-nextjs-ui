@@ -19,7 +19,7 @@ exports.allCity = catchError(async (req, res, next) => {
 
 exports.SiteMapProduct = catchError(async (req, res, next) => {
 
-    const { category_name } = req.query
+    const  category_name  = req.query.email
 
     const cookieData = req.cookies
     if (!cookieData) {
@@ -52,7 +52,7 @@ exports.SiteMapProduct = catchError(async (req, res, next) => {
             table_name = "goh_media";
     }
 
-    const sql = "SELECT DISTINCT meta_title, category_name FROM goh_media_digital WHERE category_name IS NOT NULL" 
+ const sql = "SELECT DISTINCT meta_title, category_name FROM " + table_name + " WHERE category_name IS NOT NULL" 
 
     db.query(sql, async (err, result) => {
         if (err) {
