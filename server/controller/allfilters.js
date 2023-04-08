@@ -1,8 +1,15 @@
 const db = require("../conn/conn");
 const catchError = require("../middelware/catchError");
 const jwtToken = require("jsonwebtoken");
+const redis = require('redis');
+const client = redis.createClient()
+    client.connect()
 
 exports.categorieFilter = catchError(async (req, res) => {
+const data = await client.get('category')
+if(data){
+  return  res.send(JSON.parse(data))
+}else{
   db.changeUser({ database: "gohoardi_goh" });
   db.query("SELECT p_id,name FROM tblmedia_categories", async (err, result) => {
     if (err) {
@@ -10,13 +17,21 @@ exports.categorieFilter = catchError(async (req, res) => {
         .status(206)
         .json({ success: false, message: "No Data Found On this city" });
     } else {
+      client.setEx('category', process.env.REDIS_TIMEOUT,JSON.stringify(result))
       return res.status(200).json(result);
     }
   });
+  
+}
 });
 
 exports.mapFilter = catchError(async (req, res) => {
   const { distance, selected, tbl, city } = req.body;
+const key = `${distance+selected+tbl+city}`
+const data = await client.get(key)
+if(data){
+  return res.send(JSON.parse(data))
+}else{
   db.query(
     "SELECT  * FROM " +
       tbl +
@@ -35,15 +50,16 @@ exports.mapFilter = catchError(async (req, res) => {
       } else if (result.length == 0) {
         return res.status(206).json({ success: false, message: "No data" });
       } else {
+        client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
         return res.send(result);
       }
     }
   );
+}
 });
 
 exports.locationFilter = catchError(async (req, res) => {
-  const { category_name, price, illumination, table, city, locations } =
-    req.body;
+  const { category_name, price, illumination, table, city, locations } = req.body;
   const SubCategory = category_name.toString();
   const newSubCate = SubCategory.replace(/,/g, "','");
   const min = price.split(",")[0].slice(4);
@@ -55,6 +71,11 @@ exports.locationFilter = catchError(async (req, res) => {
     1,
     makeStringfylocation.length - 1
   );
+  const key = `${category_name + price + illumination + table + city + locations}`
+  const data = await client.get(key)
+  if(data){
+    return res.send(JSON.parse(data))
+  }
   switch (table) {
     case "traditional-ooh-media":
       table_name = "goh_media";
@@ -116,6 +137,7 @@ exports.locationFilter = catchError(async (req, res) => {
         .status(400)
         .json({ success: false, message: "Data Not Found" });
     } else {
+      client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
       return res.status(200).json(result);
     }
   });
@@ -129,7 +151,12 @@ exports.iconFilter = catchError(async (req, res) => {
   if (datas) {
     data = datas.flat(Infinity);
   }
+  const key = `${distance + datas + tbl + city + minLatitude + maxLatitude + uniqueValues}`
+  const value = await client.get(key)
   // const tables = datas.flat(Infinity);
+  if(value){
+    return res.send(JSON.parse(value))
+  }else{ 
   db.changeUser({ database: "gohoardi_goh" });
   data.forEach((element) => {
     switch (element) {
@@ -186,30 +213,33 @@ exports.iconFilter = catchError(async (req, res) => {
     data.forEach((element) => {
       result.push(element.value);
     });
-
+    
+    client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
     return res.status(200).json(result);
   } catch (err) {
     return false;
   }
+}
 });
 
 //media filters
 exports.filterData = catchError(async (req, res, next) => {
-  const { category_name, illunation, categorys, city_name, locations } =
+  const { category_name, illunation, categorys, city_name, locationCkheckbox } =
     req.body;
   const SubCategory = categorys.toString();
   const illumantios = illunation.toString();
   const newIllumantion = illumantios.replace(/,/g, "','");
   const newSubCate = SubCategory.replace(/,/g, "','");
-  const makeStringfylocation = JSON.stringify(locations);
+  const makeStringfylocation = JSON.stringify(locationCkheckbox);
   const newLocation = makeStringfylocation.substring(
     1,
     makeStringfylocation.length - 1
   );
-  const cookieData = req.cookies;
-  if (!cookieData) {
-    return res.status(204).json({ message: "No Cookie Found" });
-  }
+  const key = `${category_name+ illunation+ categorys+ city_name+ locationCkheckbox }`
+  const data = await client.get(key)
+if(data){
+return res.send(JSON.parse(data))
+}else{
   db.changeUser({ database: "gohoardi_goh" });
   switch (category_name) {
     case "traditional-ooh-media":
@@ -267,9 +297,11 @@ exports.filterData = catchError(async (req, res, next) => {
         .status(206)
         .json({ success: false, message: "Database Error" });
     } else {
+      client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
       return res.status(200).json(result);
     }
   });
+}
 });
 
 exports.mapMarkersData = catchError(async (req, res) => {
@@ -278,7 +310,11 @@ exports.mapMarkersData = catchError(async (req, res) => {
   if (!cookieData) {
     return res.status(204).json({ message: "No Cookie Found" });
   }
-
+  const key = `${ NorthLat + SouthLat + NorthLong + SouthLong }`
+  const value = await client.get(key)
+if(value){
+  return res.send(JSON.parse(data))
+}else{
   db.changeUser({ database: "gohoardi_goh" });
   const positions =
     "WHERE  media.latitude BETWEEN  '" +
@@ -388,8 +424,11 @@ exports.mapMarkersData = catchError(async (req, res) => {
           .status(206)
           .json({ success: false, message: "No Data Found" });
       } else {
+        client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
         return res.status(200).json(result);
       }
     });
   });
+}
+  
 });

@@ -1,10 +1,11 @@
 const db = require("../conn/conn");
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError')
-const redis = require('redis')
+const redis = require('redis');
 const client = redis.createClient()
+    client.connect()
 
- client.connect()
+
 
 
 exports.city = catchError(async (req, res, next) => {
@@ -15,7 +16,7 @@ exports.city = catchError(async (req, res, next) => {
     }
     const data = await client.get(`cities?name=${citystart}`)
     if (data) {
-        res.send(JSON.parse(data))
+        return  res.send(JSON.parse(data))
     } else {
         db.changeUser({ database: "gohoardi_goh" });
         const sql = "SELECT DISTINCT name FROM goh_cities " + citystart + "  LIMIT 8"
@@ -29,7 +30,6 @@ exports.city = catchError(async (req, res, next) => {
         });
     }
 })
-
 
 
 exports.SearchData = catchError(async (req, res, next) => {
@@ -80,15 +80,15 @@ exports.SearchData = catchError(async (req, res, next) => {
 
         }
         const data = await client.get(key)
-    if (data) {
-        res.send(JSON.parse(data))
-    }else if(data == null){
+     if (data) {
+        return  res.send(JSON.parse(data))
+     }else if(data == null){
         db.changeUser({ database: "gohoardi_goh" });
         db.query(sql, async(err, result) => {
             if (err) {
                 return res.status(206).json({success:false, message: "No Data Found"})
             }
-            client.setEx(key, 157788000000,JSON.stringify(result))
+            client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
             res.send(result)
         });
     } else {
@@ -104,7 +104,7 @@ exports.SearchData = catchError(async (req, res, next) => {
     
                 return res.status(206).json({success:false, message: "No Data Found"})
             }
-            client.setEx(key, 157788000000,JSON.stringify(result))
+            client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
         });
 
     }
@@ -157,4 +157,4 @@ exports.dataForFilter = catchError(async (req, res, next) => {
     }
     )
 
-
+    

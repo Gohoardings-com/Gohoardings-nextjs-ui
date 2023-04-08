@@ -7,13 +7,14 @@ const XLSX = require('xlsx');
 const pptxgen = require ("pptxgenjs");
 const db = require("../conn/conn");
 const fs = require('fs');
+const redis = require('redis');
+const client = redis.createClient()
+    client.connect()
 
 
 async function planMail(data, email) {
-
       const excelPath = await excel(data)
       const PPTPath = await powerpoint(data)
-
     const message = `Your Media add on a Campaingn your Campain id is campaign-TEST`;
     await sendEmail({
       email: email,
@@ -389,9 +390,9 @@ exports.addOnCart = catchError(async (req, res) => {
 
 
 exports.campaineId = catchError(async (req,res, next) => {
-    db.changeUser({ database: "gohoardi_goh" });
     const userId = req.id;
     let promises = [];
+    db.changeUser({ database: "gohoardi_goh" });
     db.query(
         "SELECT MAX(campaigid) as campaigid FROM goh_shopping_carts_item",
         async (err, result) => {
@@ -464,6 +465,10 @@ exports.processdCart = catchError(async (req, res) => {
 exports.deleteFromCart = catchError(async (req, res, next) => {
     const userid = req.id
     const { code } = req.body;  
+    const data = await client.get(code)
+   if(data){
+    return  res.send(JSON.parse(data))
+   }else{
     db.changeUser({ database: "gohoardi_goh" });
     const sql = "UPDATE goh_shopping_carts_item SET isDelete=1 WHERE userid='" + userid + "' && mediaid='" + code + "'"
     db.query(sql,
@@ -472,16 +477,22 @@ exports.deleteFromCart = catchError(async (req, res, next) => {
            
                 return res.status(206).json({success:false, message : "Can't Delete this Item"})
             } else {
-         
+                client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
                 return res.send(result);
             }
         }
     );
+   }
 })
 
 
 exports.useritems = catchError(async (req, res, next) => {
     const user = req.id
+    const key = `${user}cart`
+    const data = await client.get(key)
+   if(data){
+    return  res.send(JSON.parse(data))
+   }else{
     db.changeUser({ database: "gohoardi_goh" });
     db.query(
         `SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0 `,
@@ -489,10 +500,12 @@ exports.useritems = catchError(async (req, res, next) => {
             if (err) {
                 return res.send(err)
             } else {
+                client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(result))
                 return res.status(200).json(result)
             }
         }
     );
+   }
 })
 
 

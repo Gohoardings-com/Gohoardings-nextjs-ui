@@ -5,7 +5,9 @@ const request = require('request')
 const jwtToken = require('jsonwebtoken')
 const catchError = require('../middelware/catchError');
 const {token} = require('../middelware/token');
-
+const redis = require('redis');
+const client = redis.createClient()
+    client.connect()
 
 exports.register = catchError(async (req, res) => {
     const { email, phone} = req.body
@@ -149,7 +151,6 @@ exports.googleLogin = catchError(async (req, res) => {
 })
 
 exports.linkdinLogin = catchError(async (req, res) => {
-
     const {session} = req.body
     if(!session){
         return res.status(204).json({message:"user undefined"})
@@ -232,14 +233,20 @@ exports.getuser = catchError(async (req, res) => {
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
+        const data = await client.get(userId)
+      if(data){
+        return  res.send(JSON.parse(data))
+      }else{
         db.changeUser({database: "gohoardi_crmapp"})
         db.query("SELECT userid,firstname, email, phonenumber,profile_image, provider  FROM tblcontacts WHERE userid='" + userId + "'", async (err, result) => {
             if (err) {
                 return res.status(206).json({success:false, message: "User Not found"})
             } else {
+                client.setEx(userId, process.env.REDIS_TIMEOUT,JSON.stringify(result))
                 return res.status(200).json(result)
             }
         })
+      }
     }
 })
 
