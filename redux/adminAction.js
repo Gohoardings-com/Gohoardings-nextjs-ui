@@ -62,7 +62,7 @@ export const priceSubIllu =
   };
 
 export const mediaFilters =
-  (category_name, illunation, categorys, city_name, locations) =>
+  (category_name, illunation, categorys, city_name, locationCkheckbox) =>
   async (dispatch) => {   
     try {
       dispatch({ type: "MediaWithCityRequest" });
@@ -71,7 +71,7 @@ export const mediaFilters =
         illunation,
         categorys,
         city_name,
-        locations,
+        locationCkheckbox,
       });
 
       dispatch({ type: "MediaWithCitySuccess", payload: data });

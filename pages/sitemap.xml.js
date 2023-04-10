@@ -6,70 +6,70 @@ function generateSiteMap(data) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-     <loc>${"http://localhost:3000/api/"}</loc>
+     <loc>http://localhost:3000</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
     
      <url>
-     <loc>${"http://localhost:3000/api/"}/sitemapDigital.xml</loc>
+     <loc>http://localhost:3000/sitemapDigital.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
   
      <url>
-     <loc>${"http://localhost:3000/api/"}/sitemapAirport.xml</loc>
+     <loc>http://localhost:3000/sitemapAirport.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
  
      <url>
-     <loc >${"http://localhost:3000/api/"}/sitemapMall.xml</loc>
+     <loc >http://localhost:3000/sitemapMall.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/sitemapTraditional.xml</loc>
+     <loc>http://localhost:3000/sitemapTraditional.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/sitemaptransit.xml</loc>
+     <loc>http://localhost:3000/sitemaptransit.xml</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.9</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/about-us</loc>
+     <loc>http://localhost:3000/about-us</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/team</loc>
+     <loc>http://localhost:3000/team</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/media-and-news</loc>
+     <loc>http://localhost:3000/media-and-news</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/contact-us</loc>
+     <loc>"http://localhost:3000/contact-us</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
      </url>
      <url>
-     <loc>${"http://localhost:3000/api/"}/testimonial</loc>
+     <loc>"http://localhost:3000/testimonial</loc>
        <lastmod>${date}</lastmod>
        <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -90,37 +90,37 @@ function generateSiteMap(data) {
        .map(({ name}) => {
          return `
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/traditional-ooh-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/traditional-ooh-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/mall-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/mall-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/airport-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/airport-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/office-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/office-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/digital-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/digital-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
        </url>
        <url>
-           <loc>${`${"http://localhost:3000/api/"}/transit-media/${name}`}</loc>
+           <loc>${`${"http://localhost:3000/"}/transit-media/${name}`}</loc>
              <lastmod>${date}</lastmod>
              <changefreq>daily</changefreq>
 <priority>0.8</priority>
