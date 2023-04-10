@@ -155,7 +155,7 @@
       margin: 10px 20px;
       width: 329px !important;
       margin-bottom: 15px;
-      vertical-align: top;
+      vertical-align: center;
   
       float: center;
       cursor: pointer;
@@ -386,11 +386,13 @@
   }
   
   @media screen and (max-width: 425px) {
+    .project {
+      margin: 8px auto!important;
+      width: 320px !important;
+    }
   .multi_card_contaier {
 margin: 0%;
-
   }
-
     .media_choice {
       margin-left: 3%;
       h2 {

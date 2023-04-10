@@ -72,7 +72,6 @@ const Details = () => {
         category_name: category_name,
       });
       setPosts(data);
-      console.log(data);
     }
   };
 
@@ -542,7 +541,6 @@ const Details = () => {
         .map_sectionD {
           height: 45vh;
         }
-       
 
         @media screen and (max-width: 425px) {
           // h2 {

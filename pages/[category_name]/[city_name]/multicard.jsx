@@ -32,7 +32,7 @@ const Multicard = ({ slice, loading, addonCart, removefroCart }) => {
           ) : (
             <>
               {slice.map((item, i) => (
-                <div className={`${styles.project}   mt-4 `} key={i}>
+                <div className={`${styles.project}   mt-4  `} key={i}>
                   <div
                     className={`${styles.img_responsive} ${styles.figure}  `}
                   >

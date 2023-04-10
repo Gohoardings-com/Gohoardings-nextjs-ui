@@ -75,7 +75,7 @@ const Contact = () => {
                 <br />
                 question and set up a meeting with you.
               </h6>
-              <div className={`${styles.contact_form} pe-5`}>
+              <div className={`${styles.contact_form} pe-md-5 `}>
                 <form className='mt-4 "position-relative' onSubmit={onSubmit}>
                   <div className="form-group py-3 ">
                     <label htmlFor="formGroupExampleInput">Name*</label>

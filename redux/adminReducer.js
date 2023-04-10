@@ -63,6 +63,7 @@ export const IconFilterReducer = (state = {iconfilter:[]}, action) =>{
 }
 
 export const CartReducer = (state = {items:{}}, action) =>{
+ 
     switch (action.type) {
         case "CartRequest":
             return{

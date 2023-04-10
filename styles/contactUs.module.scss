@@ -89,3 +89,10 @@
       }
     }
   }
+
+  @media screen and (max-width: 425px) {
+    .google_map {
+      height: 55vh !important;
+      width: 100%;
+    }
+  }

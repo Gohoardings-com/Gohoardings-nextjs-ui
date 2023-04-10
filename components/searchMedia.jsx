@@ -29,6 +29,7 @@ const Searchmedia = () => {
       setValue(searchTerm);
       setFocus(false);
     };
+    
   return (
     <>
       <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  ms-xs-3`}>

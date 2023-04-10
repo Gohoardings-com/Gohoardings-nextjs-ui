@@ -347,6 +347,14 @@ const About = () => {
       padding-top: 30px;
     }
   }
+  @media screen and (max-width: 425px) {
+#care-img{
+  display:none;
+}
+.fvf{
+  margin-top: 2.1%;
+}
+  }
   `
 }
 

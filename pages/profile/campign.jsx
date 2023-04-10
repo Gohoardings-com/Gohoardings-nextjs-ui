@@ -11,50 +11,6 @@ const Campign = ({ posts }) => {
   const campaigns = posts.map((el) => el.campaign_name);
   const campaign = [...new Set(campaigns)];
 
-  const excel = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/excelPPT`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ID: campingid }),
-        credentials: "include",
-      });
-      
-      if (response.ok) {
-        // Get the file path from the response
-        const { filePath } = await response.json();
-        
-        // Fetch the file using the path
-        const fileResponse = await fetch(filePath);
-        if (fileResponse.ok) {
-          // Create a new Blob object that represents the file
-          const blob = await fileResponse.blob();
-  
-          // Create an anchor element
-          const a = document.createElement("a");
-  
-          // Set the "download" attribute
-          a.setAttribute("download", "Plan.xlsx");
-  
-          // Set the "href" attribute to the Blob object
-          a.href = URL.createObjectURL(blob);
-  
-          // Trigger the download
-          a.click();
-        } else {
-          throw new Error(`HTTP error: ${fileResponse.status}`);
-        }
-      } else {
-        throw new Error(`HTTP error: ${response.status}`);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
 
   
   const excel = async () => {
@@ -184,7 +140,7 @@ const Campign = ({ posts }) => {
                           PPT
                         </button>
                         <ToastContainer />
-                      </div> */}
+                      </div>
                       <div>
                         <thead>
                           <tr>

@@ -8,7 +8,7 @@ import styles from '../../styles/markers.module.scss'
 import { markersPosition } from "@/redux/adminAction";
 
 const Markers = ({ markers, removefromCart, addonCart}) => {
-  console.log(markers);
+
   const [map, setMap] = useState(null);
   const [hasmarker, sethasmarker] = useState(false);
   const dispatch = useDispatch()
@@ -224,8 +224,8 @@ const Markers = ({ markers, removefromCart, addonCart}) => {
         />
       ) : (
         <>
-             <div className="text-center me-5 pe-5">
-             <button className={`${styles.back_map} w-25 `} onClick={onBoundsChanged} >Search in this area</button>
+             <div className="text-center ">
+             <button className={`${styles.load_map}  `} onClick={onBoundsChanged} >Search in this area</button>
              </div>
           <GoogleMap
             onLoad={handleOnLoad}

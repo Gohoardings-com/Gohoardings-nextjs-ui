@@ -1,3 +1,12 @@
+.rupees_logo {
+  font-size: 12px;
+  margin-bottom: 2px !important;
+}
+
+.off_text {
+  color: #388e3c;
+  font-size: small;
+}
 
 .cart_content {
   margin-top: 85px;
@@ -240,12 +249,50 @@
   
 }
 
-.rupees_logo {
-  font-size: 12px;
-  margin-bottom: 2px !important;
-}
 
-.off_text {
-  color: #388e3c;
-  font-size: small;
+@media screen and (max-width: 425px) {
+  .maincard_hight{
+    margin-bottom: 10px;
+   max-height: 335px ; 
+    overflow: scroll;
+  }
+.hide_map{
+  display: none;
+}
+  .cart_content {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
+  }
+  .cart_media_img {
+
+    height: 120px !important;
+  }
+  .card_title {
+    font-size: 14px;
+  }
+  .delet_icon {
+    font-size: 15px;
+    margin-top: -4px;
+  }
+  .maincard {
+
+    h6{
+   font-size: 13px;
+  }
+  
+  }
+  .rupees_logo{
+    font-size: 11px;
+  }
+  .date_select_section {
+
+
+    .input_1 {
+      width: 45px !important;
+    }
+  }
+  .des {
+    margin-bottom: 0% ;
+  }
 }
