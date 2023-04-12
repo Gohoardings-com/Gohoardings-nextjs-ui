@@ -1,16 +1,26 @@
 import React,{useState,useEffect} from "react";
-import Head from "next/head";
+import Head from 'next/head'
 import Ourservices from "@/components/ourServices";
 import City from "@/components/cityList";
 import Enquire from "@/components/enquire/enquire";
 import Searchmedia from "@/components/searchMedia";
-import NavbarH from "@/components/navbar/navbar";
 import dynamic from "next/dynamic";
-import Floatingnavbar from "@/components/navbar/flotingnavbar";
 
-const Trendingcity = dynamic(() => import("@/components/trendingcity"));
+
+const Trendingcity = dynamic(() => import('@/components/trendingcity'), {
+  ssr: false,
+})
+const NavbarH = dynamic(() => import('@/components/navbar/navbar'), {
+  ssr: false,
+})
+
+const Floatingnavbar = dynamic(() => import('@/components/navbar/flotingnavbar'), {
+  ssr: false,
+})
+
 
 export default function Home() {   
+  
   return (
     <>
       <Head>
@@ -37,9 +47,9 @@ export default function Home() {
           content="India's Largest Outdoor Advertising Agency,  Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"
         />
       </Head>
+    
       <main>
-        <NavbarH />
-        {/* <MyComponent /> */}
+        <NavbarH/>
         <Floatingnavbar/>
         <section>
           <Searchmedia />
@@ -56,7 +66,10 @@ export default function Home() {
       <section>
       <Trendingcity/>
      </section> 
-      </main>
+    
+      </main>  
+
     </>
   );
 }
+

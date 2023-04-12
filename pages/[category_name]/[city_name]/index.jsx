@@ -4,6 +4,7 @@ import {
   mediaFilters,
   mediawithcity,
   mediawithlocation,
+  cartitems
 } from "@/redux/adminAction";
 import { useDispatch, useSelector } from "react-redux";
 import OverView from "./overView";
@@ -26,6 +27,7 @@ const Media = () => {
   const dispatch = useDispatch();
 
   const { search, loading } = useSelector((state) => state.search);
+  const { userItems } = useSelector((state) => state.userItems);
   const router = useRouter();
   const { handleClose,handleShow} = useContext(AccountContext);
   const { category_name, city_name } = router.query;
@@ -43,6 +45,12 @@ const Media = () => {
   const [categoryData, setcategoryData] = useState([]);
   const [locationCkheckbox, setLocationCkheckbox] = useState([]);
 
+  const [delayed, setDelayed] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => setDelayed(false), 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   let slice;
   if (!loading) {
     slice = search.slice(0, noOfLogo);
@@ -53,14 +61,16 @@ const Media = () => {
   };
 
   const addonCart = async (e) => {
-    if (!localStorage.getItem("permissions")) {
-     handleShow()
-    } else {
+    // // if (!localStorage.getItem("permissions")) {
+    //   handleShow()
+     
+    // // } 
+    // else {
       addRemove({ type: "INCR" });
       dispatch(addItem(e.code, e.category_name));
       addRemove({ type: "INCR" });
       add(e);
-    }
+    // }
   };
 
 
@@ -96,11 +106,13 @@ const Media = () => {
   };
   const getCardData = async () => {
     dispatch(mediawithcity(category_name, city_name));
+    dispatch(cartitems());
   };
 
   useEffect(() => {
     getCardData();
     apiforfillters();
+    
   }, [category_name, city_name]);
 
   const apiforfillters = async () => {
@@ -198,12 +210,15 @@ const Media = () => {
     // });
   };
 
+
+
   return (
     <>
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
       <Medialogo category_name={category_name} city_name={city_name} />
-      <div className=" container-xxl  container-xl container-lg container-md  mt-4 mb-5 p-0 media-con rounded">
+      {delayed ? (<></>) : (<>
+        <div className=" container-xxl  container-xl container-lg container-md  mt-4 mb-5 p-0 media-con rounded">
         <div className={`mt-md-5 pt-md-3  list ${styles.media_choice} d-flex`}>
           <h2 aria-expanded={listings} onClick={toggle}>
             Listings
@@ -440,6 +455,7 @@ const Media = () => {
           </div>
         )}
       </div>
+      </>)}
     </>
   );
 };

@@ -22,7 +22,6 @@ import NavbarDropdown from "./dropdown";
 import { useRouter } from "next/router";
 import { mediawithcity } from "@/redux/adminAction";
 
-
 const Fixednavbar = () => {
   const dispatch = useDispatch();
   const [city, setCity] = useState([]);
@@ -34,15 +33,11 @@ const Fixednavbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const route = useRouter();
 
-
-
   const { pathname } = useRouter();
 
-
- 
   const getMap = () => {
-    route.push('/map')
-  }
+    route.push("/map");
+  };
 
   let selecType;
   CityNameImage.map((el) => {
@@ -57,7 +52,7 @@ const Fixednavbar = () => {
     const data = await getAllCity(cities);
     setCity(data);
   };
-   
+
   const mavigatetoMediaPage = (userType, value) => {
     if (pathname === "/map" && userType.length > 3 && value.length > 2) {
       dispatch(mediawithcity(userType, value));
@@ -91,7 +86,6 @@ const Fixednavbar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-        
           <div className={`${styles.nav_icon_6} me-3`} aria-expanded={showMenu}>
             <span></span>
             <span></span>
@@ -118,7 +112,6 @@ const Fixednavbar = () => {
         <Navbar.Collapse id={styles.basic_navbar_nav}>
           <Nav className={`navbar-nav mx-auto  ${styles.search_inner_drop} `}>
             <InputGroup className=" me-3">
-            
               <Form.Control
                 placeholder="Search your location"
                 aria-describedby="basic-addon1"
@@ -171,37 +164,35 @@ const Fixednavbar = () => {
                 ))}
               </DropdownButton>
             </div>
-            {userType && value ? 
-            <Button
-              className="ms-3"
-              onClick={(a, b) => mavigatetoMediaPage(userType, value)}
-              id={styles.search_button_flotnav}
-            >
-              <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
-            </Button> : 
-             <Button
-             className={`ms-3 ${styles.float_btn_notalowed}`}
-             
-             id={styles.search_button_flotnav }
-           >
-             <MdOutlineSearch className={`${styles.search_logo} icon-clr ${styles.float_btn_notalowed}`} />
-           </Button>
-            
-            }
-
+            {userType && value ? (
+              <Button
+                className="ms-3"
+                onClick={(a, b) => mavigatetoMediaPage(userType, value)}
+                id={styles.search_button_flotnav}
+              >
+                <MdOutlineSearch className={`${styles.search_logo} icon-clr`} />
+              </Button>
+            ) : (
+              <Button
+                className={`ms-3 ${styles.float_btn_notalowed}`}
+                id={styles.search_button_flotnav}
+              >
+                <MdOutlineSearch
+                  className={`${styles.search_logo} icon-clr ${styles.float_btn_notalowed}`}
+                />
+              </Button>
+            )}
           </Nav>
           <form className="  text-center me-3">
-          
-              <Nav.Link
-                className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}
-               onClick={getMap}
-              >
-                Map
-                <MdLocationPin
-                  className={`${styles.GiHamburgerMenu} ps-0 p-0  ms-0`}
-                />
-              </Nav.Link>
-     
+            <Nav.Link
+              className={`${styles.mapLink} ${styles.float_map_btn}   p-0 rounded-pill pt-1`}
+              onClick={getMap}
+            >
+              Map
+              <MdLocationPin
+                className={`${styles.GiHamburgerMenu} ps-0 p-0  ms-0`}
+              />
+            </Nav.Link>
           </form>
 
           <form className="text-center">

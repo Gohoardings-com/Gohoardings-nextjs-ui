@@ -11,6 +11,7 @@ const Campign = ({ posts }) => {
   const campaigns = posts.map((el) => el.campaign_name);
   const campaign = [...new Set(campaigns)];
 
+
   
   const excel = async () => {
     try {
@@ -139,7 +140,7 @@ const Campign = ({ posts }) => {
                           PPT
                         </button>
                         <ToastContainer />
-                      </div> 
+                      </div>
                       <div>
                         <thead>
                           <tr>

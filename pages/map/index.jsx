@@ -23,6 +23,7 @@ import {
 import { FaFilter, FaRupeeSign, FaMapMarked } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Fixednavbar from "@/components/navbar/fixednavbar";
+import Loader from "@/components/loader";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -295,7 +296,7 @@ const Map = () => {
                   <div className={`${styles.map_btn_more} text-center`}>
                     {loading ? (
                       <>
-                        <h5 className="text-center">No Data Found</h5>
+                        <h5 className="text-center"><Loader/></h5>
                       </>
                     ) : (
                       <>
@@ -388,7 +389,7 @@ const Map = () => {
 
             <div className={`d-inline-block position-absolute bottom-0 mb-2 ${styles.aval_hoarding }bg-warning p-2  pb-0"`}>
               <div className="d-inline-block border-0 ">
-                <p className="">Click on markers to add/remove into cart.</p>
+                {/* <p className="">Click on markers to add/remove into cart.</p> */}
               </div>
             </div>
 
@@ -398,7 +399,7 @@ const Map = () => {
             <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} />
           ) : 
           
-          <h5 className="text-center m-3">No Data Found </h5>
+          <h5 className="text-center m-3"><Loader/></h5>
         :
         <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart}  />
         }

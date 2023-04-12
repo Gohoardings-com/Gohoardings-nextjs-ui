@@ -10,21 +10,19 @@ export const AccountProvider = ({ children }) => {
   const [show, setShow] = useState(false);
   var [initalState, setInitalState] = useState(0)
   const item = async () => {
-    if (localStorage.getItem("permissions")) {
-      if(loading == false && user.message !== "No Token Found"){
-        const { data } = await instance.get(`forgetPass`)
+    // if (localStorage.getItem("permissions")) {
+      // if(loading == false && user.message !== "No Token Found"){
+        const { data } = await instance.patch(`medias`)
         if(data.message == "InValid Token"){
           setInitalState(0);
           return initalState;
     
         }else{
-          setInitalState(data[0].item);
+          setInitalState(0);
           return initalState;
         }
-      }else{
-        return initalState
-      }
-    }
+    // }
+    // return initalState;
 }
 
   const reducer = (state, action) => {

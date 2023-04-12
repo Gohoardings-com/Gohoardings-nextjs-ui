@@ -10,7 +10,7 @@ export const userDetails = async (dispatch) => {
   } catch (error) {
     dispatch({ type: "UserFail", payload: error.response });
   }
-};
+};  
 
 export const mediawithcity = (category_name, city_name) => async (dispatch) => {
   try {
