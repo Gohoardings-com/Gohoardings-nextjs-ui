@@ -1,45 +1,60 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux'
-import thunk from 'redux-thunk';
-import {IconFilterReducer, SearchReducer, UserReducer, CartReducer} from './adminReducer'
-import {composeWithDevTools} from 'redux-devtools-extension';
-import { cartitems } from './adminAction';
+import { applyMiddleware, combineReducers} from "redux";
+import { createWrapper, HYDRATE } from "next-redux-wrapper";
+import thunkMiddleware from "redux-thunk";
+import {
+  IconFilterReducer,
+  SearchReducer,
+  UserReducer,
+  CartReducer,
+} from "./adminReducer";
+import { cartitems } from "./adminAction";
+import storage from 'redux-persist/lib/storage'
+
+const combinedReducer = combineReducers({
+  user: UserReducer,
+  search: SearchReducer,
+  iconfilter: IconFilterReducer,
+  cart: CartReducer,
+  userItems: cartitems,
+});
+
+const bindMiddleware = (middleware) => {
+  if (process.env.NODE_ENV !== "production") {
+    const { composeWithDevTools } = require("redux-devtools-extension");
+    return composeWithDevTools(applyMiddleware(...middleware));
+  }
+  return applyMiddleware(...middleware);
+};
 
 
-const reducer = combineReducers({
-    user: UserReducer,
-    search: SearchReducer,
-    iconfilter: IconFilterReducer,
-    cart: CartReducer,
-    userItems: cartitems,
-})
+const makeStore = ({ isServer }) => {
+  if (isServer) {
+    //If it's on server side, create a store
+    return createStore(combinedReducer, bindMiddleware([thunkMiddleware]));
+  } else {
+    //If it's on client side, create a store which will persist
+    const { persistStore, persistReducer } = require("redux-persist");
 
-async function savetoLocalStorage(state) {
-    try{
-        const serialsedState = JSON.stringify(state);
-        localStorage.setItem('goh',serialsedState)
-    }catch(e){
-       return false
-    }
-}
+    const persistConfig = {
+      key: 'root',
+      storage, // if needed, use a safer storage
+    };
 
-function loasdFromLocalStorage(){
-    try{
-        const serialsedState = localStorage.getItem('goh');
-        if(serialsedState === null) return undefined;
-        return JSON.parse(serialsedState)
-    }catch(e){
-        return undefined;
-    }
-}
+    const persistedReducer = persistReducer(persistConfig, combinedReducer); // Create a new reducer with our existing reducer
 
-const middleware = [thunk];
+    const store = createStore(
+      persistedReducer,
+      bindMiddleware([thunkMiddleware])
+    ); // Creating the store again
 
-const store = createStore(
-    reducer,  
-    loasdFromLocalStorage(),
-    composeWithDevTools(applyMiddleware( ...middleware)),
-)
+    store.__persistor = persistStore(store); // This creates a persistor object & push that persisted object to .__persistor, so that we can avail the persistability feature
 
-store.subscribe(() => savetoLocalStorage(store.getState()))
+    return store;
+  }
+};
 
-export default store;
+
+
+
+export let persistor = persistStore(makeStore);
+  

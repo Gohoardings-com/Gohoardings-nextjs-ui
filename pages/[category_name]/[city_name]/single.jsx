@@ -2,7 +2,7 @@ import React from "react";
 
 import Loader from "@/components/loader";
 import { MdLocationPin } from "react-icons/md";
-import styles from '../../../styles/media.module.scss';
+import styles from '../../styles/media.module.scss';
 import Link from "next/link";
 
 const Singlecard = ({
@@ -15,16 +15,7 @@ const Singlecard = ({
 }) => {
   return (
     <>
-      {loading ? (
-        <>
-          <div className=" container ">
-            <div className="row  text-center ">
-              <Loader />
-            </div>
-          </div>
-        </>
-      ) : (
-        <>
+    
           {slice.length == 0 ? (
             <div className="container">
               <div className={`${styles.no_data} row  text-center my-3`}>
@@ -160,9 +151,7 @@ const Singlecard = ({
               ))}
             </>
           )}
-        </>
-      )}
-    </>
+       </>
   );
 };
 

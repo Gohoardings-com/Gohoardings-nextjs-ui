@@ -57,11 +57,11 @@ useEffect(() =>{
 },[session])
 
 const handelLogout = async () => {
-  route.push('/')
+  // route.push('/')
     signOut().then(async() =>{
       await logoutUser()
-      // localStorage.removeItem("permissions",true) 
-      // Cookies.remove("LoggedIn")
+      localStorage.removeItem("goh",true) 
+      Cookies.remove("LoggedIn")
     })
   };
 
@@ -122,9 +122,9 @@ if(!data){
     }
   }, [scrollY]);
 
+console.log(loading,user)
 
-
-  if(loading == false ){
+  if(loading == false && user !== "No data Found"){
     return (
   
       <div

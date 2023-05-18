@@ -20,7 +20,6 @@ const Floatingnavbar = dynamic(() => import('@/components/navbar/flotingnavbar')
 
 
 export default function Home() {   
-  
   return (
     <>
       <Head>

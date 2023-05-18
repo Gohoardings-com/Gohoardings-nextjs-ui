@@ -6,6 +6,7 @@ import MediaDropDown from "../components/mediaDropdown";
 import Citylocation from "../components/cityLocation";
 import { useRouter } from 'next/router'
 import styles from '../styles/searchmedia.module.scss';
+import { setCookie } from 'cookies-next';
 const Searchmedia = () => {
     const [city, setCity] = useState([]);
     const [value, setValue] = useState("");
@@ -19,17 +20,20 @@ const Searchmedia = () => {
       setCity(data);
     };
     const mavigatetoMediaPage = (userType, value) => {
+
       if (userType.length > 3 && value.length > 2) {
-        route.push(`/${userType}/${value}`)
+        setCookie('category_name',userType)
+        setCookie('city_name',value)
+        route.push(`/${userType}`)
         
       }
     };
+
   
     const onSearch = (searchTerm) => {
       setValue(searchTerm);
       setFocus(false);
     };
-    
   return (
     <>
       <div className={`${styles.search_media_content} container-xxl  container-xl container-lg container-md mb-4  ms-xs-3`}>

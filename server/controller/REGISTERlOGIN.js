@@ -233,10 +233,6 @@ exports.getuser = catchError(async (req, res) => {
     if (!userId) {
         return res.status(404).json({message: "Token Valid"})
     } else {
-        const data = await client.get(userId)
-      if(data){
-        return  res.send(JSON.parse(data))
-      }else{
         db.changeUser({database: "gohoardi_crmapp"})
         db.query("SELECT userid,firstname, email, phonenumber,profile_image, provider  FROM tblcontacts WHERE userid='" + userId + "'", async (err, result) => {
             if (err) {
@@ -246,7 +242,7 @@ exports.getuser = catchError(async (req, res) => {
                 return res.status(200).json(result)
             }
         })
-      }
+      
     }
 })
 
