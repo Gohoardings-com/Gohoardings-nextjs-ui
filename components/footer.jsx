@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Modal from "react-bootstrap/Modal";
 import { AccountContext } from "@/allApi/apicontext";
 import { FiPhoneCall } from "react-icons/fi";
+import dynamic from "next/dynamic";
 import { BiMailSend } from "react-icons/bi";
+import { setCookie } from "cookies-next";
 import { MdLocationOn } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
+import Image from "next/image";
 import {
   enquiryApi,
   emailformate,
@@ -15,15 +19,17 @@ import {
 
 const Footer = () => {
   const route = useRouter();
+  const [serviceIcon, setServiceIcon] = useState(CityNameImage);
   const [email, setEmail] = useState([]);
-  const { handleClose, handleShow } = useContext(AccountContext);
+  const { handleClose, handleShow, show } = useContext(AccountContext);
+
+  const LoginN = dynamic(() => import("@/pages/login/loginParent"));
 
   const handelSubmit = async (e) => {
     let count = 0;
     e.preventDefault();
     if (!emailformate.test(email)) {
       count = +1;
-      setEror(true);
     } else if (count === 0) {
       const data = await enquiryApi(email);
       if (data.success == true) {
@@ -31,39 +37,54 @@ const Footer = () => {
         toast(
           "Thank for becoming our member, You will get best deals from us."
         );
-        setEror(false);
       }
     }
   };
 
+  const services = [...serviceIcon];
+  const direactMedia = (e) => {
+    setCookie("category_name", e);
+    setCookie("city_name", "delhi");
+    services.map((el) => {
+      if (el.value == e) {
+        el.value2 = true;
+      }
+      if (el.value !== e) {
+        el.value2 = false;
+      }
+    });
+
+    setServiceIcon(services);
+    route.push(`/${e}`);
+  };
   const logo = [
     {
       id: 1,
-      img: "../../images/web_pics/facebook.png",
+      img: "/images/web_pics/facebook.png",
       alt: "logo1",
       link: "https://www.facebook.com/gohoardings/",
     },
     {
       id: 2,
-      img: "../../images/web_pics/insta.png",
+      img: "/images/web_pics/insta.png",
       alt: "logo2",
       link: "https://www.instagram.com/gohoardings/",
     },
     {
       id: 3,
-      img: "../../images/web_pics/twiter.png",
+      img: "/images/web_pics/twiter.png",
       alt: "logo3",
       link: "https://twitter.com/gohoardings",
     },
     {
       id: 4,
-      img: "../../images/web_pics/linkdin.png",
+      img: "/images/web_pics/linkdin.png",
       alt: "logo4",
       link: "https://www.linkedin.com/company/gohoardings/",
     },
     {
       id: 5,
-      img: "../../images/web_pics/meail.png",
+      img: "/images/web_pics/meail.png",
       alt: "logo5",
       link: "mailto:info@gohoardings.com",
     },
@@ -74,8 +95,8 @@ const Footer = () => {
       city: "delhi",
     },
     {
-      name: "Goa",
-      city: "goa",
+      name: "Pune",
+      city: "pune",
     },
     {
       name: "Bengaluru",
@@ -94,15 +115,27 @@ const Footer = () => {
       city: "mumbai",
     },
   ];
-  // useEffect(() => {}, [window.location.pathname]);
+
+  const direactCity = (e) => {
+    setCookie("category_name", "traditional-media");
+    setCookie("city_name", e);
+    const services = [...serviceIcon];
+    services.map((el) => {
+      el.value2 = false;
+    });
+
+    setServiceIcon(services);
+  };
   return (
     <>
       <div className=" footerN-content  pb-3  p-0 px-3 px-md-5 py-md-1  pt-md-5 ">
         <div className="row footer-branding pb-md-4 pb-2">
           <div className="col-md-3 pt-3 pt-md-1 ">
             <Link href="/">
-              <img
-                src="../../images/web_pics/logo.png"
+              <Image
+                width={245}
+                height={43}
+                src="/images/web_pics/logo.png"
                 alt="gohoardings"
                 className="brand-logo-footer "
               />
@@ -113,26 +146,26 @@ const Footer = () => {
               India&#39;s Largest Outdoor Advertising Company
             </h4>
             <h6 className="f-second-heading pt-1">
-              It&#39;s advertising network spread across 130 cities with more than
-              1.2 lakh OOH and DOOH sites offering hassle free branding
+              It&#39;s advertising network spread across 130 cities with more
+              than 1.2 lakh OOH and DOOH sites offering hassle free branding
               experiences at an unmatched price.
             </h6>
           </div>
         </div>
         <div className="row pt-3">
-          <div className="col  py-md-3 ms-md-2">
-            <div className="quick-links ">
+          <div className="col  py-md-3 ms-md-2 quick-links">
+            
               <h4 className="   f-heading">Quick Links</h4>
               <ul className="position-relative  pt-md-3  ps-0">
                 <li className="py-md-2">
                   {" "}
-                  <p
+                  <a
                     className=" text-decoration-none f-heading-clr  mb-0"
-                    onClick={() => route.push("https://odoads.com/register")}
+                    href="https://odoads.com/register"
                     target="_blank"
                   >
                     Login As Media Owner
-                  </p>
+                  </a>
                 </li>
 
                 <li
@@ -144,23 +177,25 @@ const Footer = () => {
                 </li>
                 <span className="pos-absolute">
                   <li className="py-md-2">
-                    <p
-                      onClick={() => route.push("https://www.odoads.com/")}
+                    <a
+                      href="https://www.odoads.com/"
                       target="_blank"
                       className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Odoads
-                    </p>
+                    </a>
                   </li>
-                  <li className="py-md-2">
+
+                  <li className=" text-decoration-none f-heading-clr mb-0 py-md-2">
                     <a
-                      href="https://www.gohoardings.com/blog/"
+                      href="https://blog.gohoardings.com/"
                       target="_blank"
                       className=" text-decoration-none f-heading-clr mb-0"
                     >
                       Blog
                     </a>
                   </li>
+
                   <li className="py-md-2">
                     <p
                       onClick={() => route.push("/about-us")}
@@ -188,7 +223,7 @@ const Footer = () => {
                   <li className="py-md-2 text-decoration-none ">
                     {" "}
                     <p
-                      onClick={() => route.push("/privacy-policy")}
+                      onClick={() => route.push("/privacy")}
                       className=" f-heading-clr mb-0"
                     >
                       Privacy Policy
@@ -196,26 +231,24 @@ const Footer = () => {
                   </li>
                 </span>
               </ul>
-            </div>
+            
           </div>
-          <div className="col  py-md-3 ms-md-2">
-            <div className="popular-media ">
-              <h4 className=" f-heading  ">Popular Services</h4>
+          <div className="col py-md-3 ms-md-2 popular-media">
+          
+              <h4 className=" f-heading">Popular Services</h4>
               <ul className=" pt-md-3   ps-0">
                 {CityNameImage.map((el, i) => (
-                  <Link
+                  <li
                     key={i}
-                    //  href="#"
-                    href={`/${el.value}/delhi`}
-                    className="text-decoration-none "
+                    className=" py-md-2  text-decoration-none f-heading-clr"
+                    onClick={(e) => direactMedia(el.value)}
                   >
-                    <li className=" py-md-2  text-decoration-none f-heading-clr ">
-                      {el.label}
-                    </li>
-                  </Link>
+                    {el.label}
+                  </li>
+
                 ))}
               </ul>
-            </div>
+            
           </div>
           <div className="col  py-md-3 ms-md-2 p-md-1">
             <h4 className="   f-heading">Trending Cities</h4>
@@ -224,10 +257,13 @@ const Footer = () => {
                 {cities.map((el, i) => (
                   <Link
                     key={i}
-                    href={`/${"traditional-ooh-media"}/${el.city}`}
+                    href={`/${el.city}`}
                     className="text-decoration-none "
                   >
-                    <li className=" py-md-2  text-decoration-none f-heading-clr ">
+                    <li
+                      className=" py-md-2  text-decoration-none f-heading-clr "
+                      onClick={(e) => direactCity(el.city)}
+                    >
                       {el.name}
                     </li>
                   </Link>
@@ -243,7 +279,8 @@ const Footer = () => {
                 <FiPhoneCall className="me-3 icon-clr" /> +91 7777871717
               </li>
               <li className="py-md-2 reach-clr py-md-2 py-1">
-                <BiMailSend className="me-3 icon-clr" /> info@gohoardings.com
+                <BiMailSend className="me-3 icon-clr" />
+                info@gohoardings.com
               </li>
               <li className="d-flex reach-clr py-md-3 py-1">
                 <MdLocationOn className="me-3 icon-clr mt-1" />{" "}
@@ -258,7 +295,9 @@ const Footer = () => {
                   return (
                     <div className="grid-item" key={index}>
                       <a href={clients.link} target="_blank">
-                        <img
+                        <Image
+                          width={27}
+                          height={27}
                           src={clients.img}
                           alt={clients.alt}
                           className="img-fluid logo-img"
@@ -273,7 +312,7 @@ const Footer = () => {
         </div>
         <div className="row  payment-footer-section ">
           <div className="col text-light d-none d-md-block" id="letHide"></div>
-          <div className="col text-light  mt-md-0 d-none d-md-block" ></div>
+          <div className="col text-light  mt-md-0 d-none d-md-block"></div>
           <div className="col text-light  offset-md-3 d-none d-md-block">
             <h4 className="f-heading  text-nowrap  ">
               Best deals in your inbox
@@ -301,16 +340,7 @@ const Footer = () => {
 
               <ToastContainer />
             </form>
-            {/* <p className="error-msg">
-              {" "}
-              {error == true && !emailformate.test(email) ? (
-                <small className="p-0 p-0 text-danger text-small  ">
-                  Type your email corectly
-                </small>
-              ) : (
-                <> </>
-              )}{" "}
-            </p> */}
+          
             <h6 className=" py-0 text-muted head6">
               * Join our newsletter for the most recent information.
             </h6>
@@ -322,6 +352,14 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <LoginN />
+      </Modal>
       <style jsx>
         {`
           #not-work {
@@ -352,21 +390,21 @@ const Footer = () => {
             border-bottom: 2px solid rgb(211, 211, 211);
           }
           .brand-logo-footer {
-            width: 250px;
+            width: 240px;
           }
           .f-heading {
             color: #ffff;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 600;
           }
           .f-second-heading {
             color: rgb(220, 220, 220);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 400;
           }
           .f-heading-clr {
             color: rgb(220, 220, 220);
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
           }
 
@@ -375,7 +413,7 @@ const Footer = () => {
           }
           .reach-clr {
             color: rgb(220, 220, 220);
-            font-size: 1.1rem;
+            font-size: 1rem;
           }
           li {
             list-style-type: none;
@@ -408,19 +446,14 @@ const Footer = () => {
 
           @media screen and (max-width: 1366px) {
             .brand-logo-footer {
-              width: 200px !important;
+              width: 190px !important;
             }
             .f-heading {
               font-size: 1.5rem;
             }
-            .f-second-heading {
-              font-size: 1rem;
-            }
-            .f-heading-clr {
-              font-size: 1rem;
-            }
+
             .reach-clr {
-              font-size: 1rem;
+              font-size: 1.1rem;
             }
             .grid-container1 {
               width: 260px;
@@ -436,7 +469,7 @@ const Footer = () => {
 
           @media screen and (max-width: 1024px) {
             .brand-logo-footer {
-              width: 140px !important;
+              width: 130px !important;
             }
             .f-heading {
               font-size: 1rem;

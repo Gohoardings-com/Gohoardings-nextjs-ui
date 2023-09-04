@@ -1,34 +1,76 @@
-import Fixednavbar from "@/components/navbar/fixednavbar";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import React, { useState } from "react";
 import Head from "next/head";
 import Branding from "../../components/branding";
-import clientslogo from "./clients";
-
- 
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Fixednavbar from "@/components/navbar/fixednavbar";
+import { brandLogoApi } from "@/allApi/apis";
+import { useEffect } from "react";
 const About = () => {
   const [noOfLogo, setnoOfLogo] = useState(18);
+  const [logo, SetLogo] = useState([]);
   const [showButton, setshowButon] = useState(true);
-  const slice = clientslogo.slice(0, noOfLogo);
+  const slice = logo.slice(0, noOfLogo);
+
   const loadMore = () => {
     if (noOfLogo === 18) {
-      setnoOfLogo(noOfLogo + noOfLogo);
+      setnoOfLogo(noOfLogo * 2);
     } else if (noOfLogo === 36) {
       setnoOfLogo(noOfLogo + 12);
       setshowButon(false);
     }
   };
-
-  const toContact = () => {
-    window.location.href = "/contact-us";
+  const allLogo = async () => {
+    const data = await brandLogoApi();
+    SetLogo(data);
   };
 
+  const toContact = () => {
+    route.push("/contact-us");
+  };
+  const { asPath } = useRouter();
+  useEffect(() => {
+    allLogo();
+  }, []);
+
+  const cardData = [
+    {
+      title: "TRADITIONAL",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+    {
+      title: "MALL MEDIA",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+    {
+      title: "DIGITAL OOH MEDIA",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+    {
+      title: "AIRPORT BRANDING",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+    {
+      title: "OFFICE BRANDING",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+    {
+      title: "TRANSIT MEDIA",
+      description:
+        "Local directory is the smartest way to find the best services",
+    },
+  ];
   return (
     <>
-
-<Head>
-        <title>
-        About - Outdoor Advertising Agency in India | Gohoardings
-        </title>
+      <Head>
+        <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
+        <title>About - Outdoor Advertising Agency in India | Gohoardings</title>
         <meta charSet="utf-8" />
         <link
           rel="icon"
@@ -48,16 +90,40 @@ const About = () => {
           name="keywords"
           content="Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"
         />
+        <meta
+          property="og:title"
+          content="About - Outdoor Advertising Agency in India | Gohoardings"
+        />
+        <meta property="og:siteName" content="www.gohoardings.com/about-us" />
+        <meta property="og:description" content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"/>
+        <meta property="og:type" content="en_US" />
+        <meta property="og:image" href="https://www.gohoardings.com/assets/images/favicon.png" />
+        <meta
+          property="og:url"
+          href={`https://www.gohoardings.com${asPath}`}
+        />
+        <meta property="og:property" content="en_US" />
+        <meta property="twitter:title" content="About - Outdoor Advertising Agency in India | Gohoardings" />
+        <meta
+          property="twitter:siteName"
+          content="www.gohoardings.com/about-us"
+        />
+        <meta property="twitter:description" content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings" />
+        <meta property="twitter:type" content="en_US" />
+        <meta property="twitter:image" href="https://www.gohoardings.com/assets/images/favicon.png"  />
+        <meta
+          property="twitter:url"
+          href={`https://www.gohoardings.com${asPath}`}
+        />
+        <meta property="twitter:property" content="en_US" />
       </Head>
 
-   <Fixednavbar/>
-      <div className="d-hide drop-nd">
-
-      </div>
+      <Fixednavbar />
+      <div className="d-hide drop-nd"></div>
       <section className="fvf">
-
-      <Branding title="About Us" />
+        <Branding title="About Us" />
       </section>
+
       <section>
         <div className="container mt-2">
           <div className="row">
@@ -76,11 +142,13 @@ const About = () => {
               </p>
             </div>
             <div className="col-md-5">
-              <img
+              <Image
+                width={500}
+                height={500}
+                src="/images/web_pics/ooh.png"
+                alt="img"
                 className="img-fluid"
                 id="media-img"
-                src="../../images/web_pics/ooh.png"
-                alt="img"
               />
             </div>
           </div>
@@ -89,54 +157,17 @@ const About = () => {
       <section>
         <div className="media-container container pb-4">
           <div className="row">
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6">
-              <div className="card about-cards">
-                <h6>TRADITIONAL </h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
+            {cardData.map((card, index) => (
+              <div
+                key={index}
+                className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6"
+              >
+                <div className="card about-cards">
+                  <h6>{card.title}</h6>
+                  <p className="descrption">{card.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6 ">
-              <div className="card about-cards">
-                <h6>MALL MEDIA</h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6">
-              <div className="card about-cards">
-                <h6>DIGITAL OOH MEDIA</h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6">
-              <div className="card about-cards">
-                <h6>AIRPORT BRANDING</h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6">
-              <div className="card about-cards">
-                <h6>OFFICE BRANDING</h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 mt-2 col-sm-6 col-6">
-              <div className="card about-cards">
-                <h6>TRANSIT MEDIA</h6>
-                <p className="descrption">
-                  Local directory is the smartest way to find the best services
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -153,18 +184,20 @@ const About = () => {
                 bridge between your brand and customer.
               </p>
               <p className="descrption">
-                We do it in a different way.We&#39;ve got the creative eye and the
-                perfect equation of ideas.We help you grow by adding the word
-                called success to your brand.Thus to conclude our vision is to
-                be the master touch, you need, to be visible and heard.
+                We do it in a different way.We&#39;ve got the creative eye and
+                the perfect equation of ideas.We help you grow by adding the
+                word called success to your brand.Thus to conclude our vision is
+                to be the master touch, you need, to be visible and heard.
               </p>
             </div>
 
             <div className="col-md-5">
-              <img
+              <Image
+                width={500}
+                height={500}
                 id="map-img"
                 className="img-fluid "
-                src="../../images/web_pics/india_map.png"
+                src="/images/web_pics/india_map.png"
                 alt="map"
               />
             </div>
@@ -173,10 +206,12 @@ const About = () => {
         <div className="container text-center">
           <div className="row mt-3">
             <div className="col-md-5">
-              <img
+              <Image
+                width={500}
+                height={500}
                 id="care-img"
                 className="img-fluid care"
-                src="../images/web_pics/vision.png"
+                src="/images/web_pics/vision.png"
                 alt="care"
               />
             </div>
@@ -187,8 +222,8 @@ const About = () => {
                 We aim to become the world&#39;s best OOH and DOOH advertising
                 company.Our mission is to guide you to find your brand’s voice
                 and help you to tell a bigger story through our best services
-                available in city.&#34;Quality never goes out of style&#34; and we
-                ensure to provide the best one.
+                available in city.&#34;Quality never goes out of style&#34; and
+                we ensure to provide the best one.
               </p>
 
               <p className="descrption">
@@ -211,7 +246,9 @@ const About = () => {
               {slice.map((clients, index) => {
                 return (
                   <div className="grid-item" key={index}>
-                    <img
+                    <Image
+                      width={500}
+                      height={500}
                       src={clients.img}
                       alt={clients.alt}
                       className="img-fluid logo-img"
@@ -239,8 +276,7 @@ const About = () => {
         </div>
       </section>
       <style>
-{
-  `
+        {`
   .fvf{
     margin-top: 4.1%;
   }
@@ -371,18 +407,42 @@ const About = () => {
       padding-top: 30px;
     }
   }
-  @media screen and (max-width: 425px) {
-#care-img{
-  display:none;
-}
-.fvf{
-  margin-top: 2.1%;
-}
+  @media screen and (max-width: 540px) {
+    .about-cards {
+      h6 {
+        font-size: 8px;
+        padding-bottom: 3px;
+      }
+      .descrption {
+        font-size: small;
+      }
+    }
+    .vision {
+      margin-top: 1.2%;
+    }
+    .logo-img {
+      height: 60px;
+      width: 110px;
+    }
+    #map-img {
+      
+      padding-top: 0px;
+      padding-left: 0px;
+      margin-left: 0px;
+    }
+    #care-img {
+      display:none;
+    }
   }
-  `
-}
-
+  `}
       </style>
+      <h6>
+        <span onClick={() => route.push("/")} className="bredcamp">
+          Home
+        </span>
+        <MdKeyboardArrowRight />
+        <span className="bredcamp text-secondary">About</span>
+      </h6>
     </>
   );
 };

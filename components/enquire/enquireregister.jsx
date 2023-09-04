@@ -8,7 +8,6 @@ const Enquireregister = () => {
   const [phone, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
   const [error, setEror] = useState(false);
 
   let count = 0;
@@ -160,7 +159,7 @@ label {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 540px) {
 
   .txt-clr-tlk {
       color: #373435;

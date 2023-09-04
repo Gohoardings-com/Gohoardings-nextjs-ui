@@ -1,29 +1,28 @@
 import React, { useState,createContext, useReducer } from 'react';
 import instance from './axios';
-import { useDispatch, useSelector } from "react-redux";
+import { getCookie, removeCookies } from "cookies-next";
 
 export const AccountContext = createContext(null);
 
 export const AccountProvider = ({ children }) => {
   
-  const { user, loading } = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
   var [initalState, setInitalState] = useState(0)
+
+
   const item = async () => {
-    // if (localStorage.getItem("permissions")) {
-      // if(loading == false && user.message !== "No Token Found"){
-        const { data } = await instance.patch(`medias`)
-        if(data.message == "InValid Token"){
-          setInitalState(0);
-          return initalState;
-    
-        }else{
-          setInitalState(0);
-          return initalState;
-        }
-    // }
-    // return initalState;
-}
+    const value = getCookie("permissions")
+    if(value){
+      const { data } = await instance.get(`forgetPass`)
+      if(data.message == "InValid Token"){
+        setInitalState(0);
+      }else{
+        setInitalState(data[0].item);
+      }
+    }
+  
+    }
+
 
   const reducer = (state, action) => {
     if (action.type === 'INCR') {

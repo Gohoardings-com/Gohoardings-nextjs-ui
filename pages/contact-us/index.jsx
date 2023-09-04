@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { emailformate, enquiryApi } from "@/allApi/apis";
 import { toast, ToastContainer } from "react-toastify";
-import { MdEmail, MdLocationPin, MdOutlineError } from "react-icons/md";
-import { ImMobile } from "react-icons/im";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import Fixednavbar from "@/components/navbar/fixednavbar";
-import styles from '../../styles/contactUs.module.scss'  ;
+import styles from "../../styles/contactUs.module.scss";
 
 const Contact = () => {
-  const [name, setName] = useState(""); 
+  const [name, setName] = useState("");
+  const route = useRouter();
   const [phone, setphone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -52,19 +54,91 @@ const Contact = () => {
     }
   };
 
-
+  const { asPath } = useRouter();
   return (
     <>
-   <Fixednavbar/>
-      <div className="d-hide drop-nd"></div>
+      <Head>
+        <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
+        <title>
+          Gohoardings Solutions is the leading online media buying agency.
+          Contact us to get exclusive media buying rates and make your brand
+          visible.
+        </title>
+        <meta charSet="utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta
+          name="google-site-verification"
+          content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
+        />
+        <meta
+          name="keywords"
+          content="Contact Us | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR, Advertising Agency in Noida, Delhi, NCR, Dealing with Billboards, Hoardings, Airport Branding, Transit Medial Airlines Branding, on best prices.
+          "
+        />
+        <meta
+          property="og:title"
+          content="Gohoardings Solutions is the leading online media buying agency. Contact us to get exclusive media buying rates and make your brand visible."
+        />
+        <meta property="og:siteName" content="www.gohoardings.com/contact-us" />
+        <meta
+          property="og:description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta property="og:type" content="en_US" />
+        <meta
+          property="og:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
+        <meta property="og:url" href={`https://www.gohoardings.com${asPath}`} />
+        <meta property="og:property" content="en_US" />
+        <meta
+          property="twitter:title"
+          content="Gohoardings Solutions is the leading online media buying agency. Contact us to get exclusive media buying rates and make your brand visible."
+        />
+        <meta
+          property="twitter:siteName"
+          content="www.gohoardings.com/contact-us"
+        />
+        <meta
+          property="twitter:description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta property="twitter:type" content="en_US" />
+        <meta
+          property="twitter:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
+        <meta
+          property="twitter:url"
+          href={`https://www.gohoardings.com${asPath}`}
+        />
+        <meta property="twitter:property" content="en_US" />
+      </Head>
+      <Fixednavbar />
+
       <section>
-        <div className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}>
-          <h1 className="text-center pt-4">Contact Us</h1>
+        <div
+          className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}
+        >
+          <h1 className="text-center pt-2 pt-md-4">Contact Us</h1>
           <h5 className="text-center">
             Any question or remarks? Just write us a message or <br />
             visit our nearest office.
           </h5>
-          <div className={`row p-3 mt-5 rounded-3 ${styles.main_contact}`}>
+          <h6>
+            <span onClick={() => route.push("/")} className="bredcamp">
+              Home
+            </span>
+            <MdKeyboardArrowRight />
+            <span className="bredcamp text-secondary">Contact-Us</span>
+          </h6>
+          <div className={`row p-3 mt-md-5 rounded-3 ${styles.main_contact}`}>
             <div className="col-md-6 p-0">
               <h3>
                 Support and Contact <br />
@@ -75,7 +149,7 @@ const Contact = () => {
                 <br />
                 question and set up a meeting with you.
               </h6>
-              <div className={`${styles.contact_form} pe-md-5 `}>
+              <div className={`${styles.contact_form} pe-md-5`}>
                 <form className='mt-4 "position-relative' onSubmit={onSubmit}>
                   <div className="form-group py-3 ">
                     <label htmlFor="formGroupExampleInput">Name*</label>
@@ -195,7 +269,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-     
     </>
   );
 };

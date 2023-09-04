@@ -8,8 +8,10 @@ const Branding = (props) => {
         <div className="container">
           <div className="row">
             {/* <a href="/">
-              <img
-                src="../images/web_pics/logo.png"
+              Image
+                           width={500}
+                           height={500}
+                src="/images/web_pics/logo.png"
                 alt="logo"
                 className="logo ps-2" 
               />
@@ -54,7 +56,7 @@ const Branding = (props) => {
           }
           .inn-pag-ban h2 {
             font-size: 50px;
-            font-family: Montserrat, sans-serif;
+       
             font-weight: 700;
             margin-top: 0;
             margin-bottom: 0;
@@ -66,7 +68,7 @@ const Branding = (props) => {
             text-align: center;
           }
           
-          @media screen and (max-width: 425px) {
+          @media screen and (max-width: 540px) {
               .logo {
                   position: absolute;
                   top: 15px;

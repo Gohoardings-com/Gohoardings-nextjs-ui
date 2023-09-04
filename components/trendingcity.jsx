@@ -1,13 +1,13 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
+import { mediaDataApi } from "@/allApi/apis";
 import Loader from "../components/loader";
-import { mediawithcity } from "@/redux/adminAction";
+
 
 const Trendingcity = () => {
-  const { search, loading } = useSelector((state) => state.search);
- const dispatch = useDispatch();
+
+  const [search, setSearch] = useState([]);
   const [city, setCity] = useState();
   var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
   function random_item() {
@@ -16,24 +16,24 @@ const Trendingcity = () => {
   const data = async () => {
     const category_name = "traditional-ooh-media";
     const city_name = city;
-    dispatch(mediawithcity(category_name, city_name));
+    const data2 = await  mediaDataApi(category_name, city_name)
+    setSearch(data2)
   };
   useEffect(() => {
-    random_item()
-    data()
-      },[city])
+    random_item();
+    data();
+  }, [city]);
 
   {
     var settings = {
-      dots: false,
+      dots: true,
       infinite: true,
       slidesToShow: 4,
       slidesToScroll: 2,
       autoplay: true,
-      speed: 4700,
+      speed: 3500,
       pauseOnHover: true,
-      autoplaySpeed: 4700,
-      cssEase: "linear",
+  
       responsive: [
         {
           breakpoint: 1024,
@@ -49,10 +49,9 @@ const Trendingcity = () => {
 
   let slider = settings;
   let slice;
-  if (!loading) {
-    slice = search.slice(0, 5);
+  if (search) {
+    slice = search.slice(0, 8);
   }
-
 
   return (
     <>
@@ -67,15 +66,8 @@ const Trendingcity = () => {
           </h6>
         </section>
 
-        {loading ? (
-          <div className=" container ">
-            <div className="row  text-center my-3">
-              <Loader />
-            </div>
-          </div>
-        ) : (
-          <>
-            {loading == true? (
+      
+            {!search? (
               <div className=" container ">
                 <div className="row  text-center my-3">
                   <Loader />
@@ -90,7 +82,7 @@ const Trendingcity = () => {
                         <div className="row  ">
                           <div className="col p-3 ">
                             <Link
-                              href={`/seedetails/${pos.category_name}/${pos.meta_title}`}
+                              href={`/seedetails/${pos.category_name}/${pos.page_title}/${pos.code}`}
                             >
                               <div className="trending-card-img  rounded-2">
                                 <img
@@ -114,115 +106,106 @@ const Trendingcity = () => {
                                           pos.thumb
                                         }`
                                   }
-                                  onError={(e) =>(e.target.src = "../../images/web_pics/alter-img.png")
-
+                                  onError={(e) =>
+                                    (e.target.src =
+                                      "/images/web_pics/alter-img.png")
                                   }
                                 />
 
                                 <div className="bottom-left">
-                             {pos.city_name}
+                                  {pos.city_name}
                                 </div>
                                 <div className="bottom-left-media">
-                                  {pos.medianame.substring(0,20)}...
+                                  {pos.medianame.substring(0, 20)}...
                                 </div>
                               </div>
                             </Link>
                           </div>
                         </div>
                       </div>
-                    ))} 
+                    ))}
                 </Slider>
               </>
             )}
-          </> 
-        )}
+         
+     
       </div>
       <style jsx>
-        {
-          `
-       
-            h1 {
-              font-size: 2.5rem;
-              font-weight: 700;
-              color: #373435;
-            }
-            h6 {
-              font-size: 1.3rem;
-              font-weight: 400;
-              color: #373435;
-            }
-         
-            .trending-card-img:before {
-              content: "";
-              position: absolute;
-              background: linear-gradient(
-                to bottom,
-                transparent,
-                transparent,
-                rgba(0, 0, 0, 0.55) 90%
-              );
-              top: 0;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              border-radius: 5px;
-            }
-            
-            .trending-card-img {
-              height: 200px;
-              width: 300px;
-              position: relative;
-              z-index: 0;
-            }
-              .bottom-left {
-                position: absolute;
-                bottom: 34px;
-                color: #ffffff;
-                left: 16px;
-                font-size: 1.1rem;
-              }
-              .bottom-left-media {
-                position: absolute;
-                bottom: 8px;
-                color: #ffffff;
-                left: 16px;
-                font-size: 1.3rem;
-                font-weight: 600;
-                padding-right: 0px;
-              }
+        {`
+          h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #373435;
+          }
+          h6 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #373435;
+          }
+
+          .trending-card-img:before {
+            content: "";
+            position: absolute;
+            background: linear-gradient(
+              to bottom,
+              transparent,
+              transparent,
+              rgba(0, 0, 0, 0.55) 90%
+            );
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+          }
+
+          .trending-card-img {
+            height: 200px;
+            width: 300px;
+            position: relative;
+            z-index: 0;
+          }
+          .bottom-left {
+            position: absolute;
+            bottom: 32px;
+            color: #ffffff;
+            left: 16px;
+            font-size: 1rem;
+          }
+          .bottom-left-media {
+            position: absolute;
+            bottom: 5px;
+            color: #ffffff;
+            left: 16px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding-right: 0px;
+          }
+
+          .trending-cardd {
+            height: 200px;
+            width: 300px;
+          }
+
+          @media screen and (max-width: 1366px) {
            
+            .trending-card-img {
+              height: 180px;
+              width: 260px;
+            }
             .trending-cardd {
-              height: 200px;
-              width: 300px;
-            }
-            
-          
-            @media screen and (max-width: 1366px) {
-              h1 {
-                font-size: 2.2rem !important;
-              }
-              h6 {
-                font-size: 1rem !important;
-              }
-              .trending-card-img {
-                height: 180px;
-                width: 260px;
-              }
-              .trending-cardd {
-                height: 180px;
-                width: 260px;
-              }
-            }
-          
-          
-          @media screen and (max-width: 425px) {
-            .trending-contain{
-          display: none;
+              height: 180px;
+              width: 260px;
             }
           }
-          `
-        }
+
+          @media screen and (max-width: 540px) {
+            .trending-contain {
+              display: none;
+            }
+          }
+        `}
       </style>
     </>
   );

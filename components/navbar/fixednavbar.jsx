@@ -4,26 +4,25 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { getAllCity } from "@/allApi/apis";
 import { DropdownButton } from "react-bootstrap";
-import Link from "next/link";
 import { CityNameImage } from "@/allApi/apis";
-import { useDispatch, useSelector } from "react-redux";
-import Userdetail from "./userdetail";
 import { MdOutlineSearch, MdLocationPin } from "react-icons/md";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-// import { mediawithcity } from "../../action/adminAction";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Citylocation from "../cityLocation";
+import { removeCookies, setCookie } from "cookies-next";
 import styles from "../../styles/fixedNavbar.module.scss";
 import NavbarDropdown from "./dropdown";
-// import Citylocation from "../cityLocation/citylocation";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { mediawithcity } from "@/redux/adminAction";
 
+
+
+const Userdetail = dynamic(() => import("./userdetail"), {
+  ssr: false,
+});
 const Fixednavbar = () => {
-  const dispatch = useDispatch();
   const [city, setCity] = useState([]);
   const [posts, setPosts] = useState();
   const [focus, setFocus] = useState(false);
@@ -36,6 +35,9 @@ const Fixednavbar = () => {
   const { pathname } = useRouter();
 
   const getMap = () => {
+ 
+    removeCookies("page_title");
+    removeCookies("state_name");
     route.push("/map");
   };
 
@@ -53,10 +55,23 @@ const Fixednavbar = () => {
     setCity(data);
   };
 
+
   const mavigatetoMediaPage = (userType, value) => {
+  
+
     if (pathname === "/map" && userType.length > 3 && value.length > 2) {
-      dispatch(mediawithcity(userType, value));
-    } else if (userType.length > 3 && value.length > 2) {
+      setCookie('category_name',userType)
+      removeCookies("page_title");
+      removeCookies("state_name");
+        setCookie('city_name',value)
+        route.push(`/map`);
+    } else
+    if (userType.length > 3 && value.length > 2) {
+      setCookie("category_name", userType);
+      setCookie("city_name", value);
+      CityNameImage.forEach((el) => {
+        el.value2 = el.value === userType ? true : false;
+      });
       route.push(`/${userType}/${value}`);
     }
   };
@@ -75,9 +90,10 @@ const Fixednavbar = () => {
   }
 
   return (
-    <>
+    < div className="fixed-top mb-2">
+
       <Navbar
-        expand={`lg px-md-0 p-1 m-0 border-0 ${styles.navbar_main_floating} fixed-top`}
+        expand={`lg px-md-0 p-1 m-0 border-0 ${styles.navbar_main_floating}`}
       >
         <div className={styles.sss}></div>
 
@@ -92,9 +108,11 @@ const Fixednavbar = () => {
             <span></span>
           </div>
 
-          <img
+          <Image
+                           width={100}
+                           height={35}
             alt="gohoardings"
-            src="../../images/web_pics/logo.png"
+            src="/images/web_pics/logo.png"
             className={`border-0 brand ${styles.float_brand} ms-2`}
             onClick={() => route.push("/")}
           />
@@ -202,7 +220,7 @@ const Fixednavbar = () => {
           <div className={styles.sss}></div>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </div>
   );
 };
 

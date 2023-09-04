@@ -1,9 +1,36 @@
-import Link from "next/link"
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { setCookie } from "cookies-next";
+import { CityNameImage } from "@/allApi/apis";
 
-const navbarDropdown = () => {
+const NavbarDropdown = () => {
+  const route = useRouter();
+  const pages = [
+    { text: "About Us", href: "/about-us" },
+    { text: "Team", href: "/team" },
+    { text: "News & Media", href: "/media-and-news" },
+    { text: "Contact", href: "/contact-us" },
+    { text: "Testimonials", href: "/testimonial" },
+    { text: "Blogs", href: "https://blog.gohoardings.com/",taget:"_blank"  },
+    { text: "FAQs", href: "/faqs" }
+  ];
+  
+
+  const directlink = (e) => {
+    setCookie("category_name", e);
+    setCookie("city_name", "delhi");
+  
+    CityNameImage.forEach((el) => {
+      el.value2 = el.value === e ? true : false;
+    });
+    route.push(`/${e}`);
+  };
+  
+
   return (
     <>
-    <div
+      <div
         className="drop-menu   position-fixed  rounded-0  animate__animated  "
         id="de"
       >
@@ -11,208 +38,123 @@ const navbarDropdown = () => {
           <div className="row m-1 drop-data">
             <div className="col-3 p-0  border-box mb-3">
               <ul className="list-none ms-2">
-                <li>
-                
-                  <Link
-                    href={`/traditional-ooh-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
+                {CityNameImage.slice(0, 4).map((e, i) => (
+                  <li
+                    key={i}
+                    onClick={() => directlink(e.value)}
+                    className="button text-light text-nowrap is-small is-info"
                   >
-                 
-                    Traditional OOH
-                  </Link>
-                </li>
-                <li>
-                
-                  <Link
-                    href={`/mall-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
-                  >
-                   
-                    Mall Media
-                  </Link>
-                </li>
-                <li>
-                
-                  <Link
-                    href={`/airport-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
-                  >
-                   
-                    Airport Media
-                  </Link>
-                </li>
-               
-                <li>
-                
-                  <Link
-                    href={`/office-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
-                  >
-                   
-                    Office Branding
-                  </Link>
-                </li>
+                    {e.label}
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="col-3 p-0 m-0 border-box mb-3">
               <ul className="list-none">
-                <li>
-                
-                  <Link
-                    href={`/digital-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
+                {CityNameImage.slice(4).map((e, i) => (
+                  <li
+                    key={i}
+                    onClick={() => directlink(e.value)}
+                    className="button text-light text-nowrap is-small is-info"
                   >
-                    Digital Screen
-                  </Link>
-                </li>
-                {/* <li>
-                
-                  <Link
-                    href={`/inFlight-branding/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
-                  >
-                    InFlight Branding
-                  </Link>
-                </li> */}
-                <li>
-                
-                  <Link
-                    href={`/transit-media/delhi`}
-                    className="button text-light text-nowrap is-small is-info text-decoration-none"
-                  >
-                    Transit Media
-                  </Link>
-                </li>
+                    {e.label}
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="col-3 p-0 m-0 border-box mb-3">
               <ul className="list-none">
-                <li>
-                
-                  <Link  href="/about-us" className="text-decoration-none text-light">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                
-                  <Link  href="/team" className="text-decoration-none text-light">
-                    Team
-                  </Link>
-                </li>
-                <li>
-                
-                  <Link  href="/media-and-news" className="text-decoration-none text-light">
-                    News & Media
-                  </Link>
-                </li>
-              
-                {/* <li>
-                
-                  Case Studies
-                </li> */}
-                <li>
-                
-                  <Link  href="/contact-us" className="text-decoration-none text-light">
-                    Contact
-                  </Link>
-                </li>
+                {pages.slice(0, 4).map((e, i) => (
+                  <li key={i}>
+                    <Link
+                      href={e.href}
+                      className="text-decoration-none text-light"
+                    >
+                      {e.text}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="col-3 p-0 m-0 mb-3">
               <ul className="list-none">
-              <li>
-                
-                <Link  href="/testimonial"
-                  className="text-decoration-none text-light"
-                >
-                  Testimonials
-                </Link>
-              </li>
-                <li>
-                
-                  <Link  href="https://www.gohoardings.com/blog/"
-                    className="text-decoration-none text-light"
-                    target="_blank"
-                  >
-                    Blogs
-                  </Link>
-                </li>
-                <li>
-                
-                  <Link  href="/faqs" className="text-decoration-none text-light">
-                    FAQs
-                  </Link>
-                </li>
+                {pages.slice(4).map((e, i) => (
+                  <li key={i}>
+                    <Link
+                      href={e.href}
+                      className="text-decoration-none text-light"
+                    target={e.taget && e.taget}>
+                      {e.text}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-
-       
           </div>
-
-          
         </div>
-        </div>
-        <style jsx>
-          {
-            `
-            #de {
-              background: #212121;
-              opacity: 98% !important;
-              width: 93%;
-              padding-top: 1.4%;
-              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-                rgba(0, 0, 0, 0.22) 0px 15px 12px;
-              border: none;
-            }
-            .write {
-                height: 36px;
-                width: 46px;
-              }
-            .drop-nd {
-              height: 1px;
-            }
-            .drop-data ul li {
-              color: rgb(103, 103, 103);
-              transition: all 0.1s ease-out;
-              width:130px;
-              padding: 4px;
-       
-            border-bottom: 1px solid transparent;
-              cursor: pointer;
-              list-style-type: none;
-            }
-            .drop-data ul li:hover {
-              border-bottom: 1px solid white;
-              // font-weight: 600;
-            }
-            
-            .border-box {
-              border-right: 1px solid #c8c9ca;
-            }
-            
-            #write-btn {
-              box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-              opacity: 98%;
-              width: 200px;
-              font-size: 20px;
-              font-weight: 600;
-              cursor: pointer;
-              height: 49px;
-              text-align: center;
-              border: none;
-              background-size: 300% 100%;
-              border-radius: 0px;
-              background-color: #fff212;
-            
-              --moz-transition: all 0.4s ease-in-out;
-              transition: all 0.4s ease-in-out;
-            }
-            
-            `
+      </div>
+      <style jsx>
+        {`
+          #de {
+            background: #212121;
+            opacity: 98% !important;
+            width: 93%;
+            padding-top: 1.4%;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+              rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            border: none;
           }
-        </style>
-    </>
-  )
-}
+          .write {
+            height: 36px;
+            width: 46px;
+          }
+          .drop-nd {
+            height: 1px;
+          }
+          .drop-data ul li {
+            color: rgb(103, 103, 103);
+            width: 130px;
+            padding: 4px;
+            cursor: pointer;
+            list-style-type: none;
+          }
+          .drop-data ul li:after {
+            display: block;
+            content: "";
+            border-bottom: solid 1px white;
+            transform: scaleX(0);
+            transition: transform 300ms ease-in-out;
+          }
 
-export default navbarDropdown
+          .drop-data ul li:hover:after {
+            transform: scaleX(1);
+          }
+
+          .border-box {
+            border-right: 1px solid #c8c9ca;
+          }
+
+          #write-btn {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            opacity: 98%;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            height: 49px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 0px;
+            background-color: #fff212;
+
+            --moz-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+          }
+        `}
+      </style>
+    </>
+  );
+};
+
+export default NavbarDropdown;

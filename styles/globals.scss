@@ -1,4 +1,43 @@
 @import "../assets/scss/variables";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+*{
+  scroll-behavior: smooth !important;
+}
+.bredcamp{
+  transition: transform 0.75s ease-out;
+}
+.bredcamp:hover{
+  cursor: pointer;
+  border-bottom: 1px solid #d1c601;
+  color: #d1c601;
+
+}
+//Global fonts
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+   
+//Global scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cacaca;
+}
+
+/* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #cacaca;
+// }
 
 .prf-content {
   * {
@@ -36,6 +75,7 @@ input::-webkit-inner-spin-button {
 .center {
   position: relative;
 }
+
 .medias {
   .form-control {
     display: block;
@@ -66,13 +106,9 @@ input::-webkit-inner-spin-button {
   transform: translate(-50%, -50%) !important;
   width: 70vw !important;
   height: auto !important;
+  min-height: 70vh !important;
 }
-// @media screen and (max-width: 1366px) {  
-//   .modal-content {
-//     height: auto !important;
-//   }
 
-// }
 
 #exampleModal {
   .form-control {
@@ -99,25 +135,8 @@ input::-webkit-inner-spin-button {
 }
 
 
-::-webkit-scrollbar {
-  width: 7px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #dfdfdf;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #cacaca;
-}
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 540px) {
   ::-webkit-scrollbar {
 display: none;
   }
@@ -139,10 +158,10 @@ display: none;
   .dropdown-toggle::after {
     margin-top: 12px;
     font-size: 30px;
-    color: $icon;
+    color: #808080;
     float: right;
   }
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 540px) {
     .dropdown-menu {
       width: 66vw;
     }
@@ -152,6 +171,12 @@ display: none;
     }
 
   }
+}
+
+.mbilview{
+  .offcanvas{
+    max-width: 58% !important;
+}
 }
 .usrdtl {
   .dropdown-toggle::after {
@@ -168,7 +193,59 @@ display: none;
     --bs-dropdown-link-hover-bg: #303030;
   }
 }
+.map-filter-drop {
+  
+  .dropdown-toggle::after {
+    margin-top: 2px;
+    font-size: 18px;
+    color: rgb(147, 146, 152);
+    float: right;
+  }
+  .dropdown-menu {
+    background-color: #ffffff;
+    color: white;
+    font-size: 16px;
+    border-radius: 0px;
+    max-height: 260px;
+    max-width:300px;
+    overflow: scroll;
+    padding: 0%;
+    overflow-x: hidden;
+    cursor: pointer;
+    --bs-dropdown-link-active-bg: rgb(228, 228, 228);
+    --bs-dropdown-link-hover-bg: rgb(228, 228, 228);
+  }
+}
 
+.map-sate{
+  position: relative;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  
+    svg{
+      position: initial !important;
+ 
+      height: 100vh !important;
+    }
+  }
+
+.media-new-search{
+  .dropdown-menu {
+    background-color: #ffffff;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    max-height: 260px;
+    width: 17vw;
+    overflow: scroll;
+    padding: 4px;
+    overflow-x: hidden;
+    cursor: pointer;
+    --bs-dropdown-link-active-bg: rgb(228, 228, 228);
+    --bs-dropdown-link-hover-bg: rgb(228, 228, 228);
+  }
+}
 .cart-content {
   .dropdown-toggle::after {
     display: none;
@@ -227,7 +304,10 @@ display: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 540px) {
+    .slick-next {
+    display: none !important ;
+  }
     .slick-prev:before,
     .slick-next:before {
 display: none;
@@ -249,10 +329,7 @@ display: none;
     box-shadow: none;
   }
 }
-* {
-  // font-family: "Poppins "!important;
-  font-family: "Outfit", sans-serif !important;
-}
+
 .enqry {
   .slick-next:before {
     display: none !important;
@@ -301,15 +378,3 @@ display: none;
     box-shadow: none !important;
   }
 }
-
-
-.gm-ui-hover-effect{
-  display: none !important;
-}
-
-// .gm-style .gm-style-iw-c { 
-// // -webkit-box-shadow: 0 2px 7px 1px rgba(0,0,0,.3); 
-// //    -moz-box-shadow: 0 2px 7px 1px rgba(0,0,0,.3);
-// //  box-shadow: 0 2px 7px 1px rgba(0,0,0,.3); 
-
-// }

@@ -1,9 +1,21 @@
+import React,{useState, useEffect} from "react";
 import Slider from "react-slick";
-import clientslogo from "../../pages/about-us/clients";
 import Enquireregister from "./enquireregister";
 import styles from '../../styles/enquire.module.scss'  ;
+import Image from "next/image";
+import { brandLogoApi } from "@/allApi/apis";
 const Enquire = () => {
-  const slice = clientslogo.slice(0, 21);
+  const [logo,SetLogo] = useState([])
+  const allLogo = async() =>{
+    const data = await brandLogoApi()
+    SetLogo(data)
+  } 
+
+  useEffect(() =>{
+    allLogo()
+  },[])
+
+  const slice = logo.slice(0, 21);
   {
     var settings = {
       pauseOnHover: false,
@@ -24,7 +36,7 @@ const Enquire = () => {
           },
         },
         {
-          breakpoint: 425,
+          breakpoint: 540,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -44,7 +56,9 @@ const Enquire = () => {
                <div className="col p-md-3 ">
              
             
-                   <img
+                   <Image
+                           width={160}
+                           height={100}
                      src={clients.img}
                      alt={clients.alt}
                      key={i}
@@ -55,8 +69,7 @@ const Enquire = () => {
            </div>
          ))}
        </Slider>
-
-   </section>
+     </section>
       <div className={`container-xxl  container-xl container-lg container-md ${styles.enquire_content} py-2 py-md-5 my-md-3 px-md-5 `}>
         <div className={`row p-2 ${styles.enquire_description_row}`}>
           <div className={` col-md-4  p-4 p-md-3  ${styles.enquire_description} col-xs-0`}>

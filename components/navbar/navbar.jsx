@@ -1,26 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React,{useContext} from "react";
 import Nav from "react-bootstrap/Nav";
-import { MdLocationPin } from "react-icons/md";
 import Navbar from "react-bootstrap/Navbar";
-import Userdetail from "./userdetail";
 import { useRouter } from "next/router";
+import { AccountContext } from "@/allApi/apicontext";
 import styles from "../../styles/navbarHome.module.scss";
-import LoginN from "@/pages/login/loginParent";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+import { removeCookies, setCookie } from "cookies-next";
+import Image from "next/image";
+import instance from "@/allApi/axios";
+
 
 const NavbarH = () => {
   const route = useRouter();
-  const getMap = () => {
-    route.push("/map");
+  const { handleClose, handleShow } = useContext(AccountContext);
+  const getMap = async() => {
+    const { data } = await instance.get(`forgetPass`)
+    if(data.message == "InValid Token"){
+      handleShow()
+    }else{
+      removeCookies("page_title");
+      removeCookies("state_name");
+
+      route.push("/map");    
+    }
   };
+  const Userdetail  = dynamic(() => import("./userdetail"),{
+    ssr:false
+  });
+
 
   return (
-    <>
+    <div>
+
       <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
         <div className="navbar container-xxl  container-xl container-lg container-md">
           <Navbar.Brand>
-            <img
-              src="../images/web_pics/logo.png"
+            <Image
+                             width={223}
+                             height={42}
+              src="/images/web_pics/logo.png"
               className={styles.rand_logo}
               alt="gohoardings"
             />
@@ -37,19 +55,19 @@ const NavbarH = () => {
               </Nav.Link>
               <Nav.Link
                 className={`me-2  me-md-0   ${styles.nav_text_btn}  text-center`}
-                href="https://www.gohoardings.com/blog/"
+                href="https://blog.gohoardings.com/"
                 target="_blank"
               >
                 Blog
               </Nav.Link>
               <Nav.Link
                 className={`me-3  me-md-0   ${styles.nav_text_btn}  text-center`}
-                href="/contact"
+                onClick={() =>route.push("/contact-us")}
               >
                 Contact
               </Nav.Link>
 
-              <Nav.Link
+             <Nav.Link
                 className={`ms-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 onClick={getMap}
               >
@@ -60,12 +78,11 @@ const NavbarH = () => {
               >
                 <Userdetail />
               </div>
-             
             </Nav>
           </Navbar.Collapse>
         </div>
       </Navbar>
-    </>
+    </div>
   );
 };
 

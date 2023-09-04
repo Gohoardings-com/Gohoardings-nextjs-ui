@@ -1,56 +1,82 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
 import { AccountContext } from "@/allApi/apicontext";
 import styles from "../../styles/map.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import Link from "next/link";
-import Mapfilter from "./mapfilters";
 import { useJsApiLoader } from "@react-google-maps/api";
 import Markers from "./marker";
-import Iconsselection from "./iconsselection";
+import Image from "next/image";
+
 import {
   addItem,
-  markersPosition,
-  mediawithcity,
-  nearProduct,
+  mediaDataApi,
+  singlemnedia,
   removeItem,
-} from "@/redux/adminAction";
-import { BsListUl } from "react-icons/bs";
-import {
-  MdAddLocationAlt,
-  MdArrowUpward,
-  MdOutlineArrowDownward,
-} from "react-icons/md";
-import { FaFilter, FaRupeeSign, FaMapMarked } from "react-icons/fa";
+  mediaApi,
+  statemediaApi,
+} from "@/allApi/apis";
 import { useRouter } from "next/router";
-import Fixednavbar from "@/components/navbar/fixednavbar";
+import { getCookie } from "cookies-next";
+import dynamic from "next/dynamic";
+const Fixednavbar = dynamic(() => import("@/components/navbar/fixednavbar"), {
+  ssr: false,
+});
+
+import Filters from "./filters";
 import Loader from "@/components/loader";
 
 const Map = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
-  const { search, loading } = useSelector((state) => state.search);
+  const [search, setSearch] = useState([]);
+  const [nsearch, setNsearch] = useState([]);
   const { state, addRemove } = useContext(AccountContext);
   const [noOfLogo, setnoOfLogo] = useState(8);
-  const { handleClose,handleShow} = useContext(AccountContext);
+  const { handleClose, handleShow } = useContext(AccountContext);
   var slice;
-
-  if (!loading) {
+  if (search.success != false) {
     slice = search.slice(0, noOfLogo);
-    if(slice.length === 0){
-      dispatch(mediawithcity("tradition-ooh-media", "delhi"))
-    }
   }
+
+  const city_name = getCookie("city_name");
+  const state_name = getCookie("state_name");
+  const category_name = getCookie("category_name");
+  const page_title = getCookie("page_title");
+  const code = getCookie("item_code");
+
+  const getData = async () => {
+    if (state_name) {
+      const pages = noOfLogo + 8;
+
+      const data = await statemediaApi(state_name, pages);
+      setSearch(data);
+    } else if (page_title && code) {
+      const data = await singlemnedia(page_title, category_name,code);
+      setSearch(data);
+    } else if (category_name) {
+      const data = await mediaDataApi(category_name, city_name);
+      setSearch(data);
+    } else {
+      const pages = noOfLogo + 8;
+      const data = await mediaApi("tradition-ooh-media", pages);
+      setSearch(data);
+    }
+  };
 
   const [mapMarker, setPosts] = useState([]);
 
   const addonCart = async (code, category_name) => {
-    if (!localStorage.getItem("permissions")) {
-      handleShow()
-     } else {
-      console.log("hii");
-      dispatch(addItem(code, category_name));
+    const data = await addItem(code, category_name);
+    if (data.message == "Login First") {
+      handleShow();
+    } else {
       addRemove({ type: "INCR" });
       add(code);
+    }
+  };
+
+  const removefromCart = async (obj) => {
+    const data = await removeItem(obj);
+    if (data.message == "Done") {
+      addRemove({ type: "DECR" });
+      remove(obj);
     }
   };
   const add = (code) => {
@@ -61,12 +87,6 @@ const Map = () => {
       }
       setPosts(temp);
     });
-  };
-
-  const removefromCart = async (code) => {
-    dispatch(removeItem(code));
-    addRemove({ type: "DECR" });
-    remove(code);
   };
 
   const remove = (code) => {
@@ -81,330 +101,88 @@ const Map = () => {
   };
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:"AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE",
+    googleMapsApiKey: "AIzaSyDEKx_jLb_baUKyDgkXvzS_o-xlOkvLpeE",
   });
 
-  const getRelateddata = () => {
-    if(slice.length == 1) {
-    const value = [...search];
-    const code = value[0].code;
-    const category_name = value[0].category_name;
-
-    dispatch(nearProduct(code, category_name));
-      }
-  };
-
-
-
-  
   const More = async () => {
     if (search.length >= noOfLogo) {
       await setnoOfLogo(noOfLogo + 6);
-
     }
   };
-  const Less = async () => {
-    if (noOfLogo >= 2) {
-      await setnoOfLogo(noOfLogo - 6);
 
-    }
-  };
-  // const data = useCallback(() => {
-  //   if (slice.length == 0){
-  //     dispatch(mediawithcity("traditional-ooh-media","delhi",noOfLogo)).then(() => {
-  //      window.location.reload()
-  //    })
+  const value = getCookie("permissions");
+  useEffect(() => {
+    value ? router.push("/map") : (router.push("/"), handleShow());
+  }, []);
 
-  //   }
-  // },[nearProduct])
+  useEffect(() => {
+    getData();
+  }, [city_name, category_name]);
 
-  // useEffect(() => {
-  // data()
-  // },[])
-
-  //   const data = async () => {
-  //   const category_name = "traditional-ooh-media";
-  //   const city_name = "delhi";
-  //   const limit = noOfLogo
-  //   dispatch(mediawithcity(category_name, city_name, limit));
-  // };
-
-  // useEffect(() => {
-  //   data()
-  //     },[noOfLogo])
+  useEffect(() => {
+    getData();
+  }, [noOfLogo]);
 
   return (
     <>
       <Fixednavbar />
-      <div className="container-fluid" id={styles.map_body}>
-        <div className="row" id={styles.map_view_row}>
-          <div className="col-lg-3 col-md-3 col-sm-12 p-0 border-end position-relative">
-            <div className={`row ${styles.filter_icons} mt-5 pt-3`}>
-              <div
-                className="col-4 list d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseT1"
-                aria-expanded="true"
-                aria-controls="collapseT1"
-              >
-                <BsListUl className={`${styles.icons_sizes} icon-clr`} />
-              </div>
-              <div
-                className="col-4 poi d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-                id="test"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseT2"
-                aria-expanded="false"
-                aria-controls="collapseT2"
-              >
-                <MdAddLocationAlt
-                  className={`${styles.icons_sizes} icon-clr`}
-                />
-              </div>
-              <div
-                className="col-4 filter d-inline-block text-center py-2 shadow-sm border-top-0 border collapse-none"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseT3"
-                aria-expanded="false"
-                aria-controls="collapseT3"
-              > 
-                <FaFilter className={`${styles.icons_sizes} icon-clr`} />
-              </div>
+      <div
+        className="container-fluid animate__animated  animate__fadeIn"
+        id={styles.map_body}
+      >
+        {search.success != false ? (
+          <>
+            <div
+              className={` p-2 ps-4 pe-4 ${styles.filter_section} d-flex map-filter-drop`}
+            >
+              <Filters
+                search={slice}
+                setSearch={setSearch}
+                setNsearch={setNsearch}
+              />
             </div>
 
-            <div id="accordionTest">
-              <div
-                className={`${styles.media_items} ${styles.map_media_item_list} p-2 accordion-collapse collapse show mb-1`}
-                id="collapseT1"
-                data-bs-parent="#accordionTest"
-              >
-                <div
-                  className="accordion items mb-2 rounded"
-                  id="accordionExample"
-                >
-                  {loading ? (
-                    <></>
+            <div className="row" id={styles.map_view_row}>
+              <div className=" p-4 pt-2" id={styles.map_view}>
+                {!mapMarker.length > 0 ? (
+                  isLoaded && slice && slice.length > 0 ? (
+                    <Markers
+                      markers={slice}
+                      nsearch={nsearch}
+                      setSearch={setSearch}
+                      removefromCart={removefromCart}
+                      addonCart={addonCart}
+                      More={More}
+                    />
                   ) : (
                     <>
-                      {slice.length == 0 ? (
-                        <h5 className="text-center">No Data Found</h5>
-                      ) : (
-                        <>
-                          {slice.map((item, i) => (
-                            <>
-                              <div className=" border rounded mb-2" key={i}>
-                                <div>
-                                  <div className="row m-0">
-                                    <div
-                                      className={`col-xl-4 col-lg-12 col-md-12 col-sm-6 ${styles.map_media_items}`}
-                                    >
- <Link
-                      href={`/seedetails/${item.category_name}/${item.meta_title}`}
-                      className="text-decoration-none"
-                    >
-                                    <img
-                                    
-                                      src={
-                                        item.thumb.startsWith("https")
-                                          ? item.thumb
-                                          : `https://${item.mediaownercompanyname
-                                              .trim()
-                                              .split(" ")
-                                              .slice(0, 2)
-                                              .join("_")
-                                              .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
-                                              .trim()
-                                              .split(" ")
-                                              .slice(0, 2)
-                                              .join("_")
-                                              .toLowerCase()}/media/images/new${
-                                              item.thumb
-                                            }`
-                                      }
-                                      onError={(e) =>
-                                        (e.target.src = "../../images/web_pics/alter-img.png")
-                                      }
-                                      className="w-100 h-75 mt-2 pt-2"
-                                    />
-       
-</Link> 
-                                    </div>
-                                    <div className="col-xl-8 col-lg-12 col-md-12 col-sm-6">
-                                      <ul className="list-unstyled pt-1">
-                                      <Link
-                      href={`/seedetails/${item.category_name}/${item.meta_title}`}
-                      className="text-decoration-none"
-                    >
-                                      <li title={item.page_title} className='text-dark'>
-                                        {item.page_title.substring(0, 20) +
-                                          "..."}
-                                      </li>
-                                      </Link>
-                                        <li>FTF : {item.ftf}</li>
-                                        <li>Size : {item.size} feet</li>
-
-                                        <li>
-                                          Price: {parseInt(item.price / 30)}
-                                          <span
-                                            className={`${styles.project_price} float-end`}
-                                          >
-                                            {item.isDelete == 0 ? (
-                                              <img
-                                                alt="check"
-                                                src="../images/web_pics/A-chek.png"
-                                                onClick={() =>
-                                                  removefromCart(
-                                                    item.code,
-                                                    item.category_name
-                                                  )
-                                                }
-                                                className={`${styles.addonCart} icon-clr`}
-                                              />
-                                            ) : (
-                                              <img
-                                                alt="cart-icon"
-                                                src="../images/web_pics/A-cart.png"
-                                                onClick={(e) => addonCart(item.code)
-                                                }
-                                                className={`${styles.addonCart} icon-clr`}
-                                              />
-                                            )}
-                                          </span>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              {slice.length == 1 && (
-                                <div>
-                                  <button
-                                    className={` ${styles.btn_hover}  ${styles.buttonload} disabled`}
-                                    onClick={getRelateddata}
-                                  >
-                                    Get Related Data
-                                  </button>
-                                </div>
-                              )}
-                            </>
-                          ))}
-                        </>
-                      )}
+                      <Loader />
                     </>
-                  )}
-
-                  <div className={`${styles.map_btn_more} text-center`}>
-                    {loading ? (
-                      <>
-                        <h5 className="text-center"><Loader/></h5>
-                      </>
-                    ) : (
-                      <>
-                        {" "}
-                        {slice.length < 8 ? (
-                          <></>
-                        ) : (
-                          <>
-                            <div className="position-relative my-5 ">
-                              <div className=" position-absolute mt-4 top-0 start-50 translate-middle">
-                                {slice.length == search.length ? (
-                                  <>
-                                    <h5 className="text-center">
-                                      No Data Found
-                                    </h5>
-                                  </>
-                                ) : (
-                                  <button
-                                    className={` ${styles.btn_hover}  ${styles.buttonload}`}
-                                    onClick={() => More()}
-                                  >
-                                    View More{" "}
-                                    <MdOutlineArrowDownward className="icon-clr" />
-                                  </button>
-                                )}
-                                {slice.length <= 9 ? (
-                                  <>
-                                    <h5 className="text-center">
-                                
-                                    </h5>
-                                  </>
-                                ) : (
-                                  <button
-                                    className={` ${styles.btn_hover} ${styles.buttonload}  mt-0`}
-                                    onClick={() => Less()}
-                                  >
-                                    View Less{" "}
-                                    <MdArrowUpward className="icon-clr" />
-                                  </button>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-              {search && search.length > 0 ? (
-                <Iconsselection
-                  slice={slice}
-                  loading={loading}
-                  fnmedia={search}
-                />
-              ) : null}
-              <Mapfilter search={search} />
-            </div>
-
-            {/* <div id={` ${styles.map_view_mobile}`}>
-            <div className={`${styles.aval_hoarding} d-inline-block position-absolute`}>
-              <div className={`${styles.map_btns} d-inline-block p-1 pe-2 border-end`}>
-                <img
-                  src="./assests/map-icons/billboard.png"
-                  alt="billboard"
-                  className="p-2"
-                />
-                <span className="pe-2">Available</span>
-              </div>
-
-              <div className={`${styles.map_btns} d-inline-block p-1 pe-2`}>
-                <img
-                  src="./assests/map-icons/billboard.png"
-                  alt="billboard"
-                  className="p-2"
-                />
-                <span className="pe-2">Not Available</span>
+                  )
+                ) : (
+                  <Markers
+                    markers={slice}
+                    removefromCart={removefromCart}
+                    addonCart={addonCart}
+                    More={More}
+                  />
+                )}
               </div>
             </div>
-
-          </div> */}
+          </>
+        ) : (
+          <div className="container ">
+            <div className={`${styles.no_data} row  text-center my-3`}>
+              <Image
+                width={500}
+                height={500}
+                src="../../../images/web_pics/no-data.png"
+                alt="No Data Found"
+                className=""
+              />
+            </div>
           </div>
-          <div className="col-9 p-0 mt-5 pt-3" id={styles.map_view}>
-            {/* <button
-              className={`${styles.Load_more} ms-2`}
-              onClick={() => More()}
-            >
-              Load more{" "}
-            </button> */}
-
-            <div className={`d-inline-block position-absolute bottom-0 mb-2 ${styles.aval_hoarding }bg-warning p-2  pb-0"`}>
-              <div className="d-inline-block border-0 ">
-                {/* <p className="">Click on markers to add/remove into cart.</p> */}
-              </div>
-            </div>
-
-            {
-          !mapMarker.length > 0 ?
-          isLoaded && slice && slice.length > 0 ? (
-            <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart} />
-          ) : 
-          
-          <h5 className="text-center m-3"><Loader/></h5>
-        :
-        <Markers markers={slice} removefromCart={removefromCart} addonCart={addonCart}  />
-        }
-          </div>
-        </div>
+        )}
       </div>
     </>
   );

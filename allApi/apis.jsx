@@ -1,4 +1,3 @@
-
 import React from 'react'
 import instance from './axios'
 import { BsBuilding } from "react-icons/bs"
@@ -10,75 +9,104 @@ export const emailformate = /^\w+([-,.]?\w+)*@\w+(.-]?\w+)*(\.\w{2,3})+$/;
 export const clientId = '85378901999-efhrgq7ltamh5730qq1776fatpm0mhd0.apps.googleusercontent.com';
 
 export const CityNameImage = [
-  // {
-  //   label: "InFlight Branding",
-  //   value: "inflight-media",
-  //   value2: "InFlight-Media",
-  //   srcImg: "../images/web_pics/airport.jpg",
-  //   icon: <GiCommercialAirplane/>,  
-  //   link: "inflight-media/",
-  //   city: "citesc"
-  // },
   {
-    label: "Traditional OOH Media ",
-    value2: "Traditional-OOH-Media",
-    value: "traditional-ooh-media",
-    srcImg: "../images/web_pics/traditional-ooh-media-advertising-near-me.jpg",
-    srcImgM: "../images/web_pics/traditional-ooh-media-advertising.jpg",
-    Link: `/traditional-ooh-media/delhi`,
-    icon: <GiAwareness />,
-    city: "cities"
-  },
-  {
-    label: "Digital Media",
-    value: "digital-media",
-    value2: "Digital-Media",
-    srcImg: "../images/web_pics/digital-media-hoardings-near-me.jpg",
-    srcImgM: "../images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
-    Link: `/digital-media/delhi`,
-    icon: <GiLaptop />,
-    city: "citesc"
-  },
-  {
-    label: "Mall Media",
-    value: "mall-media",
-    value2: "Mall-Media",
-    srcImg: "../images/web_pics/mall-media-advertising-company.jpg",
-    srcImgM: "../images/web_pics/mall-media-advertising-near-me.jpg",
-    Link: `/mall-media/delhi`,
-    icon: <TbBuildingCommunity />,
-    city: "citesc"
+    id: 1,
+    label: "InFlight Branding",
+    value: "inflight-media",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/flight.png",
+    srcImgCt: "/images/web_pics/final/Grey/flight.png",
+    srcImg: "/images/web_pics/InflightBann.png",
+    srcImgM: "/images/web_pics/InflightBanner.png",
+    icon: <GiCommercialAirplane/>,  
+    link: "inflight-media/",
+    city: "delhi",
+
   },
 
   {
+    id: 2,
+    label: "Traditional OOH Media ",
+    value2: false,
+    value: "traditional-ooh-media",
+    srcImgCtSlc: "/images/web_pics/final/Tradition_OOH_01.png",
+    srcImgCt: "/images/web_pics/final/Grey/Tradition_OOH.png",
+    srcImg: "/images/web_pics/traditional-ooh-media-advertising-near-me.jpg",
+    srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
+    Link: `/traditional-ooh-media/delhi`,
+    icon: <GiAwareness />,
+    city: "delhi",
+    
+  },
+  {
+    id: 3,
+    label: "Digital Media",
+    value: "digital-media",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/Digital_OOH_Media.png",
+    srcImgCt: "/images/web_pics/final/Grey/Digital_OOH_Media.png",
+    srcImg: "/images/web_pics/digital-media-hoardings-near-me.jpg",
+    srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
+    Link: `/digital-media/delhi`,
+    icon: <GiLaptop />,
+    city: "mumbai",
+    
+  },
+  {
+    id: 4,
+    label: "Mall Media",
+    value: "mall-media",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/Mall_Media_01.png",
+    srcImgCt: "/images/web_pics/final/Grey/Mall_Media.png",
+    srcImg: "/images/web_pics/mall-media-advertising-company.jpg",
+    srcImgM: "/images/web_pics/mall-media-advertising-near-me.jpg",
+    Link: `/mall-media/delhi`,
+    icon: <TbBuildingCommunity />,
+    city: "bengaluru",
+  },
+
+  {
+    id: 5,
     label: "Office Branding",
     value: "office-media",
-    value2: "Office-Media",
-    srcImg: "../images/web_pics/office-branding-advertising-company.jpg",
-    srcImgM: "../images/web_pics/office-branding-media-near-me.jpg",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/Office_Branding.png",
+    srcImgCt: "/images/web_pics/final/Grey/Office_Branding.png",
+    srcImg: "/images/web_pics/office-branding-advertising-company.jpg",
+    srcImgM: "/images/web_pics/office-branding-media-near-me.jpg",
     Link: `/office-branding/delhi`,
     icon: <ImOffice />,
-    city: "citesc"
+    city: "pune",
+    
   },
   {
+    id: 6,
     label: "Transit Media",
     value: "transit-media",
-    value2: "Transit-Media",
-    srcImg: "../images/web_pics/transit-media-advertising-in-delhi.jpg",
-    srcImgM: "../images/web_pics/transit-media-advertising-near-me.jpg",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/Transit_Media.png",
+    srcImgCt: "/images/web_pics/final/Grey/Transit_Media.png",
+    srcImg: "/images/web_pics/transit-media-advertising-in-delhi.jpg",
+    srcImgM: "/images/web_pics/transit-media-advertising-near-me.jpg",
     Link: `/transit-media/delhi`,
     icon: <TfiLayoutMediaCenterAlt />,
-    city: "citesc"
+    city: "chennai",
+  
   },
   {
+    id: 7,
     label: "Airport Branding",
     value: "airport-media",
-    value2: "Airport-Media",
-    srcImg: "../images/web_pics/airport-media-hoardings-near-me.jpg",
-    srcImgM: "../images/web_pics/airport-media-digital-hoardings.jpg",
+    value2: false,
+    srcImgCtSlc: "/images/web_pics/final/Airport_Branding.png",
+    srcImgCt: "/images/web_pics/final/Grey/Airport_Branding_01.png",
+    srcImg: "/images/web_pics/airport-media-hoardings-near-me.jpg",
+    srcImgM: "/images/web_pics/airport-media-digital-hoardings.jpg",
     Link: `/airport-media/delhi`,
     icon: <GiAirplaneDeparture />,
-    city: "citesc"
+    city: "hyderabad",
+   
   }
 ];
 
@@ -88,14 +116,10 @@ export const getAllCity = async (value) => {
 };
 
 export const logoutUser = async () => {
-  const data = await instance.get("sociallogin");
+  const {data} = await instance.get("sociallogin");
   return data;
 }
 
-export const refreshToken = async () => {
-  const { data } = await instance.get(`seedetails`, { withCredentials: true })
-  return data
-}
 
 export const googleLogin = async (res) => {
   const { data } = await instance.post("sociallogin", res)
@@ -114,6 +138,7 @@ export const registerUser = async (email, phone) => {
   })
   return data
 }
+
 export const OtpRegister = async (name, email, phone, password, otp) => {
   const { data } = await instance.put('loginApis', {
     name, email, phone, password, otp
@@ -133,19 +158,28 @@ export const profileDetails = async () => {
   return data
 }
 
-export const updateProfile = async (img, firstname, phonenumber) => {
-  const { data } = await instance.post("profile", { img, firstname, phonenumber });
+export const updateProfile = async (firstname, phonenumber,newPassword, confirmPassword) => {
+  const { data } = await instance.post("profile", {firstname, phonenumber, newPassword, confirmPassword});
   return data
 }
-export const emailOTP = async (email) => {
 
+export const updateProfilePic = async (img) => {
+  const formData = new FormData()
+  formData.append('file', img)
+  const { data } = await instance.post('upload',formData);
+  return data
+}
+
+export const emailOTP = async (email) => {
   const { data } = await instance.put(`${email}`);
   return data
 }
+
 export const mobileOTP = async (email) => {
   const { data } = await instance.patch(`${email}`);
   return data
 }
+
 export const sendOTP = async (otp) => {
   const { data } = await instance.patch(`forgetPass`, { otp });
   return data
@@ -156,13 +190,183 @@ export const changePasswordApi = async (password, confirmpasswords, expire) => {
   return data
 }
 
-export const gohordingStaffAPi = async () => {
-  const { data } = await instance.get("team");
+export const enquiryApi = async (name, email, phone, message) => {
+  const { data } = await instance.post("enquiries", { name, email, phone, message });
   return data
 }
 
-export const goh_quick_linksApi = async () => {
-  const { data } = await instance.get("static/goh_quick_links");
+export const reviewApi = async (feedback, rating, ip) => {
+  const { data } = await instance.post("enquiry/review", { feedback, rating, ip });
+  return data
+}
+
+export const getreviewApi = async () => {
+  const { data } = await instance.get("enquiries");
+  return data
+}
+
+export const mediaDataApi = async (category_name, city_name) => {
+  const { data } = await instance.post("medias", { category_name, city_name });
+  return data
+}
+
+export const mediawithlocation = async (category_name, city_name, loca) => {
+  const { data } = await instance.put(`team`, {
+    category_name,
+    city_name,
+    loca,
+
+  });
+  return data
+}
+
+export const mediaFilters = async (category_name, illunation, categorys, city_name) => {
+  const { data } = await instance.put(`filters`, {
+    category_name,
+    illunation,
+    categorys,
+    city_name
+  });
+  return data
+}
+
+export const loginOTP = async (otp) => {
+  const { data } = await instance.put("linkedin", { otp });
+  return data
+}
+
+export const companydata = async (inputs) => {
+  const { data } = await instance.patch("profile", { company: inputs.company, city: inputs.city, phone: inputs.phone, address: inputs.address, website: inputs.website, state: inputs.state, zip_code: inputs.zip_code, pan: inputs.pan, gstin: inputs.gstin });
+  return data
+}
+
+export const allcompanydata = async () => {
+  const { data } = await instance.get("profile");
+  return data
+}
+
+export const singlemnedia = async(page_title, category_name,code) =>{
+  const { data } = await instance.post("seedetails", {
+    page_title,
+    category_name,
+    code
+  });
+  return data
+}
+
+export const userDetails = async () => {
+    const { data } = await instance.get("loginApis", {
+      withCredentials: true,
+    });
+    return data
+};
+
+export const priceSubIllu = async(category_name, illumination, table, city, locations) => {
+   const { data } = await instance.post(`filters`, {
+        category_name,
+      illumination,
+        table,
+        city,
+        locations,
+      });
+
+    return data
+  };
+
+  export const iconFiltersData = async(datas, table, city, minLatitude, maxLatitude, uniqueValues) =>{
+      const { data } = await instance.patch(`filters`, {
+        datas,
+        table,
+        city,
+        minLatitude,
+        maxLatitude,
+        uniqueValues
+      });
+     return data
+  };
+
+  export const cartitems = async () => {
+      const { data } = await instance.get(`cart`);
+    return data
+  };
+  
+
+  export const addItem = async(mediaid, mediatype) => {
+      const { data } = await instance.put(`cart`, {
+        mediaid,
+        mediatype,
+      });
+    return data
+  };
+  
+  export const removeItem =async (code) =>   {
+      const { data } = await instance.patch(`cart`, { code });
+      return data  
+  };
+
+  export const nearProduct =async(code, category_name) =>   {
+      const { data } = await instance.patch("enquiries", {
+        code,
+        category_name,
+      });
+    return data
+    
+  };
+
+  export const markersPosition = async (NorthLat, SouthLat, NorthLong, SouthLong) => {
+      const { data } = await instance.post("team", {
+        NorthLat,
+        SouthLat,
+        NorthLong,
+        SouthLong,
+      });
+     return data
+  };
+
+export const latLongApi = async(lat, long) =>{
+  const {data} = await instance.patch('linkedin',{
+    lat, long
+  })
+  return data
+}
+export const mediaApi = async(category_name, noofPage) =>{
+  const {data} = await instance.patch('excel',{ category_name, noofPage})
+  return data
+}
+
+export const statemediaApi = async(state_name, pages) =>{
+  const {data} = await instance.patch('ppt',{ state_name, pages })
+  return data
+}
+
+export const subCategoryFilterApi = async(category_name, subcategory, city) =>{
+  const {data} = await instance.patch('newFilters',{ category_name, subcategory, city})
+  return data
+}
+export const LocationFilterApi = async( category_name, location, city) =>{
+  const {data} = await instance.put('newFilters',{  category_name, location, city})
+  return data
+}
+export const illuminationFilterApi = async( category_name, illumination, city) =>{
+  const {data} = await instance.post('newFilters',{  category_name, illumination, city})
+  return data
+}
+
+export const getCityDataApi = async( city) =>{
+  const {data} = await instance.put('excel',{ city})
+  return data
+}
+
+
+
+export const brandLogoApi = async() =>{
+  const {data} = await instance.get('excel')
+  return data
+}
+
+
+export const gohordingStaffAPi = async () => {
+  const { data } = await instance.get("team");
   return data
 }
 
@@ -177,96 +381,9 @@ export const goh_media_and_newsApi = async () => {
 }
 
 export const goh_testimonialsApi = async () => {
-  const { data } = await instance.get("testmonials");
+  const { data } = await instance.get("ppt");
+  console.log(data);
   return data
 }
 
-export const updatePassword = async (state) => {
-  const { data } = await instance.put("linkedin", {
-    newPassword: state.newPassword, confirmPassword: state.confirmPassword
-  });
-  return data
-}
 
-export const enquiryApi = async (name, email, phone, message) => {
-  const { data } = await instance.post("enquiries", { name, email, phone, message });
-  return data
-}
-
-export const reviewApi = async (feedback, rating, ip) => {
-  const { data } = await instance.post("enquiry/review", { feedback, rating, ip });
-  return data
-}
-export const getreviewApi = async () => {
-  const { data } = await instance.get("enquiries");
-  return data
-}
-
-export const mediaDataApi = async (category_name, city_name) => {
-
-  const { data } = await instance.post("medias", { category_name, city_name });
-  return data
-}
-export const mediawithlocation = async (category_name, city_name, loca) => {
-
-  const { data } = await instance.put(`team`, {
-    category_name,
-    city_name,
-    loca,
-
-  });
-  return data
-}
-
-export const mediaFilters = async (category_name, illunation, categorys, city_name, locationCkheckbox) => {
-  const { data } = await instance.put(`filters`, {
-    category_name,
-    illunation,
-    categorys,
-    city_name,
-    locationCkheckbox,
-  });
-  return data
-}
-
-export const cartItemsApi = async () => {
-  const { data } = await instance.get("cart/cartitems");
-  return data
-}
-
-export const loginOTP = async (otp) => {
-  const { data } = await instance.put("otp/mobileOtp", { otp });
-  return data
-}
-
-export const companydata = async (inputs) => {
-  const { data } = await instance.patch("profile", { company: inputs.company, city: inputs.city, phone: inputs.phone, address: inputs.address, website: inputs.website, state: inputs.state, zip_code: inputs.zip_code, pan: inputs.pan, gstin: inputs.gstin });
-  return data
-}
-
-export const allcompanydata = async () => {
-  const { data } = await instance.get("profile");
-  return data
-}
-
-export const More = async (setnoOfLogo, noOfLogo, search) => {
-  if (search.length >= noOfLogo) {
-    setnoOfLogo(noOfLogo + 9);
-    window.scrollBy(0, 1150);
-  }
-
-}
-export const Less = async (setnoOfLogo, noOfLogo) => {
-  if (noOfLogo > 10) {
-    setnoOfLogo(noOfLogo - 9);
-    window.scrollBy(0, -1550);
-  }
-}
-
-export const singlemnedia = async(meta_title, category_name) =>{
-  const { data } = await instance.post("seedetails", {
-    meta_title,
-    category_name,
-  });
-  return data
-}

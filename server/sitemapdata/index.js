@@ -1,31 +1,23 @@
-const db = require("../conn/conn");
 const catchError = require("../middelware/catchError");
-
+const {executeQuery} =  require('../conn/conn')
+const xlsx = require('xlsx');
+const redis = require('redis');
+const client = redis.createClient()
+    client.connect()
 
 
 exports.allCity = catchError(async (req, res, next) => {
-
    
-        db.changeUser({ database: "gohoardi_goh" });
-        const sql = "SELECT DISTINCT name FROM goh_cities"
-        db.query(sql, (err, result) => {
-            if (err) {
-                return res.status(206).json({success : false, message:"No City Found"})
-            };
-            res.send(result)
-        });
-    
-    })
+    const sql = await executeQuery("SELECT DISTINCT name FROM goh_cities","gohoardi_goh",next)
+      if (sql) {
+            res.send(sql)
+
+    }});
+
+
 
 exports.SiteMapProduct = catchError(async (req, res, next) => {
-
-    const  category_name  = req.query.email
-
-    const cookieData = req.cookies
-    if (!cookieData) {
-        return res.status(204).json({ message: "No Cookie Found" })
-    }
-    db.changeUser({ database: "gohoardi_goh" });
+const  category_name  = "traditional-ooh-media"
     switch (category_name) {
         case "traditional-ooh-media":
             table_name = "goh_media";
@@ -51,16 +43,13 @@ exports.SiteMapProduct = catchError(async (req, res, next) => {
         default:
             table_name = "goh_media";
     }
+        const sql = await executeQuery("SELECT DISTINCT page_title, category_name, code FROM " + table_name + " WHERE  category_name = '"+category_name+"' &&  page_title IS NOT NULL","gohoardi_goh",next)
+            if (sql) {   
+                return res.send(sql)
+            }
+        })
 
- const sql = "SELECT DISTINCT meta_title, category_name FROM " + table_name + " WHERE category_name IS NOT NULL" 
 
-    db.query(sql, async (err, result) => {
-        if (err) {
-
-            return res.status(206).json({ success: false, err: err, message: "Wrong Data" })
-        } else {
-
-            return res.send(result)
-        }
-    })
-})
+ 
+ 
+   

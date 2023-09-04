@@ -3,38 +3,116 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 import { goh_faqsApi } from "@/allApi/apis";
-import Footer from "@/components/footer";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Faqs = () => {
+  const route = useRouter();
   const [posts, setPosts] = useState([]);
-  const staff = async() =>{
-    const data = await goh_faqsApi()
-    setPosts(data)
-  }
+  const staff = async () => {
+    const data = await goh_faqsApi();
+    setPosts(data);
+  };
 
-  useEffect(()=>{
-    staff()
-  },[])
+  useEffect(() => {
+    staff();
+  }, []);
 
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://www.gohoardings.com${route.asPath}`}
+        />
+        <title>
+          India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution
+        </title>
+        <meta charSet="utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta
+          name="google-site-verification"
+          content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
+        />
+        <meta
+          name="keywords"
+          content="India&#39s Largest Outdoor Advertising Agency,  Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"
+        />
+        <meta
+          property="og:title"
+          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+        />
+        <meta property="og:siteName" content="www.gohoardings.com/faqs" />
+        <meta
+          property="og:description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta property="og:type" content="en_US" />
+        <meta
+          property="og:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
+        <meta
+          property="og:url"
+          href={`https://www.gohoardings.com${route.asPath}`}
+        />
+        <meta property="og:property" content="en_US" />
+        <meta
+          property="twitter:title"
+          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+        />
+        <meta
+          property="twitter:siteName"
+          content="www.gohoardings.com/about-us"
+        />
+        <meta
+          property="twitter:description"
+          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
+        <meta property="twitter:type" content="en_US" />
+        <meta
+          property="twitter:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
+        <meta
+          property="twitter:url"
+          href={`https://www.gohoardings.com${route.asPath}`}
+        />
+        <meta property="twitter:property" content="en_US" />
+      </Head>
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
       <div className="container-xxl  container-xl container-lg container-md container-faqs pt-4">
-        <h1 className="pt-5 mt-5 mb-4">Frequently Asked Questions</h1>
+        <h6 className="mt-5 pt-5">
+          <span onClick={() => route.push("/")} className="bredcamp">
+            Home
+          </span>
+          <MdKeyboardArrowRight />
+          <span className="bredcamp text-secondary">
+            Frequently Asked Questions
+          </span>
+        </h6>
+        <h1 className=" mt-4 mb-4">Frequently Asked Questions</h1>
         <section className="mt-5 mb-5">
           {posts.map((data, index) => {
-            let abc = 'a' + data.id;
+            let abc = "a" + data.id;
             return (
-              < div className="question-box mt-3"  key={index}>
+              <div className="question-box mt-3" key={index}>
                 <p
-                 
                   className=" toggle-btn p-3 ps-2 mb-0 "
                   data-bs-toggle="collapse"
                   data-bs-target={`#${abc}`}
                 >
                   <h4>
-                <BsFillCircleFill className="point me-2"/>  {data.subject}<IoIosArrowDown className="down float-end"/>     
+                    <BsFillCircleFill className="point me-2" /> {data.subject}
+                    <IoIosArrowDown className="down float-end" />
                   </h4>
                 </p>
                 <div className="collapse" id={abc}>
@@ -47,7 +125,7 @@ const Faqs = () => {
           })}
         </section>
       </div>
-      
+
       <style jsx>
         {`
           h1 {

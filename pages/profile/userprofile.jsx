@@ -8,10 +8,14 @@ const initalState = {
   firstname: "",
   phonenumber: "",
   email: "",
+  newPassword: "",
+  confirmPassword: ""
 };
 const Userprofile = () => {
-  const [imge, setImage] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  
   const getUser = async () => {
     const { data } = await instance.get("loginApis");
     setPosts(data);
@@ -20,20 +24,10 @@ const Userprofile = () => {
     getUser();
   }, []);
   const [state, setState] = useState(initalState);
-
   const { firstname, phonenumber, email } = state;
-
-  const sendImagefile = async (e) => {
-    setImage(e.target.files[0]);
-  };
-
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    // formData.append("photo", imge);
-    formData.append("firstname", firstname);
-    formData.append("phonenumber", phonenumber);
-    const data = await updateProfile(imge, firstname, phonenumber);
+    const data = await updateProfile(firstname, phonenumber,newPassword, confirmPassword);
     if (data.sucess == true) {
       toast(data.message);
       window.location.reload();
@@ -53,29 +47,13 @@ const Userprofile = () => {
 
   return (
     <>
-      <div className="card profile-detail p-3">
+     <div className="card profile-detail p-3">
         <div className="panel-body">
           <div className="row">
             <form onSubmit={handelSubmit}>
               <div className="col-md-12">
-                <div className="form-group">
-                  <div className="form-group">
-                   {/*   <label for="profile_image" className="profile-image">
-                      Profile image
-                    </label>
-                   <Form.Control
-                      className="form-control"
-                      type="file"
-                      accept="image/png, image/jpg, image/jpeg"
-                      name="photo"
-                      onChange={(e) => sendImagefile(e)}
-                    /> */}
-                    {/* <Form.Control
-                   className="form-control"
-                  type='file' name='photo' onChange={sendImagefile}
-                  /> */}
-                  </div>
-                  <label for="firstname">First Name</label>
+                <div className="form-group ">
+                  <label htmlFor="firstname" className="ps-2">Name</label>
                   <Form.Control
                     type="text"
                     className="form-control"
@@ -86,8 +64,8 @@ const Userprofile = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
-                  <label for="email">Email</label>
+                <div className="form-group my-3">
+                  <label htmlFor="email" className="ps-2">E-mail</label>
                   <Form.Control
                     type="text"
                     className="form-control"
@@ -98,8 +76,8 @@ const Userprofile = () => {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label for="phonenumber">Phone</label>
+                <div className="form-group my-3">
+                  <label htmlFor="phonenumber" className="ps-2">Phone No.</label>
                   <Form.Control
                     type="number"
                     className="form-control"
@@ -109,17 +87,39 @@ const Userprofile = () => {
                     onChange={handleChange}
                   />
                 </div>
+                <div className="form-group my-3">
+                  <label htmlFor="newPassword" className="ps-2">New Password</label>
+                  <Form.Control
+                    type="password"
+                    className="form-control"
+                    id="newPassword"
+                    name="newPassword"
+                    value={newPassword}
+                    onChange={(e) =>setNewPassword(e.target.value)}
+                  />
+                </div>
+                <div className="form-group my-3">
+                  <label htmlFor="confirmPassword" className="ps-2">Confirm Password</label>
+                  <Form.Control
+                    type="password"
+                    className="form-control"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) =>setConfirmPassword(e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="row ">
-                <div className="col-md-12 text-right">
-                  <div className="form-group mb-0 update-btn mt-3 rounded">
-                    <Form.Control
-                      type="submit"
-                      value="UPDATE"
-                      className="btn  text-light"
-                    />
-                    <ToastContainer />
-                  </div>
+
+              <div className="col-md-12 ">
+                <div className="form-group mb-0 text-center my-3 rounded">
+                  <button
+                    type="submit"
+                    className="btn update-btn w-50"
+                    onClick={handelSubmit}
+                  >
+                    Update
+                  </button>
                 </div>
               </div>
             </form>
@@ -128,7 +128,7 @@ const Userprofile = () => {
         <style jsx>
           {`
             .update-btn {
-              background-color: #212529 !important;
+              background-color: #393939 !important;
               color: white !important;
             }
             .campaign-box {
@@ -242,138 +242,135 @@ const Userprofile = () => {
             // .profile-detail {
             //   height: 605px !important;
             // }
-              .panel_s .panel-body {
-                background: #fff;
-                border: 1px solid #e4e5e7;
-                border-radius: 4px;
-                padding: 20px;
-                position: relative;
-              }
-              p,
-              a,
-              li,
-              span,
-              label,
-              tr,
-              td,
-              th,
-              input {
-                color: #636363;
-                font-size: 15px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 400;
-              }
-     
-              table.dataTable thead tr > th {
-                color: #4e75ad;
-              }
+            .panel_s .panel-body {
+              background: #fff;
+              border: 1px solid #e4e5e7;
+              border-radius: 4px;
+              padding: 20px;
+              position: relative;
+            }
+            p,
+            a,
+            li,
+            span,
+            label,
+            tr,
+            td,
+            th,
+            input {
+              color: #636363;
+              font-size: 15px;
 
-              table.table tr th {
-                padding: 0;
-                text-align: left;
-                height: 25px;
-              }
-              .table thead tr th {
-                border: 1px solid #f0f0f0 !important;
-                border-left: 0 !important;
-                border-right: 0 !important;
-              }
-              a,
-              abbr,
-              acronym,
-              address,
-              applet,
-              article,
-              aside,
-              audio,
-              b,
-              big,
-              blockquote,
-              body,
-              canvas,
-              caption,
-              center,
-              cite,
-              code,
-              dd,
-              del,
-              details,
-              dfn,
-              div,
-              dl,
-              dt,
-              em,
-              embed,
-              fieldset,
-              figcaption,
-              figure,
-              footer,
-              form,
-              h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6,
-              header,
-              hgroup,
-              html,
-              i,
-              iframe,
-              img,
-              ins,
-              kbd,
-              label,
-              legend,
-              li,
-              mark,
-              menu,
-              nav,
-              object,
-              ol,
-              output,
-              p,
-              pre,
-              q,
-              ruby,
-              s,
-              samp,
-              section,
-              small,
-              span,
-              strike,
-              strong,
-              sub,
-              summary,
-              sup,
-              table,
-              tbody,
-              td,
-              tfoot,
-              th,
-              thead,
-              time,
-              tr,
-              tt,
-              u,
-              ul,
-              var,
-              video {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                font: inherit;
-                vertical-align: baseline;
-              }
-           
+              font-weight: 400;
+            }
 
-              .text-right {
-            
-                text-align: right;
-              }
-            
-           
+            table.dataTable thead tr > th {
+              color: #4e75ad;
+            }
+
+            table.table tr th {
+              padding: 0;
+              text-align: left;
+              height: 25px;
+            }
+            .table thead tr th {
+              border: 1px solid #f0f0f0 !important;
+              border-left: 0 !important;
+              border-right: 0 !important;
+            }
+            a,
+            abbr,
+            acronym,
+            address,
+            applet,
+            article,
+            aside,
+            audio,
+            b,
+            big,
+            blockquote,
+            body,
+            canvas,
+            caption,
+            center,
+            cite,
+            code,
+            dd,
+            del,
+            details,
+            dfn,
+            div,
+            dl,
+            dt,
+            em,
+            embed,
+            fieldset,
+            figcaption,
+            figure,
+            footer,
+            form,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            header,
+            hgroup,
+            html,
+            i,
+            iframe,
+            img,
+            ins,
+            kbd,
+            label,
+            legend,
+            li,
+            mark,
+            menu,
+            nav,
+            object,
+            ol,
+            output,
+            p,
+            pre,
+            q,
+            ruby,
+            s,
+            samp,
+            section,
+            small,
+            span,
+            strike,
+            strong,
+            sub,
+            summary,
+            sup,
+            table,
+            tbody,
+            td,
+            tfoot,
+            th,
+            thead,
+            time,
+            tr,
+            tt,
+            u,
+            ul,
+            var,
+            video {
+              margin: 0;
+              padding: 0;
+              border: 0;
+              font-size: 100%;
+              font: inherit;
+              vertical-align: baseline;
+            }
+
+            .text-right {
+              text-align: right;
+            }
+
             .password-data {
               .panel_s .panel-body {
                 background: #fff;
@@ -417,10 +414,9 @@ const Userprofile = () => {
                 font-size: 12px;
               }
             }
-        
           `}
         </style>
-      </div>
+      </div> 
     </>
   );
 };
