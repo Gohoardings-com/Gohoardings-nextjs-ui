@@ -93,7 +93,8 @@
   @media screen and (max-width: 540px) {
     .main_contact_all {
       h1 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        visibility: hidden;
       }
       h5 {
         display: none;

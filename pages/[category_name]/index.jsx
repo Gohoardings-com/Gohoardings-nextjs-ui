@@ -19,6 +19,7 @@ const Media = (props) => {
   const [mediaData, setMediadata] = useState([]);
   const [categoryData, setcategoryData] = useState([]);
   const [search, setSearch] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { category_name } = router.query;
 
   const SelectServc = async (obj) => {
@@ -29,24 +30,29 @@ const Media = (props) => {
   };
 
   const getData = async () => {
+    setIsLoading(true)
     const noofPage = parseInt(noOfLogo + 3);
     let data = [];
     if (category_name) {
       if (category_name.includes("-")) {
         data = await mediaApi(category_name, noofPage);
         setSearch(data);
+        setIsLoading(false)
       } else {
         data = await getCityDataApi(category_name);
         setSearch(data);
+        setIsLoading(false)
       }
     }
   };
 
   const apiforFillters = async () => {
+    setIsLoading(true)
     const data = await mediaApi(category_name, noOfLogo);
     setMediadata(data);
     setlocationData(data);
     setcategoryData(data);
+    setIsLoading(false)
   };
 
   useEffect(() => {
@@ -55,6 +61,7 @@ const Media = (props) => {
   }, [category_name, noOfLogo]);
 
   const onSearch = async (searchCity) => {
+    
     setValue(searchCity);
     setFocus(false);
     router.push(`/${category_name}/${searchCity}`);
@@ -152,6 +159,7 @@ const Media = (props) => {
           city={city}
           setValue={setValue}
           setFocus={setFocus}
+          isLoading={isLoading}
           Media_content={Media_content}
         />
       </>

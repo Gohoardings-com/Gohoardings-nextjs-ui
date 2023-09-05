@@ -126,7 +126,7 @@ const Contact = () => {
         <div
           className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}
         >
-          <h1 className="text-center pt-2 pt-md-4">Contact Us</h1>
+          <h1 className="text-center pt-0 pt-md-4">Contact Us</h1>
           <h5 className="text-center">
             Any question or remarks? Just write us a message or <br />
             visit our nearest office.
