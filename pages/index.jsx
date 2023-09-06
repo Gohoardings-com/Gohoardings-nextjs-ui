@@ -16,7 +16,7 @@ export default function Home() {
       <Head>
         <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
         <title>
-         Gohoardings: India&#39;s Largest and Best Outdoor Advertising Agency
+         Gohoardings: Indias Largest and Best Outdoor Advertising Agency
         </title>
         <meta charSet="utf-8" />
 
