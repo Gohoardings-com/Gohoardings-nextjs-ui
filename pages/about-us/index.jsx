@@ -95,22 +95,34 @@ const About = () => {
           content="About - Outdoor Advertising Agency in India | Gohoardings"
         />
         <meta property="og:siteName" content="www.gohoardings.com/about-us" />
-        <meta property="og:description" content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"/>
-        <meta property="og:type" content="en_US" />
-        <meta property="og:image" href="https://www.gohoardings.com/assets/images/favicon.png" />
         <meta
-          property="og:url"
-          href={`https://www.gohoardings.com${asPath}`}
+          property="og:description"
+          content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
         />
+        <meta property="og:type" content="en_US" />
+        <meta
+          property="og:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
+        <meta property="og:url" href={`https://www.gohoardings.com${asPath}`} />
         <meta property="og:property" content="en_US" />
-        <meta property="twitter:title" content="About - Outdoor Advertising Agency in India | Gohoardings" />
+        <meta
+          property="twitter:title"
+          content="About - Outdoor Advertising Agency in India | Gohoardings"
+        />
         <meta
           property="twitter:siteName"
           content="www.gohoardings.com/about-us"
         />
-        <meta property="twitter:description" content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings" />
+        <meta
+          property="twitter:description"
+          content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+        />
         <meta property="twitter:type" content="en_US" />
-        <meta property="twitter:image" href="https://www.gohoardings.com/assets/images/favicon.png"  />
+        <meta
+          property="twitter:image"
+          href="https://www.gohoardings.com/assets/images/favicon.png"
+        />
         <meta
           property="twitter:url"
           href={`https://www.gohoardings.com${asPath}`}
@@ -197,7 +209,7 @@ const About = () => {
                 height={500}
                 id="map-img"
                 className="img-fluid "
-                src="/images/web_pics/india_map.png"
+                src="/images/web_pics/India_map.png"
                 alt="map"
               />
             </div>
@@ -251,7 +263,7 @@ const About = () => {
                       height={500}
                       src={clients.img}
                       alt={clients.alt}
-                      className="img-fluid logo-img"
+                      className="img-fluid logo-img-a"
                     />
                   </div>
                 );
@@ -347,7 +359,7 @@ const About = () => {
   .grid-item {
     text-align: center;
   }
-  .logo-img {
+  .logo-img-a {
     height: 100px;
     width: 150px;
   }
@@ -393,7 +405,7 @@ const About = () => {
     .vision {
       margin-top: 1.5%;
     }
-    .logo-img {
+    .logo-img-a {
       height: 80px;
       width: 130px;
     }
@@ -420,7 +432,7 @@ const About = () => {
     .vision {
       margin-top: 1.2%;
     }
-    .logo-img {
+    .logo-img-a {
       height: 60px;
       width: 110px;
     }

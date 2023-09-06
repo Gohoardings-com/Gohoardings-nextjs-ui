@@ -17,6 +17,7 @@ import {
 import { useRouter } from "next/router";
 
 const MainUi = ({
+  isLoading,
  Media_content,
   noOfLogo,
   setnoOfLogo,
@@ -322,6 +323,7 @@ const MainUi = ({
             </section>
             <section className="my-2 my-md-2 p-2">
               <Mediacard
+                isLoading={isLoading}
                 slice={slice}
                 addonCart={addonCart}
                 removefromCart={removefromCart}

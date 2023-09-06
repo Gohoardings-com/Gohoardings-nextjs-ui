@@ -6,13 +6,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import Loader from "@/components/loader";
 import Image from "next/image";
 
-const Mediacard = ({ slice, addonCart, removefromCart }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-      setIsLoading(false);
-  }, [slice]);
-
+const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
   return (
     <>
       {isLoading ? (
@@ -21,20 +15,7 @@ const Mediacard = ({ slice, addonCart, removefromCart }) => {
             <Loader />
           </div>
         </div>
-      ) : 
-      slice.length === 0 ? (
-        <div className="container ">
-          <div className={`${styles.no_data} row  text-center my-3`}>
-            <Image
-              width={200}
-              height={200}
-              alt="no-data"
-              style={{opacity:".7"}}
-              src="/images/web_pics/no-data.png"
-            />
-          </div>
-        </div>
-      ) : (
+      ) : slice.length >= 1 ? (
         <div className={styles.card_media}>
           {slice.map((item, i) => (
             <div
@@ -123,6 +104,18 @@ const Mediacard = ({ slice, addonCart, removefromCart }) => {
               </div>
             </div>
           ))}
+        </div>
+      ) : (
+        <div className="container ">
+          <div className={`${styles.no_data} row  text-center my-3`}>
+            <Image
+              width={200}
+              height={200}
+              alt="no-data"
+              style={{ opacity: ".7" }}
+              src="/images/web_pics/no-data.png"
+            />
+          </div>
         </div>
       )}
     </>

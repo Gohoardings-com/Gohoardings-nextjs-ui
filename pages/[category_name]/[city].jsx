@@ -23,6 +23,7 @@ const Media_content = props.Media_content;
   const [mediaData, setMediadata] = useState([]);
   const [categoryData, setcategoryData] = useState([]);
   const [noOfLogo, setnoOfLogo] = useState(16);
+  const [isLoading, setIsLoading] = useState(false);
   const { category_name, city } = router.query;
 
   const SelectServc = async (obj) => {
@@ -33,8 +34,10 @@ const Media_content = props.Media_content;
   };
 
   const getData = async () => {
+    setIsLoading(true)
     const data = await mediaDataApi(category_name, city);
     setSearch(data);
+    setIsLoading(false)
   };
 
   useEffect(() => {
@@ -45,18 +48,22 @@ const Media_content = props.Media_content;
   
 
   const onSearch = async (searchCity) => {
+    setIsLoading(true)
     setValue(searchCity);
     const data = await mediaDataApi(category_name, searchCity);
     setSearch(data);
     setFocus(false);
     router.push(`/${category_name}/${searchCity}`);
+    setIsLoading(false)
   };
 
   const apiforFillters = async () => {
+    setIsLoading(true);
     const data = await mediaDataApi(category_name, city);
     setMediadata(data);
     setlocationData(data);
     setcategoryData(data);
+    setIsLoading(false);
   };
 
  
@@ -126,6 +133,7 @@ const Media_content = props.Media_content;
         focus={focus}
         serviceIcon={CityNameImage}
         city={city}
+        isLoading={isLoading}
         setValue={setValue}
         setFocus={setFocus}
        Media_content={Media_content}
