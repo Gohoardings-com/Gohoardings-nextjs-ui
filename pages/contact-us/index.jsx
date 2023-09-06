@@ -60,9 +60,7 @@ const Contact = () => {
       <Head>
         <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
         <title>
-          Gohoardings Solutions is the leading online media buying agency.
-          Contact us to get exclusive media buying rates and make your brand
-          visible.
+          Contact: Gohoardings | Best Outdoor Advertising Agency in India
         </title>
         <meta charSet="utf-8" />
 
@@ -70,7 +68,7 @@ const Contact = () => {
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+          content="Get in touch with GoHoardings, India's leading Outdoor Advertising Agency. We bring your brand to life outdoors. Contact The Best Advertising Agency in India"
         />
         <meta
           name="google-site-verification"
@@ -78,8 +76,7 @@ const Contact = () => {
         />
         <meta
           name="keywords"
-          content="Contact Us | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR, Advertising Agency in Noida, Delhi, NCR, Dealing with Billboards, Hoardings, Airport Branding, Transit Medial Airlines Branding, on best prices.
-          "
+          content="gohoarings, gohoardin, go hoardings, advertising agency in india, best advertising agency in delhi, best advertising agency in noida, best advertising agency in mumbai, best advertising agency in pune, best advertising agency in bangalore, outdoor advertising agency, ooh media company, hoarding for rent, hoarding company in india"
         />
         <meta
           property="og:title"

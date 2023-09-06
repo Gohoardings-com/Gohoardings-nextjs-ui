@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { CityNameImage } from "@/allApi/apis";
-import Image from "next/legacy/image";
+import Image from "next/image";
 const City = () => {
   const [serviceIcon, setServiceIcon] = useState(CityNameImage);
 
@@ -78,7 +78,7 @@ const City = () => {
                   }}
                 >
                   <Image
-                    layout="responsive"
+                  
                     width={340}
                     height={210}
                     src={e.src}
@@ -110,7 +110,6 @@ const City = () => {
                   }}
                 >
                   <Image
-                    layout="responsive"
                     width={340}
                     height={210}
                     src={e.src}

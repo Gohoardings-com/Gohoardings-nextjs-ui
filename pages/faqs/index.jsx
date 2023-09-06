@@ -27,7 +27,7 @@ const Faqs = () => {
           href={`https://www.gohoardings.com${route.asPath}`}
         />
         <title>
-          India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution
+          FAQ About Best Hoarding Advertising Company | Gohoardings.com
         </title>
         <meta charSet="utf-8" />
 
@@ -35,7 +35,7 @@ const Faqs = () => {
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+          content="Get answers to your questions about hoarding advertising from GoHoardings, your trusted and largest hoarding company and media buyer. FAQs made simple."
         />
         <meta
           name="google-site-verification"
@@ -43,7 +43,7 @@ const Faqs = () => {
         />
         <meta
           name="keywords"
-          content="India&#39s Largest Outdoor Advertising Agency,  Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"
+          content="gohoardings, go hoardings, media buyer, advertising agency, hoarding advertising company, outdoor media company, outdoor advertisment, hoarding for sale, hoarding promotions, ooh ad agency, best ad agency in india, largest advertising agency in india, bus advertising, airport advertising, metro advertising, transit advertising"
         />
         <meta
           property="og:title"
