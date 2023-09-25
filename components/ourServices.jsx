@@ -60,7 +60,7 @@ const Ourservices = () => {
       <div
         className={`${styles.service_content} container-xxl  container-xl container-lg container-md  pt-md-5 pb-md-5 servc`}
       >
-        <h1>Our Services</h1>
+        <h2>Our Services</h2>
         <h6 className="pt-1">
           Choose from below to deliver advertisements in a truly <br />
           exciting, innovative and creative way.

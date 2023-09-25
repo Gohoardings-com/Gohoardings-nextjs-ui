@@ -114,6 +114,10 @@ const Footer = () => {
       name: "Mumbai",
       city: "mumbai",
     },
+    {
+      name: "Noida",
+      city: "noida",
+    },
   ];
 
   const direactCity = (e) => {

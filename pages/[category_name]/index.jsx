@@ -246,6 +246,60 @@ Media.getInitialProps = async ({ req, res }) => {
       meta_keyword:
         "Inflight Advertising, Advertising in Hello 6E Magazine, Advertising in Indigo In-flight Magazine, Advertising in Spice Route Magazine, Advertising in Spice Jet In-flight Magazine, Advertising in Go Air In-flight Magazine, Advertising in Jet Wings Magazine, Advertising in Jet Airways Inflight Magazine, Advertising in Air India Inflight Magazine, Advertising in Shubh Yatra Magazine, Advertising in Go Getter Inflight Magazine, Advertising on Airport  Luggage Trolleys, Advertising on Meal Tray in Airlines, Advertising on Seat Back Devices, Advertising in Vistara inflight Magazine",
     },
+    {
+      value: "delhi",
+      page_titel:
+        "Top Advertising Agency in Delhi | Outdoor Advertising Agency",
+      page_decri:
+        "Unlock Success with Gohoardings, Delhi's Premier Outdoor Advertising Agency. Harness the Power of Outdoors for Your Brand. Contact Us Now",
+      meta_keyword:
+        "gohoardings, gohoarding, top advertising agency in delhi, top advertising agency in noida, outdoor advertising, hoarding site in delhi, hoardings for rent in delhi, transit advertising in delhi, airport branding company in delhi, advertising agency, digital hoardings agency, branding agency, marketing agency, outdoor promotion",
+    },
+    {
+      value: "hyderabad",
+      page_titel:
+        "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
+      page_decri:
+        "Experience Excellence with Gohoardings: Hyderabad's Top Outdoor Advertising Agency. Maximize Your Brand's Impact. Contact Us Today",
+      meta_keyword:
+        "gohoardings, gohoarding, outdoor advertising agency, outdoor advertising in hyderabad, top advertising companies in hyderabad, outdoor hoarding advertising, ad companies in hyderabad, advertising companies in hyderabad, top advertising agencies in hyderabad, advertising agencies hyderabad",
+    },
+    {
+      value: "pune",
+      page_titel:
+        "Gohoarding the best outdoor advertising agency in Pune",
+      page_decri:
+        "Elevate Your Brand with Gohoarding, the Top Outdoor Advertising Agency in Pune. Experience Excellence in Outdoor Promotion. Contact Us Today",
+      meta_keyword:
+        "gohoardings, gohoarding, best advertising agency in pune, outdoor advertising agency in pune, hoardings company in pune, outdoor branding agency in pune, top advertising company in pune, hoardings for rent in pune, hoardings site in pune, transit advertising in pune, airport advertising in pune, outdoor marketing company in pune, pune advertisingss agenccy, outdoor advertising ",
+    },
+    {
+      value: "mumbai",
+      page_titel:
+        "Hoardings Advertising Agency in Mumbai | Outdoor Advertising",
+      page_decri:
+        "Maximize Visibility with Mumbai's Top Outdoor Advertising Agency. Unleash the Power of Hoardings for Effective Brand Promotion. Contact Us Today",
+      meta_keyword:
+        "gohoardings, gohoarding, advertising, advertising agency, advertising agency in mumbai, advertising company in mumbai, mumbai best advertising agency, hoarding company in mumbai, hoardings site in mumbai, transit advertising in mumbai, branding company in mumbai, top marketing company, advertisment price in airport, airport branding company, airport hoarding site on rent",
+    },
+    {
+      value: "chennai",
+      page_titel:
+        "Top Outdoor Advertising Agency in Chennai | Gohoardings",
+      page_decri:
+        "Elevate Your Brand with the Top Outdoor Advertising Agency in Chennai. Discover Effective Outdoor Marketing Solutions. Contact Us Today",
+      meta_keyword:
+        "gohoardings, gohoarding, top advertising agency in chennai, chennai advertising agency, best advertising company in chennai, hoardings company in chennai, advertising agency, hoarding site in chennai, marketing company in chennai, transit advertising company, mall media company in chennai, chennai airport advertising, vehicle advertisment",
+    },
+    {
+      value: "bengaluru",
+      page_titel:
+        "Outdoor Advertising Agency in Bangalore | Gohoardings",
+      page_decri:
+        "Discover the Best Outdoor Advertising Agency in Bangalore - Gohoardings. Elevate your brand with our innovative outdoor ad solutions in the vibrant city.",
+      meta_keyword:
+        "gohoardings, gohoarding, outdoor advertising agency bangalore, outdoor advertising agency in bangalore, best advertising agency, outdoor media agency in bangalore, billboard advertising agency, hoarding advertising  agency, banaglore outdoor marketig company, digital outdoor advertising in bangalore, hoarding advertising company in bangalore, branding company, marketing company, transit media agency, airport advertising agency in bangalore",
+    },
   ];
   const { Media_content } = await import("@/allApi/mediajson");
   return {

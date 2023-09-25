@@ -17,9 +17,7 @@ function SearchGoogle({setSearch, search})  {
     const latitude = latLng.lat
     const longitude = latLng.lng
     if(latitude && longitude){
-
       const data = await latLongApi(latitude,longitude)
-     setSearch()
       setSearch(data);
     }
   };

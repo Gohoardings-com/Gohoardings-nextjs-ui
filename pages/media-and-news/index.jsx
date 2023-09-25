@@ -23,14 +23,16 @@ const Newsmedia = () => {
     <>
       <Head>
         <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
-        <title>News and Media | Gohoardings.com</title>
+        <title>
+          Gohoardings | Hoarding Advertising Agency | News and Media
+        </title>
         <meta charSet="utf-8" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="News and Media | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR"
+          content="Gohoardings: Your Premier Hoarding Company in India. Stay Informed with News and Media Updates. Elevate Your Outdoor Advertising Strategy Today"
         />
         <meta
           name="google-site-verification"
@@ -38,7 +40,7 @@ const Newsmedia = () => {
         />
         <meta
           name="keywords"
-          content="News and Media | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR, Advertising Agency in Noida, Delhi, NCR, Dealing with Billboards, Hoardings, Airport Branding, Transit Medial Airlines Branding, on best prices."
+          content="gohoardings, gohoarding, outdoor advertising agency in, outdoor advertising agency, outdoor advertising agencies, outdoor ad agency, outdoor advertising companies in delhi, outdoor advertising agencies in delhi, outdoor advertising delhi, outdoor advertising agency in delhi, outdoor media agency, ad agency in delhi, outdoor advertising agencies in gurgaon, outdoor marketing companies, top 5 advertising agencies in delhi, outdoor advertising mumbai, advertising agencies in delhi ncr"
         />
 
         <meta
@@ -51,7 +53,7 @@ const Newsmedia = () => {
         />
         <meta
           property="og:description"
-          content="News and Media | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR"
+          content="Gohoardings: Your Premier Hoarding Company in India. Stay Informed with News and Media Updates. Elevate Your Outdoor Advertising Strategy Today"
         />
         <meta property="og:type" content="en_US" />
         <meta
@@ -70,7 +72,7 @@ const Newsmedia = () => {
         />
         <meta
           property="twitter:description"
-          content="News and Media | India's Leading Hoardings and Billboards Advertising Agency in Delhi, India, Best Offline Advertising Agency in Delhi NCR"
+          content="Gohoardings: Your Premier Hoarding Company in India. Stay Informed with News and Media Updates. Elevate Your Outdoor Advertising Strategy Today"
         />
         <meta property="twitter:type" content="en_US" />
         <meta
