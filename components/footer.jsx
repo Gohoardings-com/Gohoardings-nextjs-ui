@@ -31,7 +31,7 @@ const Footer = () => {
     if (!emailformate.test(email)) {
       count = +1;
     } else if (count === 0) {
-      const data = await enquiryApi(email);  
+      const data = await enquiryApi(email);
       if (data.success == true) {
         setEmail("");
         toast(
@@ -55,7 +55,6 @@ const Footer = () => {
     });
 
     setServiceIcon(services);
-    route.push(`/${e}`);
   };
   const logo = [
     {
@@ -95,6 +94,10 @@ const Footer = () => {
       city: "delhi",
     },
     {
+      name: "Noida",
+      city: "noida",
+    },
+    {
       name: "Pune",
       city: "pune",
     },
@@ -113,10 +116,6 @@ const Footer = () => {
     {
       name: "Mumbai",
       city: "mumbai",
-    },
-    {
-      name: "Noida",
-      city: "noida",
     },
   ];
 
@@ -150,133 +149,135 @@ const Footer = () => {
               India&#39;s Largest Outdoor Advertising Company
             </h4>
             <h6 className="f-second-heading pt-1">
-              It&#39;s advertising network spread across 130 cities with more
-              than 1.2 lakh OOH and DOOH sites offering hassle free branding
-              experiences at an unmatched price.
+              Our advertising network spread across 130 cities with more than
+              1.2 lakh OOH advertising and DOOH advertising sites offering
+              hassel-free branding experience. As the nation&#39;s largest
+              advertising agency, we craft impactful campaigns that resonate,
+              inspire, and drive success for brands nationwide.
             </h6>
           </div>
         </div>
         <div className="row pt-3">
-          <div className="col  py-md-3 ms-md-2 quick-links">
-            
-              <h4 className="   f-heading">Quick Links</h4>
-              <ul className="position-relative  pt-md-3  ps-0">
+          <div className="col-md-3 col-6  py-md-3  quick-links">
+            <h4 className="   f-heading">Quick Links</h4>
+            <ul className="position-relative  pt-md-3  ps-0">
+              <li className="py-md-2">
+                {" "}
+                <a
+                  className=" text-decoration-none f-heading-clr  mb-0"
+                  href="https://odoads.com/login"
+                  target="_blank"
+                >
+                  Login As Media Owner
+                </a>
+              </li>
+
+              <li
+                className="py-md-2 text-decoration-none f-heading-clr "
+                onClick={handleShow}
+                id="footerPopUp"
+              >
+                Login As Advertiser
+              </li>
+              <span className="pos-absolute">
                 <li className="py-md-2">
-                  {" "}
                   <a
-                    className=" text-decoration-none f-heading-clr  mb-0"
-                    href="https://odoads.com/register"
+                    href="https://www.odoads.com/"
                     target="_blank"
+                    className=" text-decoration-none f-heading-clr mb-0"
                   >
-                    Login As Media Owner
+                    Odoads
                   </a>
                 </li>
 
-                <li
-                  className="py-md-2 text-decoration-none f-heading-clr "
-                  onClick={handleShow}
-                  id="footerPopUp"
-                >
-                  Login As Advertiser
-                </li>
-                <span className="pos-absolute">
-                  <li className="py-md-2">
-                    <a
-                      href="https://www.odoads.com/"
-                      target="_blank"
-                      className=" text-decoration-none f-heading-clr mb-0"
-                    >
-                      Odoads
-                    </a>
-                  </li>
-
-                  <li className=" text-decoration-none f-heading-clr mb-0 py-md-2">
-                    <a
-                      href="https://blog.gohoardings.com/"
-                      target="_blank"
-                      className=" text-decoration-none f-heading-clr mb-0"
-                    >
-                      Blog
-                    </a>
-                  </li>
-
-                  <li className="py-md-2">
-                    <p
-                      onClick={() => route.push("/about-us")}
-                      className=" text-decoration-none f-heading-clr mb-0"
-                    >
-                      About Us
-                    </p>{" "}
-                  </li>
-                  <li className="py-md-2">
-                    <p
-                      onClick={() => route.push("/team")}
-                      className=" text-decoration-none f-heading-clr mb-0"
-                    >
-                      Team
-                    </p>
-                  </li>
-                  <li className="py-md-2">
-                    <p
-                      onClick={() => route.push("/contact-us")}
-                      className=" text-decoration-none f-heading-clr mb-0"
-                    >
-                      Contact
-                    </p>
-                  </li>
-                  <li className="py-md-2 text-decoration-none ">
-                    {" "}
-                    <p
-                      onClick={() => route.push("/privacy")}
-                      className=" f-heading-clr mb-0"
-                    >
-                      Privacy Policy
-                    </p>
-                  </li>
-                </span>
-              </ul>
-            
-          </div>
-          <div className="col py-md-3 ms-md-2 popular-media">
-          
-              <h4 className=" f-heading">Popular Services</h4>
-              <ul className=" pt-md-3   ps-0">
-                {CityNameImage.map((el, i) => (
-                  <li
-                    key={i}
-                    className=" py-md-2  text-decoration-none f-heading-clr"
-                    onClick={(e) => direactMedia(el.value)}
+                <li className=" text-decoration-none f-heading-clr mb-0 py-md-2">
+                  <a
+                    href="https://blog.gohoardings.com/"
+                    target="_blank"
+                    className=" text-decoration-none f-heading-clr mb-0"
                   >
-                    {el.label}
-                  </li>
+                    Blog
+                  </a>
+                </li>
 
-                ))}
-              </ul>
-            
+                <li className="py-md-2">
+                  <p
+                    onClick={() => route.push("/about-us")}
+                    className=" text-decoration-none f-heading-clr mb-0"
+                  >
+                    About Us
+                  </p>{" "}
+                </li>
+                <li className="py-md-2">
+                  <p
+                    onClick={() => route.push("/team")}
+                    className=" text-decoration-none f-heading-clr mb-0"
+                  >
+                    Team
+                  </p>
+                </li>
+                <li className="py-md-2">
+                  <p
+                    onClick={() => route.push("/contact-us")}
+                    className=" text-decoration-none f-heading-clr mb-0"
+                  >
+                    Contact
+                  </p>
+                </li>
+                <li className="py-md-2 text-decoration-none ">
+                  {" "}
+                  <p
+                    onClick={() => route.push("/privacy")}
+                    className=" f-heading-clr mb-0"
+                  >
+                    Privacy Policy
+                  </p>
+                </li>
+              </span>
+            </ul>
           </div>
-          <div className="col  py-md-3 ms-md-2 p-md-1">
+          <div className="col-md-3  col-6  py-md-3  popular-media">
+            <h4 className=" f-heading">Popular Services</h4>
+            <ul className=" pt-md-3   ps-0">
+              {CityNameImage.map((el, i) => (
+                <li
+                  key={i}
+                  className=" py-md-2  text-decoration-none f-heading-clr"
+                  onClick={(e) => direactMedia(el.value)}
+                >
+                  <Link
+                    href={`/${el.value}`}
+                    className="text-decoration-none link "
+                  >
+                    <span className="f-heading-clr"> {el.label} </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-md-3  col-6  py-md-3  ">
             <h4 className="   f-heading">Trending Cities</h4>
             <ul className=" pt-md-3   ps-0 ">
               <span className="pos-absolute end-0 top-0 me-5">
                 {cities.map((el, i) => (
-                  <Link
+                  <li
                     key={i}
-                    href={`/${el.city}`}
-                    className="text-decoration-none "
+                    className=" py-md-2  text-decoration-none f-heading-clr "
+                    onClick={(e) => direactCity(el.city)}
                   >
-                    <li
-                      className=" py-md-2  text-decoration-none f-heading-clr "
-                      onClick={(e) => direactCity(el.city)}
+                    <Link
+                      href={`/${el.city}`}
+                      className="text-decoration-none link "
                     >
-                      {el.name}
-                    </li>
-                  </Link>
+                      <span className="f-heading-clr"> {el.name}</span>
+                    </Link>
+                  </li>
                 ))}
               </span>
             </ul>
           </div>
 
-          <div className="col  py-md-3">
+          <div className="col-md-3  col-6   py-md-3">
             <h4 className="  f-heading">Reach us</h4>
             <ul className=" pt-md-3  ps-0">
               <li className="py-md-2 reach-clr py-md-2 py-1">
@@ -344,13 +345,13 @@ const Footer = () => {
 
               <ToastContainer />
             </form>
-          
+
             <h6 className=" py-0 text-muted head6">
               * Join our newsletter for the most recent information.
             </h6>
           </div>
         </div>
-        <div className="row my-2 text-center">
+        <div className="row my-2 d-flex justify-content-center">
           <p className="  text-light f-heading-clr ">
             copyrights &#169; 2023 Gohoardings Solutions LLP
           </p>
@@ -391,7 +392,7 @@ const Footer = () => {
             background-color: #ede111;
           }
           .footer-branding {
-            border-bottom: 2px solid rgb(211, 211, 211);
+            border-bottom: 2px solid #fff32c;
           }
           .brand-logo-footer {
             width: 240px;
@@ -407,6 +408,7 @@ const Footer = () => {
             font-weight: 400;
           }
           .f-heading-clr {
+            width: fit-content;
             color: rgb(220, 220, 220);
             font-size: 1rem;
             cursor: pointer;
@@ -505,6 +507,18 @@ const Footer = () => {
             }
             .head6 {
               font-size: 0.6rem;
+            }
+          }
+          @media screen and (max-width: 600px) {
+            .grid-container1 {
+              width: 190px;
+            }
+            .grid-item {
+              text-align: start;
+            }
+            .logo-img {
+              height: 24px;
+              width: 24px;
             }
           }
         `}

@@ -77,6 +77,7 @@ const Media = (props) => {
     "airport-media",
     "inflight-media",
     "delhi",
+    "noida",
     "pune",
     "chennai",
     "bengaluru",
@@ -300,6 +301,15 @@ Media.getInitialProps = async ({ req, res }) => {
       meta_keyword:
         "gohoardings, gohoarding, outdoor advertising agency bangalore, outdoor advertising agency in bangalore, best advertising agency, outdoor media agency in bangalore, billboard advertising agency, hoarding advertising  agency, banaglore outdoor marketig company, digital outdoor advertising in bangalore, hoarding advertising company in bangalore, branding company, marketing company, transit media agency, airport advertising agency in bangalore",
     },
+    {
+      value: "noida",
+      page_titel:
+        "Top advertising agency in Noida |Top Advertising Agency in Noida | Outdoor Advertising Company",
+      page_decri:
+        "Gohoardings provides the best sites for hoarding advertising, transit advertising, mall media advertising. We the one of the best advertising agency in Noida.",
+      meta_keyword:
+        "gohoardings, advertising agency in noida, advertising company in noida, hoarding company in noida, outdoor advertising agency in noida, best ad agency in noida, ad agency in noida, top ad agency, top advertisign agency, bus advertising agency, hoarding sites in noida, hoarding ads, mall media advertising, hoarding advertiser in noida",
+    }
   ];
   const { Media_content } = await import("@/allApi/mediajson");
   return {

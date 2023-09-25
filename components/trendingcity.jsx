@@ -57,9 +57,9 @@ const Trendingcity = () => {
     <>
       <div className="container-xxl  container-xl container-lg container-md  mt-5 mt-md-2 mb-md-4  py-5 mb-5 trending-contain ">
         <section>
-          <h1 className="text-center text-nowrap ">
+          <h2 className="text-center text-nowrap ">
             Choose what is Trending in your City
-          </h1>
+          </h2>
           <h6 className=" text-center">
             Choose the best ways to deliver relevant <br />
             messages to the relevant audience.
@@ -132,7 +132,7 @@ const Trendingcity = () => {
       </div>
       <style jsx>
         {`
-          h1 {
+          h2 {
             font-size: 2.2rem;
             font-weight: 700;
             color: #373435;

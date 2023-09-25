@@ -1,78 +1,96 @@
-import React,{useState, useEffect} from "react";
-import Slider from "react-slick";
+import React, { useState, useEffect } from "react";
 import Enquireregister from "./enquireregister";
-import styles from '../../styles/enquire.module.scss'  ;
+import styles from "../../styles/enquire.module.scss";
 import Image from "next/image";
+import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
 import { brandLogoApi } from "@/allApi/apis";
 const Enquire = () => {
-  const [logo,SetLogo] = useState([])
-  const allLogo = async() =>{
-    const data = await brandLogoApi()
-    SetLogo(data)
-  } 
+  const [logo, SetLogo] = useState([]);
+  const [noOfLogo, setnoOfLogo] = useState(24);
+  const [showButton, setshowButon] = useState(true);
+  const slice = logo.slice(0, noOfLogo);
+  const allLogo = async () => {
+    const data = await brandLogoApi();
+    SetLogo(data);
+  };
 
-  useEffect(() =>{
-    allLogo()
-  },[])
+  useEffect(() => {
+    allLogo();
+  }, []);
 
-  const slice = logo.slice(0, 21);
-  {
-    var settings = {
-      pauseOnHover: false,
-      infinite: true,
-      slidesToShow: 7,
-      slidesToScroll: 3,
-      autoplay: true,
-      speed: 4700,
-      autoplaySpeed: 4700,
-      cssEase: "linear",
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 2,
-            initialSlide: 0,
-          },
-        },
-        {
-          breakpoint: 540,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            initialSlide: 0,
-          },
-        },
-      ],
-    };
-  }
+  const loadMore = () => {
+    if (noOfLogo === 24) {
+      setnoOfLogo(noOfLogo * 2);
+
+      // Scroll to the next section
+      const nextSection = document.getElementById("enquire_description_row");
+      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Delay the appearance of the next set of logos
+      setTimeout(() => {
+        const nextSlice = logo.slice(24, noOfLogo);
+        SetLogo((prevLogo) => [...prevLogo, ...nextSlice]);
+      }, 1000); // Adjust the delay time as needed
+      setshowButon(false);
+    }
+      
+    
+  };
+
+  const loadLess = () => {
+    if (noOfLogo === 48) {
+      setnoOfLogo(noOfLogo - 24);
+      setshowButon(true);
+
+      // Scroll to the next section (in reverse)
+      const previousSection = document.getElementById("our_clients_content");
+      previousSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
-     <section className={`${styles.our_clients_content} my-4 enqry`} >
-       <Slider {...settings}>
-         {slice.map((clients, i) => (
-           <div className="container pt-md-3" key={i}>
-             <div className="row  ">
-               <div className="col p-md-3 ">
-             
-            
-                   <Image
-                           width={160}
-                           height={100}
-                     src={clients.img}
-                     alt={clients.alt}
-                     key={i}
-                     className={`rounded-2  ${styles.trending_cardd}`}
-                   />
-               </div>
-             </div>
-           </div>
-         ))}
-       </Slider>
-     </section>
-      <div className={`container-xxl  container-xl container-lg container-md ${styles.enquire_content} py-2 py-md-5 my-md-3 px-md-5 `}>
+      <section
+        id="our_clients_content"
+        className={`${styles.our_clients_content} my-4 enqry`}
+      >
+        <h2 className="my-3 mt-md-5">Meet our happy clients</h2>
+        <div className={`${styles.gridContainer} mt-3`}>
+          {slice.map((clients, index) => {
+            return (
+              <div className={styles.gridItem} key={index}>
+                <Image
+                  width={500}
+                  height={500}
+                  src={clients.img}
+                  alt={clients.alt}
+                  className={`img-fluid ${styles.logoImgA}`}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        <h2>
+          {showButton ? (
+            <button className={`${styles.loadbutton} my-3 `} onClick={loadMore}>
+              <BsArrowDownCircle />
+            </button>
+          ) : (
+            <button className={`${styles.loadbutton} my-3 `} onClick={loadLess}>
+              <BsArrowUpCircle/>
+            </button>
+          )}{" "}
+        </h2>
+      </section>
+      <div
+        id="enquire_description_row"
+        className={`container-xxl  container-xl container-lg container-md ${styles.enquire_content} py-2 py-md-5 my-md-3 px-md-5 `}
+      >
         <div className={`row p-2 ${styles.enquire_description_row}`}>
-          <div className={` col-md-4  p-4 p-md-3  ${styles.enquire_description} col-xs-0`}>
+          <div
+            className={` col-md-4  p-4 p-md-3  ${styles.enquire_description} col-xs-0`}
+          >
             <h3 className={`${styles.enquire_qsns_cant} text-light`}>
               What can Gohoardings
               <br /> help you with?
@@ -89,14 +107,18 @@ const Enquire = () => {
               </p>
             </div>
             <div className="row py-1">
-              <h6 className={`${styles.enquire_qsns_cant_qsn}  mb-1`}>Have a query ?</h6>
+              <h6 className={`${styles.enquire_qsns_cant_qsn}  mb-1`}>
+                Have a query ?
+              </h6>
               <p className={styles.enquire_ans_cant}>
                 Feel free to write to us. Our reps are right there to answer
                 them all.
               </p>
             </div>
             <div className="row py-1">
-              <h6 className={styles.enquire_qsns_cant_qsn}>Have a suggestion?</h6>
+              <h6 className={styles.enquire_qsns_cant_qsn}>
+                Have a suggestion?
+              </h6>
               <p className={`${styles.enquire_ans_cant} mb-4`}>
                 Your feedback and suggestions are always welcome. We are
                 constantly striving to be better than what we were yesterday.
