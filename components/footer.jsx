@@ -31,7 +31,7 @@ const Footer = () => {
     if (!emailformate.test(email)) {
       count = +1;
     } else if (count === 0) {
-      const data = await enquiryApi(email);
+      const data = await enquiryApi(email);  
       if (data.success == true) {
         setEmail("");
         toast(
