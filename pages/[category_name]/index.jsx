@@ -185,66 +185,66 @@ Media.getInitialProps = async ({ req, res }) => {
     {
       value: "traditional-ooh-media",
       page_titel:
-        "Outdoor Advertising Agency in India | OOH in India | Gohoardings",
+        "Gohoardings: Largets Traditional OOH Advertising Agency in India",
       page_decri:
-        "Gohoarding is the leading company of OOH Advertising agency in India. Gohoardings provide Hoardings across  India at best price. | Gohoardings Solution LLP",
+        "Gohoardings - Your Top Choice for Traditional OOH Advertising. We're the Best Outdoor Media Company in India, Offering Unrivaled Solutions to Boost Your Brand's Reach.",
       meta_keyword:
-        "OOH Advertising in India, Outdoor Advertising in India, Hoardings Company in India, OOH Branding in India, Hoardings Agency in India, Billboard Advertising in India, Hoarding Rates in India, Outdoor Publicity Company in India, Unipole Advertising in India. Bus Shelter, Pole Kiosk Advertising, Gohoardings Solution in India",
+        "traditional ooh advertising, outdoor advertising agency, billboard advertising services, ooh marketing agency, billboard ad company, traditional ooh media planning, traditional outdoor media, outdoor branding, outdoor ad campaign, outdoor advertising specialist, ooh advertising agency",
     },
     {
       value: "digital-media",
       page_titel:
-        "Digital OOH Advertising Agency | Digital OOH in India | Gohoardings",
+        "Digital Hoarding Advertising Solutions by Gohoardings",
       page_decri:
-        "Gohoarding is the Leading Company of Digital OOH Advertising Agency in India. Gohoardings provides Digital Hoarding across India at best price | Gohoardings Solution",
+        "Digital Hoarding Advertising Solutions by the best outdoor advertising agency Gohoardings - Your Partner for Effective Digital Media Advertising Services.",
       meta_keyword:
-        "Digital OOH Advertising in India, Outdoor Advertising in India, Digital Billboard Agency in India, Digital OOH Advertising details, Rates, And services in India, Digital OOH, Outdoor Advertising, Traditional OOH, Internet Advertising, OOH news India, OOH Industry",
+        "gohoardings, go hoardings, digital media advertising, digital hoarding advertising, digital billboard ads, outdoor digital advertising, digital display advertising, digital hoarding rental, digital media hoardings, digital advertising display board, LED hoarding advertising, digital hoarding marketing, digital hoarding branding, digital media marketing",
     },
     {
       value: "mall-media",
       page_titel:
-        "Mall Advertising Agency in India, Advertising in Malls | Gohoardings",
+        "Shopping Mall Advertising with Gohoardings - Best advertising agnecy",
       page_decri:
-        "Gohoardings is one of the leading Mall Advertising Agency in India, Which helps brands to grow their brands with Advertising in Malls and supermarkets. | Gohoardings",
+        "Unlock the Power of Mall Advertising with Gohoardings - Your Trusted Partner for Effective Outdoor Advertising and Branding. Elevate Your Brand Visibility Today!",
       meta_keyword:
-        "Mall Advertising in India, Mall Ads India, Mall Marketing In India, Advertising in Malls India, Mall Branding India, Mall Promotions India, Mall Events India, Mall Activations India, Digital Mall Advertising in India, Retail Mall Advertising in India, Mall Advertising Solutions in India, Mall Signage India, Mall Advertising Rates India",
+        "gohoardings, gohoarding, shopping mall advertising, mall media advertising, mall advertising, shopping mall ad services, mall media solution, mall advertising company, advertising in shopping mall, branding in shopping mall, mall display ad promotion, mall advertising rates, mall event advertising, malll marketing services, mall promotion agency",
     },
 
     {
       value: "office-media",
       page_titel:
-        "Office Branding Company in India, Office Hoardings | Gohoardings",
+        "Office Branding Services | GoHoardings: Transform Your Workspace",
       page_decri:
-        "Office Branding Company in India, It is helpful for business for brand awareness, Office Space Advertising, Office Branding in India | Gohoardings Solution LLP",
+        "Elevate your office space with impactful Office Branding and In-Office Advertising solutions from GoHoardings. Enhance your workspace today!",
       meta_keyword:
-        "Office Space Advertising, Tech Park Branding,Software Offices,Office Branding, Co-woking office space branding, Office Branding Agency in Mumbai, India, Branding agencies in India",
+        "in office media, office branding, office advertising, advertising inside office, in office advertising, inhouse branding, workspace advertisment, office branding agency, office branding company, office media advertisment, office marketing agency, office branding ideas",
     },
     {
       value: "transit-media",
       page_titel:
-        "Transit Advertising company in Delhi | Gohoardings Solution LLP",
+        "Best Transit Media Advertising Agency | Gohoardings",
       page_decri:
-        "Go Hoardings offers a wide range of transit media advertising solutions to help you reach your target audience, Train, Mobile Van, State Roadways Buses, Auto Rickshaws, Metro and local train Advertising.",
+        "Discover the Power of Transit Advertising with Gohoardings - Best Transit Advertising Company! Transform your marketing strategy with our bus advertising solutions.",
       meta_keyword:
-        "Transit Media Advertising Company Delhi, Transit Media Company Mumbai, Transportation Ads Company India, Transit Media Advertising Agency, Transportation Ads Company, Advertising in Auto Rickshaws, Advertising in State Roadways Buses, Advertising in Metro Feeder Buses, Advertising in Tarmac Coaches, Advertising in Cabs, Advertising in Delhi Metro",
+        "gohoardings, gohoardings.com, transit advertising, bus advertising, public transport advertising,outdoor advertising, transit media services, transit media advertising, transit media marketing, railway station advertising, transit ad agency, transit media company, airport advertising, transit poster advertising, transit display ads",
     },
     {
       value: "airport-media",
       page_titel:
-        "Airport Advertising Company in India, Airport Branding | Gohoardings",
+        "Gohoardings: Elevate Your Brand with Airport Advertising Solutions",
       page_decri:
-        "Airport Advertising Company in India, Showcase your brand in Airports. Get the more attention on you brands with help of Airport & Airlines ads | Gohoardings.com",
+        "Explore Top-Notch Airport Media Advertising Services with Gohoardings. Reach New Heights by Advertising in Airports Nationwide. Elevate Your Brand Today!",
       meta_keyword:
-        "Airport Advertising, Airlines Advertising, Airport Advertising Rates, Airport Advertising Company in Noida, India, Airport Ad Company in Delhi, Airport Branding Agency in India, Indian Airport Advertising Company in Delhi, Delhi Airport Branding, Airlines Advertising",
+        "gohoardings, gohoardings.com, airport media, airport media advertising, advertising in airports, airport branding in india, airport display ads, airport advertising solutions, airport branding agency, airport display advertising, airport media marketing, airport digital ads",
     },
     {
       value: "inflight-media",
       page_titel:
-        "Inflight Advertising Agency in Noida, India | Gohoardings Solution",
+        "Inflight Media: Airline Advertising in India | GoHoardings",
       page_decri:
-        "India's Leading Inflight Advertising Agency in Noida, India, We are in contact with many airlines in India providing the solution for Inflight Advertising Options. We surely help you to achieve this by displaying your ad on boarding passes and baggage tags. | Gohoardings Solutions.",
+        "Gohoardings: India's Best Airline Advertising Agency – Explore Effective Outdoor Advertising Solutions Nationwide. Get Airline Magazine Advertising in India",
       meta_keyword:
-        "Inflight Advertising, Advertising in Hello 6E Magazine, Advertising in Indigo In-flight Magazine, Advertising in Spice Route Magazine, Advertising in Spice Jet In-flight Magazine, Advertising in Go Air In-flight Magazine, Advertising in Jet Wings Magazine, Advertising in Jet Airways Inflight Magazine, Advertising in Air India Inflight Magazine, Advertising in Shubh Yatra Magazine, Advertising in Go Getter Inflight Magazine, Advertising on Airport  Luggage Trolleys, Advertising on Meal Tray in Airlines, Advertising on Seat Back Devices, Advertising in Vistara inflight Magazine",
+        "airline advertising, airline marketing, inflight advertising, travel magzine advertising, passanger magzine ads, air travell promotional, airplane advertising, branding in airplane, advertising in airplane, airline sponsoeship opportunity, inflight branding agency, inflight ad company",
     },
     {
       value: "delhi",

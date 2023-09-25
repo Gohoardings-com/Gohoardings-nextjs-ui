@@ -1,10 +1,40 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { setCookie } from "cookies-next";
 import { CityNameImage } from "@/allApi/apis";
-import Image from "next/legacy/image";
+import Image from "next/image";
 const City = () => {
   const [serviceIcon, setServiceIcon] = useState(CityNameImage);
+  const [imageDimensions, setImageDimensions] = useState({ width: 340, height: 210 });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      function handleResize() {
+        const screenWidth = window.innerWidth;
+
+        let newWidth, newHeight;
+
+        if (screenWidth <= 400) {
+          newWidth = 300;
+          newHeight = 200;
+        } else {
+          newWidth = 340;
+          newHeight = 210;
+        }
+
+        setImageDimensions({ width: newWidth, height: newHeight });
+      }
+
+      window.addEventListener('resize', handleResize);
+
+      handleResize();
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
+
 
   const directlink = (e) => {
     const services = [...serviceIcon];
@@ -20,36 +50,42 @@ const City = () => {
       href: "/delhi",
       no: "2493+",
       src: "/images/web_pics/01-min.png",
+      alt: "outdoor advertising agency in delhi"
     },
     {
       city: "Mumbai",
       href: "/mumbai",
       no: "1716+",
       src: "/images/web_pics/02-min.png",
+      alt: "outdoor advertising agency in mumbai"
     },
     {
       city: "Bengaluru",
       href: "/bengaluru",
       no: "960+",
       src: "/images/web_pics/03-min.png",
+      alt: "outdoor advertising agency in banglore"
     },
     {
       city: "Chennai",
       href: "/chennai",
       no: "482+",
       src: "/images/web_pics/04-min.png",
+      alt: "outdoor advertising agency in chennai"
     },
     {
       city: "Hyderabad",
       href: "/hyderabad",
       no: "897+",
       src: "/images/web_pics/05-min.png",
+      alt: "outdoor advertising agency in hyderabad"
     },
     {
       city: "Pune",
       href: "/pune",
       no: "429+",
       src: "/images/web_pics/06-min.png",
+      alt: "outdoor advertising agency in pune"
     },
   ];
 
@@ -66,68 +102,71 @@ const City = () => {
         </h6>
       </section>
 
-      <div className="container mt-4 mt-md-5 ">
-        <div className="row">
-          {City.slice(0, 3).map((e, i) => (
-            <div className="col col-md-4" key={i}>
-              <Link href={e.href}>
-                <div
-                  className="city-img-container "
-                  onClick={() => {
-                    directlink(e);
-                  }}
-                >
-                  <Image
-                    layout="responsive"
-                    width={340}
-                    height={210}
-                    src={e.src}
-                    className="rounded "
-                    alt="Delhi Hording"
-                    
-                  />
-                  <div className="bottom-left">{e.city}</div>
-                  <div className="bottom-left-media">
-                    {e.no}
-                    <span className="bottom-left-media-text">medias </span>{" "}
-                  </div>
-                </div>
-              </Link>
+      <div className="container mt-4 mt-md-5">
+  <div className="row">
+    {City.slice(0, 3).map((e, i) => (
+      <div className="col col-md-4" key={i}>
+        <Link href={e.href}>
+          <div
+            className="city-img-container d-flex flex-column justify-content-center align-items-center"
+            onClick={() => {
+              directlink(e);
+            }}
+          >
+            <div className="img-text-container text-center">
+            <Image
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              src={e.src}
+              className="rounded responsive-img"
+              alt={e.alt}
+            />
+              <div className="bottom-left">{e.city}</div>
+              <div className="bottom-left-media">
+                {e.no}
+                <span className="bottom-left-media-text">medias </span>{" "}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Link>
       </div>
+    ))}
+  </div>
+</div>
 
-      <div className="container mt-4">
-        <div className="row">
-          {City.slice(3).map((e, i) => (
-            <div className="col col-md-4" key={i}>
-              <Link href={e.href}>
-                <div
-                  className="city-img-container "
-                  onClick={() => {
-                    directlink(e);
-                  }}
-                >
-                  <Image
-                    layout="responsive"
-                    width={340}
-                    height={210}
-                    src={e.src}
-                    className="rounded "
-                    alt="Delhi Hording"
-                  />
-                  <div className="bottom-left">{e.city}</div>
-                  <div className="bottom-left-media">
-                    {e.no}
-                    <span className="bottom-left-media-text">medias </span>{" "}
-                  </div>
-                </div>
-              </Link>
+
+
+<div className="container mt-4 mt-md-5">
+  <div className="row">
+    {City.slice(3).map((e, i) => (
+      <div className="col col-md-4" key={i}>
+        <Link href={e.href}>
+          <div
+            className="city-img-container d-flex flex-column justify-content-center align-items-center"
+            onClick={() => {
+              directlink(e);
+            }}
+          >
+            <div className="img-text-container text-center">
+            <Image
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              src={e.src}
+              className="rounded responsive-img"
+              alt={e.alt}
+            />
+              <div className="bottom-left">{e.city}</div>
+              <div className="bottom-left-media">
+                {e.no}
+                <span className="bottom-left-media-text">medias </span>{" "}
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Link>
       </div>
+    ))}
+  </div>
+</div>
 
       <style jsx>{`
         .citylist {
@@ -184,7 +223,7 @@ const City = () => {
         }
 
 
-        @media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) {
           #citygh{
             
             padding: 0px!important ;
@@ -195,28 +234,34 @@ const City = () => {
           h6 {
             display: none;
           }
-   
+
+          .city-img-container {
+            margin-bottom: 35px;
+          }
+
           .city-img-container:before {
             width: 100%!important;
             height: 150px;
             margin: 0px ;
           }
    
-      
+          .img-text-container {
+            position: relative;
+          } 
+
             .bottom-left {
               position: absolute;
-              bottom: 0px;
+              bottom:28px;
               color: #fff;
-              left: 5px;
               font-weight: 500;
-              font-size: .8rem;
+              font-size: 1rem;
             }
 
 
             .bottom-left-media {
-              bottom: 14px;
-              left: 5px;
-              font-size: .7rem;
+              position: absolute;
+              bottom: 10px;
+              font-size: .9rem;
               font-weight: 400;
               padding-right: 0px;
             }
@@ -232,5 +277,3 @@ const City = () => {
 };
 
 export default City;
-
-   

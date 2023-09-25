@@ -26,14 +26,14 @@ const Testimonial = () => {
       <Head>
         <link rel="canonical" href={route.asPath} />
         <title>
-          India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution
+          Client testimonials: Gohoarding | Best outdoor ad agency in India
         </title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+          content="Explore the voices of our very satisfied clients on Gohoardings testimonial page. India's largets outdoor ad agency and best hoarding advertising company."
         />
         <meta
           name="google-site-verification"
@@ -41,7 +41,7 @@ const Testimonial = () => {
         />
         <meta
           name="keywords"
-          content="India&#39s Largest Outdoor Advertising Agency,  Hoarding agency, Outdoor Advertising Company, Bus Advertising, Airport Advertising, OOH Media Agency, Train Advertising, Cab and Autorikshaw Advertising, Digital LED Display Ads, DOOH Advertising, Ad Agency India, Hoarding Advertising Agency Nearby, Multiplex Advertising, Gohoardings is india’s largest Outdoor Advertising Agency"
+          content="gohoardings, best hoarding advertising company, hoardings for sell, outdoor hoarding company, best outdoor advertising company, media buyer company, media buyer agencies in india, ooh advertising, ooh ad agency, best ad agency in india, largest advertising agency in india, bus advertising, airport advertising, metro advertising, transit advertising"
         />
         <meta
           property="og:title"
