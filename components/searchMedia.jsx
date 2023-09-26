@@ -7,7 +7,6 @@ import Citylocation from "../components/cityLocation";
 import { useRouter } from "next/router";
 import styles from "../styles/searchmedia.module.scss";
 import { setCookie } from "cookies-next";
-import Image from "next/image";
 const Searchmedia = () => {
   const [city, setCity] = useState([]);
   const [value, setValue] = useState("");
@@ -70,9 +69,7 @@ const Searchmedia = () => {
             </div>
           </div>
           <div className="col-md-4 text-center p-md-0 d-none d-md-block">
-            <Image
-              width={420}
-              height={370}
+            <img
               alt="home-img"
               src="/images/web_pics/home-img.png"
               className={styles.search_media_img}

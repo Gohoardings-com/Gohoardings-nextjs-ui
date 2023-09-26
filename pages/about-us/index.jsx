@@ -332,13 +332,13 @@ const About = () => {
   #media-img {
     position: relative;
     cursor: pointer;
-    padding-left: 35px;
+    // padding-left: 35px;
   }
   
   #map-img {
     position: relative;
     cursor: pointer;
-    margin-left: 35px;
+    // margin-left: 35px;
     height: 426px;
     width: 390px;
   }

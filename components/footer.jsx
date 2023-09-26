@@ -277,18 +277,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-md-3  col-6   py-md-3">
+          <div className="col-md-3  col-6   py-md-3 pe-0">
             <h4 className="  f-heading">Reach us</h4>
             <ul className=" pt-md-3  ps-0">
               <li className="py-md-2 reach-clr py-md-2 py-1">
-                <FiPhoneCall className="me-3 icon-clr" /> +91 7777871717
+                <FiPhoneCall className="me-md-3 me-1 icon-clr drd" /> +91 7777871717
               </li>
               <li className="py-md-2 reach-clr py-md-2 py-1">
-                <BiMailSend className="me-3 icon-clr" />
+                <BiMailSend className="me-md-3 me-1 icon-clr drd" />
                 info@gohoardings.com
               </li>
               <li className="d-flex reach-clr py-md-3 py-1">
-                <MdLocationOn className="me-3 icon-clr mt-1" />{" "}
+                <MdLocationOn className="me-md-3 me-1 icon-clr mt-1 drd" />{" "}
                 <p className="reach-clr">
                   E-82, Sector 06
                   <br />
@@ -511,16 +511,17 @@ const Footer = () => {
           }
           @media screen and (max-width: 600px) {
             .grid-container1 {
-              width: 190px;
+              width: 45vw;
             }
             .grid-item {
               text-align: start;
             }
             .logo-img {
-              height: 24px;
-              width: 24px;
+              height: 18px;
+              width: 18px;
             }
           }
+
         `}
       </style>
     </>
