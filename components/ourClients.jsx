@@ -17,11 +17,11 @@ const OurClients = () => {
 
   {
     var settings = {
-      infinite: true,
+    
       slidesToShow: 3,
-      slidesToScroll: 2,
-      autoplay: true,
-      speed: 3500,
+      slidesToScroll: 3,
+
+      speed: 1000,
       responsive: [
         {
           breakpoint: 1024,
@@ -44,7 +44,7 @@ const OurClients = () => {
   let slider = settings;
   return (
     <>
-      <div className="container-xxl  container-xl container-lg container-md  mt-5 mt-md-2 mb-md-4  py-5 mb-5 clients ">
+      <div className="container-xxl  container-xl container-lg container-md   mt-md-2 mb-md-4  py-5 mb-0 clients ">
         <section>
           <h2 className="text-center text-nowrap ">
             What Our Clients Say About Us!
@@ -64,11 +64,11 @@ const OurClients = () => {
               </div>
             </div>
           ) : (
-        <>
+        <div className="cards">
           <Slider {...slider}>
             {posts &&
               posts.map((el, i) => (
-                <div className="card m-3" key={i}>
+                <div className="card" key={i}>
                   <div className="card-body">
                     <Image
                       width={50}
@@ -92,7 +92,7 @@ const OurClients = () => {
         
               ))}
           </Slider>
-        </>
+        </div>
        )} 
       </div>
       <style jsx>
@@ -122,17 +122,26 @@ const OurClients = () => {
             border-bottom: 8px #FFF212 solid !important;
             transition: 0.5s;
             border:none;
-            margin: 40px !important;
-            height:245px;
+            margin: 10% !important;
+            height:240px;
             cursor: pointer;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px!important;
              width:300px !important;
           }
-       
+      
 
           @media screen and (max-width:540px) {
-            .clients {
+            h2 {
+              font-size: 1.33rem;
+            }
+            h6 {
               display: none;
+            }
+            .card {
+      
+              margin: 4% !important;
+              height:227px;
+              width:91.8% !important;
             }
           }
         `}

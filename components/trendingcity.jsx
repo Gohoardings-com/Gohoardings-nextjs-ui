@@ -1,28 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
-import { mediaDataApi } from "@/allApi/apis";
+import {TrendingCites} from "@/allApi/mediajson";
 import Loader from "../components/loader";
 
 
 const Trendingcity = () => {
 
-  const [search, setSearch] = useState([]);
-  const [city, setCity] = useState();
-  var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
-  function random_item() {
-    return setCity(items[Math.floor(Math.random() * items.length)]);
-  }
-  const data = async () => {
-    const category_name = "traditional-ooh-media";
-    const city_name = city;
-    const data2 = await  mediaDataApi(category_name, city_name)
-    setSearch(data2)
-  };
-  useEffect(() => {
-    random_item();
-    data();
-  }, [city]);
+  const [search, setSearch] = useState(TrendingCites);
+  // const [city, setCity] = useState();
+  // var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
+  // function random_item() {
+  //   return setCity(items[Math.floor(Math.random() * items.length)]);
+  // }
 
   {
     var settings = {
@@ -48,10 +38,7 @@ const Trendingcity = () => {
   }
 
   let slider = settings;
-  let slice;
-  if (search) {
-    slice = search.slice(0, 8);
-  }
+ 
 
   return (
     <>
@@ -76,8 +63,8 @@ const Trendingcity = () => {
             ) : (
               <>
                 <Slider {...slider}>
-                  {slice &&
-                    slice.map((pos, i) => (
+                  {search &&
+                    search.map((pos, i) => (
                       <div className="container pt-3" key={i}>
                         <div className="row  ">
                           <div className="col p-3 ">

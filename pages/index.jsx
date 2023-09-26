@@ -11,6 +11,7 @@ const Ourservices = dynamic(() => import("@/components/ourServices"));
 const City = dynamic(() => import("@/components/cityList"));
 const Enquire = dynamic(() => import("@/components/enquire/enquire"));
 const OurClients = dynamic(() => import("@/components/ourClients"));
+const TrendingCity = dynamic(() => import("@/components/trendingcity"));
 
 export default function Home() {
   const { asPath } = useRouter();
@@ -81,6 +82,7 @@ export default function Home() {
         <City />
         <Enquire />
         <OurClients />
+        <TrendingCity />
       </main>
     </>
   );
