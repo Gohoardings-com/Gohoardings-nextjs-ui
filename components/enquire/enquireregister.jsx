@@ -40,7 +40,7 @@ const Enquireregister = () => {
 
   return (
     <>
-      <h1 className={styles.txt_clr_tlk}>Talk to us!</h1>
+      <h2 className={styles.txt_clr_tlk}>Talk to us!</h2>
       <h6 className={styles.txt_clr}>*Please fill all the details.</h6>
       <form className='mt-md-4  mt-2 position-relative' onSubmit={onSubmit}>
         <div className="form-group py-md-3 py-1">

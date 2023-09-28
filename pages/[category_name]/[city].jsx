@@ -76,6 +76,7 @@ const Media_content = props.Media_content;
     "airport-media",
     "inflight-media",
     "delhi",
+    "noida",
     "pune",
     "chennai",
     "bengaluru",

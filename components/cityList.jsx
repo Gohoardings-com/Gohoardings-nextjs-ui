@@ -92,9 +92,9 @@ const City = () => {
   return (
     <div className="citylist m-0 mt-4 mt-md-5  py-md-4 ">
       <section>
-        <h1 className="text-center text-nowrap pt-3 pt-md-0">
+        <h2 className="text-center text-nowrap pt-3 pt-md-0">
           Explore your City Listings
-        </h1>
+        </h2>
         <h6 className=" text-center">
           Explore some of the best business from around the
           <br />
@@ -172,7 +172,7 @@ const City = () => {
         .citylist {
           background-color: #ececec;
         }
-        h1 {
+        h2 {
           font-size: 2.2rem;
           font-weight: 700;
           color: #373435;
@@ -228,7 +228,7 @@ const City = () => {
             
             padding: 0px!important ;
           }
-          h1 {
+          h2 {
             font-size: 1.6rem;
           }
           h6 {

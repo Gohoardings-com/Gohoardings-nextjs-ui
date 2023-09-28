@@ -249,10 +249,10 @@ const About = () => {
         </div>
       </section>
       <section>
-        <div className="container-fluid px-5  m-0 p-0 text-center mt-5">
+        <div className="container-fluid px-3  m-0 p-0 text-center mt-5">
           <div>
             <div className="row mt-5 pt-3">
-              <h2 className="mt-2">Meet our happy clients</h2>
+              <h2 className="my-3 mt-md-5">Meet our happy clients</h2>
             </div>
             <div className="grid-container1 mt-3">
               {slice.map((clients, index) => {
@@ -332,13 +332,13 @@ const About = () => {
   #media-img {
     position: relative;
     cursor: pointer;
-    padding-left: 35px;
+    // padding-left: 35px;
   }
   
   #map-img {
     position: relative;
     cursor: pointer;
-    margin-left: 35px;
+    // margin-left: 35px;
     height: 426px;
     width: 390px;
   }
@@ -432,10 +432,11 @@ const About = () => {
     .vision {
       margin-top: 1.2%;
     }
-    .logo-img-a {
-      height: 60px;
-      width: 110px;
-    }
+ 
+      .grid-container1{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+    
     #map-img {
       
       padding-top: 0px;

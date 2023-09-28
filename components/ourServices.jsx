@@ -60,7 +60,7 @@ const Ourservices = () => {
       <div
         className={`${styles.service_content} container-xxl  container-xl container-lg container-md  pt-md-5 pb-md-5 servc`}
       >
-        <h1>Our Services</h1>
+        <h2>Our Services</h2>
         <h6 className="pt-1">
           Choose from below to deliver advertisements in a truly <br />
           exciting, innovative and creative way.
@@ -109,7 +109,7 @@ const Ourservices = () => {
         <section>
           <div className="container-fluid  m-0 ">
             <div className={`row mx-auto ${styles.add_container} text-center`}>
-              <div className="col-3">
+              <div className="col-md-3 col-3 ">
                 <Image
                   width={100}
                   height={100}
@@ -118,15 +118,15 @@ const Ourservices = () => {
                   alt="celebration"
                 />
               </div>
-              <div className="col-6">
+              <div className="col-md-6 col-9" >
                 <span>
-                  <h1 className="mb-0 mb-md-1">Get Your First Ad!</h1>
+                  <h2 className="mb-0 mb-md-1">Get Your First Ad!</h2>
                   <h6 className="pt-1">
                     Boost your business with a free advertisement!*
                   </h6>
                 </span>
               </div>
-              <div className="col-3">
+              <div className="col-md-3 col-12">
                 <span
                   className={`${styles.button_serch} text-white rounded-pill`}
                 >

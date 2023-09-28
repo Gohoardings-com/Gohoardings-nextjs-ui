@@ -330,9 +330,10 @@ display: none;
   }
 }
 
-.enqry {
+.clients {
   .slick-next:before {
     display: none !important;
+  
   }
   .slick-next {
     display: none !important ;
@@ -378,3 +379,9 @@ display: none;
     box-shadow: none !important;
   }
 }
+@media screen and (max-width: 366px) {
+  .drd{
+    display:none!important;
+  }
+}
+
