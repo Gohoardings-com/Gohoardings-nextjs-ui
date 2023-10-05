@@ -26,7 +26,7 @@ export default function Home() {
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="Discover the power of outdoor advertising with GoHoarding, India's leading OOH advertising agency. Your trusted outdoor media company for impactful campaigns."
+          content="We are the largest outdoor advertising agency in India, advertise your brand with the best hoarding company. Get your first OOH advertising solution now."
         />
         <meta
           name="google-site-verification"
