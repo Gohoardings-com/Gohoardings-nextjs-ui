@@ -661,6 +661,9 @@ const Details = (props) => {
             height: 45vh;
           }
         }
+        .detail-container {
+          margin-top: 13%;
+        }  
         
          
 

@@ -16,7 +16,7 @@ export const CityNameImage = [
     value2: false,
     srcImgCtSlc: "/images/web_pics/final/flight.png",
     srcImgCt: "/images/web_pics/final/Grey/flight.png",
-    srcImg: "/images/web_pics/InflightBann.png",
+    srcImg: "/images/web_pics/InflightBann.jpg",
     srcImgM: "/images/web_pics/InflightBanner.png",
     icon: <GiCommercialAirplane/>,  
     link: "inflight-media/",
