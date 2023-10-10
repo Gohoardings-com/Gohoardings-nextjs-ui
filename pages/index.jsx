@@ -1,12 +1,12 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-const NavbarH = dynamic(() => import("@/components/navbar/navbar"));
+import NavbarH from "@/components/navbar/navbar";
 const Floatingnavbar = dynamic(
   () => import("@/components/navbar/flotingnavbar"),
   { ssr: false }
 );
-const Searchmedia = dynamic(() => import("@/components/searchMedia"));
+import Searchmedia from "@/components/searchMedia";
 const Ourservices = dynamic(() => import("@/components/ourServices"));
 const City = dynamic(() => import("@/components/cityList"));
 const Enquire = dynamic(() => import("@/components/enquire/enquire"));

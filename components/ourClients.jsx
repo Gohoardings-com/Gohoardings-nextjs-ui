@@ -17,7 +17,6 @@ const OurClients = () => {
 
   {
     var settings = {
-    
       slidesToShow: 3,
       slidesToScroll: 3,
 
@@ -57,43 +56,47 @@ const OurClients = () => {
           </h6>
         </section>
 
-        {!posts? (
-            <div className=" container ">
-              <div className="row  text-center my-3">
-                <Loader />
-              </div>
+        {!posts ? (
+          <div className=" container ">
+            <div className="row  text-center my-3">
+              <Loader />
             </div>
-          ) : (
-        <div className="cards">
-          <Slider {...slider}>
-            {posts &&
-              posts.map((el, i) => (
-                <div className="card" key={i}>
-                  <div className="card-body">
+          </div>
+        ) : (
+          <div className="cards">
+            <Slider {...slider}>
+              {posts &&
+                posts.map((el, i) => (
+                  <div className="card position-relative" key={i}>
                     <Image
                       width={50}
-                      height={50}
-                      src={
-                        `images/web_pics/user-profile.png`
-                      }
+                      height={40}
+                      className="coma"
+                      src={`images/web_pics/coma.png`}
                       alt="..."
                     />
-                    <h3>{el.name}</h3>
-                    {/* <div className="stars">
+                    <div className="card-body">
+                      <Image
+                        width={50}
+                        height={50}
+                        src={`images/web_pics/user-profile.png`}
+                        alt="..."
+                      />
+                      <h3>{el.name}</h3>
+                      {/* <div className="stars">
                       <BsStarFill />
                       <BsStarFill />
                       <BsStarFill />
                       <BsStarHalf />
                       <BsStar />
                     </div> */}
-                    <p dangerouslySetInnerHTML={{ __html: el.testimony }} />
+                      <p dangerouslySetInnerHTML={{ __html: el.testimony }} />
+                    </div>
                   </div>
-                </div>
-        
-              ))}
-          </Slider>
-        </div>
-       )} 
+                ))}
+            </Slider>
+          </div>
+        )}
       </div>
       <style jsx>
         {`
@@ -107,30 +110,30 @@ const OurClients = () => {
             font-weight: 400;
             color: #373435;
           }
-          h3{
+          h3 {
             font-size: 1rem;
             font-weight: 600;
             color: #373435;
-            margin-top:6px;
+            margin-top: 6px;
           }
-          p{
+          p {
             font-size: small;
             color: #373435;
-           
           }
           .card {
-            border-bottom: 8px #FFF212 solid !important;
+            border-bottom: 8px #fff212 solid !important;
             transition: 0.5s;
-            border:none;
+            border: none;
             margin: 10% !important;
-            height:240px;
+            height: 240px;
             cursor: pointer;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px!important;
-             width:300px !important;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px !important;
+            width: 300px !important;
           }
-      
 
-          @media screen and (max-width:540px) {
+        
+
+          @media screen and (max-width: 540px) {
             h2 {
               font-size: 1.33rem;
             }
@@ -138,10 +141,9 @@ const OurClients = () => {
               display: none;
             }
             .card {
-      
               margin: 4% !important;
-              height:227px;
-              width:91.8% !important;
+              height: 227px;
+              width: 91.8% !important;
             }
           }
         `}

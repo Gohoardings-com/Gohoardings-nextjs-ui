@@ -113,7 +113,7 @@ const Ourservices = () => {
                 <Image
                   width={100}
                   height={100}
-                  src="/images/web_pics/celebration.png"
+                  src="/images/web_pics/celebration.jpg"
                   className={styles.celebration_logo}
                   alt="celebration"
                 />

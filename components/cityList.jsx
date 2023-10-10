@@ -49,42 +49,42 @@ const City = () => {
       city: "Delhi",
       href: "/delhi",
       no: "2493+",
-      src: "/images/web_pics/01-min.png",
+      src: "/images/web_pics/01-min.jpg",
       alt: "outdoor advertising agency in delhi"
     },
     {
       city: "Mumbai",
       href: "/mumbai",
       no: "1716+",
-      src: "/images/web_pics/02-min.png",
+      src: "/images/web_pics/02-min.jpg",
       alt: "outdoor advertising agency in mumbai"
     },
     {
       city: "Bengaluru",
       href: "/bengaluru",
       no: "960+",
-      src: "/images/web_pics/03-min.png",
+      src: "/images/web_pics/03-min.jpg",
       alt: "outdoor advertising agency in banglore"
     },
     {
       city: "Chennai",
       href: "/chennai",
       no: "482+",
-      src: "/images/web_pics/04-min.png",
+      src: "/images/web_pics/04-min.jpg",
       alt: "outdoor advertising agency in chennai"
     },
     {
       city: "Hyderabad",
       href: "/hyderabad",
       no: "897+",
-      src: "/images/web_pics/05-min.png",
+      src: "/images/web_pics/05-min.jpg",
       alt: "outdoor advertising agency in hyderabad"
     },
     {
       city: "Pune",
       href: "/pune",
       no: "429+",
-      src: "/images/web_pics/06-min.png",
+      src: "/images/web_pics/06-min.jpg",
       alt: "outdoor advertising agency in pune"
     },
   ];

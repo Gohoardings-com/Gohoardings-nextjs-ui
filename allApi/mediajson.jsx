@@ -833,7 +833,7 @@ export const TrendingCites = [
       "Billboard-at-Edapalaiyam-Periyamet-in-Chennai-Gohoardings-Solution",
     code: "GOH00T14041",
     thumb:
-      "https://advision.odoads.com/media/advision/media/images/new1568264685_12374.jpg",
+      "../images/web_pics/trending/new1568264685_12374.jpg",
     city_name: "Chennai",
     medianame: "Central railway Station, Chennai",
   },
@@ -843,7 +843,7 @@ export const TrendingCites = [
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16001",
     thumb:
-      "https://advert_communications.odoads.com/media/advert_communications/media/images/new1568265636_95796.jpg",
+      "../images/web_pics/trending/new1568265636_95796.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
   },
@@ -853,7 +853,7 @@ export const TrendingCites = [
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16002",
     thumb:
-      "https://advert_communications.odoads.com/media/advert_communications/media/images/new1568265636_26539.jpg",
+      "../images/web_pics/trending/new1568265636_26539.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
   },
@@ -862,7 +862,7 @@ export const TrendingCites = [
     page_title: "Unipole-at-Mall-Rd-Civil-Lines-in-Kanpur-Gohoardings-Solution",
     code: "GOH00T10087",
     thumb:
-      "https://alakh_advertising.odoads.com/media/alakh_advertising/media/images/new1568264729_61050.jpg",
+      "../images/web_pics/trending/new1568264729_61050.jpg",
     city_name: "Mumbai",
     medianame: "Mall Rd, Mumbai",
   },
@@ -872,7 +872,7 @@ export const TrendingCites = [
       "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16009",
     thumb:
-      "https://advert_communications.odoads.com/media/advert_communications/media/images/new1568265637_14815.jpg",
+      "../images/web_pics/trending/new1568265637_14815.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
   },
@@ -881,7 +881,7 @@ export const TrendingCites = [
     page_title: "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16021",
     thumb:
-      "https://advert_communications.odoads.com/media/advert_communications/media/images/new1568265637_79477.jpg",
+      "../images/web_pics/trending/new1568265637_79477.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
   },
@@ -890,7 +890,7 @@ export const TrendingCites = [
     page_title: "Billboard-at-Laxmi-Narayan-Colony-Garia-in-Kolkata-Gohoardings-Solution",
     code: "GOH00T15761",
     thumb:
-      "https://accord_advertising.odoads.com/media/accord_advertising/media/images/new1568265008_25261.jpg",
+      "../images/web_pics/trending/new1568265008_25261.jpg",
     city_name: "Kolkata",
     medianame: "Garia, Kolkata",
   },
@@ -899,7 +899,7 @@ export const TrendingCites = [
     page_title: "Billboard-at-University-Flyover-Chattushringi-in-Pune-Gohoardings-Solution",
     code: "GOH00T14709",
     thumb:
-      "https://anushka_publicity.odoads.com/media/anushka_publicity/media/images/new1568264723_68288.jpg",
+      "../images/web_pics/trending/new1568264723_68288.jpg",
     city_name: "Pune",
     medianame: "University Road, Pune",
   },

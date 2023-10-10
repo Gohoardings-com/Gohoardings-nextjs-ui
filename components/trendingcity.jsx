@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
-import {TrendingCites} from "@/allApi/mediajson";
+import { TrendingCites } from "@/allApi/mediajson";
 import Loader from "../components/loader";
 
-
 const Trendingcity = () => {
-
   const [search, setSearch] = useState(TrendingCites);
-  // const [city, setCity] = useState();
-  // var items = ["delhi", "mumbai", "bengaluru", "hyderabad", "chennai"];
-  // function random_item() {
-  //   return setCity(items[Math.floor(Math.random() * items.length)]);
-  // }
 
   {
     var settings = {
@@ -23,7 +16,7 @@ const Trendingcity = () => {
       autoplay: true,
       speed: 3500,
       pauseOnHover: true,
-  
+
       responsive: [
         {
           breakpoint: 1024,
@@ -38,7 +31,6 @@ const Trendingcity = () => {
   }
 
   let slider = settings;
- 
 
   return (
     <>
@@ -53,69 +45,48 @@ const Trendingcity = () => {
           </h6>
         </section>
 
-      
-            {!search? (
-              <div className=" container ">
-                <div className="row  text-center my-3">
-                  <Loader />
-                </div>
-              </div>
-            ) : (
-              <>
-                <Slider {...slider}>
-                  {search &&
-                    search.map((pos, i) => (
-                      <div className="container pt-3" key={i}>
-                        <div className="row  ">
-                          <div className="col p-3 ">
-                            <Link
-                              href={`/seedetails/${pos.category_name}/${pos.page_title}/${pos.code}`}
-                            >
-                              <div className="trending-card-img  rounded-2">
-                                <img
-                                  className="rounded-2  trending-cardd "
-                                  key={i}
-                                  alt={pos.mediaownercompanyname}
-                                  src={
-                                    pos.thumb.startsWith("https")
-                                      ? pos.thumb
-                                      : `https://${pos.mediaownercompanyname
-                                          .trim()
-                                          .split(" ")
-                                          .slice(0, 2)
-                                          .join("_")
-                                          .toLowerCase()}.odoads.com/media/${pos.mediaownercompanyname
-                                          .trim()
-                                          .split(" ")
-                                          .slice(0, 2)
-                                          .join("_")
-                                          .toLowerCase()}/media/images/new${
-                                          pos.thumb
-                                        }`
-                                  }
-                                  onError={(e) =>
-                                    (e.target.src =
-                                      "/images/web_pics/alter-img.png")
-                                  }
-                                />
+        {!search ? (
+          <div className=" container ">
+            <div className="row  text-center my-3">
+              <Loader />
+            </div>
+          </div>
+        ) : (
+          <>
+            <Slider {...slider}>
+              {search &&
+                search.map((pos, i) => (
+                  <div className="container pt-3" key={i}>
+                    <div className="row  ">
+                      <div className="col p-3 ">
+                        <Link
+                          href={`/seedetails/${pos.category_name}/${pos.page_title}/${pos.code}`}
+                        >
+                          <div className="trending-card-img  rounded-2">
+                            <img
+                              className="rounded-2  trending-cardd "
+                              key={i}
+                              alt={pos.mediaownercompanyname}
+                              src={pos.thumb}
+                              onError={(e) =>
+                                (e.target.src =
+                                  "/images/web_pics/alter-img.png")
+                              }
+                            />
 
-                                <div className="bottom-left">
-                                  {pos.city_name}
-                                </div>
-                                <div className="bottom-left-media">
-                                  {pos.medianame.substring(0, 20)}...
-                                </div>
-                              </div>
-                            </Link>
+                            <div className="bottom-left">{pos.city_name}</div>
+                            <div className="bottom-left-media">
+                              {pos.medianame.substring(0, 20)}...
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                       </div>
-                    ))}
-                </Slider>
-              </>
-            )}
-         
-     
+                    </div>
+                  </div>
+                ))}
+            </Slider>
+          </>
+        )}
       </div>
       <style jsx>
         {`
@@ -176,7 +147,6 @@ const Trendingcity = () => {
           }
 
           @media screen and (max-width: 1366px) {
-           
             .trending-card-img {
               height: 180px;
               width: 260px;
