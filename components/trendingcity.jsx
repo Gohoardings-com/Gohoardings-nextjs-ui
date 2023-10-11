@@ -66,7 +66,7 @@ const Trendingcity = () => {
                             <img
                               className="rounded-2  trending-cardd "
                               key={i}
-                              alt={pos.mediaownercompanyname}
+                              alt={pos.alt}
                               src={pos.thumb}
                               onError={(e) =>
                                 (e.target.src =

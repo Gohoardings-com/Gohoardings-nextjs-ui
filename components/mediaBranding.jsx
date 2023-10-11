@@ -10,6 +10,7 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
               return (
                 <div key={i}>
                   {" "}
+                  <div className="black-layer"></div>
                   <img src={el.srcImgM} alt="media_img" />
                   <div className="centered">
                     <h1>{el.banner_heading}</h1>
@@ -38,11 +39,21 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
             width: 100%;
             border-radius: 6px;
           }
-
+          .black-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5; // Adjust the opacity as needed
+            z-index: 1; // Make sure it's above the image
+          }
           .centered {
             width: 76vw;
             position: absolute;
             top: 50%;
+            z-index: 5; 
             left: 50%;
             transform: translate(-50%, -50%);
           }

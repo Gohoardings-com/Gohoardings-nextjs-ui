@@ -1,9 +1,10 @@
 import React from "react";
-import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-
-const OverView = ({Media_content,category_name}) => {
-return (
+import { useRouter } from "next/router";
+const OverView = ({ Media_content, category_name }) => {
+  const route = useRouter();
+  const { asPath } = useRouter();
+  return (
     <>
       {Media_content.map((el, i) => {
         if (category_name === el.value) {
@@ -13,7 +14,9 @@ return (
               className="container-xxl  container-xl container-lg container-md  my-5 overview-container"
             >
               <div className="my-5">
-                       <h1 className="fw-bold" style={{fontSize:"1.75rem"}}>{el.body_heading1}</h1>
+                <h3 className="fw-bold" style={{ fontSize: "1.75rem" }}>
+                  {el.body_heading1}
+                </h3>
                 <ul className="my-4">
                   {el.body_content_list.map((data, i) => (
                     <li key={i}>{data.list}</li>
@@ -21,7 +24,13 @@ return (
                 </ul>
               </div>
               <div className="my-5">
-                <h3 className="fw-bold">{el.body_heading2}</h3>
+                <h3 className="fw-bold">
+                
+                  <span >Why</span> {" "}
+                  <span onClick={()=>route.push(asPath)} style={{cursor:"pointer"}}>{el.body_heading2} </span>
+                  <span >Drive up the sales</span>
+               
+                </h3>
                 <h6 className="my-2">{el.body_content2_description_top}</h6>
                 <ul className="my-4">
                   {el.body_content2_list.map((data, i) => (
@@ -55,23 +64,84 @@ return (
                 </ul>
                 <h6 className="my-2">{el.body_content3_description_bottom}</h6>
               </div>
+              <div className="my-5">
+                <h3 className="fw-bold">
+                  {el.body_heading4 && el.body_heading4}
+                </h3>
+                <ul className="my-4">
+                  {el.body_content4_list &&
+                    el.body_content4_list.map((data, i) => (
+                      <li key={i} className="my-2">
+                        <span>{data.list}</span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+              <div className="my-5">
+                <h3 className="fw-bold">
+                  {el.body_heading5 && el.body_heading5}
+                </h3>
+                <ul className="my-4">
+                  {el.body_content5_list &&
+                    el.body_content5_list.map((data, i) => (
+                      <li key={i} className="my-2">
+                        <span>{data.list}</span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+              <div className="my-5">
+                <h3 className="fw-bold">
+                  {el.body_heading6 && el.body_heading6}
+                </h3>
+                <h6 className="my-2">
+                  {el.body_content6_description_top &&
+                    el.body_content6_description_top}
+                </h6>
+                <ul className="my-4">
+                  {el.body_content6_list &&
+                    el.body_content6_list.map((data, i) => (
+                      <li className="my-1" key={i}>{data.list}</li>
+                    ))}
+                </ul>
+              </div>
+              <div className="my-5">
+                <h3 className="fw-bold">{el.body_link && el.body_link}</h3>
+                <h6 className="my-2">
+                  {el.body_content_link_description_top &&
+                    el.body_content_link_description_top}
+                </h6>
+                <ul className="my-4">
+                  {el.body_content_link &&
+                    el.body_content_link.map((data, i) => (
+                      <li
+                      key={i}
+                        className="my-1 link"
+                        onClick={() => route.push("/contact-us")}
+                      >
+                        {data.list}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+
               <section className="my-5">
                 <h3 className="fw-bold">{el.faqs_heading}</h3>
                 {el.faqs_content.map((data, i) => {
                   let abc = "a" + data.id;
                   return (
                     <div className="question-box mt-3" key={i}>
-                      <p
+                      <div
                         className=" toggle-btn p-3 ps-2 mb-0 "
                         data-bs-toggle="collapse"
                         data-bs-target={`#${abc}`}
                       >
                         <h4>
-                          <BsFillCircleFill className="point me-2" />{" "}
+                        
                           {data.faqs_qsn}
                           <IoIosArrowDown className="down float-end" />
                         </h4>
-                      </p>
+                      </div>
                       <div className="collapse" id={abc}>
                         <div className="card-body  pb-1 ps-5 pe-4">
                           <small>{data.faqs_ans}</small>
@@ -122,7 +192,17 @@ return (
           .point {
             color: rgb(168, 162, 162);
           }
-
+          .link {
+            font-weight: 400;
+            width: fit-content;
+            border-bottom: 1.2px solid black;
+            cursor: pointer;
+          }
+          .link:hover {
+            font-weight: 600;
+            width: fit-content;
+            border-bottom: 2px solid black;
+          }
           @media screen and (max-width: 1366px) {
             .toggle-btn h4 {
               font-size: 16px;

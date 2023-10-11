@@ -84,7 +84,12 @@ const Media = (props) => {
     "mumbai",
     "hyderabad",
   ];
-
+  useEffect(() => {
+    CityNameImage.forEach((el) => {
+      el.value2 = el.value === category_name ? true : false;
+    });
+  }, []);
+  
   if (validCategories.includes(category_name)) {
     return (
       <>

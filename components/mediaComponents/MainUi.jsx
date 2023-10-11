@@ -6,6 +6,8 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { MdOutlineLocationOn } from "react-icons/md";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+const Medialogo = dynamic(() => import("@/components/mediaBranding"));
+const OverView = dynamic(() => import("./overView"));
 import {
   addItem,
   removeItem,
@@ -36,8 +38,7 @@ const MainUi = ({
   setValue,
   setFocus,
 }) => {
-  const Medialogo = dynamic(() => import("@/components/mediaBranding"));
-  const OverView = dynamic(() => import("./overView"));
+
   const { addRemove, handleShow } = useContext(AccountContext);
   const [citys, setCity] = useState([]);
 

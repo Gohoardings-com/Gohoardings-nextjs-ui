@@ -12,7 +12,7 @@ export const Media_content = [
       { list: "Mall Media Advertising in India" },
       { list: "Mall Branding in India" },
     ],
-    body_heading2: "Why Mall OOH Media Advertising Drive up the sales",
+    body_heading2: "Mall OOH Media Advertising ",
     body_content2_description_top:
       "Mall OOH (Out-of-Home) media advertising can drive up sales for businesses by leveraging the unique advantages it offers in reaching and engaging with a captive audience within shopping malls. Here are some reasons why mall OOH media advertising is effective in driving sales:",
     body_content2_list: [
@@ -66,6 +66,69 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "By leveraging mall media channels effectively, brands can enhance their visibility, engage with shoppers, and establish a strong brand presence within the mall environment. This not only drives awareness and brand recall but also influences consumer behavior, leading to increased foot traffic, customer engagement, and ultimately, higher sales.",
+
+    body_heading4: "Mall Media Advertising Agency",
+    body_content4_list: [
+      {
+        list: "Engaging a mall media advertising agency can significantly enhance your business's visibility and impact. These agencies specialize in crafting strategic advertisements inside malls, where foot traffic is high.",
+      },
+      {
+        list: "By leveraging their expertise, your brand can captivate a captive audience of shoppers, increasing brand awareness and potential customer engagement. Mall media advertising agencies understand the dynamics of mall environments, allowing them to create compelling campaigns that resonate with shoppers.",
+      },
+      {
+        list: "In today's competitive market, partnering with such an agency can give your business a valuable edge, ensuring that your message reaches a receptive and expansive audience within the bustling mall setting.",
+      },
+    ],
+
+    body_heading5: "Advertising in Malls",
+    body_content5_list: [
+      {
+        list: "Advertising in malls is vital for businesses due to the unique advantages it offers. Mall media marketing provides a direct avenue to engage with a captive audience of shoppers. With foot traffic consistently high, businesses can increase brand visibility and create lasting impressions.",
+      },
+      {
+        list: "Mall advertising allows for creative and impactful campaigns that resonate with consumers in a retail mindset. It also enables businesses to target specific demographics and consumer segments effectively. ",
+      },
+      {
+        list: "Furthermore, malls offer a conducive environment for showcasing products and services, fostering a tangible connection with potential customers. In an era of digital noise, mall advertising provides a physical and memorable brand presence.",
+      },
+      {
+        list: "Ultimately, the importance of advertising in malls lies in its ability to boost brand recognition, drive footfall, and translate consumer interest into sales, making it a strategic choice for businesses seeking to thrive in competitive markets.",
+      },
+    ],
+    body_heading6: "Advertising in Malls Cost",
+    body_content6_list: [
+      {
+        list: "People are always curious about how much does advertising in malls cost. It is simple to answer that it cost of advertising in malls depend upon the factors that where is the mall located, what kind of advertisement in mall you are choosing, the type of advertising space you're interested in, and the duration of your advertising in mall campaign. Typically, mall advertising can be broken down into a few options: ",
+      },
+      {
+        list: "Advertising costs in malls can vary widely depending on several factors, including the location of the mall, the type of advertising space you're interested in, and the duration of your campaign. Typically, mall advertising can be broken down into a few options:",
+      },
+      {
+        list: "Mall Kiosks are small, standalone booths or kiosks within the mall where you can set up your advertising. Mall media advertising rates for renting a kiosk can vary from a few hundred rupees to several thousand dollars per month, depending on the mall's foot traffic and location within the mall.",
+      },
+      {
+        list: "You can also advertise through mall media advertising Banners and posters, or digital screens within the mall. The cost depends on the size of the banner or poster, its location within the mall, and the duration of the display. It can range from a few hundred dollars to several thousand dollars per month.",
+      },
+      {
+        list: "Some malls offer mall events and promotions spaces or opportunities to run promotions and events. The cost for these can vary widely, depending on the nature of the event and the mall's policies.",
+      },
+      {
+        list: "Prices may also fluctuate during peak shopping in seasonal and special advertising in mall, such as the holiday season when mall foot traffic is higher.",
+      },
+      {
+        list: "Since costs can vary so much, it's essential to contact the specific mall or mall management company you're interested in and request a quote. They can provide you with detailed pricing based on your specific advertising needs and objectives.",
+      },
+    ],
+    body_link: "Check the rate of advertising in mall",
+    body_content_link: [
+      { list: "Mall media advertising agency in mumbai" },
+      { list: "Mall media advertising agency in delhi" },
+      { list: "Mall media advertising agency in bengaluru" },
+      { list: "Mall media advertising agency in kolkata" },
+      { list: "Mall media advertising agency in hyderabad" },
+      { list: "Mall media advertising agency in pune" },
+      { list: "Mall media advertising agency in chennai" },
+    ],
     faqs_heading: "FAQ’s about Mall Media Advertising in India",
     faqs_content: [
       {
@@ -121,7 +184,7 @@ export const Media_content = [
       { list: "Transit Media Advertising in India" },
       { list: "Transit Media in India" },
     ],
-    body_heading2: "Why Transit Media Advertising Drive up the sales",
+    body_heading2: "Transit Media Advertising",
     body_content2_description_top:
       "Transit media advertising can drive up sales by leveraging the unique advantages it offers in reaching a diverse and captive audience. Here's how transit media advertising can impact sales:",
     body_content2_list: [
@@ -169,6 +232,49 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "Advertising with transit media offers a cost-effective and impactful way for businesses to promote their products or services. By leveraging the wide reach, targeted marketing, high visibility, dynamic content, and localized opportunities, brands can effectively engage with their target audience, increase brand awareness, and ultimately drive sales.",
+    body_heading4: "Transit Media Advertising",
+    body_content4_list: [
+      {
+        list: "Gohoardings is the the largest outdoor advertising agency for transit media advertising, we are experienced in Transit Media Advertising.",
+      },
+      {
+        list: "Transit media advertising, encompassing bus advertising and metro advertising, is an influential promotional strategy that captivates more audiences. This dynamic form of transit media advertisement leverages the daily commute of millions, turning vehicles into mobile billboards. Transit media advertising agencies play a pivotal role in orchestrating these campaigns.",
+      },
+      {
+        list: "Bus advertising places ads on buses, ensuring widespread exposure as buses traverse city routes. The eye-catching graphics and messages become an integral part of the urban landscape, garnering attention from pedestrians and motorists alike.",
+      },
+      {
+        list: "Metro advertising extends this reach to the underground, engaging commuters during their subway journeys. The confined environment ensures uninterrupted brand visibility.",
+      },
+      {
+        list: "Transit media advertising agencies specialize in planning, designing, and executing these campaigns to maximize impact. Their expertise in selecting optimal routes and targeting specific demographics ensures advertisers achieve the desired results.",
+      },
+      {
+        list: "In the bustling urban hubs of today, transit media advertising remains a vibrant and effective means of reaching a diverse and captive audience.",
+      },
+    ],
+    body_heading5: "Transit Media Branding Agency",
+    body_content5_list: [
+      {
+        list: "Transit media branding, facilitated by transit media advertising agencies, is a strategic approach that transforms vehicles like bus, metros and auto rickshaws into moving billboards.",
+      },
+      {
+        list: "It's a powerful way to engage urban audiences. Branding in metros ensures exposure to a diverse and captive commuter base, while auto rickshaw branding extends this impact to busy streets.",
+      },
+      {
+        list: "These agencies excel in crafting eye-catching campaigns that resonate with target demographics. In today's fast-paced urban environments, transit media branding has emerged as a dynamic and effective method to imprint brands in the minds of commuters.",
+      },
+    ],
+
+    body_link: "Enquire about the transit media advertising rates",
+    body_content_link: [
+      { list: "Advertising in metro" },
+      { list: "Advertising in buses" },
+      { list: "Advertising in auto-rickshaw" },
+      { list: "Advertising in public transport" },
+      { list: "Advertising in cabs" },
+    ],
+
     faqs_heading: "FAQ’s about Transit Media in India",
     faqs_content: [
       {
@@ -253,7 +359,7 @@ export const Media_content = [
       { list: "Airlines Magazine Advertising" },
       { list: "Airlines Advertising Costs" },
     ],
-    body_heading2: "Why Airlines / Inflight Branding Drive up Sales",
+    body_heading2: "Airlines / Inflight Branding",
     body_content2_description_top:
       "In the highly competitive airline industry, effective branding and strategic inflight experiences play a crucial role in driving sales and revenue. At Gohoardings Solution, we understand the power of branding and its impact on airlines' bottom line. Here's why airlines invest in inflight branding to boost their sales:",
     body_content2_list: [
@@ -307,6 +413,17 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "At Gohoardings Solution, we specialize in creating impactful branding strategies for airlines and inflight experiences. Our team of experts understands the unique dynamics of inflight branding and works closely with clients to design memorable and cohesive brand experiences for their passengers.",
+    body_link: "Check the rate of Inflight advertising",
+    body_content_link: [
+      { list: "Inflight advertising agency in mumbai" },
+      { list: "Inflight advertising agency in delhi" },
+      { list: "Inflight advertising agency in bengaluru" },
+      { list: "Inflight advertising agency in kolkata" },
+      { list: "Inflight advertising agency in hyderabad" },
+      { list: "Inflight advertising agency in pune" },
+      { list: "Inflight advertising agency in chennai" },
+    ],
+
     faqs_heading: "FAQ’s about Airlines / Inflight Advertising in India",
     faqs_content: [
       {
@@ -367,7 +484,7 @@ export const Media_content = [
       { list: "Office Branding Activation in India" },
       { list: "Office Media Advertising in India" },
     ],
-    body_heading2: "Why Office Branding Advertising Drive up the sales",
+    body_heading2: "Office Branding Advertising ",
     body_content2_description_top:
       "Office branding advertising can drive up sales by creating a positive and engaging work environment that influences employee productivity and customer perception. Here's how office branding advertising can impact sales:",
     body_content2_list: [
@@ -412,6 +529,17 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "Advertising with office branding offers a unique opportunity to merge marketing efforts with the physical workspace. It creates a consistent brand experience, engages employees, and leaves a lasting impression on clients. By utilizing office branding as an advertising tool, businesses can strengthen their brand presence, increase brand loyalty, and drive business growth.",
+
+    body_link: "Check the rate of Office branding",
+    body_content_link: [
+      { list: "Office branding agency in mumbai" },
+      { list: "Office branding agency in delhi" },
+      { list: "Office branding agency in bengaluru" },
+      { list: "Office branding agency in kolkata" },
+      { list: "Office branding agency in hyderabad" },
+      { list: "Office branding agency in pune" },
+      { list: "Office branding agency in chennai" },
+    ],
     faqs_heading: "FAQ’s about Office Branding in India",
     faqs_content: [
       {
@@ -490,7 +618,7 @@ export const Media_content = [
       { list: "Digital Gantries Advertising" },
       { list: "Digital Unipoles Advertising" },
     ],
-    body_heading2: " Why Digital OOH Media Advertising Drive up the sales ",
+    body_heading2: "Digital OOH Media Advertising  ",
     body_content2_description_top:
       "Digital Out-of-Home (OOH) media advertising has the potential to drive up sales due to several key factors:",
     body_content2_list: [
@@ -541,6 +669,18 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "Branding in digital OOH media allows brands to leverage the power of technology, creativity, and targeted messaging to create impactful and memorable experiences. By utilizing the unique capabilities of digital displays and integrating branding efforts across various digital channels, brands can establish a strong brand presence, engage with audiences, and ultimately drive brand loyalty and business growth.",
+
+    body_link: "Check the rate of Digital OOH media",
+    body_content_link: [
+      { list: "Digital OOH media agency in mumbai" },
+      { list: "Digital OOH media agency in delhi" },
+      { list: "Digital OOH media agency in bengaluru" },
+      { list: "Digital OOH media agency in kolkata" },
+      { list: "Digital OOH media agency in hyderabad" },
+      { list: "Digital OOH media agency in pune" },
+      { list: "Digital OOH media agency in chennai" },
+    ],
+
     faqs_heading: "FAQ’s about Digital OOH Media Advertising in India",
     faqs_content: [
       {
@@ -599,7 +739,7 @@ export const Media_content = [
       { list: "Gantries Advertising" },
       { list: "Uni poles Advertising" },
     ],
-    body_heading2: " Why Traditional OOH Media Advertising Drive up the sales",
+    body_heading2: " Why Traditional OOH Media Advertising ",
     body_content2_description_top:
       "Traditional Out-of-Home (OOH) media advertising can drive up sales through several key mechanisms:",
     body_content2_list: [
@@ -650,6 +790,85 @@ export const Media_content = [
 
     body_content3_description_bottom:
       "Branding in traditional OOH media provides businesses with a tangible and impactful way to showcase their brand identity, deliver consistent messaging, and engage with a wide audience. By leveraging the unique strengths of OOH media, brands can strengthen their market position, increase brand recognition, and ultimately drive consumer preference and sales.",
+
+    body_heading4: "Outdoor Advertising in India",
+    body_content4_list: [
+      {
+        list: "As we talk about outdoor advertising in India, one might mistakenly assume it's exclusively reserved for big brands, leaving small and medium-sized businesses out of the picture.",
+      },
+      {
+        list: "However, this assumption couldn't be farther from the truth. Over the past few years, outdoor advertising in India has evolved to become cost-effective, making it accessible and popular among businesses of all sizes.",
+      },
+      {
+        list: "The traditional billboards that once dominated the landscape have given way to their digital hoardings.This growing trend in Indian outdoor advertising goes by the name of ''digital out-of-home advertising''. It possesses qualities that make it exceptionally attractive, highly visible, and impactful compared to traditional hoarding advertising.",
+      },
+      {
+        list: "For those seeking opportunities in outdoor advertising in India, the initial step involves identifying a proficient outdoor advertising agency capable of seamlessly executing your campaign.",
+      },
+      {
+        list: "Given India's substantial population and the resulting high footfall in various areas, outdoor advertising provides an excellent platform for showcasing your brand.",
+      },
+      {
+        list: "With just one prominent billboard in a high-footfall location, advertisers can reach a vast audience, reaping the benefits of a cost-effective advertising strategy.",
+      },
+    ],
+    body_heading5: "Outdoor Hoarding Advertising",
+    body_content5_list: [
+      {
+        list: "Let's delve into the specifics of outdoor hoarding advertising, a key component of outdoor advertising in India.",
+      },
+      {
+        list: "Outdoor hoarding advertising has stood the test of time, with brands leveraging its potential to execute successful brand awareness campaigns.",
+      },
+      {
+        list: "The terms 'billboards' and 'hoarding are' often used interchangeably in the realm of outdoor advertising. While there may be slight differences in size and placement, billboards and hoardings essentially serve the same promotional purpose.",
+      },
+      {
+        list: "Outdoor hoarding advertising involves strategically placing large displays in high-footfall areas to captivate the public's attention.",
+      },
+      {
+        list: "The goal of outdoor hoarding advertising is to convey your brand's message to potential customers in a manner that leaves a lasting impression.",
+      },
+      {
+        list: "A well-executed outdoor campaign or outdoor hoarding advertising is visually striking and stays in the memory of potential customers, contributing to long-term brand recall.",
+      },
+      {
+        list: "Brands opt for outdoor hoarding advertising because of its potential to deliver high visibility, even though it may come with a price tag. When executed correctly, outdoor hoarding advertising yields handsome returns, making it an unrivaled choice for impactful brand awareness campaigns in India",
+      },
+    ],
+    body_heading6: "Outdoor Ads",
+    body_content6_list: [
+      {
+        list: "In the world of advertising in India, there's an abundance of options for marketers to promote their products or services to the public.",
+      },
+      {
+        list: "Brands often venture into digital advertising, radio, or TV advertising, given the ever-evolving technological landscape of today. Amidst this multitude of choices, one might wonder if outdoor advertising has lost its allure.",
+      },
+
+      {
+        list: "But that's not the case. Outdoor advertising has always been a powerful means for brands to achieve strong visibility. Even today, outdoor ads stand tall and compete vigorously with digital and TV advertising.The enduring appeal of outdoor ads can be attributed to the grand emotions they evoke. Since their inception, outdoor ads have held a special place in the advertising business.",
+      },
+      {
+        list: "While it's true that they require a certain budget threshold, if your brand possesses it, outdoor ads know how to craft a successful brand awareness campaign.",
+      },
+      {
+        list: "The versatility and impact of outdoor ads are truly remarkable. They can be strategically placed in various locations, ensuring your brand gains visibility and leaves a lasting impression on people's minds.",
+      },
+      {
+        list: "In a world filled with advertising options, outdoor advertising in India continues to shine as a compelling choice for marketers.",
+      },
+    ],
+    body_link: "Enquire about the hoarding advertising rates",
+
+    body_content_link: [
+      { list: "Outdoor advertising agency in mumbai" },
+      { list: "Outdoor advertising agency in delhi" },
+      { list: "Outdoor advertising agency in bengaluru" },
+      { list: "Outdoor advertising agency in kolkata" },
+      { list: "Outdoor advertising agency in hyderabad" },
+      { list: "Outdoor advertising agency in pune" },
+      { list: "Outdoor advertising agency in chennai" },
+    ],
     faqs_heading: "FAQ’s about Traditional OOH Media Advertising in India",
     faqs_content: [
       {
@@ -714,7 +933,7 @@ export const Media_content = [
       { list: "Airport Magazine Advertising" },
       { list: "Airport Advertising Costs" },
     ],
-    body_heading2: " Why Airport Advertising Drive up the sales ",
+    body_heading2: "Airport Advertising  ",
     body_content2_description_top:
       "Airport advertising is an effective strategy that can drive up sales for businesses, particularly in the airline industry. When considering airport advertising, various factors come into play, such as airport advertising rates, the choice of the airport advertising company, and the specific location in India, such as Noida, Delhi, Mumbai, Bangalore, Hyderabad, Pune, Kolkata, Jaipur, Coimbatore, Lucknow, Ahmedabad, Guwahati, Goa, Kozhikode, Tirupati, Nagpur, Varanasi, Vishakhapatnam, Tiruchirappalli, Thiruvananthapuram, Patna, and Bhopal.",
     body_content2_list: [
@@ -739,41 +958,98 @@ export const Media_content = [
     ],
     body_content2_description_bottom:
       "To leverage the benefits of airport advertising, businesses can collaborate with airport advertising agencies in prominent Indian cities like Noida, Delhi, Mumbai, Bangalore, Hyderabad, Pune, Kolkata, Jaipur, Coimbatore, Lucknow, Ahmedabad, Guwahati, Goa, Kozhikode, Tirupati, Nagpur, Varanasi, Vishakhapatnam, Tiruchirappalli, Thiruvananthapuram, Patna, and Bhopal. These agencies specialize in airport branding and possess the expertise to create impactful campaigns that resonate with the target audience, thereby driving up sales for businesses.",
+
     body_heading3: "Branding in Airports ",
     body_content3_description_top:
       "Branding in Airports can be very impactful to the audience mind. Where, Travellers and Passengers spend lot of time for waiting in lines, for flights, and for their luggage, there branding in airports are good opportunities to gain the attention.",
     body_content3_list: [
       {
-        list: "Boarding Pass - Boarding pass branding leaves a lasting impression on travelers, reinforcing brand identity, increasing visibility, and fostering loyalty through recognizable logos and colors.",
+        list: "Boarding Pass : Boarding pass branding leaves a lasting impression on travelers, reinforcing brand identity, increasing visibility, and fostering loyalty through recognizable logos and colors.",
       },
       {
-        list: "Conveyor Belts - Airport conveyor belt branding captivates travelers by displaying brand logos, slogans, and designs on luggage carousels, creating a memorable and visually engaging experience.",
+        list: "Conveyor Belts : Airport conveyor belt branding captivates travelers by displaying brand logos, slogans, and designs on luggage carousels, creating a memorable and visually engaging experience.",
       },
       {
-        list: "Display LCD’s - Airport LCD display branding captivates passengers with eye-catching brand logos, promotions, and engaging content, leaving a lasting impression and enhancing brand visibility in high-traffic areas.",
+        list: "Display LCD’s : Airport LCD display branding captivates passengers with eye-catching brand logos, promotions, and engaging content, leaving a lasting impression and enhancing brand visibility in high-traffic areas.",
       },
       {
-        list: "Posters - Airport poster branding grabs attention with captivating visuals, brand logos, and compelling messages, creating a strong brand presence and leaving a lasting impression on travelers passing through the airport.",
+        list: "Posters : Airport poster branding grabs attention with captivating visuals, brand logos, and compelling messages, creating a strong brand presence and leaving a lasting impression on travelers passing through the airport.",
       },
       {
-        list: "Screens - Airport screen branding captures travelers' attention through strategically placed digital displays, showcasing brand logos, promotions, and captivating visuals to create a memorable and engaging advertising experience.",
+        list: "Screens : Airport screen branding captures travelers' attention through strategically placed digital displays, showcasing brand logos, promotions, and captivating visuals to create a memorable and engaging advertising experience.",
       },
       {
-        list: "Wall Printings - Airport wall printings amplify brand presence with eye-catching designs, logos, and messages. They create a visually striking environment, leaving a lasting impression on travelers and reinforcing brand identity.",
+        list: "Wall Printings : Airport wall printings amplify brand presence with eye-catching designs, logos, and messages. They create a visually striking environment, leaving a lasting impression on travelers and reinforcing brand identity.",
       },
       {
-        list: "In Waiting Lounge - Branding in the airport waiting for lounges immerses travelers with captivating visuals, showcasing brand logos, messaging, and designs, enhancing brand recognition and creating a memorable experience.",
+        list: "In Waiting Lounge : Branding in the airport waiting for lounges immerses travelers with captivating visuals, showcasing brand logos, messaging, and designs, enhancing brand recognition and creating a memorable experience.",
       },
       {
-        list: "Meal Trays - Airport meal tray branding creates brand visibility and recognition as travelers are exposed to branded logos, designs, and messages during their in-flight dining experience, leaving a lasting impression.",
+        list: "Meal Trays : Airport meal tray branding creates brand visibility and recognition as travelers are exposed to branded logos, designs, and messages during their in-flight dining experience, leaving a lasting impression.",
       },
       {
-        list: "Boarding Ramps - Boarding ramp branding captivates passengers with impactful brand logos, colors, and messaging, creating a memorable and immersive experience as they embark on their journey.",
+        list: "Boarding Ramps : Boarding ramp branding captivates passengers with impactful brand logos, colors, and messaging, creating a memorable and immersive experience as they embark on their journey.",
       },
     ],
 
     body_content3_description_bottom:
       "Airport Branding prices is depends on the multiple things, The most important thing will be the city where that Airport is located. Fews metro location or cities like - Delhi, Mumbai, Bangalore, an other metro cites get much higher footfalls than other airports hence that increase the airport advertising pricing. ",
+
+    body_heading4:
+      "About Airport Advertising in India and Airline Advertising.",
+    body_content4_list: [
+      {
+        list: "Airline and airport advertising in India has emerged as a relatively recent but promising phenomenon. With the steady rise in the number of airline passengers and airport traffic, unique advertising in airport opportunities have surfaced.",
+      },
+      {
+        list: "Notably, India boasts major airline carriers such as Indigo Airlines, Jet Airways, and Spice Jet, while airports like Delhi T3 Terminal, Mumbai Airport, Bengaluru Airport, and Chennai Airport have become prime locations for airport advertising agency looking to connect with premium passengers.",
+      },
+      {
+        list: "It's essential to note that while advertising costs in airport and execution are typically at the national level, airport advertising costs are city-specific. This distinction provides marketers with the flexibility to engage in both hyperlocal marketing and national advertising campaigns.",
+      },
+      {
+        list: "Not all advertising mediums within airlines and airports come with exorbitant price tags. In-flight advertising, particularly through airline magazines advertising, offers one of the most cost-effective ways to reach airline travelers.",
+      },
+      {
+        list: "In India, two of the most prominent airline magazines available for advertising are Indigo Hello 6E and Jet Wings. When it comes to airport advertising rates and airline advertising costs, you can readily access this information at Gohoardings.",
+      },
+      {
+        list: "Gohoardings stands as a pioneering agency in the realm of airline and airport advertising in India. Through our extensive advertising network in all airports and airlines in the country, we can connect you with the best rates for a wide range of advertising options, both inside airlines and at airports.",
+      },
+    ],
+    body_heading5: "Airport Advertisement.",
+    body_content5_list: [
+      {
+        list: "Advertising in airport serves as a crucial tool for promoting the services of both airports and airlines. With the continual growth in air traffic, there's a growing opportunity to attract more passengers to book flights.",
+      },
+      {
+        list: "To capture their attention, airports employ attention-grabbing billboards with eye-catching advertisements, while airlines utilize in-flight magazines and prominent billboards near airport entrances to showcase their offerings.",
+      },
+      {
+        list: "These airport advertisements serve a dual purpose. They not only entice potential customers but also contribute to keeping airport visitors engaged and entertained throughout their journey. Airport advertising permeates various areast, from the food court to eye-catching airport billboards positioned outside the airport.",
+      },
+      {
+        list: "The array of advertising materials airports use serves diverse objectives, from enticing individuals into particular restaurants to drawing them towards specific airlines.",
+      },
+      {
+        list: "Indeed, airport advertisements are omnipresent within airport premises. They manifest in the form of posters, dynamic displays on TV screens, and through various other media channels. The surge in social media usage has further amplified this presence, as passengers increasingly access it while awaiting their flights or during their stay at the airport.",
+      },
+      {
+        list: "The realm of advertising is experiencing exponential growth, offering a multitude of opportunities for both airport advertising agencies and businesses looking to advertise within airports.",
+      },
+    ],
+    body_link: "Enquire about the airport advertising rates",
+    body_content_link_description_top:
+      "At Gohoardings Solution, we specialize in creating impactful branding strategies for airlines and inflight experiences. Our team of experts understands the unique dynamics of inflight branding and works closely with clients to design memorable and cohesive brand experiences for their passengers. You can use the following links to contact the agency contacts in these cities.",
+    body_content_link: [
+      { list: "Airport advertising agency in mumbai" },
+      { list: "Airport advertising agency in delhi" },
+      { list: "Airport advertising agency in bengaluru" },
+      { list: "Airport advertising agency in kolkata" },
+      { list: "Airport advertising agency in hyderabad" },
+      { list: "Airport advertising agency in pune" },
+      { list: "Airport advertising agency in chennai" },
+    ],
     faqs_heading: "FAQ’s about Traditional OOH Media Advertising in India",
     faqs_content: [
       {
@@ -832,75 +1108,129 @@ export const TrendingCites = [
     page_title:
       "Billboard-at-Edapalaiyam-Periyamet-in-Chennai-Gohoardings-Solution",
     code: "GOH00T14041",
-    thumb:
-      "../images/web_pics/trending/new1568264685_12374.jpg",
+    thumb: "../images/web_pics/trending/new1568264685_12374.jpg",
     city_name: "Chennai",
     medianame: "Central railway Station, Chennai",
+    alt:"top advertising company in chennai"
   },
   {
     category_name: "traditional-ooh-media",
     page_title:
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16001",
-    thumb:
-      "../images/web_pics/trending/new1568265636_95796.jpg",
+    thumb: "../images/web_pics/trending/new1568265636_95796.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
+    alt:"outdoor advertising agency in delhi"
   },
   {
     category_name: "traditional-ooh-media",
     page_title:
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16002",
-    thumb:
-      "../images/web_pics/trending/new1568265636_26539.jpg",
+    thumb: "../images/web_pics/trending/new1568265636_26539.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
+    alt:"hoarding company in delhi"
   },
   {
     category_name: "traditional-ooh-media",
     page_title: "Unipole-at-Mall-Rd-Civil-Lines-in-Kanpur-Gohoardings-Solution",
     code: "GOH00T10087",
-    thumb:
-      "../images/web_pics/trending/new1568264729_61050.jpg",
+    thumb: "../images/web_pics/trending/new1568264729_61050.jpg",
     city_name: "Mumbai",
     medianame: "Mall Rd, Mumbai",
+    alt:"best outdoor advertising agency in mumbai"
   },
   {
     category_name: "traditional-ooh-media",
     page_title:
       "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16009",
-    thumb:
-      "../images/web_pics/trending/new1568265637_14815.jpg",
+    thumb: "../images/web_pics/trending/new1568265637_14815.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
+    alt:"outdoor advertising agency in noida"
   },
   {
     category_name: "traditional-ooh-media",
-    page_title: "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
+    page_title:
+      "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16021",
-    thumb:
-      "../images/web_pics/trending/new1568265637_79477.jpg",
+    thumb: "../images/web_pics/trending/new1568265637_79477.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
+    alt:"hoarding advertising agency in noida"
   },
   {
     category_name: "traditional-ooh-media",
-    page_title: "Billboard-at-Laxmi-Narayan-Colony-Garia-in-Kolkata-Gohoardings-Solution",
+    page_title:
+      "Billboard-at-Laxmi-Narayan-Colony-Garia-in-Kolkata-Gohoardings-Solution",
     code: "GOH00T15761",
-    thumb:
-      "../images/web_pics/trending/new1568265008_25261.jpg",
+    thumb: "../images/web_pics/trending/new1568265008_25261.jpg",
     city_name: "Kolkata",
     medianame: "Garia, Kolkata",
+    alt:"hoarding advertising agency in kolkata"
   },
   {
     category_name: "traditional-ooh-media",
-    page_title: "Billboard-at-University-Flyover-Chattushringi-in-Pune-Gohoardings-Solution",
+    page_title:
+      "Billboard-at-University-Flyover-Chattushringi-in-Pune-Gohoardings-Solution",
     code: "GOH00T14709",
-    thumb:
-      "../images/web_pics/trending/new1568264723_68288.jpg",
+    thumb: "../images/web_pics/trending/new1568264723_68288.jpg",
     city_name: "Pune",
     medianame: "University Road, Pune",
+    alt:"advertising agnecy in pune"
   },
 ];
+
+export const wordCounts=[
+  {id:1,
+    qsn:"What is Gohoardings?",
+    ans:"Gohoardings is an online marketplace for outdoor marketing, advertising agency that connects; media buyers, media agencies & media sellers. Gohoardings is also a comprehensive database for alternative, traditional and digital out-of-home media."
+  },
+  {id:2,
+    qsn:"How do Advertisers benefit from Gohoardings?",
+    ans:"For advertisers, Gohoardings’s online platform offers a convenient and cost efficient way to; plan, buy & manage outdoor advertising campaigns.",
+    ans2:"Gohoardings's online platform provides advertisers with a seamless and cost-effective solution for strategizing, purchasing, and overseeing outdoor marketing campaigns.",
+    ans3:"With its user-friendly interface, data-driven insights, and comprehensive tools, it simplifies the entire process. This efficient platform streamlines campaign planning, ensuring that advertisers can effectively reach their target audience and maximize their marketing efforts.",
+  },
+  {id:3,
+    qsn:"I'm a buyer. How do I buy an advertising placement?",
+    ans:"Create a Media Buyer Account, find the listing you like, then make an offer. Gohoardings outdoor marketing team will then contact you directly. After you have agreed to the deal, the final order and payment are done directly via website."
+  },
+  {id:4,
+    qsn:"Best Advertising Agency in India",
+    ans:"Gohoardings is one of the best advertising agency in India. For past few years we are providing the best advertising solution across 130 cities with more than 1.2 lakh active sites for advertising.",
+    ans2:"Our goal is to develop a comprehensive platform that enables users to efficiently plan, book, and oversee out-of-home advertising campaigns worldwide. We aim to amplify your brand's voice, demonstrate the impact of marketing communication, and establish a strong connection between your brand and its audience.",
+
+  },
+  {id:5,
+    qsn:"Outdoor Advertising Agency",
+    ans2:"Gohoardings is a leading outdoor advertising agency renowned for its successful track record in delivering highly effective campaigns across diverse industries. As an expert outdoor advertising agency, ",
+    ans3:"Gohoardings possesses in-depth knowledge of the outdoor advertising landscape, making it the ideal partner for brands seeking to optimize their reach and impact through various outdoor advertising options.",
+    ans4:"With a strong focus on data-driven strategies and proven results, Gohoardings offers brands the assurance of expert guidance. Whether your goal is to engage a broad and diverse audience or establish a memorable connection with your target demographic, Gohoardings' expertise and experience are poised to help you achieve your objectives.",
+  },
+  {id:6,
+    qsn:"Hoarding Advertising Company in India",
+    ans2:"Gohoardings stands as the premier hoarding advertising company in India. As an esteemed outdoor advertising agency, we specialize in hoarding advertising services",
+    ans3:"With our vast experience and expertise, we deliver impactful campaigns. Our focus on hoardings allows us to provide top-notch solutions to boost your brand's visibility.",
+    ans4:"For the best in outdoor advertising, choose Gohoardings – your trusted hoarding advertising agency in India.",
+  },
+  {id:7,
+    qsn:"What is Digital OOH Advertising",
+    ans2:"Digital Out-of-Home (DOOH) advertising, managed by a digital advertising agency, is an innovative form of marketing that leverages digital screens and technology to display ads in public spaces.",
+    ans3:"These ads can be dynamic, interactive, and highly targeted. Our DOOH advertising agency specialists design and manage campaigns for various screens, such as billboards, transit stations, and malls, enhancing engagement and flexibility.",
+    ans4:"This modern approach enables advertisers to reach their audience in real-time and adapt content quickly. Digital OOH advertising transforms traditional billboards into dynamic, data-driven communication tools, making it a compelling choice for brands looking to captivate audiences on the move.",
+  },
+  {id:8,
+    qsn:"Airport Advertising Agency in India",
+    ans2:"Airport advertising in India, managed by out airport advertising agency, offers a premium platform to showcase your brand. Advertisements are strategically placed in terminals and lounges, ensuring a captive and affluent audience.",
+    ans3:"While airport advertising costs can vary, it's generally a more significant investment compared to other channels, but the impact is substantial. The exposure and prestige associated with advertising in airports make it worthwhile for businesses aiming to reach a high-income demographic and create a lasting impression. It's an excellent choice for brands seeking a premium and exclusive advertising space in India.",
+  },
+  {id:9,
+    qsn:"Hoarding Advertising Cost",
+    ans2:"At Gohoardings we provide the creative hoardings advertising solutions in creative, unique and a very cost-effective way. We provide the budget that suits your campaign and generate greater ROI.",
+    ans3:"Hoarding advertising costs vary widely depending on factors like location, size, and duration. In India, prices can range from a few thousand rupees per day for a small billboard in a less busy area to lakhs for prime city locations. It's essential to consult with our hoarding advertising agency for precise pricing.",
+  }
+]
