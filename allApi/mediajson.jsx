@@ -739,7 +739,7 @@ export const Media_content = [
       { list: "Gantries Advertising" },
       { list: "Uni poles Advertising" },
     ],
-    body_heading2: " Why Traditional OOH Media Advertising ",
+    body_heading2: "Traditional OOH Media Advertising ",
     body_content2_description_top:
       "Traditional Out-of-Home (OOH) media advertising can drive up sales through several key mechanisms:",
     body_content2_list: [

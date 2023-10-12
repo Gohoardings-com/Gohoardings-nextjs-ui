@@ -48,12 +48,13 @@ const Media_content = props.Media_content;
   
 
   const onSearch = async (searchCity) => {
+    const lowercaseCity = searchCity.toLowerCase();
     setIsLoading(true)
     setValue(searchCity);
     const data = await mediaDataApi(category_name, searchCity);
     setSearch(data);
     setFocus(false);
-    router.push(`/${category_name}/${searchCity}`);
+    router.push(`/${category_name}/${lowercaseCity}`);
     setIsLoading(false)
   };
 
@@ -87,7 +88,10 @@ const Media_content = props.Media_content;
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
-  }, []);
+   
+      setValue(city);
+    
+  }, [city]);
   if (validCategories.includes(category_name)) {
     return (
     <>

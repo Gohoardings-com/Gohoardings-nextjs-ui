@@ -7,6 +7,7 @@ import Loader from "@/components/loader";
 import Image from "next/image";
 
 const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
+
   return (
     <>
       {isLoading ? (
@@ -21,6 +22,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
             <div
               className={`${styles.project} mt-2 animate__animated animate__fadeIn`}
               key={i}
+              title={`${item.subcategory} at ${item.medianame}`}
             >
               <div className={`${styles.img_responsive} ${styles.figure}`}>
                 <Link
@@ -59,7 +61,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
                     className="text-decoration-none"
                   >
                     <span className={styles.project_details}>
-                      {item.subcategory} at {item.medianame.substring(0, 6)}...
+                      {item.subcategory} at {item.medianame}
                     </span>
                   </Link>
                   <span className={`${styles.project_creator} mt-2 ms-0`}>

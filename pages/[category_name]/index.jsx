@@ -21,53 +21,6 @@ const Media = (props) => {
   const [search, setSearch] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { category_name } = router.query;
-
-  const SelectServc = async (obj) => {
-    CityNameImage.forEach((el) => {
-      el.value2 = el.value === obj.value ? true : false;
-    });
-    router.push(`/${obj.value}`);
-  };
-
-  const getData = async () => {
-    setIsLoading(true)
-    const noofPage = parseInt(noOfLogo + 3);
-    let data = [];
-    if (category_name) {
-      if (category_name.includes("-")) {
-        data = await mediaApi(category_name, noofPage);
-        setSearch(data);
-        setIsLoading(false)
-      } else {
-        data = await getCityDataApi(category_name);
-        setSearch(data);
-        setIsLoading(false)
-      }
-    }
-  };
-
-  const apiforFillters = async () => {
-    setIsLoading(true)
-    const data = await mediaApi(category_name, noOfLogo);
-    setMediadata(data);
-    setlocationData(data);
-    setcategoryData(data);
-    setIsLoading(false)
-  };
-
-  useEffect(() => {
-    getData();
-    apiforFillters();
-  }, [category_name, noOfLogo]);
-
-  const onSearch = async (searchCity) => {
-    
-    setValue(searchCity);
-    setFocus(false);
-    router.push(`/${category_name}/${searchCity}`);
-  };
-  let city = "";
-
   const validCategories = [
     "traditional-ooh-media",
     "digital-media",
@@ -84,12 +37,72 @@ const Media = (props) => {
     "mumbai",
     "hyderabad",
   ];
+
+  const SelectServc = async (obj) => {
+    CityNameImage.forEach((el) => {
+      el.value2 = el.value === obj.value ? true : false;
+    });
+    if (validCategories.slice(0, 7).includes(category_name)) {
+      router.push(`/${obj.value}`);
+    } else {
+      router.push(`/${obj.value}/${category_name}`);
+    }
+  };
+
+  const getData = async () => {
+    setIsLoading(true);
+    const noofPage = parseInt(noOfLogo + 3);
+    let data = [];
+    if (category_name) {
+      if (category_name.includes("-")) {
+        data = await mediaApi(category_name, noofPage);
+        setSearch(data);
+        setIsLoading(false);
+      } else {
+        data = await getCityDataApi(category_name);
+        setSearch(data);
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const apiforFillters = async () => {
+    setIsLoading(true);
+    const data = await mediaApi(category_name, noOfLogo);
+    setMediadata(data);
+    setlocationData(data);
+    setcategoryData(data);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    getData();
+    apiforFillters();
+  }, [category_name, noOfLogo]);
+
+  const onSearch = async (searchCity) => {
+    const lowercaseCity = searchCity.toLowerCase();
+    setValue(searchCity);
+    setFocus(false);
+    if (validCategories.slice(0, 6).includes(category_name)) {
+      router.push(`/${category_name}/${lowercaseCity}`);
+    } else {
+      router.push(`/${lowercaseCity}`);
+    }
+  };
+
+  let city = "";
+
   useEffect(() => {
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
+
+    if (validCategories.slice(7, 14).includes(category_name)) {
+      setValue(category_name);
+    }
   }, []);
-  
+
   if (validCategories.includes(category_name)) {
     return (
       <>
@@ -199,8 +212,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "digital-media",
-      page_titel:
-        "Digital Hoarding Advertising Solutions by Gohoardings",
+      page_titel: "Digital Hoarding Advertising Solutions by Gohoardings",
       page_decri:
         "Digital Hoarding Advertising Solutions by the best outdoor advertising agency Gohoardings - Your Partner for Effective Digital Media Advertising Services.",
       meta_keyword:
@@ -227,8 +239,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "transit-media",
-      page_titel:
-        "Best Transit Media Advertising Agency | Gohoardings",
+      page_titel: "Best Transit Media Advertising Agency | Gohoardings",
       page_decri:
         "Discover the Power of Transit Advertising with Gohoardings - Best Transit Advertising Company! Transform your marketing strategy with our bus advertising solutions.",
       meta_keyword:
@@ -245,8 +256,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "inflight-media",
-      page_titel:
-        "Inflight Media: Airline Advertising in India | GoHoardings",
+      page_titel: "Inflight Media: Airline Advertising in India | GoHoardings",
       page_decri:
         "Gohoardings: India's Best Airline Advertising Agency – Explore Effective Outdoor Advertising Solutions Nationwide. Get Airline Magazine Advertising in India",
       meta_keyword:
@@ -263,8 +273,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "hyderabad",
-      page_titel:
-        "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
+      page_titel: "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
       page_decri:
         "Experience Excellence with Gohoardings: Hyderabad's Top Outdoor Advertising Agency. Maximize Your Brand's Impact. Contact Us Today",
       meta_keyword:
@@ -272,8 +281,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "pune",
-      page_titel:
-        "Gohoarding the best outdoor advertising agency in Pune",
+      page_titel: "Gohoarding the best outdoor advertising agency in Pune",
       page_decri:
         "Elevate Your Brand with Gohoarding, the Top Outdoor Advertising Agency in Pune. Experience Excellence in Outdoor Promotion. Contact Us Today",
       meta_keyword:
@@ -290,8 +298,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "chennai",
-      page_titel:
-        "Top Outdoor Advertising Agency in Chennai | Gohoardings",
+      page_titel: "Top Outdoor Advertising Agency in Chennai | Gohoardings",
       page_decri:
         "Elevate Your Brand with the Top Outdoor Advertising Agency in Chennai. Discover Effective Outdoor Marketing Solutions. Contact Us Today",
       meta_keyword:
@@ -299,8 +306,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "bengaluru",
-      page_titel:
-        "Outdoor Advertising Agency in Bangalore | Gohoardings",
+      page_titel: "Outdoor Advertising Agency in Bangalore | Gohoardings",
       page_decri:
         "Discover the Best Outdoor Advertising Agency in Bangalore - Gohoardings. Elevate your brand with our innovative outdoor ad solutions in the vibrant city.",
       meta_keyword:
@@ -314,7 +320,7 @@ Media.getInitialProps = async ({ req, res }) => {
         "Gohoardings provides the best sites for hoarding advertising, transit advertising, mall media advertising. We the one of the best advertising agency in Noida.",
       meta_keyword:
         "gohoardings, advertising agency in noida, advertising company in noida, hoarding company in noida, outdoor advertising agency in noida, best ad agency in noida, ad agency in noida, top ad agency, top advertisign agency, bus advertising agency, hoarding sites in noida, hoarding ads, mall media advertising, hoarding advertiser in noida",
-    }
+    },
   ];
   const { Media_content } = await import("@/allApi/mediajson");
   return {
