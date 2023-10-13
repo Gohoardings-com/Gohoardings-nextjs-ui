@@ -7,12 +7,14 @@ const Floatingnavbar = dynamic(
   { ssr: false }
 );
 import Searchmedia from "@/components/searchMedia";
+
 const Ourservices = dynamic(() => import("@/components/ourServices"));
 const City = dynamic(() => import("@/components/cityList"));
 const Enquire = dynamic(() => import("@/components/enquire/enquire"));
 const OurClients = dynamic(() => import("@/components/ourClients"));
 const TrendingCity = dynamic(() => import("@/components/trendingcity"));
 const WordCounts = dynamic(() => import("@/components/wordCounts"));
+const WelcomeForm  = dynamic(() => import("@/components/welcomeForm"));
 
 export default function Home() {
   const { asPath } = useRouter();
@@ -85,6 +87,7 @@ export default function Home() {
         <OurClients />
         <TrendingCity />
         <WordCounts/>
+        <WelcomeForm/>
       </main>
     </>
   );
