@@ -23,7 +23,8 @@
   border-bottom-right-radius: 0px;
 }
 
-.wrapper {
+.wrapper,
+.wrapperWelcome {
   position: relative;
   height: 100%;
   width: 100%;
@@ -31,7 +32,8 @@
   background-image: linear-gradient(to right, #616161, #363636);
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
-  .opacitydiv {
+  .opacitydiv,
+  .opacitydivWelcome {
     border: 1px ridge rgb(220, 220, 220);
     position: absolute;
     top: 9%;
@@ -39,7 +41,7 @@
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter:blur(5px) ;
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     height: 80%;
     width: 80%;
@@ -70,15 +72,19 @@
     height: 75%;
     position: fixed;
     top: 25%;
-    left:3%;
+    left: 3%;
   }
-
+  .img_responsiveWelcome {
+    height: 75%;
+    position: fixed;
+    top: 25%;
+    left: 16%;
+  }
   .img_responsive2 {
     height: 60%;
     position: fixed;
     top: 40%;
     left: 3.3%;
-    
   }
 }
 
@@ -172,5 +178,14 @@
   .otp_icon {
     height: 20px;
     width: 25px;
+  }
+  .opacitydivWelcome {
+    top: 9%;
+    left: 9%;
+  }
+
+  .wrapperWelcome {
+    height: 322px !important;
+    min-height: 320px !important;
   }
 }

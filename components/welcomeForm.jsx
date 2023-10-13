@@ -1,29 +1,95 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "../styles/login.module.scss";
+import { toast } from "react-toastify";
 import Image from "next/image";
+import { enquiryApi } from "@/allApi/apis";
 const WelcomeForm = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [welcomeForm, setWelcomeForm] = useState({
     name: "",
     email: "",
-    number: "",
+    phone: "",
     message: "",
   });
-
-
   const handleChange = (e) => {
     setWelcomeForm({ ...welcomeForm, [e.target.name]: e.target.value });
   };
   const handleClose = () => {
     setShow(false);
+    localStorage.setItem("forceClosed", "true");
   };
   const handleShow = () => {
     setShow(true);
   };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+    for (const key in welcomeForm) {
+      if (!welcomeForm[key]) {
+        toast(`Please fill in the ${key.replace(/_/g, " ")} field.`);
 
-  const onSubmit = async (e) => {};
-console.log(welcomeForm);
+        return;
+      }
+      if (key === "phone" && welcomeForm[key].length < 10) {
+        toast(
+          `Please enter a valid ${key.replace(
+            /_/g,
+            " "
+          )} with at least 10 digits.`
+        );
+        return;
+      }
+      if (key === "email" && !isValidEmail(welcomeForm[key])) {
+        toast(`Please enter a valid email address.`);
+        return;
+      }
+    }
+    const data = await enquiryApi(
+      welcomeForm.name,
+      welcomeForm.email,
+      welcomeForm.phone,
+      welcomeForm.message
+    );
+
+    if (data.success == true) {
+      toast("Thanks,our expert will contact you soon!");
+      setShow(false);
+      localStorage.setItem("forceClosed", "false");
+    }
+  };
+
+  useEffect(() => {
+    // Check if the flag is present in localStorage
+    const formClosed = localStorage.getItem("forceClosed");
+
+    if (!formClosed) {
+      // Show the modal after 6 seconds
+      const timeoutId = setTimeout(() => {
+        handleShow();
+      }, 6000);
+
+      // Cleanup the timeout on component unmount
+      return () => clearTimeout(timeoutId);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Handle cleanup when the user closes the browser
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("forceClosed");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
   return (
     <>
       <Modal
@@ -33,8 +99,8 @@ console.log(welcomeForm);
         centered
       >
         <div className="lgn">
-          <div className=" d-flex">
-            <div className="col-md-6 p-4 m-0">
+          <div className="row">
+            <div className="col-md-6 p-4 m-0 col-12">
               <div
                 className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}
               >
@@ -75,8 +141,8 @@ console.log(welcomeForm);
                         type="number"
                         className="form-control ps-0 rounded-0"
                         placeholder="012 3456 789"
-                        name="number"
-                        value={welcomeForm.number}
+                        name="phone"
+                        value={welcomeForm.phone}
                         onChange={handleChange}
                       />
                     </div>
@@ -99,22 +165,22 @@ console.log(welcomeForm);
                         className="btn w-100 message-btn"
                         role="button"
                       >
-                        Submit
+                        SUBMIT
                       </button>
                     </div>
                   </form>
                 </>
               </div>
             </div>
-            <div className="col-md-6 ">
-              <div className={styles.wrapper}>
+            <div className="col-md-6 col-12">
+              <div className={styles.wrapperWelcome}>
                 <button
                   className="float-end m-1 close-btn"
                   onClick={handleClose}
                 >
                   x
                 </button>
-                <div className={`${styles.opacitydiv} rounded-4 `}>
+                <div className={`${styles.opacitydivWelcome} rounded-4 `}>
                   <div className={`${styles.title} pt-3 ps-4  `}>
                     <h2>
                       Get The Best Advertising <br />
@@ -125,7 +191,7 @@ console.log(welcomeForm);
                     width={500}
                     height={500}
                     src="/images/web_pics/login1.png"
-                    className={styles.img_responsive}
+                    className={`${styles.img_responsiveWelcome} img-fluid`}
                     alt="Registraion"
                   />
                 </div>
@@ -150,6 +216,9 @@ console.log(welcomeForm);
             -moz-box-shadow: none !important;
             box-shadow: none !important;
           }
+          .message-btn {
+            letter-spacing: 1px;
+          }
           .message-btn:hover {
             background-color: #373435;
             color: #fff212;
@@ -162,6 +231,19 @@ console.log(welcomeForm);
             font-size: 14px;
           }
           @media screen and (max-width: 540px) {
+            .row {
+              flex-direction: column;
+            }
+      
+            /* Adjust the styles for the first column */
+            .col-md-6.p-4.m-0.col-12 {
+              order: 2; /* Change the order */
+            }
+      
+            /* Adjust the styles for the second column */
+            .col-md-6.col-12 {
+              order: 1; /* Change the order */
+            }
             .txt-clr-tlk {
               color: #373435;
               font-size: 1.6rem;
@@ -176,6 +258,9 @@ console.log(welcomeForm);
             .message-btn {
               font-size: 0.9rem;
             }
+      h2{
+        font-size: 1.4rem!important;
+      }
           }
         `}
       </style>

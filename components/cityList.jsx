@@ -222,7 +222,9 @@ const City = () => {
           z-index: 2;
         }
 
-
+        .img-text-container {
+          position: relative;
+        } 
 @media screen and (max-width: 540px) {
           #citygh{
             
@@ -245,9 +247,7 @@ const City = () => {
             margin: 0px ;
           }
    
-          .img-text-container {
-            position: relative;
-          } 
+        
 
             .bottom-left {
               position: absolute;
