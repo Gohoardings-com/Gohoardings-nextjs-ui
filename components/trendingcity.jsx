@@ -46,8 +46,8 @@ const Trendingcity = () => {
         </section>
 
         {!search ? (
-          <div className=" container ">
-            <div className="row  text-center my-3">
+          <div className="container ">
+            <div className="row text-center my-3">
               <Loader />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useRouter } from "next/router";
@@ -9,35 +9,32 @@ import { removeCookies, setCookie } from "cookies-next";
 import Image from "next/image";
 import instance from "@/allApi/axios";
 
-
 const NavbarH = () => {
   const route = useRouter();
   const { handleClose, handleShow } = useContext(AccountContext);
-  const getMap = async() => {
-    const { data } = await instance.get(`forgetPass`)
-    if(data.message == "InValid Token"){
-      handleShow()
-    }else{
+  const getMap = async () => {
+    const { data } = await instance.get(`forgetPass`);
+    if (data.message == "InValid Token") {
+      handleShow();
+    } else {
       removeCookies("page_title");
       removeCookies("state_name");
 
-      route.push("/map");    
+      route.push("/map");
     }
   };
-  const Userdetail  = dynamic(() => import("./userdetail"),{
-    ssr:false
+  const Userdetail = dynamic(() => import("./userdetail"), {
+    ssr: false,
   });
-
 
   return (
     <div>
-
       <Navbar expand={`lg px-md-0 pb-0 ${styles.fixd_nabar} sdsd`}>
         <div className="navbar container-xxl  container-xl container-lg container-md">
           <Navbar.Brand>
             <Image
-                             width={223}
-                             height={42}
+              width={223}
+              height={42}
               src="/images/web_pics/logo.png"
               className={styles.rand_logo}
               alt="gohoardings"
@@ -62,12 +59,12 @@ const NavbarH = () => {
               </Nav.Link>
               <Nav.Link
                 className={`me-3  me-md-0   ${styles.nav_text_btn}  text-center`}
-                onClick={() =>route.push("/contact-us")}
+                onClick={() => route.push("/contact-us")}
               >
                 Contact
               </Nav.Link>
 
-             <Nav.Link
+              <Nav.Link
                 className={`ms-2  me-md-0   ${styles.nav_text_btn}  text-center`}
                 onClick={getMap}
               >

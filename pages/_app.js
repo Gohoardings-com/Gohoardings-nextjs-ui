@@ -27,7 +27,7 @@ function App({ Component, pageProps, session }) {
           <Mobilenav />
           <Component {...pageProps} />
         </SessionProvider>
-        <Footer />
+        {/* <Footer /> */}
       </AccountProvider>
     </SSRProvider>
   );
