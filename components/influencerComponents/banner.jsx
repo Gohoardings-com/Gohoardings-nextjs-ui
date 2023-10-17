@@ -9,7 +9,7 @@ const Banner = () => {
     var settings = {
       // dots: true,
       infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 2,
       slidesToScroll: 1,
       autoplay: true,
       speed: 3000,
@@ -27,17 +27,17 @@ const Banner = () => {
         },
       ],
     };
-  } 
+  }
 
   let slider = settings;
   return (
     <div className={styles.influencer_media_content}>
       <div
-        className={`container-xxl  container-xl container-lg container-md mb-4  ms-xs-3`}
+        className={`container-xxl  container-xl container-lg container-md mb-md-4  ms-xs-3`}
       >
-        <div className="row mt-5 mt-md-0">
+        <div className="row mt-md-5 mt-md-0">
           <div className="col-md-5 ps-2 ps-md-0">
-            <div className={`${styles.heading_text} mt-4`}>
+            <div className={`${styles.heading_text} `}>
               <h1>
                 EMBRACING ALL LIFE STAGES
                 <br /> THROUGH A MEDIA-FUELED NETWORK.
@@ -61,37 +61,14 @@ const Banner = () => {
           </div>
           <div
             className="col-md-7  p-md-0 d-none d-md-block position-relative"
-            style={{ marginTop: "25%" }}
+            style={{ marginTop: "5%" }}
           >
-            <div className="ps-md-4">
-              <Slider {...slider}>
-                {search &&
-                  search.map((pos, i) => (
-                    <div className="container" key={i}>
-                      <div className="row">
-                        <div className="col">
-                          <img
-                            className="rounded-2  trending-cardd "
-                            key={i}
-                            alt={pos.alt}
-                            src={pos.thumb}
-                            onError={(e) =>
-                              (e.target.src = "/images/web_pics/alter-img.png")
-                            }
-                          />
-                          {/* <div className="bottom-left-media">
-                              {pos.medianame.substring(0, 20)}...
-                            </div> */}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </Slider>
-            </div>
+            {/* <video width="400" height="400" className="float-end" autoPlay loop>
+              <source src="/images/web_pics/vff.mp4" type="video/mp4" />
+            </video> */}
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

@@ -385,4 +385,7 @@ export const goh_testimonialsApi = async () => {
   return data
 }
 
-
+export const influencer_enquiry = async ( name, email, phone, profile, niche, charges ) => {
+  const { data } = await instance.post("influencer", {  name, email, phone, profile, niche, charges });
+  return data
+}

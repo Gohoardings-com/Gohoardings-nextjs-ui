@@ -61,7 +61,6 @@ const WelcomeForm = () => {
       localStorage.setItem("forceClosed", "false");
     }
   };
-
   useEffect(() => {
     // Check if the flag is present in localStorage
     const formClosed = localStorage.getItem("forceClosed");

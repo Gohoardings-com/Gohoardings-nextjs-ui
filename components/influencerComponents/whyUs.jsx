@@ -35,10 +35,12 @@ const WhyUs = () => {
   ];
   return (
     <>
-      <div className={`container-xxl  container-xl container-lg container-md my-md-5`}>
+      <div
+        className={`container-xxl  container-xl container-lg container-md my-md-5 my-4`}
+      >
         <div className="row">
-            <h2>Influencer’s Platforms</h2>
-          <div className="influencer-platform my-md-5">
+          <h2>Influencer’s Platforms</h2>
+          <div className="influencer-platform my-md-5 my-4">
             {logo.map((e, i) => (
               <p key={i} className="my-0 logo-img">
                 <Image
@@ -46,43 +48,71 @@ const WhyUs = () => {
                   height={120}
                   src={e.img}
                   alt={e.alt}
-                  className="img-fluid "
+                  className="img-fluid"
                 />
               </p>
             ))}
           </div>
         </div>
-        <div className="row my-md-5">    
-        <h2>Why choose Gohoardings.com</h2>  
-         <div className="col-md-4">
-       <div className="card why-card my-md-5">
-
-       </div>
-       <div className="card why-card my-md-5">
-
-       </div>
-         </div>
-         <div className="col-md-4">
-         <Image
-                  width={500}
-                  height={500}
-                  src={"/images/web_pics/whyus.png"}
-                  alt="whyus"
-                  className="img-fluid "
-                />
-         </div>
-         <div className="col-md-4">
-         <div className="card why-card my-md-5">
-
-</div>
-<div className="card why-card my-md-5">
-
-</div>
-         </div>
+        <div className="row my-md-5 my-4">
+          <h2>Why choose Gohoardings.com</h2>
+          <div className="col-md-4">
+            <div className="card why-card my-md-5 my-3 p-2">
+              <h5>Branding At Its Best</h5>
+              <p>
+                Boosting brand recognition through the utilization of influence
+                marketing with reach and established credibility.
+              </p>
+            </div>
+            <div className="card why-card my-md-5 my-3 p-2">
+              <h5>Higher Engagement Rate</h5>
+              <p>
+                The audience gets more engaged and feels more connected with
+                their favorite influencer
+              </p>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <Image
+              width={500}
+              height={500}
+              src={"/images/web_pics/whyus.png"}
+              alt="whyus"
+              className="img-fluid "
+            />
+          </div>
+          <div className="col-md-4">
+            <div className="card why-card my-md-5 my-3 p-2">
+              <h5>Targeted Audience</h5>
+              <p>
+                You can do the marketing and advertising to the specified and
+                targeted audience by doing influencer marketing
+              </p>
+            </div>
+            <div className="card why-card my-md-5 my-3 p-2">
+              <h5>Minimum Cost Maximum Result</h5>
+              <p>
+                Enhance your influencer marketing campaign with. Boost brand
+                visibility in your budget
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <style jsx>
         {`
+          h5 {
+            font-size: 1rem;
+            line-height: 1;
+            letter-spacing: 0.9px;
+            color: #323d47;
+          }
+          p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #4c4545;
+            letter-spacing: 0.6px;
+          }
           h2 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -94,15 +124,21 @@ const WhyUs = () => {
             justify-content: space-between;
             align-items: center;
           }
-          .logo-img{
+          .logo-img {
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           }
-          .why-card{
-            height:110px;
+          .why-card {
+            height: 110px;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            
           }
-
+          @media screen and (max-width: 540px) {
+            h2 {
+              font-size: 1.6rem;
+            }
+            .influencer-platform {
+              gap: 10px;
+            }
+          }
         `}
       </style>
     </>

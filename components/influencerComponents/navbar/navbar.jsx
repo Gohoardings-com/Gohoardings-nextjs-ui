@@ -27,13 +27,7 @@ const Navbar = () => {
               Our Creators
             </button>
 
-            <button
-              className="search-btn  btn-fill"
-              type="button"
-              // onClick={() => router.push("/login")}
-            >
-              Contact us
-            </button>
+     
           </form>
         </div>
       </nav>
@@ -41,7 +35,7 @@ const Navbar = () => {
       <style jsx>
         {`
           .navbar {
-            background-color: #000000;
+            background-color: #212121;
             padding: 0.7vw 8.2vw;
           }
 
@@ -66,7 +60,7 @@ const Navbar = () => {
 
             background-color: #FFF212;
             border: transparent;
-            color:#000000;
+            color:#212121;
            
           }
 
@@ -79,12 +73,12 @@ const Navbar = () => {
             padding: 0.4rem 1rem;
             background: transparent;
             border: 2.5px solid #FFF212;
-            margin-right: 2.3rem;
+          
           }
           .btn-line:hover {
             background-color: #FFF212;
             box-shadow: 0 1px 10px rgba(248, 249, 250, 0.4);
-            color:#000000;
+            color:#212121;
           }
 
           @media screen and (max-width: 768px) {

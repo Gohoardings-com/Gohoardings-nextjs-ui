@@ -14,20 +14,22 @@ const OurInfluencer = () => {
       id: 1,
       img: "/images/web_pics/insta.png",
       alt: "instagram",
+      tag: "followers",
     },
     {
       id: 2,
       img: "/images/web_pics/facebook.png",
       alt: "Facebook",
+      tag: "followers",
     },
     {
       id: 3,
       img: "/images/web_pics/youtube.png",
       alt: "youtube",
+      tag: "subscriber",
     },
   ];
   const directlink = (categoryId) => {
-    console.log(categoryId);
     const updatedCategories = categories.map((category) => ({
       ...category,
       selected: category.id === categoryId,
@@ -58,10 +60,10 @@ const OurInfluencer = () => {
               ))}
             </form>
 
-            <div className="all-influencer pt-md-5">
-              <div className="card my-2" style={{ width: "18rem" }}>
+            <div className="all-influencer pt-md-5 pe-0">
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -76,14 +78,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -98,14 +100,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -120,14 +122,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -142,14 +144,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -164,14 +166,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -186,14 +188,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -208,14 +210,14 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="card my-2" style={{ width: "18rem" }}>
+              <div className="card my-2" style={{ width: "19rem" }}>
                 <img
-                  className="card-img-top"
+                  className="card-img-top card-img"
                   src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
                   alt="Card image cap"
                 />
@@ -230,20 +232,19 @@ const OurInfluencer = () => {
                         alt={e.alt}
                         className="img-fluid logo-img"
                       />{" "}
-                      {e.alt} : 845k Followers
+                      {e.alt} : 845k {e.tag}
                     </p>
                   ))}
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
       <style jsx>
         {`
           .influencer {
-            background-color: #000000;
+            background-color: #f1f1f1;
           }
           .search-btn {
             letter-spacing: 0.5px;
@@ -253,24 +254,28 @@ const OurInfluencer = () => {
             -webkit-transition: 0.15s linear;
             transition: 0.25s linear;
           }
-
+          .card-img {
+            height: 250px;
+          }
           .btn-line-filter {
-            color: #fff212;
+            color: #212121;
             padding: 0.4rem 1rem;
             background: transparent;
-            border: 2.5px solid #fff212;
+            border: none;
             margin: 1rem;
             font-weight: 600;
           }
           .btn-line-filter:hover {
             background-color: #fff212;
-            box-shadow: 0 1px 10px rgba(248, 249, 250, 0.4);
-            color: #000000;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            color: #212121;
           }
           .btn-line-filter[aria-expanded="true"] {
             background-color: #fff212;
-            box-shadow: 0 1px 10px rgba(248, 249, 250, 0.4);
-            color: #000000;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            color: #212121;
           }
           .all-influencer {
             display: flex;
@@ -284,7 +289,13 @@ const OurInfluencer = () => {
             flex-basis: calc(
               25% - 1.2rem
             ); /* Set the initial size for four cards in a row */
+
+            /* Adjust styles for screens 768px or smaller */
+            @media (max-width: 768px) {
+              flex-basis: calc(100% - 1.2rem); /* Show one card in a row */
+            }
           }
+
           .card-body {
             background-color: #fff212;
           }
@@ -300,6 +311,23 @@ const OurInfluencer = () => {
             color: #00000;
 
             font-weight: 800;
+          }
+          .nav-search {
+            border-bottom: 1.8px solid gray;
+            // width:fit-content;
+          }
+          @media (max-width: 768px) {
+            .btn-line-filter {
+              padding: 0.4rem 0.6rem;
+
+              margin: 0.4rem;
+            }
+            .search-btn {
+              
+              font-size: 0.8rem;
+              
+          
+            }
           }
         `}
       </style>

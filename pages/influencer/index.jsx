@@ -1,4 +1,6 @@
 import Banner from '@/components/influencerComponents/banner';
+import ContactUs from '@/components/influencerComponents/contactUs';
+import FaqsInfluencer from '@/components/influencerComponents/faqs';
 import Navbar from '@/components/influencerComponents/navbar/navbar';
 import Floatingnavbar from '@/components/influencerComponents/navbar/navbar-float';
 import OurClients from '@/components/influencerComponents/ourClients';
@@ -15,6 +17,8 @@ const Index = () => {
       <OurClients/>
       <OurInfluencer/>
       <WhyUs/>
+      <ContactUs/>
+      <FaqsInfluencer/>
     </>
   );
 }
