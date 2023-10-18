@@ -26,3 +26,21 @@ exports.influencerForm = catchError(async (req, res, next) => {
       .json({ success: true, message: "Thanks, we will contact you soon!" });
   }
 });
+
+exports.influencerAll = catchError(async (req, res, next) => {
+  try {
+    const result = await executeQuery(
+      `SELECT * FROM goh_influencer`,
+      "gohoardi_goh",
+      next
+    );
+
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ error: "Data not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
+});

@@ -36,11 +36,11 @@ const Banner = () => {
         className={`container-xxl  container-xl container-lg container-md mb-md-4  ms-xs-3`}
       >
         <div className="row mt-md-5 mt-md-0">
-          <div className="col-md-5 ps-2 ps-md-0">
+          <div className="col-md-5  ps-md-0">
             <div className={`${styles.heading_text} `}>
               <h1>
-                EMBRACING ALL LIFE STAGES
-                <br /> THROUGH A MEDIA-FUELED NETWORK.
+                Boost your brand
+                <br /> identity with us.
               </h1>
               <h6 className="pt-2">
                 Social Media Presence Simplified Explore
@@ -48,7 +48,7 @@ const Banner = () => {
                 Platforms. Check Engagement. Elevate Online.
               </h6>
             </div>
-            <div className={`${styles.mnc} mt-4 ms-2 ms-md-0`}>
+            <div className={`${styles.mnc} mt-4  ms-md-0`}>
               <a className="text-decoration-none">
                 <button
                   className={`${styles.button}`}
@@ -61,11 +61,16 @@ const Banner = () => {
           </div>
           <div
             className="col-md-7  p-md-0 d-none d-md-block position-relative"
-            style={{ marginTop: "5%" }}
+            style={{overflow:"hidden"}}
           >
-            {/* <video width="400" height="400" className="float-end" autoPlay loop>
-              <source src="/images/web_pics/vff.mp4" type="video/mp4" />
-            </video> */}
+            <img
+              src={"/images/web_pics/influencer_marketing2.png"}
+              className="float-end"
+              style={{
+                width: "90%",
+                height: "92%",
+              }}
+            />
           </div>
         </div>
       </div>

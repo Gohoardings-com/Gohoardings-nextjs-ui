@@ -47,7 +47,7 @@ const OurClients = () => {
 
   return (
     <div
-      className={`container-xxl  container-xl container-lg container-md `}
+      className={`container-xxl  container-xl container-lg container-md `} 
     >
       <div className="row">
         <section

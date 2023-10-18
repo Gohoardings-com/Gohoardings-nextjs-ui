@@ -19,7 +19,7 @@ const CampaignForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    const message=`${formData.companyName},${formData.launchDate},${formData.budget}`
+    const message=`For influencer marketing - company: ${formData.companyName},launch date: ${formData.launchDate},budget: ${formData.budget}`
 
     e.preventDefault();
     

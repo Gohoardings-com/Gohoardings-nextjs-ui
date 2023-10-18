@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { influencerAll } from "@/allApi/apis";
 const OurInfluencer = () => {
+  const [posts, setPosts] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [categories, setCategories] = useState([
     { id: 1, category: "All", selected: true },
     { id: 2, category: "Celebrities", selected: false },
@@ -9,37 +12,47 @@ const OurInfluencer = () => {
     { id: 5, category: "Food Bloggers", selected: false },
   ]);
 
-  const logo = [
-    {
-      id: 1,
-      img: "/images/web_pics/insta.png",
-      alt: "instagram",
-      tag: "followers",
-    },
-    {
-      id: 2,
-      img: "/images/web_pics/facebook.png",
-      alt: "Facebook",
-      tag: "followers",
-    },
-    {
-      id: 3,
-      img: "/images/web_pics/youtube.png",
-      alt: "youtube",
-      tag: "subscriber",
-    },
-  ];
-  const directlink = (categoryId) => {
+  const getInfluencer = async () => {
+    const data = await influencerAll();
+    setPosts(data);
+    setFilterData(data);
+  };
+  const directlink = (selectedCategory) => {
+    const formattedSelectedCategory = selectedCategory
+      .toLowerCase()
+      .replace(/\s/g, "");
+
+    if (formattedSelectedCategory === "all") {
+      setFilterData(posts);
+    } else {
+      const data = posts.filter(
+        (post) =>
+          post.category.toLowerCase().replace(/\s/g, "") ===
+          formattedSelectedCategory
+      );
+      setFilterData(data);
+    }
+
     const updatedCategories = categories.map((category) => ({
       ...category,
-      selected: category.id === categoryId,
+      selected:
+        formattedSelectedCategory === "all"
+          ? category.category.toLowerCase().replace(/\s/g, "") ===
+            formattedSelectedCategory
+          : category.category.toLowerCase().replace(/\s/g, "") ===
+            formattedSelectedCategory,
     }));
+
     setCategories(updatedCategories);
   };
 
+  useEffect(() => {
+    getInfluencer();
+  }, []);
+
   return (
     <>
-      <div className="influencer py-4">
+      <div className="influencer py-4" id="influencer">
         <div
           className={`container-xxl  container-xl container-lg container-md `}
         >
@@ -52,7 +65,7 @@ const OurInfluencer = () => {
                   type="button"
                   aria-expanded={category.selected}
                   onClick={() => {
-                    directlink(category.id);
+                    directlink(category.category);
                   }}
                 >
                   {category.category}
@@ -61,182 +74,58 @@ const OurInfluencer = () => {
             </form>
 
             <div className="all-influencer pt-md-5 pe-0">
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="card my-2" style={{ width: "19rem" }}>
-                <img
-                  className="card-img-top card-img"
-                  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
-                  alt="Card image cap"
-                />
-                <div className="card-body text-center py-2 ">
-                  <h6 className="">Badshaa</h6>
-                  {logo.map((e, i) => (
-                    <p key={i} className="my-0">
-                      <Image
-                        width={15}
-                        height={15}
-                        src={e.img}
-                        alt={e.alt}
-                        className="img-fluid logo-img"
-                      />{" "}
-                      {e.alt} : 845k {e.tag}
-                    </p>
-                  ))}
-                </div>
-              </div>
+              {filterData && filterData.length > 0 ? (
+                filterData.map((data, i) => (
+                  <div className="card my-2" style={{ width: "19rem" }} key={i}>
+                    <img
+                      className="card-img-top card-img card-img"
+                      // src={data.image}
+                      src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
+                      alt="Card image cap"
+                    />
+                    <div className="card-body text-center py-2 ">
+                      <h6 className="">{data.name}</h6>
+
+                      <p className="my-0">
+                        <Image
+                          width={15}
+                          height={15}
+                          src="/images/web_pics/insta.png"
+                          alt="/images/web_pics/insta.png"
+                          className="img-fluid logo-img"
+                        />{" "}
+                        {data.instagram_id} : {data.instagram_follower}+
+                        Followers
+                      </p>
+                      <p className="my-0">
+                        <Image
+                          width={15}
+                          height={15}
+                          src="/images/web_pics/facebook.png"
+                          alt="/images/web_pics/facebook.png"
+                          className="img-fluid logo-img"
+                        />{" "}
+                        {data.facebook_id} : {data.facebook_follower} +
+                        Followers
+                      </p>
+                      <p className="my-0">
+                        <Image
+                          width={15}
+                          height={15}
+                          src="/images/web_pics/youtube.png"
+                          alt="/images/web_pics/youtube.png"
+                          className="img-fluid logo-img"
+                        />{" "}
+                        {data.youtube_id} : {data.youtube_follower}+ Followers
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <h6 className="text-center w-100">
+                  No Influencer in this category{" "}
+                </h6>
+              )}
             </div>
           </div>
         </div>
@@ -323,10 +212,7 @@ const OurInfluencer = () => {
               margin: 0.4rem;
             }
             .search-btn {
-              
               font-size: 0.8rem;
-              
-          
             }
           }
         `}

@@ -1,8 +1,9 @@
 import nc from 'next-connect'
 import error from '@/server/utils/error'
-import { influencerForm } from '@/server/controller/influencer'
+import { influencerAll, influencerForm} from '@/server/controller/influencer'
 
 
 const handler = nc({error})
   handler.post(influencerForm)
+  handler.get(influencerAll)
 export default handler

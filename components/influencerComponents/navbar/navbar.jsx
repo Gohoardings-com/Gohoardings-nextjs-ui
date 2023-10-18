@@ -21,7 +21,7 @@ const Navbar = () => {
               className="search-btn  btn-line "
               type="button"
               onClick={() => {
-                router.push("/property_owner_login");
+                router.push("#influencer");
               }}
             >
               Our Creators
