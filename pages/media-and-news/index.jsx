@@ -56,10 +56,6 @@ const Newsmedia = () => {
           content="Gohoardings: Your Premier Hoarding Company in India. Stay Informed with News and Media Updates. Elevate Your Outdoor Advertising Strategy Today"
         />
         <meta property="og:type" content="en_US" />
-        <meta
-          property="og:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta property="og:url" href={`https://www.gohoardings.com${asPath}`} />
         <meta property="og:property" content="en_US" />
         <meta
@@ -75,10 +71,6 @@ const Newsmedia = () => {
           content="Gohoardings: Your Premier Hoarding Company in India. Stay Informed with News and Media Updates. Elevate Your Outdoor Advertising Strategy Today"
         />
         <meta property="twitter:type" content="en_US" />
-        <meta
-          property="twitter:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta
           property="twitter:url"
           href={`https://www.gohoardings.com${asPath}`}

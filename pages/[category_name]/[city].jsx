@@ -106,10 +106,6 @@ const Media_content = props.Media_content;
                 />
                 <title>{el.page_titel}</title>
                 <meta charSet="utf-8" />
-                <link
-                  rel="icon"
-                  href="https://www.gohoardings.com/assets/images/favicon.png"
-                />
                 <meta
                   name="viewport"
                   content="width=device-width, initial-scale=1"
