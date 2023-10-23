@@ -79,8 +79,7 @@ const OurInfluencer = () => {
                   <div className="card my-2" style={{ width: "19rem" }} key={i}>
                     <img
                       className="card-img-top card-img card-img"
-                      // src={data.image}
-                      src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRI6GEdIYKyo5c6mKox3DP1o6auiKDmzlOKJ5F5EpoS0J-Oty1u"
+                      src={data.image}
                       alt="Card image cap"
                     />
                     <div className="card-body text-center py-2 ">
@@ -95,7 +94,6 @@ const OurInfluencer = () => {
                           className="img-fluid logo-img"
                         />{" "}
                         {data.instagram_id} : {data.instagram_follower}+
-                        Followers
                       </p>
                       <p className="my-0">
                         <Image
@@ -106,7 +104,6 @@ const OurInfluencer = () => {
                           className="img-fluid logo-img"
                         />{" "}
                         {data.facebook_id} : {data.facebook_follower} +
-                        Followers
                       </p>
                       <p className="my-0">
                         <Image
@@ -116,7 +113,7 @@ const OurInfluencer = () => {
                           alt="/images/web_pics/youtube.png"
                           className="img-fluid logo-img"
                         />{" "}
-                        {data.youtube_id} : {data.youtube_follower}+ Followers
+                        {data.youtube_id} : {data.youtube_follower}+ 
                       </p>
                     </div>
                   </div>
