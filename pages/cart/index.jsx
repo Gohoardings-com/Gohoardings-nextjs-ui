@@ -505,7 +505,7 @@ const Cart = () => {
                           <Image
                            width={500}
                            height={500}
-                            src="/images/web_pics/celebration.png"
+                            src="/images/web_pics/celebration.jpg"
                             className={`${styles.celebration_logo} w-50 h-50`}
                             alt="celebration"
                           />

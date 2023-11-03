@@ -77,7 +77,7 @@ const alldata = async (data, next) => {
             }
             promises.push(
                 new Promise(async (reject, resolve) => {
-                    const result = await executeQuery("SELECT media.code, media.meta_title, media.illumination, media.page_title,media.meta_keywords,media.meta_descriptions ,media.subcategory FROM  " + table_name + " AS media WHERE media.code='" + obj.mediaid + "'", "gohoardi_goh", next)
+                    const result = await executeQuery("SELECT media.code, media.illumination, media.page_title,media.subcategory FROM  " + table_name + " AS media WHERE media.code='" + obj.mediaid + "'", "gohoardi_goh", next)
                  if (!result) {
                         reject(result);
                     } else {

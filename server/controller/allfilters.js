@@ -230,7 +230,7 @@ exports.mapMarkersData = catchError(async(req,res, next) => {
     return res.send(JSON.parse(value))
   }else{
     const positions = "WHERE  media.latitude BETWEEN  '" + SouthLat + "' AND  '" + NorthLat + "' &&  media.longitude BETWEEN  '" + SouthLong  + "'  AND  '" + NorthLong + "'"
-    const data2 = "media.id, media.illumination, media.height, media.meta_keywords,media.meta_descriptions,media.width,media.ftf,media.code, media.latitude, media.longitude,media.page_title,media.mediaownercompanyname,media.price, media.thumb, media.category_name, media.meta_title, media.subcategory, media.medianame, media.price, media.city_name" 
+    const data2 = "media.id, media.illumination, media.height,media.width,media.ftf,media.code, media.latitude, media.longitude,media.page_title,media.mediaownercompanyname,media.price, media.thumb, media.category_name, media.subcategory, media.medianame, media.price, media.city_name" 
   const  sql = await executeQuery("SELECT "+data2+" FROM goh_media as media "+positions+" UNION SELECT "+data2+" FROM goh_media_digital as media "+positions+" UNION SELECT "+data2+" FROM goh_media_transit as media "+positions+" UNION SELECT "+data2+" FROM goh_media_mall as media "+positions+" UNION SELECT "+data2+" FROM goh_media_airport as media "+positions+" UNION SELECT "+data2+" FROM goh_media_inflight as media "+positions+" UNION SELECT "+data2+" FROM goh_media_office as media "+positions+"","gohoardi_goh",next)
             if (sql) {
               client.setEx(key, process.env.REDIS_TIMEOUT,JSON.stringify(sql))
