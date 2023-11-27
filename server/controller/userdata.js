@@ -1,6 +1,7 @@
 const {executeQuery} =  require('../conn/conn')
 const catchError = require('../middelware/catchError');
 const redis = require('redis');
+const axios = require('axios');
 const client = redis.createClient()
     client.connect()
 
@@ -104,4 +105,52 @@ const alldata = async (data, next) => {
     } catch (err) {
         return err
     }
+}
+
+const WEBHOOK_SECRET = '7650c3b9224b7e059a7eab393f39ee3a8f5a74f129a9f5cebd7dde04a4f317090316b0b8428833d464d7269578a4eb4a';
+const crypto = require('crypto');
+function verifySignature (body, signature) {
+  if (typeof body !== 'string') {
+    body = JSON.stringify(body);
+  }
+
+    const digest = crypto
+        .createHmac('sha1', WEBHOOK_SECRET)
+        .update(body)
+        .digest('hex');
+    return signature === digest;
+};
+
+exports.tawkto = catchError(async (req, res, next) => {
+	const { visitor } = req.body;
+	const text = req.body.message.text;
+	const phoneRegex = /Phone : (\d+)/;
+	const match = text.match(phoneRegex);
+	let phoneNumber;
+	if (match && match[1]) {
+  	phoneNumber = match[1];
+	} else {
+  	phoneNumber = 1234567890;
+	}
+  if (!verifySignature(req.body, req.headers['x-tawk-signature'])) {
+    const q = `INSERT into enquiry (name, email, phone, message) VALUES ('name','email@email.com',9765432356,'error')`;
+    const result = await executeQuery(q, "gohoardi_goh", next);
+    res.send("error");
+  } else {
+    const result = sendtawktolead(visitor.name,visitor.email,phoneNumber,visitor.city);
+    res.send(result);
+  }
+});
+
+function sendtawktolead (name,email,phone,city) {
+	const url = `https://rocket.gohoardings.com/test?name=${name}&email=${email}&phone=${phone}&city=${city}`;
+    axios.get(url)
+    .then((response) => {
+        console.log(response.data);
+        return true;
+    })
+    .catch((error) => {
+        console.error('Axios error:', error.message);
+        return false
+    });
 }
