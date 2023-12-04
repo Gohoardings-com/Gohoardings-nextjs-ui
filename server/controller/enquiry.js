@@ -5,19 +5,23 @@ const ErrorHandle = require("../utils/Errorhandler");
 
 exports.message = catchError(async (req, res, next) => {
   const { name, email, phone, message } = req.body;
-  const sql = await executeQuery(
-    "INSERT into enquiry (name, email, phone, message) VALUES ('" +
-      name +
-      "', '" +
-      email +
-      "','" +
-      phone +
-      "','" +
-      message +
-      "')",
-    "gohoardi_goh",
-    next
-  );
+  const row =  await executeQuery('SELECT id,assigned FROM tblleads WHERE source = 3 order by id desc limit 0,1',"gohoardi_crmapp",next)
+  const lastAssigned = row[0].assigned;
+  
+  let assign;
+
+  if (lastAssigned == 7) {
+    assign = 40;
+  } else if (lastAssigned == 40) {
+    assign = 46;
+  } else if (lastAssigned == 46) {
+    assign = 40;
+  } else {
+    assign = 40;
+  }  
+
+  const query = "insert into tblleads set name='"+name+"',addedfrom=0,phonenumber='"+phone+"',description = '"+message+"',email='"+email+"',source=3,status=2,assigned='"+assign+"',dateadded=NOW(),dateassigned=NOW()";
+  const sql = await executeQuery(query,"gohoardi_crmapp",next);
   if (sql) {
     return res
       .status(200)

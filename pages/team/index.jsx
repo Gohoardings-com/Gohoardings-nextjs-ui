@@ -29,18 +29,14 @@ const Team = () => {
           href={`https://www.gohoardings.com${route.asPath}`}
         />
         <title>
-          Team - Outdoor Advertising Agency in India | Gohoardings.com
+          Meet the team of top outdoor advertising agency. Gohoardings
         </title>
         <meta charSet="utf-8" />
-        <link
-          rel="icon"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
+          content="Meet our team of Gohoardings Solutions LLP, We help you get the best advertising services for your brand to get the best results for your advertising solutions."
         />
         <meta
           name="google-site-verification"
@@ -62,10 +58,6 @@ const Team = () => {
         />
         <meta property="og:type" content="en_US" />
         <meta
-          property="og:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
-        <meta
           property="og:url"
           href={`https://www.gohoardings.com${route.asPath}`}
         />
@@ -83,10 +75,6 @@ const Team = () => {
           content="India’s finest outdoor hoardings media agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
         />
         <meta property="twitter:type" content="en_US" />
-        <meta
-          property="twitter:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta
           property="twitter:url"
           href={`https://www.gohoardings.com${route.asPath}`}

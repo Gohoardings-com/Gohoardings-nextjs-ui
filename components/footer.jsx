@@ -233,6 +233,15 @@ const Footer = () => {
                     Privacy Policy
                   </p>
                 </li>
+                  <li className="py-md-2 text-decoration-none ">
+                    {" "}
+                    <p
+                      onClick={() => route.push("/refund-policy")}
+                      className=" f-heading-clr mb-0"
+                    >
+                      Refund Policy
+                    </p>
+                  </li>
               </span>
             </ul>
           </div>

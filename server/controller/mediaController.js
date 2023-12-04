@@ -37,7 +37,7 @@ exports.state_name = catchError(async (req, res, next) => {
 
             const names = resultArray.map((row) => row.id);
 
-            const data = "mediaownercompanyname, thumb, category_name, meta_title, page_title,subcategory, medianame, price, location, state, city_name, width, height, foot_fall, illumination, latitude, longitude, meta_title, meta_keywords,meta_descriptions" 
+            const data = "mediaownercompanyname, thumb, category_name, page_title,subcategory, medianame, price, location, state, city_name, width, height, foot_fall, illumination, latitude, longitude" 
             const query = "SELECT * FROM (" +
             "SELECT "+data+" FROM goh_media WHERE city IN ("+names+") " +
             "UNION " +
@@ -203,7 +203,7 @@ exports.mediaData = catchError(async (req, res, next) => {
 
 exports.getCityData = catchError(async (req,res, next) => {
     const {city} = req.body;
-        const data = "mediaownercompanyname, thumb, category_name, meta_title, page_title,subcategory, medianame, price, meta_keywords, meta_descriptions,code" 
+        const data = "mediaownercompanyname, thumb, category_name, page_title,subcategory, medianame, price, code" 
        const result  =  await executeQuery("SELECT "+data+" FROM goh_media WHERE city_name = '" + city + "' UNION SELECT "+data+" FROM goh_media_digital WHERE city_name = '" + city + "' UNION SELECT "+data+" FROM goh_media_transit WHERE city_name = '" + city + "' UNION SELECT "+data+" FROM goh_media_mall WHERE city_name = '" + city + "' UNION SELECT "+data+" FROM goh_media_airport WHERE city_name = '" + city + "'","gohoardi_goh",next)
             if(result){
                 // client.setEx(key,process.env.REDIS_TIMEOUT,JSON.stringify(result))

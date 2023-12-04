@@ -58,7 +58,7 @@ const Details = (props) => {
     }
   };
   const mapData = async (item) => {
-    setCookie("page_title", item.meta_title);
+    setCookie("page_title", item.page_title);
     setCookie("item_code", item.code);
     router.push("/map");
   };
@@ -175,18 +175,18 @@ const Details = (props) => {
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content={item.meta_descriptions} />
+          <meta name="description" content={item.page_title.replace(/-/g, " ")} />
           <meta
             name="google-site-verification"
             content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
           />
-          <meta name="keywords" content={item.meta_keywords} />
+          <meta name="keywords" content={item.page_title.replace(/-/g, " ")} />
           <meta
             property="og:title"
             content={item.page_title.replace(/-/g, " ")}
           />
           <meta property="og:siteName" content={item.medianame} />
-          <meta property="og:description" content={item.meta_descriptions} />
+          <meta property="og:description" content={item.page_title.replace(/-/g, " ")} />
           <meta property="og:type" content="en_US" />
           <meta property="og:image" href={item.thumb} />
           <meta
@@ -201,7 +201,7 @@ const Details = (props) => {
           <meta property="twitter:siteName" content={item.medianame} />
           <meta
             property="twitter:description"
-            content={item.meta_descriptions}
+            content={item.page_title.replace(/-/g, " ")}
           />
           <meta property="twitter:type" content="en_US" />
           <meta property="twitter:image" href={item.thumb} />

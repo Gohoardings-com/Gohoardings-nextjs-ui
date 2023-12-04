@@ -173,7 +173,7 @@ exports.product = catchError(async (req, res, next) => {
 
 exports.latlongdata = catchError(async (req, res, next) => {
   const { lat, long } = req.body;
-  const data = `id,illumination,height, width,ftf,code, latitude, longitude,mediaownercompanyname,price, thumb, meta_keywords, meta_descriptions,category_name, meta_title, subcategory, medianame,price,city_name,page_title,  ( 3959 * acos(cos( radians( ${lat} ) ) *cos( radians( latitude ) ) *cos(radians( longitude ) - radians( ${long} )) +sin(radians(${lat})) *sin(radians(latitude)))) distance`;
+  const data = `id,illumination,height, width,ftf,code, latitude, longitude,mediaownercompanyname,price, thumb,category_name, subcategory, medianame,price,city_name,page_title,  ( 3959 * acos(cos( radians( ${lat} ) ) *cos( radians( latitude ) ) *cos(radians( longitude ) - radians( ${long} )) +sin(radians(${lat})) *sin(radians(latitude)))) distance`;
   const sql = await executeQuery(
     "SELECT " +
       data +

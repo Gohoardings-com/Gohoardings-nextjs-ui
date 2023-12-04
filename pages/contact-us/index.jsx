@@ -88,10 +88,6 @@ const Contact = () => {
           content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
         />
         <meta property="og:type" content="en_US" />
-        <meta
-          property="og:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta property="og:url" href={`https://www.gohoardings.com${asPath}`} />
         <meta property="og:property" content="en_US" />
         <meta
@@ -107,10 +103,6 @@ const Contact = () => {
           content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
         />
         <meta property="twitter:type" content="en_US" />
-        <meta
-          property="twitter:image"
-          href="https://www.gohoardings.com/assets/images/favicon.png"
-        />
         <meta
           property="twitter:url"
           href={`https://www.gohoardings.com${asPath}`}
