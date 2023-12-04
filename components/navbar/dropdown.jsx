@@ -12,21 +12,19 @@ const NavbarDropdown = () => {
     { text: "News & Media", href: "/media-and-news" },
     { text: "Contact", href: "/contact-us" },
     { text: "Testimonials", href: "/testimonial" },
-    { text: "Blogs", href: "https://blog.gohoardings.com/",taget:"_blank"  },
-    { text: "FAQs", href: "/faqs" }
+    { text: "Blogs", href: "https://blog.gohoardings.com/", taget: "_blank" },
+    { text: "FAQs", href: "/faqs" },
   ];
-  
 
   const directlink = (e) => {
     setCookie("category_name", e);
     setCookie("city_name", "delhi");
-  
+
     CityNameImage.forEach((el) => {
       el.value2 = el.value === e ? true : false;
     });
     route.push(`/${e}`);
   };
-  
 
   return (
     <>
@@ -83,7 +81,8 @@ const NavbarDropdown = () => {
                     <Link
                       href={e.href}
                       className="text-decoration-none text-light"
-                    target={e.taget && e.taget}>
+                      target={e.taget && e.taget}
+                    >
                       {e.text}
                     </Link>
                   </li>

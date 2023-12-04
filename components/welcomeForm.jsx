@@ -229,7 +229,7 @@ const WelcomeForm = () => {
             opacity: 0.6;
             font-size: 14px;
           }
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 720px) {
             .row {
               flex-direction: column;
             }

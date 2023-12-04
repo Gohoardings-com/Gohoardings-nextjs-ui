@@ -171,7 +171,7 @@ const Profile = () => {
           border-radius: 50%;
       }
         }
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: 720px) {
           .card-img-top{
             width: 30vw;
           }

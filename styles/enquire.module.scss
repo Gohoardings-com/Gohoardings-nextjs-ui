@@ -45,7 +45,7 @@
       transform: translateY(-5px);
     }
   }
-  @media screen and (max-width: 540px) {
+  @media screen and (max-width: 720px) {
     .gridContainer{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr ;
@@ -152,7 +152,7 @@
     }
   }
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 720px) {
   .our_clients_content {
     .trending_cardd {
       width: 100px !important;

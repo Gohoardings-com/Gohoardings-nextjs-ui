@@ -54,7 +54,7 @@ const OurInfluencer = () => {
     <>
       <div className="influencer py-4" id="influencer">
         <div
-          className={`container-xxl  container-xl container-lg container-md `}
+          className={`container-xxl  container-xl container-lg container-md`}
         >
           <div className="row">
             <form className="nav-search text-center">

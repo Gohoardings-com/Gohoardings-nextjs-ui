@@ -159,7 +159,7 @@ label {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 720px) {
 
   .txt-clr-tlk {
       color: #373435;

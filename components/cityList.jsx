@@ -229,7 +229,7 @@ const City = () => {
         .img-text-container {
           position: relative;
         } 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 720px) {
           #citygh{
             
             padding: 0px!important ;

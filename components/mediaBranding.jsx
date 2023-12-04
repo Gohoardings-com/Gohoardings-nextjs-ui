@@ -82,7 +82,7 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
               font-size: 1rem;
             }
           }
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 720px) {
             img {
               height: 24vh;
               width: 100%;

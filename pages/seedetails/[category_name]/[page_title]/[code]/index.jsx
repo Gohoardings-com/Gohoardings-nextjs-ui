@@ -648,7 +648,7 @@ const Details = (props) => {
         }
        
 
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: 720px) {
          
           .location {
             width: 85px;

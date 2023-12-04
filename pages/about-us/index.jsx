@@ -419,7 +419,7 @@ const About = () => {
       padding-top: 30px;
     }
   }
-  @media screen and (max-width: 540px) {
+  @media screen and (max-width: 720px) {
     .about-cards {
       h6 {
         font-size: 8px;

@@ -160,7 +160,7 @@ const WhyUs = () => {
           }
 
         
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 720px) {
             h2 {
               font-size: 1.6rem;
             }

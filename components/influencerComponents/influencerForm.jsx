@@ -166,7 +166,7 @@ const InfluencerForm = () => {
           .req{
             font-size: 1.1rem;
           }
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 720px) {
             ::-webkit-input-placeholder {
               font-size: 0.9rem !important;
             }

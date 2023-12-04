@@ -14,7 +14,7 @@ const WordCounts = () => {
             return (
               <div className="question-box mt-3" key={i}>
                 <div
-                  className=" toggle-btn p-3 ps-2 mb-0 "
+                  className=" toggle-btn p-3 ps-2 mb-0 pb-2"
                   data-bs-toggle="collapse"
                   data-bs-target={`#${abc}`}
                 >

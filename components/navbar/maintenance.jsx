@@ -19,7 +19,7 @@ const Maintenance = () => {
             padding: 5px 20px !important;
           }
       
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 720px) {
             h6 {
               display:none;
             }
