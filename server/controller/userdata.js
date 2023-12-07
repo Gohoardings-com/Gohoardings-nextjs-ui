@@ -16,7 +16,7 @@ exports.allcompanyData = catchError(async (req,res, next) => {
 exports.Profile = catchError(async (req, res, next) => {
     const userId = req.id;
 
-    const search_activity = 'user, phone, campaign_name, start_date,end_date,city,pincode, address,campaign_city,media_type,status, payment_status';
+    const search_activity = 'user, phone, campaign_name, start_date,end_date,city,pincode, address,campaign_city,media_type,status, payment_status,code';
     const sql =await executeQuery("SELECT  " + search_activity + " FROM goh_campaign WHERE user='" + userId + "' && status = 1", "gohoardi_goh", next)
 
     if (sql) {

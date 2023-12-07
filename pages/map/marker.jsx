@@ -281,125 +281,105 @@ const Markers = ({
             {!hasmarker ? (
               <Loader />
             ) : (
-              markers.map(
-                ({
-                  id,
-                  position,
-                  medianame,
-                  price,
-                  illumination,
-                  subcategory,
-                  height,
-                  width,
-                  ftf,
-                  code,
-                  category_name,
-                  thumb,
-                  isDelete,
-                  mediaownercompanyname,
-                  latitude,
-                  longitude,
-                  page_title,
-                }) => (
-                  <Marker
-                    key={id}
-                    icon={
-                      isDelete == 0
-                        ? "/images/web_pics/placeholder2.png"
-                        : "/images/web_pics/placeholder.png"
-                    }
-                    position={position}
-                    onClick={() => handleActiveMarker(id)}
-                  >
-                    {activeMarker === id ? (
-                      <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                        <div className={styles.infoWindow}>
-                          <div className={styles.media_image}>
-                            <Link
-                              href={`/seedetails/${category_name}/${page_title}/${code}`}
-                              className="text-decoration-none"
-                            >
-                              <Image
-                                width={500}
-                                height={500}
-                                src={
-                                  thumb.startsWith("https")
-                                    ? thumb
-                                    : `https://${mediaownercompanyname
-                                        .trim()
-                                        .split(" ")
-                                        .slice(0, 2)
-                                        .join("_")
-                                        .toLowerCase()}.odoads.com/media/${mediaownercompanyname
-                                        .trim()
-                                        .split(" ")
-                                        .slice(0, 2)
-                                        .join("_")
-                                        .toLowerCase()}/media/images/new${thumb}`
-                                }
-                                alt="About media"
-                                className="rounded-top"
-                                id={styles.mark_img}
-                              />
-                            </Link>
-                          </div>
-
-                          <div className={`${styles.info_window} bg-white`}>
-                            <Link
-                              href={`/seedetails/${category_name}/${page_title}/${code}`}
-                              className="text-decoration-none"
-                            >
-                              <h5 className=" text-dark">
-                                {illumination + "-" + medianame}
-                              </h5>
-                            </Link>
-                            <p>
-                              <span>Media Type : </span>
-                              {subcategory}
-                            </p>
-                            <p>
-                              <span>Height X Width : </span>
-                              {height} X {width} feet
-                            </p>
-
-                            <p>
-                              <span>FTF : </span>
-                              {ftf}
-                            </p>
+              markers.map((marker) => (
+                <Marker
+                  key={marker.id}
+                  icon={
+                    marker.isDelete === 0
+                      ? "/images/web_pics/placeholder2.png"
+                      : "/images/web_pics/placeholder.png"
+                  }
+                  position={marker.position}
+                  onClick={() => handleActiveMarker(marker.id)}
+                >
+                  {activeMarker === marker.id ? (
+                    <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                      <div className={styles.infoWindow}>
+                        <div className={styles.media_image}>
+                          <Link
+                            href={`/seedetails/${marker.category_name}/${marker.page_title}/${marker.code}`}
+                            className="text-decoration-none"
+                          >
                             <Image
                               width={500}
                               height={500}
-                              src="/images/web_pics/streetv.gif"
-                              className={styles.streetv}
-                              onClick={(e, i) => onStreet(latitude, longitude)}
+                              src={
+                                marker.thumb.startsWith("https")
+                                  ? marker.thumb
+                                  : `https://${marker.mediaownercompanyname
+                                      .trim()
+                                      .split(" ")
+                                      .slice(0, 2)
+                                      .join("_")
+                                      .toLowerCase()}.odoads.com/media/${marker.mediaownercompanyname
+                                      .trim()
+                                      .split(" ")
+                                      .slice(0, 2)
+                                      .join("_")
+                                      .toLowerCase()}/media/images/new${marker.thumb}`
+                              }
+                              alt="About media"
+                              className="rounded-top"
+                              id={styles.mark_img}
                             />
-
-                            {isDelete === 0 ? (
-                              <Image
-                                width={500}
-                                height={500}
-                                src="/images/web_pics/A-chek.png"
-                                onClick={() => removefromCart(code)}
-                                className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
-                                alt="check_button"
-                              />
-                            ) : (
-                              <Image
-                                width={500}
-                                height={500}
-                                alt="cart_icon"
-                                src="/images/web_pics/A-cart.png"
-                                onClick={() => addonCart(code, category_name)}
-                                className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
-                              />
-                            )}
-                          </div>
+                          </Link>
                         </div>
-                      </InfoWindow>
-                    ) : null}
-                  </Marker>
-                )
-              )
+
+                        <div className={`${styles.info_window} bg-white`}>
+                          <Link
+                            href={`/seedetails/${marker.category_name}/${marker.page_title}/${marker.code}`}
+                            className="text-decoration-none"
+                          >
+                            <h5 className=" text-dark">
+                              {marker.illumination + "-" + marker.medianame}
+                            </h5>
+                          </Link>
+                          <p>
+                            <span>Media Type : </span>
+                            {marker.subcategory}
+                          </p>
+                          <p>
+                            <span>Height X Width : </span>
+                            {marker.height} X {marker.width} feet
+                          </p>
+
+                          <p>
+                            <span>FTF : </span>
+                            {marker.ftf}
+                          </p>
+                          <Image
+                            width={500}
+                            height={500}
+                            src="/images/web_pics/streetv.gif"
+                            className={styles.streetv}
+                            onClick={(e, i) => onStreet(marker.latitude, marker.longitude)}
+                          />
+
+                          {marker.isDelete === 0 ? (
+                            <Image
+                              width={500}
+                              height={500}
+                              src="/images/web_pics/A-chek.png"
+                              onClick={() => removefromCart(marker.code)}
+                              className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
+                              alt="check_button"
+                            />
+                          ) : (
+                            <Image
+                              width={500}
+                              height={500}
+                              alt="cart_icon"
+                              src="/images/web_pics/A-cart.png"
+                              onClick={() => addonCart(marker)}
+                              className={`${styles.addonCart} icon-clr ${styles.sitemark} `}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    </InfoWindow>
+                  ) : null}
+                </Marker>
+              ))
             )}
             {combinedArray.map(
               ({ id, position, name, Type, city_name, photo }) => (

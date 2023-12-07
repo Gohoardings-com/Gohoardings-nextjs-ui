@@ -62,8 +62,8 @@ const Map = () => {
 
   const [mapMarker, setPosts] = useState([]);
 
-  const addonCart = async (code, category_name) => {
-    const data = await addItem(code, category_name);
+  const addonCart = async (e) => {
+    const data = await addItem(e);
     if (data.message == "Login First") {
       handleShow();
     } else {

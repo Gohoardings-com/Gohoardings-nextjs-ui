@@ -144,7 +144,7 @@ isLoading,
   }
 
   const addonCart = async (e) => {
-    const data = await addItem(e.code, e.category_name);
+    const data = await addItem(e);
     if (data.message == "Login First") {
       handleShow();
     } else {

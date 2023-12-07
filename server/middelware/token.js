@@ -15,7 +15,7 @@ exports.token = catchError(async (userid, statuscode, res) => {
         sameSite: 'strict',
     }
   
-    return res.status(statuscode).setHeader("Set-Cookie",cookie.serialize(String(userid), token, option)).json({
+    return res.status(statuscode).setHeader("Set-Cookie",cookie.serialize('gohoardings', token, option)).json({
         success: true,
         message: "Login Successfully"
     })
@@ -28,7 +28,7 @@ exports.verifyToken = catchError(async (req, res, next) => {
     if (!cookieData) {
         return res.status(400).json({message: "No Cookie Found"})
     }
-    const token = Object.values(cookieData)[0];
+    const token = cookieData.gohoardings;
     if (!token) {
         return res.status(400).json({message: "No Token Found"})
     } else {

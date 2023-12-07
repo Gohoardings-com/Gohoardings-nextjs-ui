@@ -98,7 +98,7 @@ const Index = () => {
       // Make a request to the server to download the file
       let response;
       await fetch(`/api/ppt`, {
-        method: "POST",
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

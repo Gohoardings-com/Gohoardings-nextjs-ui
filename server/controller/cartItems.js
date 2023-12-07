@@ -363,24 +363,30 @@ exports.addOnCart = catchError(async (req, res, next) => {
     if (!cookieData) {
         return res.status(206).json({success:false, message: "No Cookie Found" })
     }
-    const token = Object.values(cookieData)[0];
+    const token = cookieData.gohoardings;
     return jwtToken.verify(token,  "thisismysecretejsonWebToken", async (err, user) => {
         if (err || !token) {
             return res.status(206).json({success:false, message: "Login First" })
         } else {
             const userid = user.id
-            const { mediaid, mediatype } = req.body;
-         const checkData = await executeQuery("SELECT * From goh_shopping_carts_item WHERE userid='"+userid+"'&& mediaid = '"+mediaid+"' && campaigid='"+userid+"' && mediatype='"+mediatype+"' && isDelete=0 ","gohoardi_goh",next)
+            const { code, category_name, page_title, illumination, subcategory } = req.body.media;
+         const checkData = await executeQuery("SELECT * From goh_shopping_carts_item WHERE userid='"+userid+"'&& mediaid = '"+code+"' && campaigid='"+userid+"' && mediatype='"+category_name+"' && isDelete=0 ","gohoardi_goh",next)
         if(checkData.length == 0){
-            const result = await  executeQuery("INSERT INTO goh_shopping_carts_item (userid, mediaid, campaigid, mediatype, status) VALUES ('" +
+            const result = await  executeQuery("INSERT INTO goh_shopping_carts_item (userid, mediaid, campaigid, mediatype, status, page_title , illumination, subcategory ) VALUES ('" +
             userid +
             "','" +
-            mediaid +
+            code +
             "','" +
             userid +
             "','" +
-            mediatype +
-            "',0)","gohoardi_goh",next)
+            category_name +
+            "',0,'" +
+            page_title +
+            "','" +
+            illumination +
+            "','" +
+            subcategory +
+            "')","gohoardi_goh",next)
                 if (result) {
                  
                     return res.status(200).json({success:true, message:"This Media added successfully "})
@@ -389,7 +395,8 @@ exports.addOnCart = catchError(async (req, res, next) => {
             return res.status(200).json({success:true, message:"This Media you already selected "})
         }
                 }
-            })})
+            })
+        })
 
 
 
