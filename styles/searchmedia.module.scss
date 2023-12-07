@@ -4,13 +4,8 @@
   height: auto;
   padding-top: 2%;
   .search_media_img {
-    border: 1px solid #fff;
-    -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    box-shadow: 10px 10px 5px #ccc;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
+    height: 300px;
+    width: 340px;
   }
   .heading_text {
     h2 {
@@ -178,10 +173,6 @@
   @media screen and (max-width: 1366px) {
     .search-container {
       width: 74%;
-    }
-    .search_media_img {
-      width: 320px;
-      height: 308px;
     }
 
     .search_btn {
