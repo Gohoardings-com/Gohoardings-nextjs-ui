@@ -40,7 +40,7 @@ const Enquireregister = () => {
 
   return (
     <>
-      <h2 className={styles.txt_clr_tlk}>Talk to us!</h2>
+        <h2 className={styles.txt_clr_tlk}>Talk to us!</h2>
       <h6 className={styles.txt_clr}>*Please fill all the details.</h6>
       <form className='mt-md-4  mt-2 position-relative' onSubmit={onSubmit}>
         <div className="form-group py-md-3 py-1">
@@ -159,7 +159,7 @@ label {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 540px) {
 
   .txt-clr-tlk {
       color: #373435;

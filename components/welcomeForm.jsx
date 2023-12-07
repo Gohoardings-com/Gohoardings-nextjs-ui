@@ -61,6 +61,7 @@ const WelcomeForm = () => {
       localStorage.setItem("forceClosed", "false");
     }
   };
+
   useEffect(() => {
     // Check if the flag is present in localStorage
     const formClosed = localStorage.getItem("forceClosed");
@@ -229,7 +230,7 @@ const WelcomeForm = () => {
             opacity: 0.6;
             font-size: 14px;
           }
-          @media screen and (max-width: 720px) {
+          @media screen and (max-width: 540px) {
             .row {
               flex-direction: column;
             }

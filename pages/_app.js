@@ -14,6 +14,7 @@ import AccountProvider from "@/allApi/apicontext";
 import Footer from "@/components/footer";
 import Mobilenav from "@/components/navbar/mobilenav";
 
+
 function App({ Component, pageProps, session }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.js");

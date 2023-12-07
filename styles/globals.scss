@@ -1,22 +1,24 @@
 @import "../assets/scss/variables";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
 
-* {
+*{
   scroll-behavior: smooth !important;
 }
-.bredcamp {
+.bredcamp{
   transition: transform 0.75s ease-out;
 }
-.bredcamp:hover {
+.bredcamp:hover{
   cursor: pointer;
   border-bottom: 1px solid #d1c601;
   color: #d1c601;
+
 }
 //Global fonts
 body {
-  font-family: "Poppins", sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
+   
 //Global scrollbar
 ::-webkit-scrollbar {
   width: 5px;
@@ -26,7 +28,7 @@ body {
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
+  
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #cacaca;
@@ -43,7 +45,7 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-
+ 
   #list-tab {
     .list-group-item {
       border: transparent !important;
@@ -107,6 +109,7 @@ input::-webkit-inner-spin-button {
   min-height: 70vh !important;
 }
 
+
 #exampleModal {
   .form-control {
     box-shadow: none;
@@ -131,10 +134,13 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 720px) {
+
+
+@media screen and (max-width: 540px) {
   ::-webkit-scrollbar {
-    display: none;
+display: none;
   }
+
 }
 .sdsd {
   .dropdown-toggle::after {
@@ -155,7 +161,7 @@ input::-webkit-inner-spin-button {
     color: #808080;
     float: right;
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 540px) {
     .dropdown-menu {
       width: 66vw;
     }
@@ -163,13 +169,14 @@ input::-webkit-inner-spin-button {
       margin-top: 6px;
       font-size: 20px;
     }
+
   }
 }
 
-.mbilview {
-  .offcanvas {
+.mbilview{
+  .offcanvas{
     max-width: 58% !important;
-  }
+}
 }
 .usrdtl {
   .dropdown-toggle::after {
@@ -187,6 +194,7 @@ input::-webkit-inner-spin-button {
   }
 }
 .map-filter-drop {
+  
   .dropdown-toggle::after {
     margin-top: 2px;
     font-size: 18px;
@@ -199,7 +207,7 @@ input::-webkit-inner-spin-button {
     font-size: 16px;
     border-radius: 0px;
     max-height: 260px;
-    max-width: 300px;
+    max-width:300px;
     overflow: scroll;
     padding: 0%;
     overflow-x: hidden;
@@ -209,20 +217,20 @@ input::-webkit-inner-spin-button {
   }
 }
 
-.map-sate {
+.map-sate{
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
-
-  svg {
-    position: initial !important;
-
-    height: 100vh !important;
+  
+    svg{
+      position: initial !important;
+ 
+      height: 100vh !important;
+    }
   }
-}
 
-.media-new-search {
+.media-new-search{
   .dropdown-menu {
     background-color: #ffffff;
     color: white;
@@ -296,14 +304,15 @@ input::-webkit-inner-spin-button {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 540px) {
     .slick-next {
-      display: none !important ;
-    }
+    display: none !important ;
+  }
     .slick-prev:before,
     .slick-next:before {
-      display: none;
+display: none;
     }
+    
   }
 }
 
@@ -333,7 +342,7 @@ input::-webkit-inner-spin-button {
     color: #393939;
     font-size: 30px;
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 540px) {
     .slick-next:before {
       display: none !important;
     
@@ -387,10 +396,8 @@ input::-webkit-inner-spin-button {
     box-shadow: none !important;
   }
 }
-
 @media screen and (max-width: 366px) {
-  .drd {
-    display: none !important;
+  .drd{
+    display:none!important;
   }
 }
-

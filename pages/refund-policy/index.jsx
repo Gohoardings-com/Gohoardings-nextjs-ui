@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '@/components/footer';
 import Fixednavbar from '@/components/navbar/fixednavbar';
 
 const RefundPolicy = () => {
@@ -32,7 +31,6 @@ const RefundPolicy = () => {
 
       <p>We value your satisfaction and appreciate your business. Thank you for choosing Gohoardings Solution LLP.</p>
     </div>
-    <Footer/>
     </>
   );
 };

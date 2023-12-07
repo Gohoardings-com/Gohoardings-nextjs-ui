@@ -4,6 +4,7 @@ const catchError = require('../middelware/catchError')
 const redis = require('redis');
 const ErrorHandle = require("../utils/Errorhandler");
 const client = redis.createClient()
+
  client.connect()
 
 
@@ -113,7 +114,7 @@ exports.SearchData = catchError(async (req, res, next) => {
             table_name = "goh_media";
     }
     let sql;
-    const token = Object.values(cookieData)[0];
+    const token = cookieData.gohoardings;
     return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
        
@@ -173,7 +174,7 @@ exports.mediaData = catchError(async (req, res, next) => {
             table_name = "goh_media";
     }
     let sql;
-    const token = Object.values(cookieData)[0];
+    const token = cookieData.gohoardings;
     return jwtToken.verify(token, "thisismysecretejsonWebToken", async (err, user) => {
         if (err) {
        

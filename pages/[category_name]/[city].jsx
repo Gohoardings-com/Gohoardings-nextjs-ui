@@ -23,7 +23,7 @@ const Media_content = props.Media_content;
   const [mediaData, setMediadata] = useState([]);
   const [categoryData, setcategoryData] = useState([]);
   const [noOfLogo, setnoOfLogo] = useState(16);
-  const [isLoading, setIsLoading] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
   const { category_name, city } = router.query;
 
   const SelectServc = async (obj) => {
@@ -33,7 +33,7 @@ const Media_content = props.Media_content;
     router.push(`/${obj.value}/${city}`);
   };
 
-  const getData = async () => {
+ const getData = async () => {
     setIsLoading(true)
     const data = await mediaDataApi(category_name, city);
     setSearch(data);
@@ -59,7 +59,7 @@ const Media_content = props.Media_content;
   };
 
   const apiforFillters = async () => {
-    setIsLoading(true);
+   setIsLoading(true);
     const data = await mediaDataApi(category_name, city);
     setMediadata(data);
     setlocationData(data);
@@ -77,19 +77,18 @@ const Media_content = props.Media_content;
     "airport-media",
     "inflight-media",
     "delhi",
-    "noida",
+   "noida",
     "pune",
     "chennai",
     "bengaluru",
     "mumbai",
     "hyderabad",
   ];
-  useEffect(() => {
+ useEffect(() => {
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
-   
-      setValue(city);
+   setValue(city);
     
   }, [city]);
   if (validCategories.includes(category_name)) {
@@ -138,7 +137,7 @@ const Media_content = props.Media_content;
         focus={focus}
         serviceIcon={CityNameImage}
         city={city}
-        isLoading={isLoading}
+      isLoading={isLoading}
         setValue={setValue}
         setFocus={setFocus}
        Media_content={Media_content}

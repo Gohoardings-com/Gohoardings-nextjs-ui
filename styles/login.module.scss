@@ -23,8 +23,7 @@
   border-bottom-right-radius: 0px;
 }
 
-.wrapper,
-.wrapperWelcome {
+.wrapper,.wrapperWelcome  {
   position: relative;
   height: 100%;
   width: 100%;
@@ -32,8 +31,7 @@
   background-image: linear-gradient(to right, #616161, #363636);
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
-  .opacitydiv,
-  .opacitydivWelcome {
+  .opacitydiv,.opacitydivWelcome {
     border: 1px ridge rgb(220, 220, 220);
     position: absolute;
     top: 9%;
@@ -41,7 +39,7 @@
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
+    backdrop-filter:blur(5px) ;
     -webkit-backdrop-filter: blur(5px);
     height: 80%;
     width: 80%;
@@ -68,23 +66,24 @@
     }
   }
 
-  .img_responsive {
+  .img_responsive{
     height: 75%;
     position: fixed;
     top: 25%;
-    left: 3%;
+    left:3%;
   }
-  .img_responsiveWelcome {
+  .img_responsiveWelcome  {
     height: 75%;
     position: fixed;
     top: 25%;
-    left: 16%;
+    left:16%;
   }
   .img_responsive2 {
     height: 60%;
     position: fixed;
     top: 40%;
     left: 3.3%;
+    
   }
 }
 
@@ -163,7 +162,7 @@
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 540px) {
   .opacitydiv {
     display: none;
   }
@@ -184,8 +183,10 @@
     left: 9%;
   }
 
-  .wrapperWelcome {
-    height: 322px !important;
-    min-height: 320px !important;
+  .wrapperWelcome  {
+
+   height: 322px !important;
+   min-height: 320px !important;
   }
 }
+

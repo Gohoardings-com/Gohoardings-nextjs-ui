@@ -138,7 +138,7 @@ exports.loginwithOTP = catchError(async (req, res, next) => {
             return res.status(206).json({success:false, message: "OTP Not Match, Try After 1min"})
         } else {
             const userid = sql[0].userid;
-            res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+            res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
             token(userid, 200, res)
         }
 

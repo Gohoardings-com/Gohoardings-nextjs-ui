@@ -1,6 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "@/allApi/apicontext";
-import { enquiryApi, emailformate, addItem, removeItem } from "@/allApi/apis";
+import {
+  enquiryApi,
+  emailformate,
+  addItem,
+  removeItem,
+  singlemnedia,
+} from "@/allApi/apis";
 import { MdLocationPin } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import instance from "@/allApi/axios";
@@ -17,9 +23,9 @@ import Fixednavbar from "@/components/navbar/fixednavbar";
 
 const Details = (props) => {
   const Canonicaltag = props.currentPageUrl;
-  const metaData = props.apiData;
+const metaData=props.apiData;
   const router = useRouter();
-  const { category_name, page_title, code } = router.query;
+   const { category_name, page_title, code } = router.query;
   const { addRemove } = useContext(AccountContext);
   const { handleShow } = useContext(AccountContext);
   const [markers, setPosts] = useState([]);
@@ -113,17 +119,16 @@ const Details = (props) => {
 
   useEffect(() => {
     getMedia();
-  }, [category_name, page_title]);
-
+  }, [category_name,page_title]);
   const extractedFields = [];
 
   markers.forEach((item) => {
-    const { city_name, medianame, flight_name } = item;
+    const { city_name, medianame,flight_name  } = item;
 
     extractedFields.push({
       city_name,
       medianame,
-      flight_name,
+    flight_name 
     });
   });
 
@@ -155,17 +160,15 @@ const Details = (props) => {
     {
       value: "airport-media",
       description: `Grabing the attention of business travellers, tourists, and local,  ${
-        extractedFields.length !== 0
-          ? extractedFields[0].flight_name
-          : "Indians"
-      } ads create brand recall & awareness that lasts beyond the airport. Advertising in Aiports provide makes a better presence among an affluent audience.`,
+        extractedFields.length !== 0 ? extractedFields[0].flight_name : "Indians"
+      } airport ads create brand recall & awareness that lasts beyond the airport. Advertising in Aiports provide makes a better presence among an affluent audience.`,
     },
   ];
 
   return (
     <>
       {metaData.map((item, i) => (
-        <Head key={i}>
+         <Head key={i}>
           <link
             rel="canonical"
             href={`https://www.gohoardings.com${Canonicaltag}`}
@@ -185,10 +188,16 @@ const Details = (props) => {
             property="og:title"
             content={item.page_title.replace(/-/g, " ")}
           />
-          <meta property="og:siteName" content={item.medianame} />
+          <meta
+            property="og:siteName"
+            content={item.medianame}
+          />
           <meta property="og:description" content={item.page_title.replace(/-/g, " ")} />
           <meta property="og:type" content="en_US" />
-          <meta property="og:image" href={item.thumb} />
+          <meta
+            property="og:image"
+            href={item.thumb}
+          />
           <meta
             property="og:url"
             href={`https://www.gohoardings.com${Canonicaltag}`}
@@ -211,7 +220,7 @@ const Details = (props) => {
           />
           <meta property="twitter:property" content="en_US" />
         </Head>
-      ))}
+     ))} 
       <Fixednavbar />
       {markers == 0 ? (
         <>
@@ -229,6 +238,7 @@ const Details = (props) => {
                 className="container-xxl  container-xl container-lg container-md detail-container animate__animated  animate__fadeIn"
                 key={i}
               >
+             
                 <div className="row mt-3 mt-md-5 ms-md-3 me-md-3 ms-0 me-0 detail-mg p-1 p-md-3 rounded-3">
                   <div className="col-md-6 p-0">
                     <Carousel showThumbs={false} infiniteLoop={true}>
@@ -236,17 +246,17 @@ const Details = (props) => {
                         <div key={i}>
                           <Image
                             width={420}
-                            height={453}
-                            alt={item.medianame}
+                            height={390}
+                            alt={item.mediaownercompanyname}
                             src={
                               element.startsWith("https")
                                 ? element
-                                : `https://${item.medianame
+                                : `https://${item.mediaownercompanyname
                                     .trim()
                                     .split(" ")
                                     .slice(0, 2)
                                     .join("_")
-                                    .toLowerCase()}.odoads.com/media/${item.medianame
+                                    .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
                                     .trim()
                                     .split(" ")
                                     .slice(0, 2)
@@ -306,7 +316,6 @@ const Details = (props) => {
                         return <p key={i}>{el.description}</p>;
                       }
                     })}
-
                     <div className="row p-0">
                       <div className=" col-6 position-relative">
                         <span className="bottom-0 position-absolute view">
@@ -316,7 +325,7 @@ const Details = (props) => {
                       <div className="col-2">
                         <div
                           className="location p-2 text-center rounded"
-                          onClick={(element) => mapData(item)}
+                         onClick={(element) => mapData(item)}
                         >
                           <MdLocationPin
                             className="icon-clr me-4 me-md-0 mt-1 mt-md-0"
@@ -480,7 +489,8 @@ const Details = (props) => {
                     </form>
                   </>
                 </div>
-                <h6 className="my-4">
+              </div>
+     <h6 className="my-4">
                   <span onClick={() => router.push("/")} className="bredcamp">
                     Home
                   </span>
@@ -494,7 +504,6 @@ const Details = (props) => {
                   <MdKeyboardArrowRight />
                   <span className="bredcamp text-secondary">Details</span>
                 </h6>
-              </div>
             </>
           ))}
         </>
@@ -648,7 +657,7 @@ const Details = (props) => {
         }
        
 
-        @media screen and (max-width: 720px) {
+        @media screen and (max-width: 540px) {
          
           .location {
             width: 85px;
@@ -660,10 +669,9 @@ const Details = (props) => {
           .map_sectionD {
             height: 45vh;
           }
-        }
-        .detail-container {
-          margin-top: 13%;
-        }  
+          .detail-container {
+      		margin-top: 13%;
+    		}  
         
          
 
@@ -672,6 +680,7 @@ const Details = (props) => {
     </>
   );
 };
+
 
 Details.getInitialProps = async ({ req, res }) => {
   let currentPageUrl = "";
@@ -684,13 +693,13 @@ Details.getInitialProps = async ({ req, res }) => {
     const urlParts = currentPageUrl.split("/");
     category2 = urlParts[2];
     details2 = urlParts[3];
-    code2 = urlParts[4];
+    code2=urlParts[4];
   } else if (res) {
     currentPageUrl = res.socket.parser.incoming.originalUrl;
     const urlParts = currentPageUrl.split("/");
     category2 = urlParts[2];
     details2 = urlParts[3];
-    code2 = urlParts[4];
+    code2=urlParts[4];
   }
 
   // Call the API and get the data
@@ -698,7 +707,7 @@ Details.getInitialProps = async ({ req, res }) => {
   if (category2 && details2 && code2) {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/seedetails",
+         "https://www.gohoardings.com/api/seedetails",
         {
           page_title: details2,
           category_name: category2,

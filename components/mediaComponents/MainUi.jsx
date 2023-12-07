@@ -19,7 +19,7 @@ import {
 import { useRouter } from "next/router";
 
 const MainUi = ({
-  isLoading,
+isLoading,
  Media_content,
   noOfLogo,
   setnoOfLogo,
@@ -52,9 +52,6 @@ const MainUi = ({
     setFocus(true);
     setCity(data);
   };
-
-  
-
   let slice;
   if (search.success != false) {
     slice = search.slice(0, noOfLogo);

@@ -7,7 +7,6 @@ import Loader from "@/components/loader";
 import Image from "next/image";
 
 const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
-
   return (
     <>
       {isLoading ? (
@@ -61,7 +60,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
                     className="text-decoration-none"
                   >
                     <span className={styles.project_details}>
-                      {item.subcategory} at {item.medianame}
+                      {item.subcategory} at {item.medianame.substring(0, 6)}...
                     </span>
                   </Link>
                   <span className={`${styles.project_creator} mt-2 ms-0`}>

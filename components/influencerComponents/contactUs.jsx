@@ -89,7 +89,7 @@ const ContactUs = () => {
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
             color: #212121;
           }
-          @media screen and (max-width: 720px) {
+          @media screen and (max-width: 540px) {
             .card {
               width: 100vw;
             }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Fixednavbar from "./fixednavbar";
 
 function useWindowScroll() {

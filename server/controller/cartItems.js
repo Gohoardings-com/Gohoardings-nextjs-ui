@@ -461,7 +461,7 @@ exports.processdCart = catchError(async (req, res, next) => {
                 products.map((el) => {
                     promises.push(
                         new Promise(async (resolve,reject ) => {
-                    const sql = await executeQuery("INSERT into goh_campaign (user, phone, campaign_name, start_date, end_date, campaign_city, media_type, address, city, created_by,code) VALUES (" + userId + ",'" + phone + "', '"+newCampain+"-"+ campaign_name+ "','" + el.start_date.slice(0,10) + "','" + el.end_date.slice(0,10) + "','" + el.medianame + "','" + el.category_name + "','" + el.address + "','" + el.city_name + "','user'," + el.code + ")","gohoardi_goh",next);
+                    const sql = await executeQuery("INSERT into goh_campaign (user, phone, campaign_name, start_date, end_date, campaign_city, media_type, address, city, created_by, code) VALUES (" + userId + ",'" + phone + "', '"+newCampain+"-"+ campaign_name+ "','" + el.start_date.slice(0,10) + "','" + el.end_date.slice(0,10) + "','" + el.medianame + "','" + el.category_name + "','" + el.address + "','" + el.city_name + "','user','" + el.code + "')","gohoardi_goh",next);
                       
                             if (!sql) {
                                    return reject(sql)
@@ -522,8 +522,8 @@ exports.useritems = catchError(async (req, res, next) => {
 
 
 exports.getUserCartItem = catchError(async (req, res, next) => {
-   
-    const result = await executeQuery(`(SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "chennai"LIMIT 1 ) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "delhi"LIMIT 2) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "mumbai"LIMIT 1 ) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "noida"LIMIT 2) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "bangaluru"LIMIT 1 ) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "kolkata"LIMIT 1) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "hydrabad"LIMIT 1 ) UNION (SELECT category_name, page_title, code, thumb, city_name, medianame FROM goh_media WHERE city_name = "pune"LIMIT 1)`,  "gohoardi_goh", next);   
+    const user = req.id
+    const result = await executeQuery(`SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `,  "gohoardi_goh", next);   
             if (result) {
                 req.data = result;
                 next();

@@ -2,12 +2,8 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import NavbarH from "@/components/navbar/navbar";
-const Floatingnavbar = dynamic(
-  () => import("@/components/navbar/flotingnavbar"),
-  { ssr: false }
-);
+const Floatingnavbar = dynamic(() => import("@/components/navbar/flotingnavbar"),{ssr:false});
 import Searchmedia from "@/components/searchMedia";
-
 const Ourservices = dynamic(() => import("@/components/ourServices"));
 const City = dynamic(() => import("@/components/cityList"));
 const Enquire = dynamic(() => import("@/components/enquire/enquire"));
@@ -16,6 +12,7 @@ const TrendingCity = dynamic(() => import("@/components/trendingcity"));
 const WordCounts = dynamic(() => import("@/components/wordCounts"));
 const WelcomeForm  = dynamic(() => import("@/components/welcomeForm"));
 
+
 export default function Home() {
   const { asPath } = useRouter();
   return (
@@ -23,9 +20,10 @@ export default function Home() {
       <Head>
         <link rel="canonical" href={`https://www.gohoardings.com${asPath}`} />
         <title>
-          Gohoardings: Indias Largest and Best Outdoor Advertising Agency
+         Gohoardings: Indias Largest and Best Outdoor Advertising Agency
         </title>
         <meta charSet="utf-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
@@ -46,22 +44,18 @@ export default function Home() {
           content="India’s Largest Outdoor Advertising Agency | Gohoarding Solution"
         />
         <meta property="og:siteName" content="www.gohoardings.com" />
-        <meta
-          property="og:description"
-          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
-        />
+        <meta property="og:description" content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"/>
         <meta property="og:type" content="en_US" />
-        <meta property="og:url" href={`https://www.gohoardings.com${asPath}`} />
+        <meta
+          property="og:url"
+          href={`https://www.gohoardings.com${asPath}`}
+        />
         <meta property="og:property" content="en_US" />
+        <meta property="twitter:title" content="India’s Largest Outdoor Advertising Agency | Gohoarding Solution" />
         <meta
-          property="twitter:title"
-          content="India’s Largest Outdoor Advertising Agency | Gohoarding Solution"
-        />
-        <meta property="twitter:siteName" content="www.gohoardings.com" />
-        <meta
-          property="twitter:description"
-          content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
-        />
+          property="twitter:siteName"
+          content="www.gohoardings.com"/>
+        <meta property="twitter:description" content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings" />
         <meta property="twitter:type" content="en_US" />
         <meta
           property="twitter:url"
@@ -78,7 +72,7 @@ export default function Home() {
         <Enquire />
         <OurClients />
         <TrendingCity />
-        <WordCounts/>
+         <WordCounts/>
         <WelcomeForm/>
       </main>
     </>

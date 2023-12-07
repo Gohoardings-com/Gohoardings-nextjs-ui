@@ -3,25 +3,25 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 import { goh_faqsApi } from "@/allApi/apis";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import {MdKeyboardArrowRight } from "react-icons/md";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
 const Faqs = () => {
-  const route = useRouter();
+  const route = useRouter()
   const [posts, setPosts] = useState([]);
-  const staff = async () => {
-    const data = await goh_faqsApi();
-    setPosts(data);
-  };
+  const staff = async() =>{
+    const data = await goh_faqsApi()
+    setPosts(data)
+  }
 
-  useEffect(() => {
-    staff();
-  }, []);
+  useEffect(()=>{
+    staff()
+  },[])
 
   return (
     <>
-      <Head>
+         <Head>
         <link
           rel="canonical"
           href={`https://www.gohoardings.com${route.asPath}`}
@@ -47,7 +47,7 @@ const Faqs = () => {
         />
         <meta
           property="og:title"
-          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+          content="India's Largest Outdoor Advertising Agency | Gohoarding Solution"
         />
         <meta property="og:siteName" content="www.gohoardings.com/faqs" />
         <meta
@@ -62,7 +62,7 @@ const Faqs = () => {
         <meta property="og:property" content="en_US" />
         <meta
           property="twitter:title"
-          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+          content="India's Largest Outdoor Advertising Agency | Gohoarding Solution"
         />
         <meta
           property="twitter:siteName"
@@ -82,29 +82,22 @@ const Faqs = () => {
       <Fixednavbar />
       <div className="d-hide drop-nd"></div>
       <div className="container-xxl  container-xl container-lg container-md container-faqs pt-4">
-        <h6 className="mt-5 pt-5">
-          <span onClick={() => route.push("/")} className="bredcamp">
-            Home
-          </span>
-          <MdKeyboardArrowRight />
-          <span className="bredcamp text-secondary">
-            Frequently Asked Questions
-          </span>
-        </h6>
+
+ <h6 className="mt-5 pt-5"><span  onClick={()=>route.push("/")} className="bredcamp">Home</span><MdKeyboardArrowRight/><span className="bredcamp text-secondary">Frequently Asked Questions</span></h6>
         <h1 className=" mt-4 mb-4">Frequently Asked Questions</h1>
         <section className="mt-5 mb-5">
           {posts.map((data, index) => {
-            let abc = "a" + data.id;
+            let abc = 'a' + data.id;
             return (
-              <div className="question-box mt-3" key={index}>
+              < div className="question-box mt-3"  key={index}>
                 <p
+                 
                   className=" toggle-btn p-3 ps-2 mb-0 "
                   data-bs-toggle="collapse"
                   data-bs-target={`#${abc}`}
                 >
                   <h4>
-                    <BsFillCircleFill className="point me-2" /> {data.subject}
-                    <IoIosArrowDown className="down float-end" />
+                <BsFillCircleFill className="point me-2"/>  {data.subject}<IoIosArrowDown className="down float-end"/>     
                   </h4>
                 </p>
                 <div className="collapse" id={abc}>
@@ -117,7 +110,7 @@ const Faqs = () => {
           })}
         </section>
       </div>
-
+      
       <style jsx>
         {`
           h1 {

@@ -18,6 +18,7 @@ const Leads = () => {
     name: "",
     email: "",
     phone: "",
+    city: "",
     message: "",
   });
 
@@ -50,11 +51,14 @@ const Leads = () => {
         return;
       }
     }
+
+    const message = `client city: ${welcomeForm.city}, client message: ${welcomeForm.message}`
+
     const data = await enquiryApi(
       welcomeForm.name,
       welcomeForm.email,
       welcomeForm.phone,
-      welcomeForm.message
+      message
     );
 
     if (data.success == true) {
@@ -63,6 +67,7 @@ const Leads = () => {
         name: "",
         email: "",
         phone: "",
+        city: "",
         message: "",
       });
     }
@@ -159,8 +164,6 @@ const Leads = () => {
       mtop: 20,
       mleft: 68,
     },
-    
-  
     {
       head: "80,000+",
       desc: "Campaign",
@@ -253,39 +256,6 @@ const Leads = () => {
         };
   };
 
-  // const bubbleImage = (index) => {
-  //   useEffect(() => {
-  //     const handleResize = () => {
-  //       setIsSmallScreen(window.innerWidth <= 720);
-  //     };
-
-  //     // Initial check
-  //     handleResize();
-
-  //     // Event listener for window resize
-  //     window.addEventListener("resize", handleResize);
-
-  //     // Cleanup the event listener on component unmount
-  //     return () => {
-  //       window.removeEventListener("resize", handleResize);
-  //     };
-  //   }, []);
-  //   return isSmallScreen
-  //     ? {
-  //         left: `${index.mleft}vw`,
-  //         top: `${index.mtop}vh`,
-  //         height: `${175 / 2}px`,
-  //         width: `${175 / 2}px`,
-  //         position: "absolute",
-  //       }
-  //     : {
-  //         left: `${index.left}vw`,
-  //         top: `${index.top}vh`,
-  //         height: `${index.size - 15}px`,
-  //         width: `${index.size - 15}px`,
-  //         position: "absolute",
-  //       };
-  // };
 
   return (
     <>
@@ -328,7 +298,7 @@ const Leads = () => {
 
                       <input
                         type="text"
-                        className="my-2 input"
+                        className="my-1 input"
                         name="name"
                         value={welcomeForm.name}
                         onChange={handleChange}
@@ -336,7 +306,7 @@ const Leads = () => {
                       />
                       <input
                         type="email"
-                        className="my-2 input"
+                        className="my-1 input"
                         placeholder="Your Mail ID"
                         name="email"
                         value={welcomeForm.email}
@@ -344,11 +314,20 @@ const Leads = () => {
                       />
                       <input
                         type="number"
-                        className="my-2 input"
+                        className="my-1 input"
                         name="phone"
                         value={welcomeForm.phone}
                         onChange={handleChange}
-                        placeholder="Your Phone NO"
+                        placeholder="Your Phone No"
+                      />
+
+                      <input
+                        type="text"
+                        className="my-1 input"
+                        name="city"
+                        value={welcomeForm.city}
+                        onChange={handleChange}
+                        placeholder="Your City"
                       />
 
                       <textarea
@@ -357,7 +336,7 @@ const Leads = () => {
                         name="message"
                         value={welcomeForm.message}
                         onChange={handleChange}
-                        className="my-2 mt-4"
+                        className="my-1 mt-4"
                       ></textarea>
 
                       <input

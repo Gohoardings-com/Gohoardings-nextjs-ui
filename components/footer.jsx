@@ -144,7 +144,7 @@ const Footer = () => {
               />
             </Link>
           </div>
-          <div className="col-md-9 ">
+         <div className="col-md-9 ">
             <h4 className="f-heading pt-2 pt-md-0">
               India&#39;s Largest Outdoor Advertising Company
             </h4>
@@ -233,15 +233,15 @@ const Footer = () => {
                     Privacy Policy
                   </p>
                 </li>
-                  <li className="py-md-2 text-decoration-none ">
-                    {" "}
-                    <p
-                      onClick={() => route.push("/refund-policy")}
-                      className=" f-heading-clr mb-0"
-                    >
-                      Refund Policy
-                    </p>
-                  </li>
+                <li className="py-md-2 text-decoration-none ">
+                  {" "}
+                  <p
+                    onClick={() => route.push("/refund-policy")}
+                    className=" f-heading-clr mb-0"
+                  >
+                    Refund Policy
+                  </p>
+                </li>
               </span>
             </ul>
           </div>
@@ -293,11 +293,11 @@ const Footer = () => {
                 <FiPhoneCall className="me-md-3 me-1 icon-clr drd" /> +91 7777871717
               </li>
               <li className="py-md-2 reach-clr py-md-2 py-1">
-                <BiMailSend className="me-md-3 me-1 icon-clr drd" />
+                <BiMailSend className="me-md-3 me-1  icon-clr drd" />
                 info@gohoardings.com
               </li>
               <li className="d-flex reach-clr py-md-3 py-1">
-                <MdLocationOn className="me-md-3 me-1 icon-clr mt-1 drd" />{" "}
+                <MdLocationOn className="me-md-3 me-1  icon-clr mt-1 drd" />{" "}
                 <p className="reach-clr">
                   E-82, Sector 06
                   <br />
@@ -362,7 +362,7 @@ const Footer = () => {
         </div>
         <div className="row my-2 d-flex justify-content-center">
           <p className="  text-light f-heading-clr ">
-            copyrights &#169; 2023 Gohoardings Solutions LLP
+            copyrights © 2023 Gohoardings Solutions LLP
           </p>
         </div>
       </div>
@@ -519,7 +519,7 @@ const Footer = () => {
             }
           }
           @media screen and (max-width: 600px) {
-            .grid-container1 {
+             .grid-container1 {
               width: 45vw;
             }
             .grid-item {
@@ -530,7 +530,6 @@ const Footer = () => {
               width: 18px;
             }
           }
-
         `}
       </style>
     </>

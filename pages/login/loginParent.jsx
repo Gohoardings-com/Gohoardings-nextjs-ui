@@ -313,6 +313,9 @@ const LoginN = () => {
         </div>
         <div className="col-md-6 p-4 m-0">
           <div className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}>
+            {/* Image
+                           width={500}
+                           height={500} src="/images/web_pics/logo.png" alt="gohoardings" id={styles.brand_logo} /> */}
 
             {forget ? (
               <>

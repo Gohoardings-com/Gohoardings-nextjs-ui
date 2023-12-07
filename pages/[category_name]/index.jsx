@@ -90,20 +90,23 @@ const Media = (props) => {
       router.push(`/${lowercaseCity}`);
     }
   };
-
+  
   let city = "";
 
   useEffect(() => {
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
-
+  
     if (validCategories.slice(7, 14).includes(category_name)) {
       setValue(category_name);
     }
   }, []);
+  
 
-  if (validCategories.includes(category_name)) {
+  if (
+   validCategories.includes(category_name)
+  ) {
     return (
       <>
         <Head>
@@ -174,17 +177,17 @@ const Media = (props) => {
           city={city}
           setValue={setValue}
           setFocus={setFocus}
-          isLoading={isLoading}
+        isLoading={isLoading}
           Media_content={Media_content}
         />
       </>
     );
   } else {
-    return (
-      <>
-        <ErrorPage />
-      </>
-    );
+   return(
+    <>
+    <ErrorPage/>
+    </>
+   )
   }
 };
 
@@ -196,7 +199,7 @@ Media.getInitialProps = async ({ req, res }) => {
   } else if (res) {
     currentPageUrl = res.socket.parser.incoming.originalUrl;
   }
-  const MetaKeys = [
+    const MetaKeys = [
     {
       value: "traditional-ooh-media",
       page_titel:
@@ -208,7 +211,8 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "digital-media",
-      page_titel: "Digital Hoarding Advertising Solutions by Gohoardings",
+      page_titel:
+        "Digital Hoarding Advertising Solutions by Gohoardings",
       page_decri:
         "Digital Hoarding Advertising Solutions by the best outdoor advertising agency Gohoardings - Your Partner for Effective Digital Media Advertising Services.",
       meta_keyword:
@@ -235,7 +239,8 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "transit-media",
-      page_titel: "Best Transit Media Advertising Agency | Gohoardings",
+      page_titel:
+        "Best Transit Media Advertising Agency | Gohoardings",
       page_decri:
         "Discover the Power of Transit Advertising with Gohoardings - Best Transit Advertising Company! Transform your marketing strategy with our bus advertising solutions.",
       meta_keyword:
@@ -252,13 +257,14 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "inflight-media",
-      page_titel: "Inflight Media: Airline Advertising in India | GoHoardings",
+      page_titel:
+        "Inflight Media: Airline Advertising in India | GoHoardings",
       page_decri:
         "Gohoardings: India's Best Airline Advertising Agency – Explore Effective Outdoor Advertising Solutions Nationwide. Get Airline Magazine Advertising in India",
       meta_keyword:
         "airline advertising, airline marketing, inflight advertising, travel magzine advertising, passanger magzine ads, air travell promotional, airplane advertising, branding in airplane, advertising in airplane, airline sponsoeship opportunity, inflight branding agency, inflight ad company",
     },
-    {
+     {
       value: "delhi",
       page_titel:
         "Top Advertising Agency in Delhi | Outdoor Advertising Agency",
@@ -269,7 +275,8 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "hyderabad",
-      page_titel: "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
+      page_titel:
+        "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
       page_decri:
         "Experience Excellence with Gohoardings: Hyderabad's Top Outdoor Advertising Agency. Maximize Your Brand's Impact. Contact Us Today",
       meta_keyword:
@@ -277,7 +284,8 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "pune",
-      page_titel: "Gohoarding the best outdoor advertising agency in Pune",
+      page_titel:
+        "Gohoarding the best outdoor advertising agency in Pune",
       page_decri:
         "Elevate Your Brand with Gohoarding, the Top Outdoor Advertising Agency in Pune. Experience Excellence in Outdoor Promotion. Contact Us Today",
       meta_keyword:
@@ -294,7 +302,8 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "chennai",
-      page_titel: "Top Outdoor Advertising Agency in Chennai | Gohoardings",
+      page_titel:
+        "Top Outdoor Advertising Agency in Chennai | Gohoardings",
       page_decri:
         "Elevate Your Brand with the Top Outdoor Advertising Agency in Chennai. Discover Effective Outdoor Marketing Solutions. Contact Us Today",
       meta_keyword:
@@ -302,13 +311,14 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "bengaluru",
-      page_titel: "Outdoor Advertising Agency in Bangalore | Gohoardings",
+      page_titel:
+        "Outdoor Advertising Agency in Bangalore | Gohoardings",
       page_decri:
         "Discover the Best Outdoor Advertising Agency in Bangalore - Gohoardings. Elevate your brand with our innovative outdoor ad solutions in the vibrant city.",
       meta_keyword:
         "gohoardings, gohoarding, outdoor advertising agency bangalore, outdoor advertising agency in bangalore, best advertising agency, outdoor media agency in bangalore, billboard advertising agency, hoarding advertising  agency, banaglore outdoor marketig company, digital outdoor advertising in bangalore, hoarding advertising company in bangalore, branding company, marketing company, transit media agency, airport advertising agency in bangalore",
     },
-    {
+     {
       value: "noida",
       page_titel:
         "Top advertising agency in Noida |Top Advertising Agency in Noida | Outdoor Advertising Company",
@@ -316,13 +326,13 @@ Media.getInitialProps = async ({ req, res }) => {
         "Gohoardings provides the best sites for hoarding advertising, transit advertising, mall media advertising. We the one of the best advertising agency in Noida.",
       meta_keyword:
         "gohoardings, advertising agency in noida, advertising company in noida, hoarding company in noida, outdoor advertising agency in noida, best ad agency in noida, ad agency in noida, top ad agency, top advertisign agency, bus advertising agency, hoarding sites in noida, hoarding ads, mall media advertising, hoarding advertiser in noida",
-    },
+    }
   ];
-  const { Media_content } = await import("@/allApi/mediajson");
+ const { Media_content } = await import("@/allApi/mediajson");
   return {
     MetaKeys,
     currentPageUrl,
-    Media_content,
+   Media_content 
   };
 };
 

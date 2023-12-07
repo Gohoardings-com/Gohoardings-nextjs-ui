@@ -17,7 +17,7 @@ exports.allCity = catchError(async (req, res, next) => {
 
 
 exports.SiteMapProduct = catchError(async (req, res, next) => {
-const  category_name  = "traditional-ooh-media"
+const  category_name  = req.query.email
     switch (category_name) {
         case "traditional-ooh-media":
             table_name = "goh_media";
@@ -43,7 +43,7 @@ const  category_name  = "traditional-ooh-media"
         default:
             table_name = "goh_media";
     }
-        const sql = await executeQuery("SELECT DISTINCT page_title, category_name, code FROM " + table_name + " WHERE  category_name = '"+category_name+"' &&  page_title IS NOT NULL","gohoardi_goh",next)
+        const sql = await executeQuery("SELECT DISTINCT page_title, category_name FROM " + table_name + " WHERE  category_name = '"+category_name+"' &&  page_title IS NOT NULL","gohoardi_goh",next)
             if (sql) {   
                 return res.send(sql)
             }

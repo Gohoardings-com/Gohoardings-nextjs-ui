@@ -174,7 +174,7 @@ const CampaignForm = () => {
             -moz-box-shadow: none !important;
             box-shadow: none !important;
           }
-          @media screen and (max-width: 720px) {
+          @media screen and (max-width: 540px) {
             ::-webkit-input-placeholder {
               font-size: 0.9rem !important;
             }

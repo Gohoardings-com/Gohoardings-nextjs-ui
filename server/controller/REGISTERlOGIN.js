@@ -59,7 +59,7 @@ exports.registerLogin = catchError(async(req,res, next) => {
                     return res.status(206).json({success: false, message: "Otp Invalid"});
                         } else {
                            const userid = user[0].userid
-                           res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                           res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
                             token(userid, 200, res)
                         } 
                } 
@@ -82,7 +82,7 @@ exports.login = catchError(async (req, res, next) => {
                 }
 
                 const userid = data[0].userid
-                res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
                 token(userid, 200, res)
             }
         } else {
@@ -103,7 +103,7 @@ exports.googleLogin = catchError(async (req, res, next) => {
                         if (data) {
                     const sql = "Insert into tblclients (userid) values ("+userid+")"
                        await executeQuery(sql, "gohoardi_crmapp", next)
-                       res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                       res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
                             token(userid, 200, res)
                         }
         } else {
@@ -134,14 +134,14 @@ exports.googleLogin = catchError(async (req, res, next) => {
                                        
                                     const  sql = await executeQuery("Insert into tblclients (userid) values ("+userid+")","gohoardi_crmapp",next)
                                    if(sql){
-                                       res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                                       res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
                                        token(userid, 200, res)
                                    }
                                     }
                                 }
                     } else {
                         const userid = selectResult[0].userid
-                        res.setHeader("Set-Cookie",cookie.serialize(String(userid),{expires: Date.now()}))
+                        res.setHeader("Set-Cookie",cookie.serialize('gohoardings',{expires: Date.now()}))
                         token(userid, 200, res)
                     }
    })
@@ -175,7 +175,7 @@ exports.logout = catchError(async (req, res) => {
         httpOnly: false,
         sameSite: 'strict',
     }
-    return res.status(200).setHeader("Set-Cookie",cookie.serialize(String(userid), "thisismysecretejsonWebToken", option)).json({
+    return res.status(200).setHeader("Set-Cookie",cookie.serialize('gohoardings', "thisismysecretejsonWebToken", option)).json({
         success: true,
         message: "User Logout SuccessFully"
     })
@@ -203,7 +203,7 @@ exports.resetPasswordEmail = catchError(async (req, res, next) => {
     if (!cookieData) {
         return res.status(400).json({message: "No Cookie Found"})
     }
-    const token = Object.values(cookieData)[0];
+    const token = cookieData.gohoardings;
     if (!token) {
         return res.status(400).json({message: "No Token Found"})
     } else {

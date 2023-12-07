@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import {MdKeyboardArrowRight } from "react-icons/md";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import Branding from "@/components/branding";
@@ -8,8 +8,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { goh_testimonialsApi } from "@/allApi/apis";
 
+
 const Testimonial = () => {
-  const route = useRouter();
+  const route = useRouter()
   const [posts, setPosts] = useState([]);
 
   const staff = async () => {
@@ -20,10 +21,10 @@ const Testimonial = () => {
   useEffect(() => {
     staff();
   }, []);
-
+  
   return (
     <>
-      <Head>
+     <Head>
         <link rel="canonical" href={route.asPath} />
         <title>
           Client testimonials: Gohoarding | Best outdoor ad agency in India
@@ -45,7 +46,7 @@ const Testimonial = () => {
         />
         <meta
           property="og:title"
-          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+          content="India's Largest Outdoor Advertising Agency | Gohoarding Solution"
         />
         <meta
           property="og:siteName"
@@ -63,7 +64,7 @@ const Testimonial = () => {
         <meta property="og:property" content="en_US" />
         <meta
           property="twitter:title"
-          content="India&#39;s Largest Outdoor Advertising Agency | Gohoarding Solution"
+          content="India's Largest Outdoor Advertising Agency | Gohoarding Solution"
         />
         <meta
           property="twitter:siteName"
@@ -83,71 +84,70 @@ const Testimonial = () => {
       <Fixednavbar />
       <Branding title="Testimonials" />
       <div className="container  mt-5">
-        <h6>
-          <span onClick={() => route.push("/")} className="bredcamp">
-            Home
-          </span>
-          <MdKeyboardArrowRight />
-          <span className="bredcamp text-secondary">Testimonial</span>
-        </h6>
+ <h6><span  onClick={()=>route.push("/")} className="bredcamp">Home</span><MdKeyboardArrowRight/><span className="bredcamp text-secondary">Testimonial</span></h6>
 
         <div className="row testimonial-row mt-5">
-          {posts &&
-            posts.map((el, i) => (
-              <div className="col-md-4" key={i}>
-                <div className="testimonials">
-                  <Image
-                    width={50}
+         
+              {posts && posts.map((el, i) => (
+                <div className="col-md-4" key={i}>
+                  <div className="testimonials">
+                    <Image
+                           width={50}
                     height={50}
-                    src={
-                      el.image
-                        ? `https://www.gohoardings.com/gohadmin/uploads/testimonials/${el.image}`
-                        : `images/web_pics/user-profile.png`
-                    }
-                    alt="..."
-                  />
-                  <h3>{el.name}</h3>
-                  <div className="stars">
-                    <BsStarFill />
-                    <BsStarFill />
-                    <BsStarFill />
-                    <BsStarHalf />
-                    <BsStar />
+                      src={
+                        el.image
+                          ? `https://www.gohoardings.com/gohadmin/uploads/testimonials/${el.image}`
+                          : `images/web_pics/user-profile.png`
+                      }
+                      alt="..."
+                    />
+                    <h3>{el.name}</h3>
+                    <div className="stars">
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarHalf />
+                      <BsStar />
+                    </div>
+                    <p dangerouslySetInnerHTML={{ __html: el.testimony }} />
                   </div>
-                  <p dangerouslySetInnerHTML={{ __html: el.testimony }} />
                 </div>
-              </div>
-            ))}
+              ))}
+          
         </div>
       </div>
       <style jsx>
-        {`
-          .testimonial-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-          }
-          .col {
-            flex: 33.33%;
-            max-width: 33.33%;
-            box-sizing: border-box;
-            padding: 15px;
-          }
-          .testimonials {
-            padding: 20px 0;
-            background-image: $card_background;
-            text-align: center;
-          }
-          img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-          }
-          .stars {
-            color: $yellow;
-            margin-bottom: 20px;
-          }
-        `}
+{`
+
+.testimonial-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+  .col{
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 15px;
+ }
+  .testimonials{
+    padding: 20px 0;
+    background-image: $card_background;
+  text-align: center; 
+  }
+  img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+ }
+ .stars{
+    color: $yellow;
+    margin-bottom: 20px;
+ }
+
+
+`}
+        
       </style>
     </>
   );

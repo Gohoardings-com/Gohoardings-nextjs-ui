@@ -15,7 +15,7 @@ const Enquire = () => {
   };
 
   useEffect(() => {
-    allLogo();
+   allLogo();
   }, []);
 
   const loadMore = () => {
@@ -50,7 +50,7 @@ const Enquire = () => {
 
   return (
     <>
-      <section
+    <section
         id="our_clients_content"
         className={`${styles.our_clients_content} my-4 enqry`}
       >
@@ -82,7 +82,8 @@ const Enquire = () => {
             </button>
           )}{" "}
         </h2>
-      </section>
+      </section> 
+         
       <div
         id="enquire_description_row"
         className={`container-xxl  container-xl container-lg container-md ${styles.enquire_content} py-2 py-md-5 my-md-3 px-md-5 `}

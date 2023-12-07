@@ -222,7 +222,7 @@ const About = () => {
                 We aim to become the world&#39;s best OOH and DOOH advertising
                 company.Our mission is to guide you to find your brand’s voice
                 and help you to tell a bigger story through our best services
-                available in city.&#34;Quality never goes out of style&#34; and
+                available in city.&#39;Quality never goes out of style&#39; and
                 we ensure to provide the best one.
               </p>
 
@@ -407,7 +407,7 @@ const About = () => {
       padding-top: 30px;
     }
   }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 540px) {
     .about-cards {
       h6 {
         font-size: 8px;

@@ -23,7 +23,7 @@ const Team = () => {
 
   return (
     <>
-      <Head>
+ <Head>
         <link
           rel="canonical"
           href={`https://www.gohoardings.com${route.asPath}`}
@@ -103,8 +103,8 @@ const Team = () => {
                     <div className="single-team    text-center rounded">
                       <div className="team-img d-flex  justify-content-center">
                         <Image
-                          width={50}
-                          height={50}
+                           width={50}
+                           height={50}
                           src={
                             person.profile_image
                               ? `https://www.gohoardings.com/gohadmin/uploads/testimonials/${person.profile_image}`

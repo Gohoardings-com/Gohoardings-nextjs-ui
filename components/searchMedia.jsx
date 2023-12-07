@@ -7,6 +7,7 @@ import Citylocation from "../components/cityLocation";
 import { useRouter } from "next/router";
 import styles from "../styles/searchmedia.module.scss";
 import { setCookie } from "cookies-next";
+
 const Searchmedia = () => {
   const [city, setCity] = useState([]);
   const [value, setValue] = useState("");
@@ -21,6 +22,7 @@ const Searchmedia = () => {
   };
 
   const mavigatetoMediaPage = (userType, value) => {
+
     if (userType.length > 3 && value.length > 2) {
       setCookie("category_name", userType);
       setCookie("city_name", value);
@@ -28,6 +30,7 @@ const Searchmedia = () => {
       CityNameImage.forEach((el) => {
         el.value2 = el.value === userType ? true : false;
       });
+
 
       route.push(`/${userType}/${value}`);
     }
@@ -46,7 +49,7 @@ const Searchmedia = () => {
         <div className="row mt-5 mt-md-0">
           <div className="col-md-8 ps-2 ps-md-0">
             <div className={`${styles.heading_text} mt-4`}>
-              <h2>India&#39;s Largest</h2>
+               <h2>India&#39;s Largest</h2>
               <h1>
                 Outdoor Advertising <br />
                 Agency
@@ -70,6 +73,8 @@ const Searchmedia = () => {
           </div>
           <div className="col-md-4 text-center p-md-0 d-none d-md-block">
             <img
+              width={420}
+              height={370}
               alt="home-img"
               src="/images/web_pics/home-img.jpg"
               className={styles.search_media_img}

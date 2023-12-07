@@ -1,7 +1,7 @@
 const {executeQuery} =  require('../conn/conn')
 const catchError = require('../middelware/catchError');
 const redis = require('redis');
-const axios = require('axios');
+const axios = require('axios')
 const client = redis.createClient()
     client.connect()
 
@@ -106,6 +106,7 @@ const alldata = async (data, next) => {
         return err
     }
 }
+
 
 const WEBHOOK_SECRET = '7650c3b9224b7e059a7eab393f39ee3a8f5a74f129a9f5cebd7dde04a4f317090316b0b8428833d464d7269578a4eb4a';
 const crypto = require('crypto');

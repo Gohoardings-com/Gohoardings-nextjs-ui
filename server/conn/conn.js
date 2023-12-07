@@ -3,7 +3,7 @@ const ErrorHandle = require("../utils/Errorhandler");
 
 const db_config = createPool({
   user: "root",
-  host: "localhost",
+  host: "127.0.0.1",
   password: "",
   database: "gohoardi_goh",
 });

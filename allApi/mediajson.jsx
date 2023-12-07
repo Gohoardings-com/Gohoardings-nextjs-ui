@@ -1102,6 +1102,7 @@ export const Media_content = [
   },
 ];
 
+
 export const TrendingCites = [
   {
     category_name: "traditional-ooh-media",
@@ -1183,7 +1184,6 @@ export const TrendingCites = [
     alt:"advertising agnecy in pune"
   },
 ];
-
 export const wordCounts=[
   {id:1,
     qsn:"What is Gohoardings?",

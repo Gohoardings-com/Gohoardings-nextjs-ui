@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { emailformate, enquiryApi } from "@/allApi/apis";
 import { toast, ToastContainer } from "react-toastify";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import {MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Fixednavbar from "@/components/navbar/fixednavbar";
-import styles from "../../styles/contactUs.module.scss";
+import styles from '../../styles/contactUs.module.scss'  ;
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const route = useRouter();
+  const [name, setName] = useState(""); 
+  const route = useRouter()
   const [phone, setphone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -54,7 +54,7 @@ const Contact = () => {
     }
   };
 
-  const { asPath } = useRouter();
+  const {asPath} = useRouter();
   return (
     <>
       <Head>
@@ -109,24 +109,16 @@ const Contact = () => {
         />
         <meta property="twitter:property" content="en_US" />
       </Head>
-      <Fixednavbar />
+   <Fixednavbar/>
 
       <section>
-        <div
-          className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}
-        >
-          <h1 className="text-center pt-0 pt-md-4">Contact Us</h1>
+        <div className={`container-xxl  container-xl container-lg container-md  my-5 ${styles.main_contact_all} contUs `}>
+          <h1 className="text-center pt-2 pt-md-4">Contact Us</h1>
           <h5 className="text-center">
             Any question or remarks? Just write us a message or <br />
             visit our nearest office.
           </h5>
-          <h6>
-            <span onClick={() => route.push("/")} className="bredcamp">
-              Home
-            </span>
-            <MdKeyboardArrowRight />
-            <span className="bredcamp text-secondary">Contact-Us</span>
-          </h6>
+   <h6><span  onClick={()=>route.push("/")} className="bredcamp">Home</span><MdKeyboardArrowRight/><span className="bredcamp text-secondary">Contact-Us</span></h6>
           <div className={`row p-3 mt-md-5 rounded-3 ${styles.main_contact}`}>
             <div className="col-md-6 p-0">
               <h3>
@@ -258,6 +250,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+     
     </>
   );
 };
