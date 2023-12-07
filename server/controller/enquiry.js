@@ -23,6 +23,7 @@ exports.message = catchError(async (req, res, next) => {
 
   const query = "insert into tblleads set name='"+name+"',addedfrom=0,phonenumber='"+phone+"',description = '"+message+"',email='"+email+"',source=3,status=2,assigned='"+assign+"',dateadded=NOW(),dateassigned=NOW()";
   await sendEmail({email: "deepti@gohoardings.com", subject: "website lead", message: "Lead : - "+name+" with email : "+email+" and contact number : "+phone+". contacted you with message :- "+message+". Thank you have a great day."});
+  await sendEmail({email: "vikas@gohoardings.com", subject: "website lead", message: "Lead : - "+name+" with email : "+email+" and contact number : "+phone+". contacted you with message :- "+message+". Thank you have a great day."});
   const sql = await executeQuery(query,"gohoardi_crmapp",next);
   if (sql) {
     return res
