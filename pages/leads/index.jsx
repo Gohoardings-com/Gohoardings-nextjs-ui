@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Fixednavbar from "../../components/navbar/fixednavbar";
 import WordCounts from "@/components/wordCounts";
@@ -52,7 +53,7 @@ const Leads = () => {
       }
     }
 
-    const message = `client city: ${welcomeForm.city}, client message: ${welcomeForm.message}`
+    const message = `client city: ${welcomeForm.city}, client message: ${welcomeForm.message}`;
 
     const data = await enquiryApi(
       welcomeForm.name,
@@ -256,11 +257,20 @@ const Leads = () => {
         };
   };
 
-
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3781905,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   return (
     <>
+      <Head>
+        <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
+      </Head>
       <Fixednavbar />
-
       <div className="container-fluid p-0">
         <section>
           <div className="full-page-image"></div>

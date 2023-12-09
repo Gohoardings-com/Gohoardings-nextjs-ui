@@ -76,7 +76,7 @@ const Searchmedia = () => {
               width={420}
               height={370}
               alt="home-img"
-              src="/images/web_pics/home-img.jpg"
+              src="/images/web_pics/cloud_gif.gif"
               className={styles.search_media_img}
             />
           </div>
