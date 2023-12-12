@@ -9,7 +9,7 @@ exports.Nearproduct = catchError(async (req, res, next) => {
     const key = `${code + category_name}`
     const noOfLogo = 2
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":
@@ -63,7 +63,7 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
         noOfLogo } = req.body
         const key = `${category_name + city_name + loca + noOfLogo}`
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":
@@ -102,7 +102,7 @@ exports.product = catchError(async (req, res, next) => {
     const { page_title, category_name,code } = req.body
     const key = `${page_title + category_name}`
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":

@@ -19,7 +19,7 @@ exports.allCity = catchError(async (req, res, next) => {
 exports.SiteMapProduct = catchError(async (req, res, next) => {
 const  category_name  = req.query.email
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":

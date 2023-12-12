@@ -38,7 +38,7 @@ const City = () => {
 
   const directlink = (e) => {
     const services = [...serviceIcon];
-    setCookie("category_name", "traditional-ooh-media"),
+    setCookie("category_name", "billboard"),
       setCookie("city_name", e.city),
       services.map((el) => (el.value2 = false));
     setServiceIcon(services);

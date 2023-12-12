@@ -727,9 +727,9 @@ export const Media_content = [
     ],
   },
   {
-    value: "traditional-ooh-media",
+    value: "billboard",
     srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
-    banner_heading: "About Traditional OOH Media Advertising",
+    banner_heading: "About Billboard Advertising",
     banner_content:
       " Traditional Out-of-Home (OOH) media advertising refers to the practice of using physical, non-digital advertising channels to reach a wide audience in public spaces. It involves placing advertisements on billboards, posters, transit shelters, bus stops, street furniture, and other outdoor structures. Traditional OOH media advertising is designed to capture the attention of people as they move through their daily routines, such as commuting to work, shopping, or engaging in recreational activities. This form of advertising relies on large-format visuals, catchy slogans, and impactful messaging to create brand awareness and deliver targeted marketing messages. Traditional OOH media advertising offers broad exposure, wide geographic coverage, and the ability to reach diverse demographics. It remains a popular and effective advertising medium to engage audiences in both urban and suburban areas, providing opportunities for businesses to make a memorable impact and generate brand recognition in the physical environment.",
     body_heading1: " About Traditonal OOH Media Advertising Services in India",
@@ -739,7 +739,7 @@ export const Media_content = [
       { list: "Gantries Advertising" },
       { list: "Uni poles Advertising" },
     ],
-    body_heading2: "Traditional OOH Media Advertising ",
+    body_heading2: "Billboard Advertising ",
     body_content2_description_top:
       "Traditional Out-of-Home (OOH) media advertising can drive up sales through several key mechanisms:",
     body_content2_list: [
@@ -764,7 +764,7 @@ export const Media_content = [
     ],
     body_content2_description_bottom:
       "Overall, traditional OOH media advertising drives up sales by increasing brand exposure, fostering brand recall, capturing impulse purchases, and complementing other marketing channels. Its wide reach and ability to deliver targeted messaging make it a powerful tool for businesses looking to boost their sales and drive customer engagement.",
-    body_heading3: "Branding in Traditional OOH Media",
+    body_heading3: "Branding in Billboard",
     body_content3_description_top:
       "Branding in traditional Out-of-Home (OOH) media refers to the practice of incorporating brand elements and messaging into outdoor advertising channels such as billboards, transit shelters, street furniture, and other physical structures. It plays a crucial role in establishing brand identity, increasing brand visibility, and enhancing brand recall among the target audience. Here are some key aspects of branding in traditional OOH media:",
     body_content3_list: [
@@ -869,7 +869,7 @@ export const Media_content = [
       { list: "Outdoor advertising agency in pune" },
       { list: "Outdoor advertising agency in chennai" },
     ],
-    faqs_heading: "FAQ’s about Traditional OOH Media Advertising in India",
+    faqs_heading: "FAQ’s about Billboard Advertising in India",
     faqs_content: [
       {
         id: 1,
@@ -1050,7 +1050,7 @@ export const Media_content = [
       { list: "Airport advertising agency in pune" },
       { list: "Airport advertising agency in chennai" },
     ],
-    faqs_heading: "FAQ’s about Traditional OOH Media Advertising in India",
+    faqs_heading: "FAQ’s about Billboard Advertising in India",
     faqs_content: [
       {
         id: 1,
@@ -1105,7 +1105,7 @@ export const Media_content = [
 
 export const TrendingCites = [
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Billboard-at-Edapalaiyam-Periyamet-in-Chennai-Gohoardings-Solution",
     code: "GOH00T14041",
@@ -1115,7 +1115,7 @@ export const TrendingCites = [
     alt:"top advertising company in chennai"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16001",
@@ -1125,7 +1125,7 @@ export const TrendingCites = [
     alt:"outdoor advertising agency in delhi"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Unipole-at-Akshardham-Station-Pandav-Nagar-in-Delhi-Gohoardings-Solution",
     code: "GOH00T16002",
@@ -1135,7 +1135,7 @@ export const TrendingCites = [
     alt:"hoarding company in delhi"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title: "Unipole-at-Mall-Rd-Civil-Lines-in-Kanpur-Gohoardings-Solution",
     code: "GOH00T10087",
     thumb: "../images/web_pics/trending/new1568264729_61050.jpg",
@@ -1144,7 +1144,7 @@ export const TrendingCites = [
     alt:"best outdoor advertising agency in mumbai"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16009",
@@ -1154,7 +1154,7 @@ export const TrendingCites = [
     alt:"outdoor advertising agency in noida"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Unipole-at-Hindon-Regulator-New-Friends-Colony-in-Noida-Gohoardings-Solution",
     code: "GOH00T16021",
@@ -1164,7 +1164,7 @@ export const TrendingCites = [
     alt:"hoarding advertising agency in noida"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Billboard-at-Laxmi-Narayan-Colony-Garia-in-Kolkata-Gohoardings-Solution",
     code: "GOH00T15761",
@@ -1174,7 +1174,7 @@ export const TrendingCites = [
     alt:"hoarding advertising agency in kolkata"
   },
   {
-    category_name: "traditional-ooh-media",
+    category_name: "billboard",
     page_title:
       "Billboard-at-University-Flyover-Chattushringi-in-Pune-Gohoardings-Solution",
     code: "GOH00T14709",

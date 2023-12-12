@@ -89,7 +89,7 @@ exports.SearchData = catchError(async (req, res, next) => {
         return res.status(204).json({ message: "No Cookie Found" })
     }
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":
@@ -149,7 +149,7 @@ exports.mediaData = catchError(async (req, res, next) => {
         return res.status(204).json({ message: "No Cookie Found" })
     }
     switch (category_name) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":

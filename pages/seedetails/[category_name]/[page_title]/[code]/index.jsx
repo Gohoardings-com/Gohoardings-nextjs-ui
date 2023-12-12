@@ -134,7 +134,7 @@ const metaData=props.apiData;
 
   const detailTag = [
     {
-      value: "traditional-ooh-media",
+      value: "billboard",
       description: `Hoardings in ${
         extractedFields.length !== 0 ? extractedFields[0].city_name : "India"
       } enhance enduring brand remembrance while extending your reach over. These promotional materials are strategically positioned zoned with substantial footfall, ensuring remarkable prominence among bystanders, walkers, and travelers.`,
@@ -497,7 +497,7 @@ const metaData=props.apiData;
                   <MdKeyboardArrowRight />
                   <span
                     className="bredcamp"
-                    onClick={() => router.push("/traditional-ooh-media")}
+                    onClick={() => router.push("/billboard")}
                   >
                     Medias
                   </span>

@@ -48,7 +48,7 @@ if(data){
     const makeStringfylocation = JSON.stringify(locations)
     const newLocation =  makeStringfylocation.substring(1, makeStringfylocation.length-1);
     switch (table) {
-        case "traditional-ooh-media":
+        case "billboard":
             table_name = "goh_media";
             break;
         case "digital-media":
@@ -178,7 +178,7 @@ if (!cookieData) {
 }
 
   switch (category_name) {
-      case "traditional-ooh-media":
+      case "billboard":
           table_name = "goh_media";
           break;
       case "digital-media":
@@ -250,7 +250,7 @@ exports.subcategoryFilter = catchError(async(req, res, next) =>{
     return res.send(JSON.parse(value))
   }else{
     switch (category_name) {
-      case "traditional-ooh-media":
+      case "billboard":
         table_name = "goh_media";
         break;
       case "digital-media":
@@ -293,7 +293,7 @@ exports.LocationFilter = catchError(async(req, res, next) =>{
     return res.send(JSON.parse(value))
   }else{
     switch (category_name) {
-      case "traditional-ooh-media":
+      case "billboard":
         table_name = "goh_media";
         break;
       case "digital-media":
@@ -336,7 +336,7 @@ exports.illuminationfilter = catchError(async(req, res, next) =>{
     return res.send(JSON.parse(value))
   }else{
     switch (category_name) {
-      case "traditional-ooh-media":
+      case "billboard":
         table_name = "goh_media";
         break;
       case "digital-media":

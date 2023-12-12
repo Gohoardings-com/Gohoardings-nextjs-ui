@@ -26,14 +26,14 @@ export const CityNameImage = [
 
   {
     id: 2,
-    label: "Traditional OOH Media ",
+    label: "Billboard ",
     value2: false,
-    value: "traditional-ooh-media",
+    value: "billboard",
     srcImgCtSlc: "/images/web_pics/final/Tradition_OOH_01.png",
     srcImgCt: "/images/web_pics/final/Grey/Tradition_OOH.png",
     srcImg: "/images/web_pics/traditional-ooh-media-advertising-near-me.jpg",
     srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
-    Link: `/traditional-ooh-media/delhi`,
+    Link: `/billboard/delhi`,
     icon: <GiAwareness />,
     city: "delhi",
     

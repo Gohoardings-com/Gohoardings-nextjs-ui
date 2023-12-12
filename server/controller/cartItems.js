@@ -118,7 +118,7 @@ exports.ppt = catchError(async (req, res, next) => {
     arr.map((obj) => {
         try {
             switch (obj.mediatype) {
-                case "traditional-ooh-media":
+                case "billboard":
                     table_name = "goh_media";
                     break;
                 case "digital-media":
@@ -220,7 +220,7 @@ const convertJsonToExcel = async(data,ID) => {
         data.map((obj) => {
             try {
                 switch (obj.mediatype) {
-                    case "traditional-ooh-media":
+                    case "billboard":
                         table_name = "goh_media";
                         break;
                     case "digital-media":
@@ -546,7 +546,7 @@ exports.cartiemfromdb = catchError(async (req, res, next) => {
     arr.map((obj) => {
         try {
             switch (obj.mediatype) {
-                case "traditional-ooh-media":
+                case "billboard":
                     table_name = "goh_media";
                     break;
                 case "digital-media":

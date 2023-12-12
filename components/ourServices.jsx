@@ -20,7 +20,7 @@ const Ourservices = () => {
 
 
   const directlinkget = () => {
-    setCookie("category_name", "traditional-ooh-media");
+    setCookie("category_name", "billboard");
     setCookie("city_name", "delhi");
   };
 
@@ -130,7 +130,7 @@ const Ourservices = () => {
                 <span
                   className={`${styles.button_serch} text-white rounded-pill`}
                 >
-                  <Link href="/traditional-ooh-media">
+                  <Link href="/billboard">
                     <button
                       className={styles.search_btn}
                       onClick={directlinkget}

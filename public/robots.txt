@@ -72,7 +72,7 @@ Host: https://www.gohoardings.com/
 # Sitemaps
 Sitemap: https://gohoardings.com/airport-media-sitemap.xml
 Sitemap: https://gohoardings.com/mall-media-sitemap.xml
-Sitemap: https://gohoardings.com/traditional-ooh-media-sitemap.xml
+Sitemap: https://gohoardings.com/billboard-sitemap.xml
 Sitemap: https://gohoardings.com/transit-media-sitemap.xml
 Sitemap: https://gohoardings.com/digital-ooh-medias-sitemap.xml
 Sitemap: https://gohoardings.com/static-pages-sitemap.xml

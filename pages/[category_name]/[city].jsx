@@ -69,7 +69,7 @@ const [isLoading, setIsLoading] = useState(false);
 
  
   const validCategories = [
-    "traditional-ooh-media",
+    "billboard",
     "digital-media",
     "mall-media",
     "office-media",
@@ -163,7 +163,7 @@ Media.getInitialProps = async ({ req, res }) => {
   }
   const MetaKeys = [
     {
-      value: "traditional-ooh-media",
+      value: "billboard",
       page_titel:
         "Outdoor Advertising Agency in India | OOH in India | Gohoardings",
       page_decri:

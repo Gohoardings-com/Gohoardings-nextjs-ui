@@ -52,7 +52,7 @@ const alldata = async (data, next) => {
     arr.map((obj) => {
         try {
             switch (obj.mediatype) {
-                case "traditional-ooh-media":
+                case "billboard":
                     table_name = "goh_media";
                     break;
                 case "digital-media":

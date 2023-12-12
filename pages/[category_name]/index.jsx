@@ -22,7 +22,7 @@ const Media = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { category_name } = router.query;
   const validCategories = [
-    "traditional-ooh-media",
+    "billboard",
     "digital-media",
     "mall-media",
     "office-media",
@@ -54,7 +54,7 @@ const Media = (props) => {
     const noofPage = parseInt(noOfLogo + 3);
     let data = [];
     if (category_name) {
-      if (category_name.includes("-")) {
+      if (category_name.includes("-")|| category_name === "billboard" ) {
         data = await mediaApi(category_name, noofPage);
         setSearch(data);
         setIsLoading(false);
@@ -201,7 +201,7 @@ Media.getInitialProps = async ({ req, res }) => {
   }
     const MetaKeys = [
     {
-      value: "traditional-ooh-media",
+      value: "billboard",
       page_titel:
         "Gohoardings: Largets Traditional OOH Advertising Agency in India",
       page_decri:
