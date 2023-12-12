@@ -23,7 +23,6 @@ export const CityNameImage = [
     city: "delhi",
 
   },
-
   {
     id: 2,
     label: "Billboard ",
@@ -40,17 +39,16 @@ export const CityNameImage = [
   },
   {
     id: 3,
-    label: "Digital Media",
-    value: "digital-media",
+    label: "Digital Branding",
+    value: "digital-branding",
     value2: false,
     srcImgCtSlc: "/images/web_pics/final/Digital_OOH_Media.png",
     srcImgCt: "/images/web_pics/final/Grey/Digital_OOH_Media.png",
     srcImg: "/images/web_pics/digital-media-hoardings-near-me.jpg",
     srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
-    Link: `/digital-media/delhi`,
+    Link: `/digital-branding/delhi`,
     icon: <GiLaptop />,
     city: "mumbai",
-    
   },
   {
     id: 4,
@@ -68,8 +66,8 @@ export const CityNameImage = [
 
   {
     id: 5,
-    label: "Office Branding",
-    value: "office-media",
+    label: "Lift Branding",
+    value: "lift-branding",
     value2: false,
     srcImgCtSlc: "/images/web_pics/final/Office_Branding.png",
     srcImgCt: "/images/web_pics/final/Grey/Office_Branding.png",

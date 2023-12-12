@@ -32,7 +32,7 @@ const Index = () => {
 
   const campaignData = async () => {
     const data = await profileDetails();
-  
+
     data.message.map((obj, i) => {
       obj["select"] = false;
     });
@@ -156,32 +156,6 @@ const Index = () => {
     setCampaingnName(data);
   };
 
-  // const [showMenu, setShowMenu] = useState(false);
-  // function handleMouseEnter(id) {
-  //   // const data = [...campaingnName]
-  //   // data.map((obj) => {
-  //   //   // if (obj.campaign_name === id) {
-  //   //   //   obj.select = true;
-  //   //   // }
-
-  //   //   // if (obj.campaign_name !== id ) {
-  //   //   //   obj.select = false;
-  //   //   // }
-  //   // });
-  //   // setCampaingnName(data)
-
-  // }
-
-  // function handleMouseLeave(id) {
-  //   // const data = [...campaingnName]
-  //   // data.map((obj) => {
-  //   //   if (obj.campaign_name === id && showMenu==false) {
-  //   //     obj.select = false;
-  //   //   }
-  //   // });
-  //   // setCampaingnName(data)
-  // }
-
   const [camp, setCamp] = useState(true);
   const [pay, setpay] = useState(false);
   const [notif, setNotif] = useState(false);
@@ -204,13 +178,15 @@ const Index = () => {
     setNotif(true);
   };
 
-  const [searchValue,setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <>
-             <Head>
-      <link rel="canonical" href={`https://www.gohoardings.com${route.asPath}`}/>
-       
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://www.gohoardings.com${route.asPath}`}
+        />
       </Head>
       <Fixednavbar />
       <div className=" container-xxl  container-xl container-lg container-md my-5 pt-2  pt-md-5 animate__animated  animate__fadeIn">

@@ -12,7 +12,7 @@ exports.Nearproduct = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -27,7 +27,7 @@ exports.Nearproduct = catchError(async (req, res, next) => {
         case "inflight_media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:
@@ -66,7 +66,7 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -81,7 +81,7 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
         case "inflight_media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:
@@ -105,7 +105,7 @@ exports.product = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -120,7 +120,7 @@ exports.product = catchError(async (req, res, next) => {
         case "inflight_media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:
