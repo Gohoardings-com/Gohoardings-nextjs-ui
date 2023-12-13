@@ -39,14 +39,14 @@ export const CityNameImage = [
   },
   {
     id: 3,
-    label: "Digital Branding",
-    value: "digital-branding",
+    label: "Digital Billboard",
+    value: "digital-billboard",
     value2: false,
     srcImgCtSlc: "/images/web_pics/final/Digital_OOH_Media.png",
     srcImgCt: "/images/web_pics/final/Grey/Digital_OOH_Media.png",
     srcImg: "/images/web_pics/digital-media-hoardings-near-me.jpg",
     srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
-    Link: `/digital-branding/delhi`,
+    Link: `/digital-billboard/delhi`,
     icon: <GiLaptop />,
     city: "mumbai",
   },
@@ -63,7 +63,6 @@ export const CityNameImage = [
     icon: <TbBuildingCommunity />,
     city: "bengaluru",
   },
-
   {
     id: 5,
     label: "Lift Branding",

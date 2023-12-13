@@ -179,7 +179,14 @@ const Index = () => {
   };
 
   const [searchValue, setSearchValue] = useState("");
-
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   return (
     <>
       <Head>
@@ -187,6 +194,7 @@ const Index = () => {
           rel="canonical"
           href={`https://www.gohoardings.com${route.asPath}`}
         />
+        <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
       </Head>
       <Fixednavbar />
       <div className=" container-xxl  container-xl container-lg container-md my-5 pt-2  pt-md-5 animate__animated  animate__fadeIn">

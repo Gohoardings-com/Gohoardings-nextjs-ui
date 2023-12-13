@@ -92,7 +92,7 @@ exports.SearchData = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-branding":
+        case "digital-billboard":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -152,7 +152,7 @@ exports.mediaData = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-branding":
+        case "digital-billboard":
             table_name = "goh_media_digital";
             break;
         case "transit-media":

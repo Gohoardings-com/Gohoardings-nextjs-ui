@@ -23,7 +23,7 @@ const Media = (props) => {
   const { category_name } = router.query;
   const validCategories = [
     "billboard",
-    "digital-branding",
+    "digital-billboard",
     "mall-media",
     "lift-branding",
     "transit-media",
@@ -54,7 +54,7 @@ const Media = (props) => {
     const noofPage = parseInt(noOfLogo + 3);
     let data = [];
     if (category_name) {
-      if (category_name.includes("-")|| category_name === "billboard" ) {
+      if (category_name.includes("-") || category_name === "billboard") {
         data = await mediaApi(category_name, noofPage);
         setSearch(data);
         setIsLoading(false);
@@ -90,23 +90,27 @@ const Media = (props) => {
       router.push(`/${lowercaseCity}`);
     }
   };
-  
+
   let city = "";
 
   useEffect(() => {
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
-  
+
     if (validCategories.slice(7, 14).includes(category_name)) {
       setValue(category_name);
     }
   }, []);
-  
-
-  if (
-   validCategories.includes(category_name)
-  ) {
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
+  if (validCategories.includes(category_name)) {
     return (
       <>
         <Head>
@@ -158,6 +162,7 @@ const Media = (props) => {
               );
             }
           })}
+          <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
         </Head>
         <Fixednavbar />
         <MainUi
@@ -177,17 +182,17 @@ const Media = (props) => {
           city={city}
           setValue={setValue}
           setFocus={setFocus}
-        isLoading={isLoading}
+          isLoading={isLoading}
           Media_content={Media_content}
         />
       </>
     );
   } else {
-   return(
-    <>
-    <ErrorPage/>
-    </>
-   )
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
   }
 };
 
@@ -199,24 +204,22 @@ Media.getInitialProps = async ({ req, res }) => {
   } else if (res) {
     currentPageUrl = res.socket.parser.incoming.originalUrl;
   }
-    const MetaKeys = [
+  const MetaKeys = [
     {
       value: "billboard",
-      page_titel:
-        "Gohoardings: Largets Traditional OOH Advertising Agency in India",
+      page_titel: "Top billboard advertising agency in India | Gohoardings",
       page_decri:
-        "Gohoardings - Your Top Choice for Traditional OOH Advertising. We're the Best Outdoor Media Company in India, Offering Unrivaled Solutions to Boost Your Brand's Reach.",
+        "Choose from millions of billboards here. We are the best billboard advertising agency in India. Get the best outdoor advertising solutions with Gohoardings.",
       meta_keyword:
-        "traditional ooh advertising, outdoor advertising agency, billboard advertising services, ooh marketing agency, billboard ad company, traditional ooh media planning, traditional outdoor media, outdoor branding, outdoor ad campaign, outdoor advertising specialist, ooh advertising agency",
+        "billboards, billboard advertising, billboard advertising agency, billboard agency, hoarding advertising agency, hoarding advertising company, hoarding company, billboard ad agency, billboard ads, billboard company, hoarding agency, unipole advertising, outdoor hoardings, billboard agency in india",
     },
     {
-      value: "digital-media",
-      page_titel:
-        "Digital Hoarding Advertising Solutions by Gohoardings",
+      value: "digital-billboard",
+      page_titel: "Digital billboard advertising agency in India | Gohoardings",
       page_decri:
-        "Digital Hoarding Advertising Solutions by the best outdoor advertising agency Gohoardings - Your Partner for Effective Digital Media Advertising Services.",
+        "Start your digital billboard advertising with us. At Gohoardings, we provide the best interactive digital billboard advertising sites to enhance your brand presence.",
       meta_keyword:
-        "gohoardings, go hoardings, digital media advertising, digital hoarding advertising, digital billboard ads, outdoor digital advertising, digital display advertising, digital hoarding rental, digital media hoardings, digital advertising display board, LED hoarding advertising, digital hoarding marketing, digital hoarding branding, digital media marketing",
+        "digital billboard advertising, digital hoarding advertising, digital billboard ads, outdoor digital advertising, digital display advertising, digital hoarding rental, digital media hoardings, digital advertising display board, LED hoarding advertising, digital hoardings",
     },
     {
       value: "mall-media",
@@ -239,8 +242,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "transit-media",
-      page_titel:
-        "Best Transit Media Advertising Agency | Gohoardings",
+      page_titel: "Best Transit Media Advertising Agency | Gohoardings",
       page_decri:
         "Discover the Power of Transit Advertising with Gohoardings - Best Transit Advertising Company! Transform your marketing strategy with our bus advertising solutions.",
       meta_keyword:
@@ -257,14 +259,13 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "inflight-media",
-      page_titel:
-        "Inflight Media: Airline Advertising in India | GoHoardings",
+      page_titel: "Inflight Media: Airline Advertising in India | GoHoardings",
       page_decri:
         "Gohoardings: India's Best Airline Advertising Agency – Explore Effective Outdoor Advertising Solutions Nationwide. Get Airline Magazine Advertising in India",
       meta_keyword:
         "airline advertising, airline marketing, inflight advertising, travel magzine advertising, passanger magzine ads, air travell promotional, airplane advertising, branding in airplane, advertising in airplane, airline sponsoeship opportunity, inflight branding agency, inflight ad company",
     },
-     {
+    {
       value: "delhi",
       page_titel:
         "Top Advertising Agency in Delhi | Outdoor Advertising Agency",
@@ -275,8 +276,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "hyderabad",
-      page_titel:
-        "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
+      page_titel: "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
       page_decri:
         "Experience Excellence with Gohoardings: Hyderabad's Top Outdoor Advertising Agency. Maximize Your Brand's Impact. Contact Us Today",
       meta_keyword:
@@ -284,8 +284,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "pune",
-      page_titel:
-        "Gohoarding the best outdoor advertising agency in Pune",
+      page_titel: "Gohoarding the best outdoor advertising agency in Pune",
       page_decri:
         "Elevate Your Brand with Gohoarding, the Top Outdoor Advertising Agency in Pune. Experience Excellence in Outdoor Promotion. Contact Us Today",
       meta_keyword:
@@ -302,8 +301,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "chennai",
-      page_titel:
-        "Top Outdoor Advertising Agency in Chennai | Gohoardings",
+      page_titel: "Top Outdoor Advertising Agency in Chennai | Gohoardings",
       page_decri:
         "Elevate Your Brand with the Top Outdoor Advertising Agency in Chennai. Discover Effective Outdoor Marketing Solutions. Contact Us Today",
       meta_keyword:
@@ -311,14 +309,13 @@ Media.getInitialProps = async ({ req, res }) => {
     },
     {
       value: "bengaluru",
-      page_titel:
-        "Outdoor Advertising Agency in Bangalore | Gohoardings",
+      page_titel: "Outdoor Advertising Agency in Bangalore | Gohoardings",
       page_decri:
         "Discover the Best Outdoor Advertising Agency in Bangalore - Gohoardings. Elevate your brand with our innovative outdoor ad solutions in the vibrant city.",
       meta_keyword:
         "gohoardings, gohoarding, outdoor advertising agency bangalore, outdoor advertising agency in bangalore, best advertising agency, outdoor media agency in bangalore, billboard advertising agency, hoarding advertising  agency, banaglore outdoor marketig company, digital outdoor advertising in bangalore, hoarding advertising company in bangalore, branding company, marketing company, transit media agency, airport advertising agency in bangalore",
     },
-     {
+    {
       value: "noida",
       page_titel:
         "Top advertising agency in Noida |Top Advertising Agency in Noida | Outdoor Advertising Company",
@@ -326,13 +323,13 @@ Media.getInitialProps = async ({ req, res }) => {
         "Gohoardings provides the best sites for hoarding advertising, transit advertising, mall media advertising. We the one of the best advertising agency in Noida.",
       meta_keyword:
         "gohoardings, advertising agency in noida, advertising company in noida, hoarding company in noida, outdoor advertising agency in noida, best ad agency in noida, ad agency in noida, top ad agency, top advertisign agency, bus advertising agency, hoarding sites in noida, hoarding ads, mall media advertising, hoarding advertiser in noida",
-    }
+    },
   ];
- const { Media_content } = await import("@/allApi/mediajson");
+  const { Media_content } = await import("@/allApi/mediajson");
   return {
     MetaKeys,
     currentPageUrl,
-   Media_content 
+    Media_content,
   };
 };
 

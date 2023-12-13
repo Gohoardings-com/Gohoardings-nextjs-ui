@@ -14,7 +14,7 @@ export const Media_content = [
     ],
     body_heading2: "Mall OOH Media Advertising ",
     body_content2_description_top:
-      "Mall OOH (Out-of-Home) media advertising can drive up sales for businesses by leveraging the unique advantages it offers in reaching and engaging with a captive audience within shopping malls. Here are some reasons why mall OOH media advertising is effective in driving sales:",
+      "Mall OOH (Out-of-Home) media advertising can drive up sales for businesses by leveraging the unique advantages it offers in reaching and engaging with a captive audience within shopping malls. Here are some reasons why mall Billboard advertising is effective in driving sales:",
     body_content2_list: [
       {
         list: "High Foot Traffic: Shopping malls attract a large number of visitors daily, providing businesses with a significant opportunity to reach a wide audience. The constant flow of potential customers increases the exposure and visibility of brand messages, leading to increased awareness and potential sales.",
@@ -23,20 +23,20 @@ export const Media_content = [
         list: "Targeted Audience: Malls cater to a diverse range of shoppers, including individuals with varying demographics, interests, and purchasing power. By strategically placing advertisements within malls, businesses can tailor their messaging to target specific consumer segments most likely to be interested in their products or services, thereby maximizing the chances of conversion and sales.",
       },
       {
-        list: "Contextual Relevance: Mall OOH media advertising allows businesses to showcase their offerings within the shopping environment itself. This contextual relevance creates a seamless connection between the brand and the consumers' shopping experience, making it more likely for them to consider and make a purchase",
+        list: "Contextual Relevance: Mall Billboard advertising allows businesses to showcase their offerings within the shopping environment itself. This contextual relevance creates a seamless connection between the brand and the consumers' shopping experience, making it more likely for them to consider and make a purchase",
       },
       {
-        list: "Brand Exposure and Recall: OOH media in malls, such as billboards, digital screens, and displays, provides high visibility for brands. The repetition and constant presence of brand messages in these environments enhance brand exposure and improve brand recall among shoppers. When consumers have a positive brand association and recall, it increases the likelihood of them choosing the advertised brand over competitors when making purchasing decisions.",
+        list: "Brand Exposure and Recall: Billboard in malls, such as billboards, digital screens, and displays, provides high visibility for brands. The repetition and constant presence of brand messages in these environments enhance brand exposure and improve brand recall among shoppers. When consumers have a positive brand association and recall, it increases the likelihood of them choosing the advertised brand over competitors when making purchasing decisions.",
       },
       {
-        list: "Impulse Buying and Influence: Shopping malls are known for stimulating impulse buying behavior among consumers. Well-placed OOH media advertisements within malls can capture the attention of shoppers during their shopping journey, influencing their buying decisions and prompting them to make unplanned purchases. Additionally, strategic advertising placements near relevant stores or in high-traffic areas can generate curiosity and interest, further driving up sales.",
+        list: "Impulse Buying and Influence: Shopping malls are known for stimulating impulse buying behavior among consumers. Well-placed Billboard advertisements within malls can capture the attention of shoppers during their shopping journey, influencing their buying decisions and prompting them to make unplanned purchases. Additionally, strategic advertising placements near relevant stores or in high-traffic areas can generate curiosity and interest, further driving up sales.",
       },
       {
-        list: "Creative and Interactive Opportunities: Mall OOH media advertising allows for creative and interactive advertisements that grab attention and engage with consumers. Innovative techniques such as interactive displays, augmented reality experiences, or unique installations create memorable brand experiences and encourage customer engagement. These interactive elements can generate excitement, create buzz, and ultimately lead to increased sales.",
+        list: "Creative and Interactive Opportunities: Mall Billboard advertising allows for creative and interactive advertisements that grab attention and engage with consumers. Innovative techniques such as interactive displays, augmented reality experiences, or unique installations create memorable brand experiences and encourage customer engagement. These interactive elements can generate excitement, create buzz, and ultimately lead to increased sales.",
       },
     ],
     body_content2_description_bottom:
-      "By leveraging the high foot traffic, targeted messaging, contextual relevance, brand exposure, impulse buying behavior, and creative opportunities within shopping malls, businesses can effectively drive up sales through mall OOH media advertising. It allows them to connect with potential customers, create a positive brand image, and influence purchasing decisions, ultimately leading to increased revenue and business growth.",
+      "By leveraging the high foot traffic, targeted messaging, contextual relevance, brand exposure, impulse buying behavior, and creative opportunities within shopping malls, businesses can effectively drive up sales through mall Billboard advertising. It allows them to connect with potential customers, create a positive brand image, and influence purchasing decisions, ultimately leading to increased revenue and business growth.",
     body_heading3: "Branding in Mall Media",
     body_content3_description_top:
       "Branding in mall media refers to the practice of promoting brands, products, or services within shopping malls through various advertising channels and strategies. It involves creating a strong brand presence and association with the mall environment to attract and engage with shoppers. Here are some key aspects of branding in mall media:",
@@ -606,123 +606,123 @@ export const Media_content = [
     ],
   },
   {
-    value: "digital-branding",
+    value: "digital-billboard",
     srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
-    banner_heading: "About Digital OOH Media Advertising",
+    banner_heading: "About Digital Billboard Advertising",
     banner_content:
-      "Digital Out-of-Home (OOH) media advertising is a dynamic and interactive form of advertising that utilizes digital displays and technology to deliver targeted messages in public spaces. It offers the flexibility to create and update content in real-time, allowing brands to deliver timely and relevant advertising. With advanced targeting capabilities, digital OOH media enables brands to reach specific audiences at specific locations and times. The integration of multimedia content, interactivity, and data analytics provides engaging experiences, while the ability to measure and analyze campaign performance allows for data-driven decision-making. Digital OOH media advertising enhances brand visibility, drives audience engagement, and provides a versatile platform for delivering impactful and memorable advertising messages in the digital age.",
-    body_heading1: " About Digital OOH Media Advertising Services in India",
+      "Digital Billboard advertising is a dynamic and interactive form of advertising that utilizes digital displays and technology to deliver targeted messages in public spaces. It offers the flexibility to create and update content in real-time, allowing brands to deliver timely and relevant advertising. With advanced targeting capabilities, digital billboard enables brands to reach specific audiences at specific locations and times. The integration of multimedia content, interactivity, and data analytics provides engaging experiences, while the ability to measure and analyze campaign performance allows for data-driven decision-making. Digital Billboard advertising enhances brand visibility, drives audience engagement, and provides a versatile platform for delivering impactful and memorable advertising messages in the digital age.",
+    body_heading1: " About Digital Billboard Advertising Services in India",
     body_content_list: [
       { list: "Contemporary and high-tech Digital billboards Advertising" },
       { list: "Bridge-panels Digital Advertising" },
       { list: "Digital Gantries Advertising" },
       { list: "Digital Unipoles Advertising" },
     ],
-    body_heading2: "Digital OOH Media Advertising  ",
+    body_heading2: "Digital Billboard Advertising  ",
     body_content2_description_top:
-      "Digital Out-of-Home (OOH) media advertising has the potential to drive up sales due to several key factors:",
+      "Digital billboard advertising has the potential to drive up sales due to several key factors:",
     body_content2_list: [
       {
-        list: " Enhanced Targeting: Digital OOH media allows for precise audience targeting based on factors such as location, time of day, and audience demographics. By reaching the right people at the right time and place, brands can effectively communicate their message to a highly relevant audience, increasing the chances of driving conversions and sales.",
+        list: " Enhanced Targeting: Digital Billboard allows for precise audience targeting based on factors such as location, time of day, and audience demographics. By reaching the right people at the right time and place, brands can effectively communicate their message to a highly relevant audience, increasing the chances of driving conversions and sales.",
       },
       {
-        list: "Dynamic and Engaging Content: Digital OOH media offers the ability to create dynamic and visually captivating content. With the use of high-resolution displays, videos, animations, and interactive elements, brands can capture attention and engage viewers in a memorable way. Engaging content enhances brand recall and creates a positive association with the advertised product or service, leading to increased sales.",
+        list: "Dynamic and Engaging Content: Digital Billboard offers the ability to create dynamic and visually captivating content. With the use of high-resolution displays, videos, animations, and interactive elements, brands can capture attention and engage viewers in a memorable way. Engaging content enhances brand recall and creates a positive association with the advertised product or service, leading to increased sales.",
       },
       {
-        list: "Real-Time Updates and Personalization: Digital OOH media allows for real-time content updates and personalization. Brands can adapt their messaging based on changing market conditions, promotions, or customer preferences. The ability to deliver relevant and personalized content creates a sense of relevance and urgency, encouraging viewers to take action and make a purchase.",
+        list: "Real-Time Updates and Personalization: Digital Billboard allows for real-time content updates and personalization. Brands can adapt their messaging based on changing market conditions, promotions, or customer preferences. The ability to deliver relevant and personalized content creates a sense of relevance and urgency, encouraging viewers to take action and make a purchase.",
       },
       {
-        list: "Integration with Digital Channels: Digital OOH media advertising can be seamlessly integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. This integration creates a cohesive brand experience across multiple touchpoints, reinforcing brand messaging and driving customer engagement. By maintaining consistency and synergy across different channels, brands can influence consumer behavior and ultimately increase sales.",
+        list: "Integration with Digital Channels: Digital Billboard advertising can be seamlessly integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. This integration creates a cohesive brand experience across multiple touchpoints, reinforcing brand messaging and driving customer engagement. By maintaining consistency and synergy across different channels, brands can influence consumer behavior and ultimately increase sales.",
       },
       {
-        list: "High Visibility and Reach: Digital OOH media advertising offers high visibility and reach, as digital displays are often strategically placed in high-traffic areas. This exposure ensures that the brand message reaches a large and diverse audience, increasing brand awareness and generating potential leads. The repeated exposure to the advertising content increases brand familiarity and influences purchase decisions, ultimately driving up sales.",
+        list: "High Visibility and Reach: Digital Billboard advertising offers high visibility and reach, as digital displays are often strategically placed in high-traffic areas. This exposure ensures that the brand message reaches a large and diverse audience, increasing brand awareness and generating potential leads. The repeated exposure to the advertising content increases brand familiarity and influences purchase decisions, ultimately driving up sales.",
       },
     ],
     body_content2_description_bottom:
-      "Overall, digital OOH media advertising combines the advantages of technology, audience targeting, engaging content, and measurement capabilities to create impactful advertising experiences. By leveraging these strengths, brands can effectively drive up sales by reaching the right audience, delivering engaging messages, and influencing consumer behavior throughout the customer journey.",
-    body_heading3: " Branding in Digital OOH Media ",
+      "Overall, Digital Billboard advertising combines the advantages of technology, audience targeting, engaging content, and measurement capabilities to create impactful advertising experiences. By leveraging these strengths, brands can effectively drive up sales by reaching the right audience, delivering engaging messages, and influencing consumer behavior throughout the customer journey.",
+    body_heading3: " Branding in Digital Billboard",
     body_content3_description_top:
-      "Branding in digital Out-of-Home (OOH) media offers unique opportunities to create a strong and memorable brand presence. Here are some key aspects of branding in digital OOH media:",
+      "Branding in digital Out-of Digital Billboard offers unique opportunities to create a strong and memorable brand presence. Here are some key aspects of branding in digital OOH media:",
     body_content3_list: [
       {
-        list: "Visual Impact: Digital OOH media provides high-resolution displays, vibrant colors, and dynamic content capabilities, allowing brands to create visually impactful advertisements. Attention-grabbing visuals, striking imagery, and compelling design elements can captivate audiences, leaving a lasting impression and reinforcing brand recognition.",
+        list: "Visual Impact: Digital Billboard provides high-resolution displays, vibrant colors, and dynamic content capabilities, allowing brands to create visually impactful advertisements. Attention-grabbing visuals, striking imagery, and compelling design elements can captivate audiences, leaving a lasting impression and reinforcing brand recognition.",
       },
       {
-        list: "Storytelling and Messaging: Digital OOH media enables brands to tell their brand story and convey their messaging effectively. Through sequential messaging, storytelling techniques, and creative content, brands can engage viewers and communicate their brand values, personality, and unique selling propositions.",
+        list: "Storytelling and Messaging: Digital Billboard enables brands to tell their brand story and convey their messaging effectively. Through sequential messaging, storytelling techniques, and creative content, brands can engage viewers and communicate their brand values, personality, and unique selling propositions.",
       },
       {
-        list: "Dynamic and Interactive Experiences: Digital OOH media offers interactive features and real-time content updates, enhancing brand experiences. Brands can incorporate interactive elements such as touchscreens, motion sensors, or augmented reality to create immersive and engaging experiences that resonate with audiences, leaving a memorable impression of the brand.",
+        list: "Dynamic and Interactive Experiences: Digital Billboard offers interactive features and real-time content updates, enhancing brand experiences. Brands can incorporate interactive elements such as touchscreens, motion sensors, or augmented reality to create immersive and engaging experiences that resonate with audiences, leaving a memorable impression of the brand.",
       },
       {
-        list: "Contextual Relevance: Digital OOH media allows for contextual targeting and relevance. Brands can customize their advertisements based on factors such as location, time of day, weather conditions, or audience demographics. This level of personalization ensures that the brand message aligns with the viewers' environment and interests, increasing the effectiveness and impact of the branding efforts.",
+        list: "Contextual Relevance: Digital Billboard allows for contextual targeting and relevance. Brands can customize their advertisements based on factors such as location, time of day, weather conditions, or audience demographics. This level of personalization ensures that the brand message aligns with the viewers' environment and interests, increasing the effectiveness and impact of the branding efforts.",
       },
       {
-        list: "Integration with Digital Channels: Digital OOH media can be integrated with other digital marketing channels, creating a cohesive brand experience. By synchronizing messaging and creative elements across digital OOH displays, mobile ads, social media, or online platforms, brands can reinforce their branding efforts and maintain consistency throughout the customer journey.",
+        list: "Integration with Digital Channels: Digital Billboard can be integrated with other digital marketing channels, creating a cohesive brand experience. By synchronizing messaging and creative elements across digital OOH displays, mobile ads, social media, or online platforms, brands can reinforce their branding efforts and maintain consistency throughout the customer journey.",
       },
       {
-        list: "Data-Driven Insights: Digital OOH media provides data and analytics to measure the effectiveness of branding efforts. Metrics such as audience impressions, engagement rates, and dwell time can be analyzed to gain insights into the reach and impact of the brand's presence in digital OOH media. These insights enable brands to refine their strategies, optimize campaigns, and make data-driven decisions to enhance their branding efforts.",
+        list: "Data-Driven Insights: Digital Billboard provides data and analytics to measure the effectiveness of branding efforts. Metrics such as audience impressions, engagement rates, and dwell time can be analyzed to gain insights into the reach and impact of the brand's presence in digital OOH media. These insights enable brands to refine their strategies, optimize campaigns, and make data-driven decisions to enhance their branding efforts.",
       },
       {
-        list: "Amplifying Brand Awareness: Digital OOH media amplifies brand awareness by reaching a wide audience in high-traffic areas. The dynamic nature of digital displays, coupled with creative and visually appealing content, increases the visibility and exposure of the brand. This continuous brand presence in strategic locations helps build brand familiarity, recall, and ultimately contributes to increased brand awareness.",
+        list: "Amplifying Brand Awareness: Digital Billboard amplifies brand awareness by reaching a wide audience in high-traffic areas. The dynamic nature of digital displays, coupled with creative and visually appealing content, increases the visibility and exposure of the brand. This continuous brand presence in strategic locations helps build brand familiarity, recall, and ultimately contributes to increased brand awareness.",
       },
     ],
 
     body_content3_description_bottom:
-      "Branding in digital OOH media allows brands to leverage the power of technology, creativity, and targeted messaging to create impactful and memorable experiences. By utilizing the unique capabilities of digital displays and integrating branding efforts across various digital channels, brands can establish a strong brand presence, engage with audiences, and ultimately drive brand loyalty and business growth.",
+      "Branding in digital Billboard allows brands to leverage the power of technology, creativity, and targeted messaging to create impactful and memorable experiences. By utilizing the unique capabilities of digital displays and integrating branding efforts across various digital channels, brands can establish a strong brand presence, engage with audiences, and ultimately drive brand loyalty and business growth.",
 
-    body_link: "Check the rate of Digital OOH media",
+    body_link: "Check the rate of Digital Billboard",
     body_content_link: [
-      { list: "Digital OOH media agency in mumbai" },
-      { list: "Digital OOH media agency in delhi" },
-      { list: "Digital OOH media agency in bengaluru" },
-      { list: "Digital OOH media agency in kolkata" },
-      { list: "Digital OOH media agency in hyderabad" },
-      { list: "Digital OOH media agency in pune" },
-      { list: "Digital OOH media agency in chennai" },
+      { list: "Digital Billboard agency in mumbai" },
+      { list: "Digital Billboard agency in delhi" },
+      { list: "Digital Billboard agency in bengaluru" },
+      { list: "Digital Billboard agency in kolkata" },
+      { list: "Digital Billboard agency in hyderabad" },
+      { list: "Digital Billboard agency in pune" },
+      { list: "Digital Billboard agency in chennai" },
     ],
 
-    faqs_heading: "FAQ’s about Digital OOH Media Advertising in India",
+    faqs_heading: "FAQ’s about Digital Billboard Advertising in India",
     faqs_content: [
       {
         id: 1,
-        faqs_qsn: "What is Digital OOH Media Advertising?",
+        faqs_qsn: "What is Digital Billboard Advertising?",
         faqs_ans:
-          "Digital OOH media advertising involves the use of digital displays and technology to deliver advertising messages in public spaces. It utilizes digital screens, LED billboards, interactive kiosks, and other digital signage to reach and engage with audiences in a dynamic and visually appealing manner.",
+          "Digital Billboard advertising involves the use of digital displays and technology to deliver advertising messages in public spaces. It utilizes digital screens, LED billboards, interactive kiosks, and other digital signage to reach and engage with audiences in a dynamic and visually appealing manner.",
       },
       {
         id: 2,
         faqs_qsn:
-          "What are the benefits of Digital OOH Media Advertising in India?",
+          "What are the benefits of Digital Billboard Advertising in India?",
         faqs_ans:
-          "Digital OOH media advertising in India offers several advantages. It allows for dynamic content updates, real-time messaging, and targeted advertising. With high-resolution displays and interactive features, brands can capture attention, deliver personalized messages, and create engaging brand experiences. Digital OOH media also provides measurable metrics and analytics to assess campaign performance and make data-driven decisions.",
+          "Digital Billboard advertising in India offers several advantages. It allows for dynamic content updates, real-time messaging, and targeted advertising. With high-resolution displays and interactive features, brands can capture attention, deliver personalized messages, and create engaging brand experiences. Digital Billboard also provides measurable metrics and analytics to assess campaign performance and make data-driven decisions.",
       },
       {
         id: 3,
         faqs_qsn:
-          "How does Digital OOH Media Advertising in India reach the target audience?",
+          "How does Digital Billboard Advertising in India reach the target audience?",
         faqs_ans:
-          "Digital OOH media advertising in India reaches the target audience through strategic placement of digital displays in high-traffic areas. By selecting prime locations such as shopping malls, transit stations, airports, and commercial centers, brands can effectively reach their desired demographic groups and engage with them at the right time and place.",
+          "Digital Billboard advertising in India reaches the target audience through strategic placement of digital displays in high-traffic areas. By selecting prime locations such as shopping malls, transit stations, airports, and commercial centers, brands can effectively reach their desired demographic groups and engage with them at the right time and place.",
       },
       {
         id: 4,
         faqs_qsn:
-          "How can I measure the effectiveness of my Digital OOH Media Advertising campaign in India?",
+          "How can I measure the effectiveness of my Digital Billboard Advertising campaign in India?",
         faqs_ans:
-          "Digital OOH media advertising provides measurement and analytics tools to assess the effectiveness of campaigns. Metrics such as impressions, dwell time, audience demographics, and engagement rates can be tracked and analyzed. These insights help evaluate the reach and impact of the campaign, optimize strategies, and refine future advertising efforts.",
+          "Digital Billboard advertising provides measurement and analytics tools to assess the effectiveness of campaigns. Metrics such as impressions, dwell time, audience demographics, and engagement rates can be tracked and analyzed. These insights help evaluate the reach and impact of the campaign, optimize strategies, and refine future advertising efforts.",
       },
       {
         id: 5,
         faqs_qsn:
-          " Are there any regulations or guidelines for Digital OOH Media Advertising in India?",
+          " Are there any regulations or guidelines for Digital Billboard Advertising in India?",
         faqs_ans:
-          " Yes, there are regulations and guidelines for Digital OOH media advertising in India. These guidelines cover aspects such as display size, content restrictions, safety regulations, and permissions required for installation. It is important for brands and advertisers to comply with these regulations to ensure a successful and compliant campaign.",
+          " Yes, there are regulations and guidelines for Digital Billboard advertising in India. These guidelines cover aspects such as display size, content restrictions, safety regulations, and permissions required for installation. It is important for brands and advertisers to comply with these regulations to ensure a successful and compliant campaign.",
       },
       {
         id: 6,
         faqs_qsn:
-          "Can Digital OOH Media Advertising in India be integrated with other digital marketing channels?",
+          "Can Digital Billboard Advertising in India be integrated with other digital marketing channels?",
         faqs_ans:
-          " Yes, Digital OOH media advertising can be integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. By synchronizing messaging and creative elements across different channels, brands can create a cohesive and immersive brand experience, reinforcing brand recall and driving customer engagement.",
+          " Yes, Digital Billboard advertising can be integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. By synchronizing messaging and creative elements across different channels, brands can create a cohesive and immersive brand experience, reinforcing brand recall and driving customer engagement.",
       },
     ],
   },
@@ -731,8 +731,8 @@ export const Media_content = [
     srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
     banner_heading: "About Billboard Advertising",
     banner_content:
-      " Traditional Out-of-Home (OOH) media advertising refers to the practice of using physical, non-digital advertising channels to reach a wide audience in public spaces. It involves placing advertisements on billboards, posters, transit shelters, bus stops, street furniture, and other outdoor structures. Traditional OOH media advertising is designed to capture the attention of people as they move through their daily routines, such as commuting to work, shopping, or engaging in recreational activities. This form of advertising relies on large-format visuals, catchy slogans, and impactful messaging to create brand awareness and deliver targeted marketing messages. Traditional OOH media advertising offers broad exposure, wide geographic coverage, and the ability to reach diverse demographics. It remains a popular and effective advertising medium to engage audiences in both urban and suburban areas, providing opportunities for businesses to make a memorable impact and generate brand recognition in the physical environment.",
-    body_heading1: " About Traditonal OOH Media Advertising Services in India",
+      "Billboard advertising refers to a mode of advertising that is placed outdoor areas to convey the brand message to people outside. Billboard advertising is designed to capture the attention of people as they move through their daily routines, such as commuting to work, shopping, or engaging in recreational activities. This form of advertising relies on large-format visuals, catchy slogans, and impactful messaging to create brand awareness and deliver targeted marketing messages. Billboard advertising offers broad exposure, wide geographic coverage, and the ability to reach diverse demographics. It remains a popular and effective advertising medium to engage audiences in both urban and suburban areas, providing opportunities for businesses to make a memorable impact and generate brand recognition in the physical environment.",
+    body_heading1: " About Billboard Advertising Services in India",
     body_content_list: [
       { list: "Contemporary and high-tech billboards Advertising" },
       { list: "Bridge-panels Advertising" },
@@ -741,55 +741,55 @@ export const Media_content = [
     ],
     body_heading2: "Billboard Advertising ",
     body_content2_description_top:
-      "Traditional Out-of-Home (OOH) media advertising can drive up sales through several key mechanisms:",
+      "Billboard advertising can drive up sales through several key mechanisms:",
     body_content2_list: [
       {
-        list: "Wide Audience Reach: Traditional OOH media advertising has the potential to reach a vast audience across various locations, including busy streets, transit hubs, shopping centers, and recreational areas. This wide exposure increases brand visibility and generates awareness among a large number of potential customers, thereby driving up sales.",
+        list: "Wide Audience Reach: Billboard advertising has the potential to reach a vast audience across various locations, including busy streets, transit hubs, shopping centers, and recreational areas. This wide exposure increases brand visibility and generates awareness among a large number of potential customers, thereby driving up sales.",
       },
       {
         list: "Targeted Messaging: By strategically placing advertisements in specific locations, businesses can tailor their messaging to reach their target audience. For example, a sports brand may choose to advertise near a stadium or fitness center to target active individuals. This targeted approach ensures that the advertising content resonates with the intended consumer base, leading to higher engagement and increased sales conversion rates.",
       },
       {
-        list: "Brand Awareness and Recall: OOH advertising utilizes eye-catching visuals, creative designs, and memorable slogans to make a lasting impression on viewers. Consistent exposure to these advertisements builds brand awareness and recall, making customers more likely to consider the advertised brand when making purchasing decisions. Increased brand recognition ultimately drives up sales as customers choose familiar and trusted brands over competitors.",
+        list: "Brand Awareness and Recall: Billboard advertising utilizes eye-catching visuals, creative designs, and memorable slogans to make a lasting impression on viewers. Consistent exposure to these advertisements builds brand awareness and recall, making customers more likely to consider the advertised brand when making purchasing decisions. Increased brand recognition ultimately drives up sales as customers choose familiar and trusted brands over competitors.",
       },
       {
-        list: "Impulse Buying and Call-to-Action: Traditional OOH media advertising, such as billboards or posters, can influence impulse buying behavior. When placed strategically near points of purchase or in high-traffic areas, compelling advertisements can capture the attention of consumers and prompt them to make immediate buying decisions. Including a clear call-to-action, such as a limited-time offer or promotional code, further incentivizes customers to take action and make a purchase.",
+        list: "Impulse Buying and Call-to-Action: Billboard advertising, such as unipole billbord or static billbord , can influence impulse buying behavior. When placed strategically near points of purchase or in high-traffic areas, compelling advertisements can capture the attention of consumers and prompt them to make immediate buying decisions. Including a clear call-to-action, such as a limited-time offer or promotional code, further incentivizes customers to take action and make a purchase.",
       },
       {
-        list: "Complementing Other Advertising Channels: Traditional OOH media advertising works synergistically with other marketing channels, reinforcing brand messages and increasing overall campaign effectiveness. By integrating OOH advertising with digital and print media, businesses create a cohesive and omnichannel brand experience that enhances customer engagement and drives sales across various touchpoints.",
+        list: "Complementing Other Advertising Channels: Billboard advertising works synergistically with other marketing channels, reinforcing brand messages and increasing overall campaign effectiveness. By integrating OOH advertising with digital and print media, businesses create a cohesive and omnichannel brand experience that enhances customer engagement and drives sales across various touchpoints.",
       },
       {
         list: "Geographic Targeting: OOH advertising allows businesses to target specific geographical areas, enabling localized marketing campaigns. This is particularly beneficial for businesses with physical store locations, as they can concentrate their advertising efforts in proximity to their stores, attracting local customers and driving foot traffic, ultimately resulting in increased sales.",
       },
     ],
     body_content2_description_bottom:
-      "Overall, traditional OOH media advertising drives up sales by increasing brand exposure, fostering brand recall, capturing impulse purchases, and complementing other marketing channels. Its wide reach and ability to deliver targeted messaging make it a powerful tool for businesses looking to boost their sales and drive customer engagement.",
+      "Overall, Billboard advertising drives up sales by increasing brand exposure, fostering brand recall, capturing impulse purchases, and complementing other marketing channels. Its wide reach and ability to deliver targeted messaging make it a powerful tool for businesses looking to boost their sales and drive customer engagement.",
     body_heading3: "Branding in Billboard",
     body_content3_description_top:
-      "Branding in traditional Out-of-Home (OOH) media refers to the practice of incorporating brand elements and messaging into outdoor advertising channels such as billboards, transit shelters, street furniture, and other physical structures. It plays a crucial role in establishing brand identity, increasing brand visibility, and enhancing brand recall among the target audience. Here are some key aspects of branding in traditional OOH media:",
+      "Branding in billboard  refers to the practice of incorporating brand elements and messaging into outdoor advertising channels such as billboards, transit shelters, street furniture, and other physical structures. It plays a crucial role in establishing brand identity, increasing brand visibility, and enhancing brand recall among the target audience. Here are some key aspects of branding in traditional OOH media:",
     body_content3_list: [
       {
-        list: "Brand Presence: By featuring logos, colors, and design elements consistent with the brand identity, OOH media advertising creates a strong brand presence in the physical environment. This helps businesses stand out, differentiate themselves from competitors, and establish a visual connection with the target audience.",
+        list: "Brand Presence: By featuring logos, colors, and design elements consistent with the brand identity, Billboard advertising creates a strong brand presence in the physical environment. This helps businesses stand out, differentiate themselves from competitors, and establish a visual connection with the target audience.",
       },
       {
-        list: "Message Consistency: OOH media allows brands to deliver consistent messaging across multiple locations and touchpoints. Whether it's a tagline, key brand message, or visual representation, maintaining consistency across various OOH advertisements helps reinforce brand positioning and create a cohesive brand experience.",
+        list: "Message Consistency: Billboard allows brands to deliver consistent messaging across multiple locations and touchpoints. Whether it's a tagline, key brand message, or visual representation, maintaining consistency across various OOH advertisements helps reinforce brand positioning and create a cohesive brand experience.",
       },
       {
-        list: "Visual Impact: Traditional OOH media offers a large canvas for creative and visually impactful advertisements. High-quality graphics, bold typography, and compelling visuals grab attention and make a lasting impression on passersby. This visual impact is essential for capturing the audience's attention and increasing brand awareness.",
+        list: "Visual Impact: Billboard offers a large canvas for creative and visually impactful advertisements. High-quality graphics, bold typography, and compelling visuals grab attention and make a lasting impression on passersby. This visual impact is essential for capturing the audience's attention and increasing brand awareness.",
       },
       {
-        list: "Geographic Targeting: Brands can strategically choose OOH media placements in specific geographic locations to target their desired audience. This localization helps brands connect with the local community, create a sense of relevance, and increase the likelihood of attracting customers to their physical stores or locations.",
+        list: "Geographic Targeting: Brands can strategically choose Billboard placements in specific geographic locations to target their desired audience. This localization helps brands connect with the local community, create a sense of relevance, and increase the likelihood of attracting customers to their physical stores or locations.",
       },
       {
-        list: "Amplified Reach: OOH media advertising has the advantage of reaching a wide and diverse audience. With its presence in public spaces and high-traffic areas, brands can effectively reach a broad range of potential customers who may not be exposed to other forms of advertising, thereby expanding their brand reach and driving awareness.",
+        list: "Amplified Reach: Billboard advertising has the advantage of reaching a wide and diverse audience. With its presence in public spaces and high-traffic areas, brands can effectively reach a broad range of potential customers who may not be exposed to other forms of advertising, thereby expanding their brand reach and driving awareness.",
       },
       {
-        list: "Brand Storytelling: OOH media allows brands to tell their story and communicate their brand values through engaging and visually compelling advertisements. By crafting narratives that resonate with the audience, brands can create an emotional connection, evoke positive associations, and build long-term brand loyalty.",
+        list: "Brand Storytelling: Billboard allows brands to tell their story and communicate their brand values through engaging and visually compelling advertisements. By crafting narratives that resonate with the audience, brands can create an emotional connection, evoke positive associations, and build long-term brand loyalty.",
       },
     ],
 
     body_content3_description_bottom:
-      "Branding in traditional OOH media provides businesses with a tangible and impactful way to showcase their brand identity, deliver consistent messaging, and engage with a wide audience. By leveraging the unique strengths of OOH media, brands can strengthen their market position, increase brand recognition, and ultimately drive consumer preference and sales.",
+      "Branding in Billboard  provides businesses with a tangible and impactful way to showcase their brand identity, deliver consistent messaging, and engage with a wide audience. By leveraging the unique strengths of OOH media, brands can strengthen their market position, increase brand recognition, and ultimately drive consumer preference and sales.",
 
     body_heading4: "Outdoor Advertising in India",
     body_content4_list: [
@@ -858,66 +858,66 @@ export const Media_content = [
         list: "In a world filled with advertising options, outdoor advertising in India continues to shine as a compelling choice for marketers.",
       },
     ],
-    body_link: "Enquire about the hoarding advertising rates",
+    body_link: "Enquire about the Billboard advertising rates",
 
     body_content_link: [
-      { list: "Outdoor advertising agency in mumbai" },
-      { list: "Outdoor advertising agency in delhi" },
-      { list: "Outdoor advertising agency in bengaluru" },
-      { list: "Outdoor advertising agency in kolkata" },
-      { list: "Outdoor advertising agency in hyderabad" },
-      { list: "Outdoor advertising agency in pune" },
-      { list: "Outdoor advertising agency in chennai" },
+      { list: "Billboard advertising agency in mumbai" },
+      { list: "Billboard advertising agency in delhi" },
+      { list: "Billboard advertising agency in bengaluru" },
+      { list: "Billboard advertising agency in kolkata" },
+      { list: "Billboard advertising agency in hyderabad" },
+      { list: "Billboard advertising agency in pune" },
+      { list: "Billboard advertising agency in chennai" },
     ],
     faqs_heading: "FAQ’s about Billboard Advertising in India",
     faqs_content: [
       {
         id: 1,
-        faqs_qsn: "What is traditional OOH media advertising?",
+        faqs_qsn: "What is Billboard advertising?",
         faqs_ans:
-          " Traditional OOH media advertising refers to the use of physical, non-digital advertising channels to promote brands, products, or services in public spaces. It includes billboards, posters, transit shelters, street furniture, and other outdoor structures to reach and engage with a wide audience.",
+          " Billboard advertising refers to the use of physical, non-digital advertising channels to promote brands, products, or services in public spaces. It includes billboards, posters, transit shelters, street furniture, and other outdoor structures to reach and engage with a wide audience.",
       },
       {
         id: 2,
         faqs_qsn:
-          "How effective is traditional OOH media advertising in India?",
+          "How effective is Billboard advertising in India?",
         faqs_ans:
-          "Traditional OOH media advertising in India can be highly effective in reaching a large and diverse audience. It offers high visibility and exposure in high-traffic areas, making it an impactful medium for brand awareness and messaging. Studies have shown that OOH media has a positive impact on consumer behavior and can drive sales.",
+          "Billboard advertising in India can be highly effective in reaching a large and diverse audience. It offers high visibility and exposure in high-traffic areas, making it an impactful medium for brand awareness and messaging. Studies have shown that Billboard has a positive impact on consumer behavior and can drive sales.",
       },
       {
         id: 3,
         faqs_qsn:
-          "What are the advantages of traditional OOH media advertising in India?",
+          "What are the advantages of Billboard advertising in India?",
         faqs_ans:
-          " Traditional OOH media advertising in India offers several advantages. It provides broad reach, allowing brands to connect with a vast audience across various locations. It is a visually impactful medium that captures attention and creates memorable brand experiences. OOH media also has a longer exposure time compared to other advertising channels, ensuring that the message is seen repeatedly.",
+          " Billboard advertising in India offers several advantages. It provides broad reach, allowing brands to connect with a vast audience across various locations. It is a visually impactful medium that captures attention and creates memorable brand experiences. Billboard also has a longer exposure time compared to other advertising channels, ensuring that the message is seen repeatedly.",
       },
       {
         id: 4,
         faqs_qsn:
-          "How can I select the right locations for my traditional OOH media advertising campaign in India?",
+          "How can I select the right locations for my Billboard  advertising campaign in India?",
         faqs_ans:
-          "Choosing the right locations for your OOH media advertising campaign in India depends on your target audience and marketing objectives. Consider factors such as high-traffic areas, proximity to target demographics, and the relevance of the location to your brand or product. Working with advertising agencies or OOH media providers can help you identify optimal locations based on your specific requirements.",
+          "Choosing the right locations for your Billboard advertising campaign in India depends on your target audience and marketing objectives. Consider factors such as high-traffic areas, proximity to target demographics, and the relevance of the location to your brand or product. Working with advertising agencies or Billboard providers can help you identify optimal locations based on your specific requirements.",
       },
       {
         id: 5,
         faqs_qsn:
-          " Are there any regulations or guidelines for traditional OOH media advertising in India?",
+          " Are there any regulations or guidelines for Billboard  advertising in India?",
         faqs_ans:
-          "Ans - Yes, there are regulations and guidelines for traditional OOH media advertising in India that vary across cities and states. These regulations cover aspects such as ad size, placement, safety, and permissions required for installation. It is important to comply with these regulations and obtain necessary approvals to ensure a successful and compliant advertising campaign.",
+          "Ans - Yes, there are regulations and guidelines for Billboard  advertising in India that vary across cities and states. These regulations cover aspects such as ad size, placement, safety, and permissions required for installation. It is important to comply with these regulations and obtain necessary approvals to ensure a successful and compliant advertising campaign.",
       },
       {
         id: 6,
         faqs_qsn:
-          "What is the cost of traditional OOH media advertising in India?",
+          "What is the cost of Billboard  advertising in India?",
         faqs_ans:
-          " The cost of traditional OOH media advertising in India depends on factors such as the location, size, duration of the campaign, and demand in specific areas. Prime locations in major cities generally command higher prices. It is recommended to consult with advertising agencies or OOH media providers to get accurate pricing information based on your campaign objectives and budget.",
+          " The cost of Billboard  advertising in India depends on factors such as the location, size, duration of the campaign, and demand in specific areas. Prime locations in major cities generally command higher prices. It is recommended to consult with advertising agencies or Billboard providers to get accurate pricing information based on your campaign objectives and budget.",
       },
       {
         id: 7,
         faqs_qsn:
-          " Can traditional OOH media advertising in India be integrated with digital marketing?",
+          " Can Billboard  advertising in India be integrated with digital marketing?",
         faqs_ans:
-          " Yes, traditional OOH media advertising can be integrated with digital marketing strategies to enhance brand visibility and engagement. By incorporating QR codes, social media handles, or website URLs in the advertisements, brands can encourage consumers to interact digitally, enabling them to track the campaign's effectiveness and drive online conversions.",
+          " Yes, Billboard  advertising can be integrated with digital marketing strategies to enhance brand visibility and engagement. By incorporating QR codes, social media handles, or website URLs in the advertisements, brands can encourage consumers to interact digitally, enabling them to track the campaign's effectiveness and drive online conversions.",
       },
     ],
   },
@@ -1101,8 +1101,6 @@ export const Media_content = [
     ],
   },
 ];
-
-
 export const TrendingCites = [
   {
     category_name: "billboard",
@@ -1112,7 +1110,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568264685_12374.jpg",
     city_name: "Chennai",
     medianame: "Central railway Station, Chennai",
-    alt:"top advertising company in chennai"
+    alt: "top advertising company in chennai",
   },
   {
     category_name: "billboard",
@@ -1122,7 +1120,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568265636_95796.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
-    alt:"outdoor advertising agency in delhi"
+    alt: "outdoor advertising agency in delhi",
   },
   {
     category_name: "billboard",
@@ -1132,7 +1130,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568265636_26539.jpg",
     city_name: "Delhi",
     medianame: "Akshardham, Delhi",
-    alt:"hoarding company in delhi"
+    alt: "hoarding company in delhi",
   },
   {
     category_name: "billboard",
@@ -1141,7 +1139,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568264729_61050.jpg",
     city_name: "Mumbai",
     medianame: "Mall Rd, Mumbai",
-    alt:"best outdoor advertising agency in mumbai"
+    alt: "best outdoor advertising agency in mumbai",
   },
   {
     category_name: "billboard",
@@ -1151,7 +1149,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568265637_14815.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
-    alt:"outdoor advertising agency in noida"
+    alt: "outdoor advertising agency in noida",
   },
   {
     category_name: "billboard",
@@ -1161,7 +1159,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568265637_79477.jpg",
     city_name: "Noida",
     medianame: "Mayur Vihar, Delhi",
-    alt:"hoarding advertising agency in noida"
+    alt: "hoarding advertising agency in noida",
   },
   {
     category_name: "billboard",
@@ -1171,7 +1169,7 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568265008_25261.jpg",
     city_name: "Kolkata",
     medianame: "Garia, Kolkata",
-    alt:"hoarding advertising agency in kolkata"
+    alt: "hoarding advertising agency in kolkata",
   },
   {
     category_name: "billboard",
@@ -1181,56 +1179,182 @@ export const TrendingCites = [
     thumb: "../images/web_pics/trending/new1568264723_68288.jpg",
     city_name: "Pune",
     medianame: "University Road, Pune",
-    alt:"advertising agnecy in pune"
+    alt: "advertising agnecy in pune",
   },
 ];
-export const wordCounts=[
-  {id:1,
-    qsn:"What is Gohoardings?",
-    ans:"Gohoardings is an online marketplace for outdoor marketing, advertising agency that connects; media buyers, media agencies & media sellers. Gohoardings is also a comprehensive database for alternative, traditional and digital out-of-home media."
+export const wordCounts = [
+  {
+    id: 1,
+    qsn: "What is Gohoardings?",
+    ans: "Gohoardings is an online marketplace for outdoor marketing, advertising agency that connects; media buyers, media agencies & media sellers. Gohoardings is also a comprehensive database for alternative, traditional and digital out-of-home media.",
   },
-  {id:2,
-    qsn:"How do Advertisers benefit from Gohoardings?",
-    ans:"For advertisers, Gohoardings’s online platform offers a convenient and cost efficient way to; plan, buy & manage outdoor advertising campaigns.",
-    ans2:"Gohoardings's online platform provides advertisers with a seamless and cost-effective solution for strategizing, purchasing, and overseeing outdoor marketing campaigns.",
-    ans3:"With its user-friendly interface, data-driven insights, and comprehensive tools, it simplifies the entire process. This efficient platform streamlines campaign planning, ensuring that advertisers can effectively reach their target audience and maximize their marketing efforts.",
+  {
+    id: 2,
+    qsn: "How do Advertisers benefit from Gohoardings?",
+    ans: "For advertisers, Gohoardings’s online platform offers a convenient and cost efficient way to; plan, buy & manage outdoor advertising campaigns.",
+    ans2: "Gohoardings's online platform provides advertisers with a seamless and cost-effective solution for strategizing, purchasing, and overseeing outdoor marketing campaigns.",
+    ans3: "With its user-friendly interface, data-driven insights, and comprehensive tools, it simplifies the entire process. This efficient platform streamlines campaign planning, ensuring that advertisers can effectively reach their target audience and maximize their marketing efforts.",
   },
-  {id:3,
-    qsn:"I'm a buyer. How do I buy an advertising placement?",
-    ans:"Create a Media Buyer Account, find the listing you like, then make an offer. Gohoardings outdoor marketing team will then contact you directly. After you have agreed to the deal, the final order and payment are done directly via website."
+  {
+    id: 3,
+    qsn: "I'm a buyer. How do I buy an advertising placement?",
+    ans: "Create a Media Buyer Account, find the listing you like, then make an offer. Gohoardings outdoor marketing team will then contact you directly. After you have agreed to the deal, the final order and payment are done directly via website.",
   },
-  {id:4,
-    qsn:"Best Advertising Agency in India",
-    ans:"Gohoardings is one of the best advertising agency in India. For past few years we are providing the best advertising solution across 130 cities with more than 1.2 lakh active sites for advertising.",
-    ans2:"Our goal is to develop a comprehensive platform that enables users to efficiently plan, book, and oversee out-of-home advertising campaigns worldwide. We aim to amplify your brand's voice, demonstrate the impact of marketing communication, and establish a strong connection between your brand and its audience.",
-
+  {
+    id: 4,
+    qsn: "Best Advertising Agency in India",
+    ans: "Gohoardings is one of the best advertising agency in India. For past few years we are providing the best advertising solution across 130 cities with more than 1.2 lakh active sites for advertising.",
+    ans2: "Our goal is to develop a comprehensive platform that enables users to efficiently plan, book, and oversee out-of-home advertising campaigns worldwide. We aim to amplify your brand's voice, demonstrate the impact of marketing communication, and establish a strong connection between your brand and its audience.",
   },
-  {id:5,
-    qsn:"Outdoor Advertising Agency",
-    ans2:"Gohoardings is a leading outdoor advertising agency renowned for its successful track record in delivering highly effective campaigns across diverse industries. As an expert outdoor advertising agency, ",
-    ans3:"Gohoardings possesses in-depth knowledge of the outdoor advertising landscape, making it the ideal partner for brands seeking to optimize their reach and impact through various outdoor advertising options.",
-    ans4:"With a strong focus on data-driven strategies and proven results, Gohoardings offers brands the assurance of expert guidance. Whether your goal is to engage a broad and diverse audience or establish a memorable connection with your target demographic, Gohoardings' expertise and experience are poised to help you achieve your objectives.",
+  {
+    id: 5,
+    qsn: "Outdoor Advertising Agency",
+    ans2: "Gohoardings is a leading outdoor advertising agency renowned for its successful track record in delivering highly effective campaigns across diverse industries. As an expert outdoor advertising agency, ",
+    ans3: "Gohoardings possesses in-depth knowledge of the outdoor advertising landscape, making it the ideal partner for brands seeking to optimize their reach and impact through various outdoor advertising options.",
+    ans4: "With a strong focus on data-driven strategies and proven results, Gohoardings offers brands the assurance of expert guidance. Whether your goal is to engage a broad and diverse audience or establish a memorable connection with your target demographic, Gohoardings' expertise and experience are poised to help you achieve your objectives.",
   },
-  {id:6,
-    qsn:"Hoarding Advertising Company in India",
-    ans2:"Gohoardings stands as the premier hoarding advertising company in India. As an esteemed outdoor advertising agency, we specialize in hoarding advertising services",
-    ans3:"With our vast experience and expertise, we deliver impactful campaigns. Our focus on hoardings allows us to provide top-notch solutions to boost your brand's visibility.",
-    ans4:"For the best in outdoor advertising, choose Gohoardings – your trusted hoarding advertising agency in India.",
+  {
+    id: 6,
+    qsn: "Hoarding Advertising Company in India",
+    ans2: "Gohoardings stands as the premier hoarding advertising company in India. As an esteemed outdoor advertising agency, we specialize in hoarding advertising services",
+    ans3: "With our vast experience and expertise, we deliver impactful campaigns. Our focus on hoardings allows us to provide top-notch solutions to boost your brand's visibility.",
+    ans4: "For the best in outdoor advertising, choose Gohoardings – your trusted hoarding advertising agency in India.",
   },
-  {id:7,
-    qsn:"What is Digital OOH Advertising",
-    ans2:"Digital Out-of-Home (DOOH) advertising, managed by a digital advertising agency, is an innovative form of marketing that leverages digital screens and technology to display ads in public spaces.",
-    ans3:"These ads can be dynamic, interactive, and highly targeted. Our DOOH advertising agency specialists design and manage campaigns for various screens, such as billboards, transit stations, and malls, enhancing engagement and flexibility.",
-    ans4:"This modern approach enables advertisers to reach their audience in real-time and adapt content quickly. Digital OOH advertising transforms traditional billboards into dynamic, data-driven communication tools, making it a compelling choice for brands looking to captivate audiences on the move.",
+  {
+    id: 7,
+    qsn: "What is Digital OOH Advertising",
+    ans2: "Digital Out-of-Home (DOOH) advertising, managed by a digital advertising agency, is an innovative form of marketing that leverages digital screens and technology to display ads in public spaces.",
+    ans3: "These ads can be dynamic, interactive, and highly targeted. Our DOOH advertising agency specialists design and manage campaigns for various screens, such as billboards, transit stations, and malls, enhancing engagement and flexibility.",
+    ans4: "This modern approach enables advertisers to reach their audience in real-time and adapt content quickly. Digital OOH advertising transforms traditional billboards into dynamic, data-driven communication tools, making it a compelling choice for brands looking to captivate audiences on the move.",
   },
-  {id:8,
-    qsn:"Airport Advertising Agency in India",
-    ans2:"Airport advertising in India, managed by out airport advertising agency, offers a premium platform to showcase your brand. Advertisements are strategically placed in terminals and lounges, ensuring a captive and affluent audience.",
-    ans3:"While airport advertising costs can vary, it's generally a more significant investment compared to other channels, but the impact is substantial. The exposure and prestige associated with advertising in airports make it worthwhile for businesses aiming to reach a high-income demographic and create a lasting impression. It's an excellent choice for brands seeking a premium and exclusive advertising space in India.",
+  {
+    id: 8,
+    qsn: "Airport Advertising Agency in India",
+    ans2: "Airport advertising in India, managed by out airport advertising agency, offers a premium platform to showcase your brand. Advertisements are strategically placed in terminals and lounges, ensuring a captive and affluent audience.",
+    ans3: "While airport advertising costs can vary, it's generally a more significant investment compared to other channels, but the impact is substantial. The exposure and prestige associated with advertising in airports make it worthwhile for businesses aiming to reach a high-income demographic and create a lasting impression. It's an excellent choice for brands seeking a premium and exclusive advertising space in India.",
   },
-  {id:9,
-    qsn:"Hoarding Advertising Cost",
-    ans2:"At Gohoardings we provide the creative hoardings advertising solutions in creative, unique and a very cost-effective way. We provide the budget that suits your campaign and generate greater ROI.",
-    ans3:"Hoarding advertising costs vary widely depending on factors like location, size, and duration. In India, prices can range from a few thousand rupees per day for a small billboard in a less busy area to lakhs for prime city locations. It's essential to consult with our hoarding advertising agency for precise pricing.",
-  }
-]
+  {
+    id: 9,
+    qsn: "Hoarding Advertising Cost",
+    ans2: "At Gohoardings we provide the creative hoardings advertising solutions in creative, unique and a very cost-effective way. We provide the budget that suits your campaign and generate greater ROI.",
+    ans3: "Hoarding advertising costs vary widely depending on factors like location, size, and duration. In India, prices can range from a few thousand rupees per day for a small billboard in a less busy area to lakhs for prime city locations. It's essential to consult with our hoarding advertising agency for precise pricing.",
+  },
+];
+export const MetaKeys = [
+  {
+    value: "billboard",
+    page_titel: "Top billboard advertising agency in India | Gohoardings",
+    page_decri:
+      "Choose from millions of billboards here. We are the best billboard advertising agency in India. Get the best outdoor advertising solutions with Gohoardings.",
+    meta_keyword:
+      "billboards, billboard advertising, billboard advertising agency, billboard agency, hoarding advertising agency, hoarding advertising company, hoarding company, billboard ad agency, billboard ads, billboard company, hoarding agency, unipole advertising, outdoor hoardings, billboard agency in india",
+  },
+  {
+    value: "digital-billboard",
+    page_titel: "Digital billboard advertising agency in India | Gohoardings",
+    page_decri:
+      "Start your digital billboard advertising with us. At Gohoardings, we provide the best interactive digital billboard advertising sites to enhance your brand presence.",
+    meta_keyword:
+      "digital billboard advertising, digital hoarding advertising, digital billboard ads, outdoor digital advertising, digital display advertising, digital hoarding rental, digital media hoardings, digital advertising display board, LED hoarding advertising, digital hoardings",
+  },
+  {
+    value: "mall-media",
+    page_titel:
+      "Shopping Mall Advertising with Gohoardings - Best advertising agnecy",
+    page_decri:
+      "Unlock the Power of Mall Advertising with Gohoardings - Your Trusted Partner for Effective Outdoor Advertising and Branding. Elevate Your Brand Visibility Today!",
+    meta_keyword:
+      "gohoardings, gohoarding, shopping mall advertising, mall media advertising, mall advertising, shopping mall ad services, mall media solution, mall advertising company, advertising in shopping mall, branding in shopping mall, mall display ad promotion, mall advertising rates, mall event advertising, malll marketing services, mall promotion agency",
+  },
+  {
+    value: "lift-branding",
+    page_titel:
+      "Office Branding Services | GoHoardings: Transform Your Workspace",
+    page_decri:
+      "Elevate your office space with impactful Office Branding and In-Office Advertising solutions from GoHoardings. Enhance your workspace today!",
+    meta_keyword:
+      "in office media, office branding, office advertising, advertising inside office, in office advertising, inhouse branding, workspace advertisment, office branding agency, office branding company, office media advertisment, office marketing agency, office branding ideas",
+  },
+  {
+    value: "transit-media",
+    page_titel: "Best Transit Media Advertising Agency | Gohoardings",
+    page_decri:
+      "Discover the Power of Transit Advertising with Gohoardings - Best Transit Advertising Company! Transform your marketing strategy with our bus advertising solutions.",
+    meta_keyword:
+      "gohoardings, gohoardings.com, transit advertising, bus advertising, public transport advertising,outdoor advertising, transit media services, transit media advertising, transit media marketing, railway station advertising, transit ad agency, transit media company, airport advertising, transit poster advertising, transit display ads",
+  },
+  {
+    value: "airport-media",
+    page_titel:
+      "Gohoardings: Elevate Your Brand with Airport Advertising Solutions",
+    page_decri:
+      "Explore Top-Notch Airport Media Advertising Services with Gohoardings. Reach New Heights by Advertising in Airports Nationwide. Elevate Your Brand Today!",
+    meta_keyword:
+      "gohoardings, gohoardings.com, airport media, airport media advertising, advertising in airports, airport branding in india, airport display ads, airport advertising solutions, airport branding agency, airport display advertising, airport media marketing, airport digital ads",
+  },
+  {
+    value: "inflight-media",
+    page_titel: "Inflight Media: Airline Advertising in India | GoHoardings",
+    page_decri:
+      "Gohoardings: India's Best Airline Advertising Agency – Explore Effective Outdoor Advertising Solutions Nationwide. Get Airline Magazine Advertising in India",
+    meta_keyword:
+      "airline advertising, airline marketing, inflight advertising, travel magzine advertising, passanger magzine ads, air travell promotional, airplane advertising, branding in airplane, advertising in airplane, airline sponsoeship opportunity, inflight branding agency, inflight ad company",
+  },
+  {
+    value: "delhi",
+    page_titel: "Top Advertising Agency in Delhi | Outdoor Advertising Agency",
+    page_decri:
+      "Unlock Success with Gohoardings, Delhi's Premier Outdoor Advertising Agency. Harness the Power of Outdoors for Your Brand. Contact Us Now",
+    meta_keyword:
+      "gohoardings, gohoarding, top advertising agency in delhi, top advertising agency in noida, outdoor advertising, hoarding site in delhi, hoardings for rent in delhi, transit advertising in delhi, airport branding company in delhi, advertising agency, digital hoardings agency, branding agency, marketing agency, outdoor promotion",
+  },
+  {
+    value: "hyderabad",
+    page_titel: "Gohoardings: Best Outdoor Advertising Agency in Hyderabad",
+    page_decri:
+      "Experience Excellence with Gohoardings: Hyderabad's Top Outdoor Advertising Agency. Maximize Your Brand's Impact. Contact Us Today",
+    meta_keyword:
+      "gohoardings, gohoarding, outdoor advertising agency, outdoor advertising in hyderabad, top advertising companies in hyderabad, outdoor hoarding advertising, ad companies in hyderabad, advertising companies in hyderabad, top advertising agencies in hyderabad, advertising agencies hyderabad",
+  },
+  {
+    value: "pune",
+    page_titel: "Gohoarding the best outdoor advertising agency in Pune",
+    page_decri:
+      "Elevate Your Brand with Gohoarding, the Top Outdoor Advertising Agency in Pune. Experience Excellence in Outdoor Promotion. Contact Us Today",
+    meta_keyword:
+      "gohoardings, gohoarding, best advertising agency in pune, outdoor advertising agency in pune, hoardings company in pune, outdoor branding agency in pune, top advertising company in pune, hoardings for rent in pune, hoardings site in pune, transit advertising in pune, airport advertising in pune, outdoor marketing company in pune, pune advertisingss agenccy, outdoor advertising ",
+  },
+  {
+    value: "mumbai",
+    page_titel: "Hoardings Advertising Agency in Mumbai | Outdoor Advertising",
+    page_decri:
+      "Maximize Visibility with Mumbai's Top Outdoor Advertising Agency. Unleash the Power of Hoardings for Effective Brand Promotion. Contact Us Today",
+    meta_keyword:
+      "gohoardings, gohoarding, advertising, advertising agency, advertising agency in mumbai, advertising company in mumbai, mumbai best advertising agency, hoarding company in mumbai, hoardings site in mumbai, transit advertising in mumbai, branding company in mumbai, top marketing company, advertisment price in airport, airport branding company, airport hoarding site on rent",
+  },
+  {
+    value: "chennai",
+    page_titel: "Top Outdoor Advertising Agency in Chennai | Gohoardings",
+    page_decri:
+      "Elevate Your Brand with the Top Outdoor Advertising Agency in Chennai. Discover Effective Outdoor Marketing Solutions. Contact Us Today",
+    meta_keyword:
+      "gohoardings, gohoarding, top advertising agency in chennai, chennai advertising agency, best advertising company in chennai, hoardings company in chennai, advertising agency, hoarding site in chennai, marketing company in chennai, transit advertising company, mall media company in chennai, chennai airport advertising, vehicle advertisment",
+  },
+  {
+    value: "bengaluru",
+    page_titel: "Outdoor Advertising Agency in Bangalore | Gohoardings",
+    page_decri:
+      "Discover the Best Outdoor Advertising Agency in Bangalore - Gohoardings. Elevate your brand with our innovative outdoor ad solutions in the vibrant city.",
+    meta_keyword:
+      "gohoardings, gohoarding, outdoor advertising agency bangalore, outdoor advertising agency in bangalore, best advertising agency, outdoor media agency in bangalore, billboard advertising agency, hoarding advertising  agency, banaglore outdoor marketig company, digital outdoor advertising in bangalore, hoarding advertising company in bangalore, branding company, marketing company, transit media agency, airport advertising agency in bangalore",
+  },
+  {
+    value: "noida",
+    page_titel:
+      "Top advertising agency in Noida |Top Advertising Agency in Noida | Outdoor Advertising Company",
+    page_decri:
+      "Gohoardings provides the best sites for hoarding advertising, transit advertising, mall media advertising. We the one of the best advertising agency in Noida.",
+    meta_keyword:
+      "gohoardings, advertising agency in noida, advertising company in noida, hoarding company in noida, outdoor advertising agency in noida, best ad agency in noida, ad agency in noida, top ad agency, top advertisign agency, bus advertising agency, hoarding sites in noida, hoarding ads, mall media advertising, hoarding advertiser in noida",
+  },
+];

@@ -299,7 +299,7 @@ const Leads = () => {
                       className="my-4"
                       style={{ color: "#FFF32C", textAlign: "center" }}
                     >
-                      Why Choose US?
+                     Get Your First Ad
                     </h3>
                     <form className="form-content " onSubmit={onSubmit}>
                       <p style={{ color: "#FFF32C", textAlign: "start" }}>

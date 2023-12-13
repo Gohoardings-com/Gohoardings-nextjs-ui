@@ -10,6 +10,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { AccountContext } from "@/allApi/apicontext";
 import styles from "../../styles/cart.module.scss";
 import instance from "@/allApi/axios";
+import Head from "next/head";
 import { toast, ToastContainer } from "react-toastify";
 import {
   cartitems,
@@ -29,23 +30,19 @@ const Cart = () => {
   const [Start, setStart] = useState(new Date());
   let defaultEndDate = new Date(new Date().setDate(Start.getDate() + 4));
   const [End, setEnd] = useState(defaultEndDate);
-  const { addRemove, initalState,handleShow } = useContext(AccountContext);
+  const { addRemove, initalState, handleShow } = useContext(AccountContext);
   const [price, setPrice] = useState();
   const [daymsg, setDayMsg] = useState(false);
   const [inputDay, setInputDay] = useState(5);
   const [posts, setPosts] = useState([]);
   const [campainName, setCampains] = useState("");
-  const [state, setState] = useState([])
+  const [state, setState] = useState([]);
 
   const value = getCookie("permissions");
 
   useEffect(() => {
-    value ? (route.push("/cart"))
-     :(route.push("/"),
-     handleShow()
-     ) 
-   }, []);
-
+    value ? route.push("/cart") : (route.push("/"), handleShow());
+  }, []);
 
   const getData = async () => {
     if (value) {
@@ -60,19 +57,21 @@ const Cart = () => {
       }
 
       setPosts(data);
-      setState(data.map(() => ({
-        startDate: new Date(),
-        endDate: addDays(new Date(), 4),
-        key: "selection",
-      })));
-    } 
+      setState(
+        data.map(() => ({
+          startDate: new Date(),
+          endDate: addDays(new Date(), 4),
+          key: "selection",
+        }))
+      );
+    }
   };
 
   useEffect(() => {
     getData();
   }, []);
 
-  const SelectDate = (obj,i) => {
+  const SelectDate = (obj, i) => {
     var diff = state[i].endDate - state[i].startDate;
     let daysdifference = diff / (1000 * 60 * 60 * 24) + 1;
     if (daysdifference >= 5) {
@@ -148,9 +147,19 @@ const Cart = () => {
     0
   );
 
-
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   return (
     <>
+      <Head>
+        <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
+      </Head>
       <Fixednavbar />
 
       <div
@@ -272,49 +281,64 @@ const Cart = () => {
                                           type="text "
                                           className={`${styles.input_1} d-flex bg-light `}
                                         >
-        <Dropdown className="p-0 border-0" onClick={() => SelectDate(obj, i)}>
-          <Dropdown.Toggle
-            variant="transparent"
-            id={styles.dropdown_basic}
-            className="p-0 m-0 border-0"
-          >
-            <FaCalendarAlt className={`${styles.calender_logo} mb-1 `} />
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <DateRange
-              editableDateInputs={true}
-              minDate={new Date()}
-              onChange={(item) => {
-                const updatedState = [...state];
-                updatedState[i] = item.selection;
-                setState(updatedState);
-              }}
-              moveRangeOnFirstSelection={false}
-              rangeColors={["#E8DC14"]}
-              showPreview={true}
-              ranges={[state[i]]}
-            />
-          </Dropdown.Menu>
-        </Dropdown>
+                                          <Dropdown
+                                            className="p-0 border-0"
+                                            onClick={() => SelectDate(obj, i)}
+                                          >
+                                            <Dropdown.Toggle
+                                              variant="transparent"
+                                              id={styles.dropdown_basic}
+                                              className="p-0 m-0 border-0"
+                                            >
+                                              <FaCalendarAlt
+                                                className={`${styles.calender_logo} mb-1 `}
+                                              />
+                                            </Dropdown.Toggle>
+                                            <Dropdown.Menu>
+                                              <DateRange
+                                                editableDateInputs={true}
+                                                minDate={new Date()}
+                                                onChange={(item) => {
+                                                  const updatedState = [
+                                                    ...state,
+                                                  ];
+                                                  updatedState[i] =
+                                                    item.selection;
+                                                  setState(updatedState);
+                                                }}
+                                                moveRangeOnFirstSelection={
+                                                  false
+                                                }
+                                                rangeColors={["#E8DC14"]}
+                                                showPreview={true}
+                                                ranges={[state[i]]}
+                                              />
+                                            </Dropdown.Menu>
+                                          </Dropdown>
                                         </div>
                                       </h6>
                                     </div>
-                                    <div className={`col-md-3 col-4 ${styles.hide_map} `}>
+                                    <div
+                                      className={`col-md-3 col-4 ${styles.hide_map} `}
+                                    >
                                       <h6 className={styles.des}>Start date</h6>
                                       <h6 className="pt-2">
-                                        {moment(obj.startDate).format("DD/MM/YY")}
+                                        {moment(obj.startDate).format(
+                                          "DD/MM/YY"
+                                        )}
                                       </h6>
                                     </div>
-                                    <div className={`col-md-3 col-4 ${styles.hide_map} `}>
+                                    <div
+                                      className={`col-md-3 col-4 ${styles.hide_map} `}
+                                    >
                                       <h6 className={styles.des}>End date</h6>
                                       <h6 className="pt-2">
                                         {moment(obj.endDate).format("DD/MM/YY")}
                                       </h6>
                                     </div>
                                     <div className="col-md-3 col">
-                                      
                                       <h6 className={styles.des}>Total days</h6>
-                                     
+
                                       <h6 className="">
                                         <input
                                           className={styles.input_2}
@@ -326,13 +350,12 @@ const Cart = () => {
                                             className="text-danger"
                                             id={styles.ereday}
                                           >
-                                         minimum 5
+                                            minimum 5
                                           </span>
                                         ) : (
                                           <></>
                                         )}
                                       </h6>
-                                    
                                     </div>
                                   </div>
                                   <div className="row mt-1">
@@ -450,12 +473,13 @@ const Cart = () => {
                               <span className={styles.tag_head}>
                                 Total Price
                               </span>
-                              <span className={`my-2 ${styles.tag_head} float-end`}>
+                              <span
+                                className={`my-2 ${styles.tag_head} float-end`}
+                              >
                                 {" "}
                                 <FaRupeeSign
                                   className={styles.rupees_logo}
                                 />{" "}
-                                
                                 {parseInt(
                                   (cartItemprice + (cartItemprice * 18) / 100) /
                                     30
@@ -503,8 +527,8 @@ const Cart = () => {
                       <div className="modal-content">
                         <div className="modal-body pb-0 text-center">
                           <Image
-                           width={500}
-                           height={500}
+                            width={500}
+                            height={500}
                             src="/images/web_pics/celebration.jpg"
                             className={`${styles.celebration_logo} w-50 h-50`}
                             alt="celebration"
@@ -555,8 +579,8 @@ const Cart = () => {
                   >
                     <div className="  my-3">
                       <Image
-                           width={500}
-                           height={500}
+                        width={500}
+                        height={500}
                         alt="empty-cart"
                         src="/images/web_pics/empty-cart.gif"
                         className={`${styles.empty_cart} ext-center`}

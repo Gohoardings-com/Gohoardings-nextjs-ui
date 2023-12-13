@@ -1,19 +1,15 @@
 import Fixednavbar from "@/components/navbar/fixednavbar";
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import {
-  CityNameImage,
-  mediaDataApi,
-} from "@/allApi/apis";
+import { CityNameImage, mediaDataApi } from "@/allApi/apis";
 import MainUi from "@/components/mediaComponents/MainUi";
 import dynamic from "next/dynamic";
 
 const Media = (props) => {
-
   const ErrorPage = dynamic(() => import("../404"));
   const Metatag = props.MetaKeys;
-const Media_content = props.Media_content;
+  const Media_content = props.Media_content;
   const Canonicaltag = props.currentPageUrl;
   const router = useRouter();
   const [value, setValue] = useState("");
@@ -23,21 +19,21 @@ const Media_content = props.Media_content;
   const [mediaData, setMediadata] = useState([]);
   const [categoryData, setcategoryData] = useState([]);
   const [noOfLogo, setnoOfLogo] = useState(16);
-const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { category_name, city } = router.query;
 
   const SelectServc = async (obj) => {
     CityNameImage.forEach((el) => {
-      el.value2 = el.value === obj.value? true : false;
+      el.value2 = el.value === obj.value ? true : false;
     });
     router.push(`/${obj.value}/${city}`);
   };
 
- const getData = async () => {
-    setIsLoading(true)
+  const getData = async () => {
+    setIsLoading(true);
     const data = await mediaDataApi(category_name, city);
     setSearch(data);
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -45,21 +41,19 @@ const [isLoading, setIsLoading] = useState(false);
     apiforFillters();
   }, [category_name, city]);
 
-  
-
   const onSearch = async (searchCity) => {
     const lowercaseCity = searchCity.toLowerCase();
-    setIsLoading(true)
+    setIsLoading(true);
     setValue(searchCity);
     const data = await mediaDataApi(category_name, searchCity);
     setSearch(data);
     setFocus(false);
     router.push(`/${category_name}/${lowercaseCity}`);
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   const apiforFillters = async () => {
-   setIsLoading(true);
+    setIsLoading(true);
     const data = await mediaDataApi(category_name, city);
     setMediadata(data);
     setlocationData(data);
@@ -67,91 +61,98 @@ const [isLoading, setIsLoading] = useState(false);
     setIsLoading(false);
   };
 
- 
   const validCategories = [
     "billboard",
-    "digital-branding",
+    "digital-billboard",
     "mall-media",
     "lift-branding",
     "transit-media",
     "airport-media",
     "inflight-media",
     "delhi",
-   "noida",
+    "noida",
     "pune",
     "chennai",
     "bengaluru",
     "mumbai",
     "hyderabad",
   ];
- useEffect(() => {
+  useEffect(() => {
     CityNameImage.forEach((el) => {
       el.value2 = el.value === category_name ? true : false;
     });
-   setValue(city);
-    
+    setValue(city);
   }, [city]);
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   if (validCategories.includes(category_name)) {
     return (
-    <>
-      <Head>
-        {Metatag.map((el) => {
-          if (category_name === el.value) {
-            return (
-              <>
-                <link
-                  rel="canonical"
-                  href={`https://www.gohoardings.com${Canonicaltag}`}
-                />
-                <title>{el.page_titel}</title>
-                <meta charSet="utf-8" />
-                <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1"
-                />
-                <meta name="theme-color" content="#000000" />
-                <meta name="description" content={el.page_decri} />
-                <meta
-                  name="google-site-verification"
-                  content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
-                />
-                <meta name="keywords" content={el.meta_keyword} />
-              </>
-            );
-          }
-        })}
-      </Head>
-      <Fixednavbar />
-      <MainUi
-        noOfLogo={noOfLogo}
-        setnoOfLogo={setnoOfLogo}
-        categoryData={categoryData}
-        mediaData={mediaData}
-        locationData={locationData}
-        setSearch={setSearch}
-        category_name={category_name}
-        search={search}
-        onSearch={onSearch}
-        SelectServc={SelectServc}
-        value={value}
-        focus={focus}
-        serviceIcon={CityNameImage}
-        city={city}
-      isLoading={isLoading}
-        setValue={setValue}
-        setFocus={setFocus}
-       Media_content={Media_content}
-      />
-    </>
-  );
-} else {
-  return(
-   <>
-   <ErrorPage/>
-   </>
-  )
- }
-}
+      <>
+        <Head>
+          {Metatag.map((el) => {
+            if (category_name === el.value) {
+              return (
+                <>
+                  <link
+                    rel="canonical"
+                    href={`https://www.gohoardings.com${Canonicaltag}`}
+                  />
+                  <title>{el.page_titel}</title>
+                  <meta charSet="utf-8" />
+                  <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                  />
+                  <meta name="theme-color" content="#000000" />
+                  <meta name="description" content={el.page_decri} />
+                  <meta
+                    name="google-site-verification"
+                    content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
+                  />
+                  <meta name="keywords" content={el.meta_keyword} />
+                </>
+              );
+            }
+          })}
+          <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
+        </Head>
+        <Fixednavbar />
+        <MainUi
+          noOfLogo={noOfLogo}
+          setnoOfLogo={setnoOfLogo}
+          categoryData={categoryData}
+          mediaData={mediaData}
+          locationData={locationData}
+          setSearch={setSearch}
+          category_name={category_name}
+          search={search}
+          onSearch={onSearch}
+          SelectServc={SelectServc}
+          value={value}
+          focus={focus}
+          serviceIcon={CityNameImage}
+          city={city}
+          isLoading={isLoading}
+          setValue={setValue}
+          setFocus={setFocus}
+          Media_content={Media_content}
+        />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  }
+};
 
 Media.getInitialProps = async ({ req, res }) => {
   let currentPageUrl = "";
@@ -161,77 +162,13 @@ Media.getInitialProps = async ({ req, res }) => {
   } else if (res) {
     currentPageUrl = res.socket.parser.incoming.originalUrl;
   }
-  const MetaKeys = [
-    {
-      value: "billboard",
-      page_titel:
-        "Outdoor Advertising Agency in India | OOH in India | Gohoardings",
-      page_decri:
-        "Gohoarding is the leading company of OOH Advertising agency in India. Gohoardings provide Hoardings across  India at best price. | Gohoardings Solution LLP",
-      meta_keyword:
-        "OOH Advertising in India, Outdoor Advertising in India, Hoardings Company in India, OOH Branding in India, Hoardings Agency in India, Billboard Advertising in India, Hoarding Rates in India, Outdoor Publicity Company in India, Unipole Advertising in India. Bus Shelter, Pole Kiosk Advertising, Gohoardings Solution in India",
-    },
-    {
-      value: "digital-branding",
-      page_titel:
-        "Digital OOH Advertising Agency | Digital OOH in India | Gohoardings",
-      page_decri:
-        "Gohoarding is the Leading Company of Digital OOH Advertising Agency in India. Gohoardings provides Digital Hoarding across India at best price | Gohoardings Solution",
-      meta_keyword:
-        "Digital OOH Advertising in India, Outdoor Advertising in India, Digital Billboard Agency in India, Digital OOH Advertising details, Rates, And services in India, Digital OOH, Outdoor Advertising, Traditional OOH, Internet Advertising, OOH news India, OOH Industry",
-    },
-    {
-      value: "mall-media",
-      page_titel:
-        "Mall Advertising Agency in India, Advertising in Malls | Gohoardings",
-      page_decri:
-        "Gohoardings is one of the leading Mall Advertising Agency in India, Which helps brands to grow their brands with Advertising in Malls and supermarkets. | Gohoardings",
-      meta_keyword:
-        "Mall Advertising in India, Mall Ads India, Mall Marketing In India, Advertising in Malls India, Mall Branding India, Mall Promotions India, Mall Events India, Mall Activations India, Digital Mall Advertising in India, Retail Mall Advertising in India, Mall Advertising Solutions in India, Mall Signage India, Mall Advertising Rates India",
-    },
 
-    {
-      value: "lift-branding",
-      page_titel:
-        "Office Branding Company in India, Office Hoardings | Gohoardings",
-      page_decri:
-        "Office Branding Company in India, It is helpful for business for brand awareness, Office Space Advertising, Office Branding in India | Gohoardings Solution LLP",
-      meta_keyword:
-        "Office Space Advertising, Tech Park Branding,Software Offices,Office Branding, Co-woking office space branding, Office Branding Agency in Mumbai, India, Branding agencies in India",
-    },
-    {
-      value: "transit-media",
-      page_titel:
-        "Transit Advertising company in Delhi | Gohoardings Solution LLP",
-      page_decri:
-        "Go Hoardings offers a wide range of transit media advertising solutions to help you reach your target audience, Train, Mobile Van, State Roadways Buses, Auto Rickshaws, Metro and local train Advertising.",
-      meta_keyword:
-        "Transit Media Advertising Company Delhi, Transit Media Company Mumbai, Transportation Ads Company India, Transit Media Advertising Agency, Transportation Ads Company, Advertising in Auto Rickshaws, Advertising in State Roadways Buses, Advertising in Metro Feeder Buses, Advertising in Tarmac Coaches, Advertising in Cabs, Advertising in Delhi Metro",
-    },
-    {
-      value: "airport-media",
-      page_titel:
-        "Airport Advertising Company in India, Airport Branding | Gohoardings",
-      page_decri:
-        "Airport Advertising Company in India, Showcase your brand in Airports. Get the more attention on you brands with help of Airport & Airlines ads | Gohoardings.com",
-      meta_keyword:
-        "Airport Advertising, Airlines Advertising, Airport Advertising Rates, Airport Advertising Company in Noida, India, Airport Ad Company in Delhi, Airport Branding Agency in India, Indian Airport Advertising Company in Delhi, Delhi Airport Branding, Airlines Advertising",
-    },
-    {
-      value: "inflight-media",
-      page_titel:
-        "Inflight Advertising Agency in Noida, India | Gohoardings Solution",
-      page_decri:
-        "India's Leading Inflight Advertising Agency in Noida, India, We are in contact with many airlines in India providing the solution for Inflight Advertising Options. We surely help you to achieve this by displaying your ad on boarding passes and baggage tags. | Gohoardings Solutions.",
-      meta_keyword:
-        "Inflight Advertising, Advertising in Hello 6E Magazine, Advertising in Indigo In-flight Magazine, Advertising in Spice Route Magazine, Advertising in Spice Jet In-flight Magazine, Advertising in Go Air In-flight Magazine, Advertising in Jet Wings Magazine, Advertising in Jet Airways Inflight Magazine, Advertising in Air India Inflight Magazine, Advertising in Shubh Yatra Magazine, Advertising in Go Getter Inflight Magazine, Advertising on Airport  Luggage Trolleys, Advertising on Meal Tray in Airlines, Advertising on Seat Back Devices, Advertising in Vistara inflight Magazine",
-    },
-  ];
- const { Media_content } = await import("@/allApi/mediajson");
+  const { Media_content } = await import("@/allApi/mediajson");
+  const { MetaKeys } = await import("@/allApi/mediajson");
   return {
     MetaKeys,
     currentPageUrl,
-   Media_content
+    Media_content,
   };
 };
 

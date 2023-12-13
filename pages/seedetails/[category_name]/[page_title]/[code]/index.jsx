@@ -23,9 +23,9 @@ import Fixednavbar from "@/components/navbar/fixednavbar";
 
 const Details = (props) => {
   const Canonicaltag = props.currentPageUrl;
-const metaData=props.apiData;
+  const metaData = props.apiData;
   const router = useRouter();
-   const { category_name, page_title, code } = router.query;
+  const { category_name, page_title, code } = router.query;
   const { addRemove } = useContext(AccountContext);
   const { handleShow } = useContext(AccountContext);
   const [markers, setPosts] = useState([]);
@@ -119,16 +119,16 @@ const metaData=props.apiData;
 
   useEffect(() => {
     getMedia();
-  }, [category_name,page_title]);
+  }, [category_name, page_title]);
   const extractedFields = [];
 
   markers.forEach((item) => {
-    const { city_name, medianame,flight_name  } = item;
+    const { city_name, medianame, flight_name } = item;
 
     extractedFields.push({
       city_name,
       medianame,
-    flight_name 
+      flight_name,
     });
   });
 
@@ -140,7 +140,7 @@ const metaData=props.apiData;
       } enhance enduring brand remembrance while extending your reach over. These promotional materials are strategically positioned zoned with substantial footfall, ensuring remarkable prominence among bystanders, walkers, and travelers.`,
     },
     {
-      value: "digital-branding",
+      value: "digital-billboard",
       description: `Digital Hoardings in ${
         extractedFields.length !== 0 ? extractedFields[0].city_name : "India"
       } are the innovative OOH advertising opportunity that display eye-catching visual brand creatives on LED screens offering hyperlocal city-wide visibility. Digital OOH Ads in “CityName”, is a cost-effective outdoor tool that increases brand impact and engage targeted audiences.`,
@@ -160,15 +160,24 @@ const metaData=props.apiData;
     {
       value: "airport-media",
       description: `Grabing the attention of business travellers, tourists, and local,  ${
-        extractedFields.length !== 0 ? extractedFields[0].flight_name : "Indians"
+        extractedFields.length !== 0
+          ? extractedFields[0].flight_name
+          : "Indians"
       } airport ads create brand recall & awareness that lasts beyond the airport. Advertising in Aiports provide makes a better presence among an affluent audience.`,
     },
   ];
-
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   return (
     <>
       {metaData.map((item, i) => (
-         <Head key={i}>
+        <Head key={i}>
           <link
             rel="canonical"
             href={`https://www.gohoardings.com${Canonicaltag}`}
@@ -178,7 +187,10 @@ const metaData=props.apiData;
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content={item.page_title.replace(/-/g, " ")} />
+          <meta
+            name="description"
+            content={item.page_title.replace(/-/g, " ")}
+          />
           <meta
             name="google-site-verification"
             content="fLT70DRZGdH5FUdrS8w1k2Zg_VTzNJGDF9ie9v4FAzM"
@@ -188,16 +200,13 @@ const metaData=props.apiData;
             property="og:title"
             content={item.page_title.replace(/-/g, " ")}
           />
+          <meta property="og:siteName" content={item.medianame} />
           <meta
-            property="og:siteName"
-            content={item.medianame}
+            property="og:description"
+            content={item.page_title.replace(/-/g, " ")}
           />
-          <meta property="og:description" content={item.page_title.replace(/-/g, " ")} />
           <meta property="og:type" content="en_US" />
-          <meta
-            property="og:image"
-            href={item.thumb}
-          />
+          <meta property="og:image" href={item.thumb} />
           <meta
             property="og:url"
             href={`https://www.gohoardings.com${Canonicaltag}`}
@@ -219,8 +228,9 @@ const metaData=props.apiData;
             href={`https://www.gohoardings.com${Canonicaltag}`}
           />
           <meta property="twitter:property" content="en_US" />
+          <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
         </Head>
-     ))} 
+      ))}
       <Fixednavbar />
       {markers == 0 ? (
         <>
@@ -238,7 +248,6 @@ const metaData=props.apiData;
                 className="container-xxl  container-xl container-lg container-md detail-container animate__animated  animate__fadeIn"
                 key={i}
               >
-             
                 <div className="row mt-3 mt-md-5 ms-md-3 me-md-3 ms-0 me-0 detail-mg p-1 p-md-3 rounded-3">
                   <div className="col-md-6 p-0">
                     <Carousel showThumbs={false} infiniteLoop={true}>
@@ -311,7 +320,7 @@ const metaData=props.apiData;
                         </h6>
                       </div>
                     </div>
-                    {detailTag.map((el,i) => {
+                    {detailTag.map((el, i) => {
                       if (category_name === el.value) {
                         return <p key={i}>{el.description}</p>;
                       }
@@ -325,7 +334,7 @@ const metaData=props.apiData;
                       <div className="col-2">
                         <div
                           className="location p-2 text-center rounded"
-                         onClick={(element) => mapData(item)}
+                          onClick={(element) => mapData(item)}
                         >
                           <MdLocationPin
                             className="icon-clr me-4 me-md-0 mt-1 mt-md-0"
@@ -490,20 +499,20 @@ const metaData=props.apiData;
                   </>
                 </div>
               </div>
-     <h6 className="my-4">
-                  <span onClick={() => router.push("/")} className="bredcamp">
-                    Home
-                  </span>
-                  <MdKeyboardArrowRight />
-                  <span
-                    className="bredcamp"
-                    onClick={() => router.push("/billboard")}
-                  >
-                    Medias
-                  </span>
-                  <MdKeyboardArrowRight />
-                  <span className="bredcamp text-secondary">Details</span>
-                </h6>
+              <h6 className="my-4">
+                <span onClick={() => router.push("/")} className="bredcamp">
+                  Home
+                </span>
+                <MdKeyboardArrowRight />
+                <span
+                  className="bredcamp"
+                  onClick={() => router.push("/billboard")}
+                >
+                  Medias
+                </span>
+                <MdKeyboardArrowRight />
+                <span className="bredcamp text-secondary">Details</span>
+              </h6>
             </>
           ))}
         </>
@@ -681,7 +690,6 @@ const metaData=props.apiData;
   );
 };
 
-
 Details.getInitialProps = async ({ req, res }) => {
   let currentPageUrl = "";
   let category2 = "";
@@ -693,13 +701,13 @@ Details.getInitialProps = async ({ req, res }) => {
     const urlParts = currentPageUrl.split("/");
     category2 = urlParts[2];
     details2 = urlParts[3];
-    code2=urlParts[4];
+    code2 = urlParts[4];
   } else if (res) {
     currentPageUrl = res.socket.parser.incoming.originalUrl;
     const urlParts = currentPageUrl.split("/");
     category2 = urlParts[2];
     details2 = urlParts[3];
-    code2=urlParts[4];
+    code2 = urlParts[4];
   }
 
   // Call the API and get the data
@@ -707,7 +715,7 @@ Details.getInitialProps = async ({ req, res }) => {
   if (category2 && details2 && code2) {
     try {
       const response = await axios.post(
-         "https://www.gohoardings.com/api/seedetails",
+        "https://www.gohoardings.com/api/seedetails",
         {
           page_title: details2,
           category_name: category2,

@@ -51,7 +51,7 @@ if(data){
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-branding":
+        case "digital-billboard":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -181,7 +181,7 @@ if (!cookieData) {
       case "billboard":
           table_name = "goh_media";
           break;
-      case "digital-branding":
+      case "digital-billboard":
           table_name = "goh_media_digital";
           break;
       case "transit-media":
@@ -253,7 +253,7 @@ exports.subcategoryFilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-branding":
+      case "digital-billboard":
         table_name = "goh_media_digital";
         break;
       case "transit-media":
@@ -296,7 +296,7 @@ exports.LocationFilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-branding":
+      case "digital-billboard":
         table_name = "goh_media_digital";
         break;
       case "transit-media":
@@ -339,7 +339,7 @@ exports.illuminationfilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-branding":
+      case "digital-billboard":
         table_name = "goh_media_digital";
         break;
       case "transit-media":

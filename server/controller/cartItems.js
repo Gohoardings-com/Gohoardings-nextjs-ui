@@ -121,7 +121,7 @@ exports.ppt = catchError(async (req, res, next) => {
                 case "billboard":
                     table_name = "goh_media";
                     break;
-                case "digital-branding":
+                case "digital-billboard":
                     table_name = "goh_media_digital";
                     break;
                 case "transit-media":
@@ -223,7 +223,7 @@ const convertJsonToExcel = async(data,ID) => {
                     case "billboard":
                         table_name = "goh_media";
                         break;
-                    case "digital-branding":
+                    case "digital-billboard":
                         table_name = "goh_media_digital";
                         break;
                     case "transit-media":
@@ -549,7 +549,7 @@ exports.cartiemfromdb = catchError(async (req, res, next) => {
                 case "billboard":
                     table_name = "goh_media";
                     break;
-                case "digital-branding":
+                case "digital-billboard":
                     table_name = "goh_media_digital";
                     break;
                 case "transit-media":

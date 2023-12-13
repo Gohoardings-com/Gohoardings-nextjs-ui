@@ -55,6 +55,14 @@ const Contact = () => {
   };
 
   const {asPath} = useRouter();
+  const hotjarTrackingCode = `(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3792413,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
   return (
     <>
       <Head>
@@ -97,7 +105,7 @@ const Contact = () => {
         <meta
           property="twitter:siteName"
           content="www.gohoardings.com/contact-us"
-        />
+        /> 
         <meta
           property="twitter:description"
           content="India's Largest Outdoor Advertising Agency. We are helping business to grow offline with hoardings, billboards ads, bus shelters, metro pillars, airport, and office brandings | Gohoardings"
@@ -108,6 +116,7 @@ const Contact = () => {
           href={`https://www.gohoardings.com${asPath}`}
         />
         <meta property="twitter:property" content="en_US" />
+        <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
       </Head>
    <Fixednavbar/>
 
