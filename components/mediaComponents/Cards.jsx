@@ -27,7 +27,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
                 <Link
                   href={`/seedetails/${item.category_name}/${item.page_title}/${item.code}`}
                   className="text-decoration-none"
-                >
+                > 
                   <Image
                     width={200}
                     height={200}

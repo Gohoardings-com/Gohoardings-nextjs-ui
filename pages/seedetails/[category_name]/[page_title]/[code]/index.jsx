@@ -140,7 +140,7 @@ const metaData=props.apiData;
       } enhance enduring brand remembrance while extending your reach over. These promotional materials are strategically positioned zoned with substantial footfall, ensuring remarkable prominence among bystanders, walkers, and travelers.`,
     },
     {
-      value: "digital-media",
+      value: "digital-branding",
       description: `Digital Hoardings in ${
         extractedFields.length !== 0 ? extractedFields[0].city_name : "India"
       } are the innovative OOH advertising opportunity that display eye-catching visual brand creatives on LED screens offering hyperlocal city-wide visibility. Digital OOH Ads in “CityName”, is a cost-effective outdoor tool that increases brand impact and engage targeted audiences.`,

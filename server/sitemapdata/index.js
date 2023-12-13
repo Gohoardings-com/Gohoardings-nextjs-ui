@@ -22,7 +22,7 @@ const  category_name  = req.query.email
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -37,7 +37,7 @@ const  category_name  = req.query.email
         case "inflight_media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:

@@ -92,7 +92,7 @@ exports.SearchData = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -107,7 +107,7 @@ exports.SearchData = catchError(async (req, res, next) => {
         case "inflight-media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:
@@ -152,7 +152,7 @@ exports.mediaData = catchError(async (req, res, next) => {
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -167,7 +167,7 @@ exports.mediaData = catchError(async (req, res, next) => {
         case "inflight-media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:

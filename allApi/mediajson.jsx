@@ -473,7 +473,7 @@ export const Media_content = [
     ],
   },
   {
-    value: "office-media",
+    value: "lift-branding",
     srcImgM: "/images/web_pics/office-branding-media-near-me.jpg",
     banner_heading: "About Office Branding Advertising",
     banner_content:
@@ -606,7 +606,7 @@ export const Media_content = [
     ],
   },
   {
-    value: "digital-media",
+    value: "digital-branding",
     srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
     banner_heading: "About Digital OOH Media Advertising",
     banner_content:

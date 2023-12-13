@@ -23,9 +23,9 @@ const Media = (props) => {
   const { category_name } = router.query;
   const validCategories = [
     "billboard",
-    "digital-media",
+    "digital-branding",
     "mall-media",
-    "office-media",
+    "lift-branding",
     "transit-media",
     "airport-media",
     "inflight-media",
@@ -229,7 +229,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
 
     {
-      value: "office-media",
+      value: "lift-branding",
       page_titel:
         "Office Branding Services | GoHoardings: Transform Your Workspace",
       page_decri:

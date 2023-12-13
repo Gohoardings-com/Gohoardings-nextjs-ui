@@ -70,9 +70,9 @@ const [isLoading, setIsLoading] = useState(false);
  
   const validCategories = [
     "billboard",
-    "digital-media",
+    "digital-branding",
     "mall-media",
-    "office-media",
+    "lift-branding",
     "transit-media",
     "airport-media",
     "inflight-media",
@@ -172,7 +172,7 @@ Media.getInitialProps = async ({ req, res }) => {
         "OOH Advertising in India, Outdoor Advertising in India, Hoardings Company in India, OOH Branding in India, Hoardings Agency in India, Billboard Advertising in India, Hoarding Rates in India, Outdoor Publicity Company in India, Unipole Advertising in India. Bus Shelter, Pole Kiosk Advertising, Gohoardings Solution in India",
     },
     {
-      value: "digital-media",
+      value: "digital-branding",
       page_titel:
         "Digital OOH Advertising Agency | Digital OOH in India | Gohoardings",
       page_decri:
@@ -191,7 +191,7 @@ Media.getInitialProps = async ({ req, res }) => {
     },
 
     {
-      value: "office-media",
+      value: "lift-branding",
       page_titel:
         "Office Branding Company in India, Office Hoardings | Gohoardings",
       page_decri:

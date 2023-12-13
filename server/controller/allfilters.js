@@ -51,7 +51,7 @@ if(data){
         case "billboard":
             table_name = "goh_media";
             break;
-        case "digital-media":
+        case "digital-branding":
             table_name = "goh_media_digital";
             break;
         case "transit-media":
@@ -66,7 +66,7 @@ if(data){
         case "inflight-media":
             table_name = "goh_media_inflight";
             break;
-        case "office-media":
+        case "lift-branding":
             table_name = "goh_media_office";
             break;
         default:
@@ -181,7 +181,7 @@ if (!cookieData) {
       case "billboard":
           table_name = "goh_media";
           break;
-      case "digital-media":
+      case "digital-branding":
           table_name = "goh_media_digital";
           break;
       case "transit-media":
@@ -196,7 +196,7 @@ if (!cookieData) {
       case "inflight_media":
           table_name = "goh_media_inflight";
           break;
-      case "office-media":
+      case "lift-branding":
           table_name = "goh_media_office";
           break;
       default:
@@ -253,7 +253,7 @@ exports.subcategoryFilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-media":
+      case "digital-branding":
         table_name = "goh_media_digital";
         break;
       case "transit-media":
@@ -268,7 +268,7 @@ exports.subcategoryFilter = catchError(async(req, res, next) =>{
       case "inflight_media":
         table_name = "goh_media_inflight";
         break;
-      case "office-media":
+      case "lift-branding":
         table_name = "goh_media_office";
         break;
       default:
@@ -296,7 +296,7 @@ exports.LocationFilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-media":
+      case "digital-branding":
         table_name = "goh_media_digital";
         break;
       case "transit-media":
@@ -311,7 +311,7 @@ exports.LocationFilter = catchError(async(req, res, next) =>{
       case "inflight_media":
         table_name = "goh_media_inflight";
         break;
-      case "office-media":
+      case "lift-branding":
         table_name = "goh_media_office";
         break;
       default:
@@ -339,7 +339,7 @@ exports.illuminationfilter = catchError(async(req, res, next) =>{
       case "billboard":
         table_name = "goh_media";
         break;
-      case "digital-media":
+      case "digital-branding":
         table_name = "goh_media_digital";
         break;
       case "transit-media":
@@ -354,7 +354,7 @@ exports.illuminationfilter = catchError(async(req, res, next) =>{
       case "inflight_media":
         table_name = "goh_media_inflight";
         break;
-      case "office-media":
+      case "lift-branding":
         table_name = "goh_media_office";
         break;
       default:
