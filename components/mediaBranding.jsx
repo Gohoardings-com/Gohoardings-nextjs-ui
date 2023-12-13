@@ -6,10 +6,10 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
       <div className="media-branding-n">
         <div className="media-branding">
           {Media_content.map((el, i) => {
-            if (category_name === el.value ) {
+            if (category_name === el.value) {
               return (
                 <div key={i}>
-               <div className="black-layer"></div>
+                  <div className="black-layer"></div>
                   <img src={el.srcImgM} alt="media_img" />
                   <div className="centered">
                     <h1>{el.banner_heading}</h1>
@@ -38,7 +38,7 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
             width: 100%;
             border-radius: 6px;
           }
-   .black-layer {
+          .black-layer {
             position: absolute;
             top: 0;
             left: 0;
@@ -52,7 +52,7 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
             width: 76vw;
             position: absolute;
             top: 50%;
-            z-index: 5; 
+            z-index: 5;
             left: 50%;
             transform: translate(-50%, -50%);
           }
@@ -85,7 +85,6 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
             .media-branding-n {
               display: none;
             }
-       
           }
         `}
       </style>
