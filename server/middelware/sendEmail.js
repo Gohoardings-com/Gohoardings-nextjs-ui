@@ -4,7 +4,6 @@ exports.sendEmail = async (options) => {
 
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
-        secureConnection: true,
         auth: {
             user:  process.env.EMAIL_USER,
             pass:  process.env.EMAIL_PASS,
@@ -12,7 +11,7 @@ exports.sendEmail = async (options) => {
     });
 
     const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: process.env.EMAIL_FROM,
         to: options.email,
         subject: options.subject,
         text: options.message,
