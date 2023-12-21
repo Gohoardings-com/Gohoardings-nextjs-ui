@@ -62,6 +62,9 @@ const Media = (props) => {
   };
 
   const validCategories = [
+    "traditional-ooh-media",
+    "digital-media",
+    "office-branding",
     "billboard",
     "digital-billboard",
     "mall-media",

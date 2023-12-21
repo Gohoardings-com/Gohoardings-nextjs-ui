@@ -63,7 +63,7 @@ const Leads = () => {
     );
 
     if (data.success == true) {
-      toast("Thanks,our expert will contact you soon!");
+      route.push("/thank_you");
       setWelcomeForm({
         name: "",
         email: "",

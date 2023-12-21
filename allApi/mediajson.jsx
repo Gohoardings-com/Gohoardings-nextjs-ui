@@ -606,6 +606,139 @@ export const Media_content = [
     ],
   },
   {
+    value: "office-branding",
+    srcImgM: "/images/web_pics/office-branding-media-near-me.jpg",
+    banner_heading: "About Office Branding Advertising",
+    banner_content:
+      "Office branding advertising involves the strategic use of branding elements, such as logos, colors, graphics, and messaging, to create a visually appealing and cohesive brand identity within the office space. By incorporating these elements throughout the workplace, office branding advertising aims to enhance the aesthetics, reinforce brand values, and create a positive impression on employees, clients, and visitors. This can be achieved through various means, including office signage, wall graphics, digital displays, branded stationery, and promotional materials. The goal of office branding advertising is to create a consistent brand experience, foster a sense of pride and belonging among employees, and establish a strong brand presence within the office environment.",
+    body_heading1: "About Office Branding Adversiting in India",
+    body_content_list: [
+      { list: "Contemporary and High-Tech Office Branding" },
+      { list: "Office Branding Activation in India" },
+      { list: "Office Media Advertising in India" },
+    ],
+    body_heading2: "Office Branding Advertising ",
+    body_content2_description_top:
+      "Office branding advertising can drive up sales by creating a positive and engaging work environment that influences employee productivity and customer perception. Here's how office branding advertising can impact sales:",
+    body_content2_list: [
+      {
+        list: "Boosts Employee Morale and Productivity: A well-branded office space fosters a sense of pride, belonging, and motivation among employees. When employees feel connected to the brand and its values, they are more likely to be motivated, engaged, and productive. This increased productivity can positively impact sales as employees are more focused on delivering exceptional customer service and achieving sales targets.",
+      },
+      {
+        list: "Creates a Memorable Brand Experience: Office branding advertising helps create a cohesive and visually appealing brand experience for both employees and clients. When clients visit a branded office environment that reflects the company's values and professionalism, it leaves a lasting impression. A memorable brand experience can enhance customer trust, loyalty, and repeat business, leading to increased sales.",
+      },
+      {
+        list: "Reinforces Brand Identity and Differentiation: Office branding advertising reinforces the company's brand identity and sets it apart from competitors. It helps communicate the company's unique selling propositions, values, and personality to employees and clients. When customers can easily identify and connect with the brand, it increases their confidence in the products or services offered, leading to higher sales conversion rates.",
+      },
+      {
+        list: "Builds Trust and Credibility: A well-branded office space conveys professionalism, attention to detail, and a commitment to quality. It builds trust and credibility among clients, as they perceive the company as reliable and reputable. Trust is a crucial factor in the sales process, and when customers trust the brand, they are more likely to choose its products or services over competitors.",
+      },
+      {
+        list: "Enhances Brand Awareness and Exposure: Office branding advertising creates opportunities for brand exposure within the workplace itself. Employees act as brand ambassadors, interacting with clients and showcasing the brand in their day-to-day activities. Additionally, when clients visit the office, they are exposed to the brand through various touchpoints, increasing brand awareness. This heightened exposure can lead to word-of-mouth referrals and recommendations, ultimately driving up sales.",
+      },
+    ],
+    body_content2_description_bottom:
+      "By leveraging office branding advertising effectively, businesses can create a positive work environment, enhance brand perception, and ultimately influence sales outcomes. It aligns the company's internal and external branding efforts, fostering a cohesive brand experience that resonates with employees and customers alike.",
+    body_heading3: " Advertising with Office Branding ",
+    body_content3_description_top:
+      "Advertising with office branding involves integrating promotional messages, visuals, and branding elements within the office environment to create a cohesive and impactful marketing strategy. Here's how advertising with office branding can be effective:",
+    body_content3_list: [
+      {
+        list: "Brand Consistency: Office branding ensures consistency between external advertising campaigns and the physical office space. By incorporating brand logos, colors, and messaging throughout the office, advertising efforts align with the brand's overall identity and reinforce brand recognition among employees and visitors.",
+      },
+      {
+        list: "Employee Engagement: Office branding advertising can boost employee engagement by creating a visually appealing and inspiring workspace. This, in turn, encourages employees to feel connected to the brand and its values, fostering a sense of pride and motivation. Engaged employees are more likely to become brand advocates, sharing positive experiences with clients and promoting the brand organically.",
+      },
+      {
+        list: "Customer Impressions: Office branding advertising creates a positive impression on clients and visitors. When clients see consistent branding elements within the office, it reinforces professionalism, credibility, and attention to detail. This can enhance customer trust, perception, and overall satisfaction with the brand, leading to increased loyalty and potential business opportunities.",
+      },
+      {
+        list: "Conversation Starters: Office branding elements can serve as conversation starters during client meetings or business visits. Unique and creative office branding designs can capture attention and spark discussions about the brand, its products, or services. This provides an opportunity to showcase the brand's offerings and leave a lasting impression on clients, potentially leading to new business collaborations or sales.",
+      },
+      {
+        list: "Internal Marketing: Office branding can be used as an internal marketing tool to communicate new product launches, company achievements, or upcoming events to employees. By strategically placing advertisements or informational displays within the office, employees stay informed and connected with the brand's latest developments. This internal marketing approach can foster a collaborative and informed workforce, positively impacting overall productivity and business growth.",
+      },
+    ],
+
+    body_content3_description_bottom:
+      "Advertising with office branding offers a unique opportunity to merge marketing efforts with the physical workspace. It creates a consistent brand experience, engages employees, and leaves a lasting impression on clients. By utilizing office branding as an advertising tool, businesses can strengthen their brand presence, increase brand loyalty, and drive business growth.",
+
+    body_link: "Check the rate of Office branding",
+    body_content_link: [
+      { list: "Office branding agency in mumbai" },
+      { list: "Office branding agency in delhi" },
+      { list: "Office branding agency in bengaluru" },
+      { list: "Office branding agency in kolkata" },
+      { list: "Office branding agency in hyderabad" },
+      { list: "Office branding agency in pune" },
+      { list: "Office branding agency in chennai" },
+    ],
+    faqs_heading: "FAQ’s about Office Branding in India",
+    faqs_content: [
+      {
+        id: 1,
+        faqs_qsn: " What is office branding?",
+        faqs_ans:
+          " Office branding refers to the practice of incorporating branding elements such as logos, colors, graphics, and messaging within the office environment to create a visually appealing and cohesive brand identity.",
+      },
+      {
+        id: 2,
+        faqs_qsn: "Why is office branding important?",
+        faqs_ans:
+          " Office branding is important as it creates a positive and engaging work environment, boosts employee morale and productivity, reinforces brand identity, enhances brand recognition, and leaves a lasting impression on clients and visitors.",
+      },
+      {
+        id: 3,
+        faqs_qsn: "What are the key elements of office branding?",
+        faqs_ans:
+          " Key elements of office branding include office signage, wall graphics, digital displays, branded stationery, employee workstations, common areas, meeting rooms, and branded installations that reflect the brand's values and identity.",
+      },
+      {
+        id: 4,
+        faqs_qsn: " How can office branding impact employee satisfaction?",
+        faqs_ans:
+          " Office branding can impact employee satisfaction by creating a sense of pride, belonging, and motivation among employees. A well-branded office space can foster a positive work culture, inspire creativity, and improve employee well-being, leading to higher job satisfaction and productivity.",
+      },
+      {
+        id: 5,
+        faqs_qsn: "Can office branding help attract and retain top talent?",
+        faqs_ans:
+          " Yes, office branding can help attract and retain top talent. A visually appealing and well-branded office space creates a positive impression on potential candidates and reflects the company's commitment to a professional work environment. It can also contribute to a positive employer brand image, making the company more attractive to prospective employees.",
+      },
+      {
+        id: 6,
+        faqs_qsn: " How can office branding enhance client perception?",
+        faqs_ans:
+          " Office branding enhances client perception by reinforcing professionalism, attention to detail, and brand consistency. A well-branded office space creates a positive impression on clients, instills trust and credibility, and showcases the company's commitment to quality, potentially leading to increased client satisfaction and long-term business relationships",
+      },
+      {
+        id: 7,
+        faqs_qsn: " What is the process of implementing office branding?",
+        faqs_ans:
+          "The process of implementing office branding involves conducting a brand assessment, understanding the company's values and identity, creating a branding strategy, designing visual elements, selecting appropriate materials, and collaborating with professional designers and installers to bring the office branding vision to life.",
+      },
+      {
+        id: 8,
+        faqs_qsn: "Is office branding suitable for all types of businesses?",
+        faqs_ans:
+          "Yes, office branding is suitable for businesses of all types and sizes. Whether it's a startup, small business, or large corporation, office branding can be tailored to reflect the unique identity and values of each business.",
+      },
+      {
+        id: 9,
+        faqs_qsn: " How can I measure the impact of office branding?",
+        faqs_ans:
+          " The impact of office branding can be measured through employee feedback surveys, employee productivity and engagement metrics, client satisfaction surveys, brand recognition studies, and monitoring business growth and client retention rates.",
+      },
+      {
+        id: 10,
+        faqs_qsn:
+          " Where can I find professional office branding services in India?",
+        faqs_ans:
+          "There are several professional branding agencies and design firms in India that specialize in office branding. Conducting online research, seeking recommendations, or consulting with industry experts can help identify reputable service providers.",
+      },
+    ],
+  },
+  {
     value: "digital-billboard",
     srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
     banner_heading: "About Digital Billboard Advertising",
@@ -727,7 +860,323 @@ export const Media_content = [
     ],
   },
   {
+    value: "digital-media",
+    srcImgM: "/images/web_pics/digital-media-hoardings-digital-hoardings.jpg",
+    banner_heading: "About Digital Billboard Advertising",
+    banner_content:
+      "Digital Billboard advertising is a dynamic and interactive form of advertising that utilizes digital displays and technology to deliver targeted messages in public spaces. It offers the flexibility to create and update content in real-time, allowing brands to deliver timely and relevant advertising. With advanced targeting capabilities, digital billboard enables brands to reach specific audiences at specific locations and times. The integration of multimedia content, interactivity, and data analytics provides engaging experiences, while the ability to measure and analyze campaign performance allows for data-driven decision-making. Digital Billboard advertising enhances brand visibility, drives audience engagement, and provides a versatile platform for delivering impactful and memorable advertising messages in the digital age.",
+    body_heading1: " About Digital Billboard Advertising Services in India",
+    body_content_list: [
+      { list: "Contemporary and high-tech Digital billboards Advertising" },
+      { list: "Bridge-panels Digital Advertising" },
+      { list: "Digital Gantries Advertising" },
+      { list: "Digital Unipoles Advertising" },
+    ],
+    body_heading2: "Digital Billboard Advertising  ",
+    body_content2_description_top:
+      "Digital billboard advertising has the potential to drive up sales due to several key factors:",
+    body_content2_list: [
+      {
+        list: " Enhanced Targeting: Digital Billboard allows for precise audience targeting based on factors such as location, time of day, and audience demographics. By reaching the right people at the right time and place, brands can effectively communicate their message to a highly relevant audience, increasing the chances of driving conversions and sales.",
+      },
+      {
+        list: "Dynamic and Engaging Content: Digital Billboard offers the ability to create dynamic and visually captivating content. With the use of high-resolution displays, videos, animations, and interactive elements, brands can capture attention and engage viewers in a memorable way. Engaging content enhances brand recall and creates a positive association with the advertised product or service, leading to increased sales.",
+      },
+      {
+        list: "Real-Time Updates and Personalization: Digital Billboard allows for real-time content updates and personalization. Brands can adapt their messaging based on changing market conditions, promotions, or customer preferences. The ability to deliver relevant and personalized content creates a sense of relevance and urgency, encouraging viewers to take action and make a purchase.",
+      },
+      {
+        list: "Integration with Digital Channels: Digital Billboard advertising can be seamlessly integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. This integration creates a cohesive brand experience across multiple touchpoints, reinforcing brand messaging and driving customer engagement. By maintaining consistency and synergy across different channels, brands can influence consumer behavior and ultimately increase sales.",
+      },
+      {
+        list: "High Visibility and Reach: Digital Billboard advertising offers high visibility and reach, as digital displays are often strategically placed in high-traffic areas. This exposure ensures that the brand message reaches a large and diverse audience, increasing brand awareness and generating potential leads. The repeated exposure to the advertising content increases brand familiarity and influences purchase decisions, ultimately driving up sales.",
+      },
+    ],
+    body_content2_description_bottom:
+      "Overall, Digital Billboard advertising combines the advantages of technology, audience targeting, engaging content, and measurement capabilities to create impactful advertising experiences. By leveraging these strengths, brands can effectively drive up sales by reaching the right audience, delivering engaging messages, and influencing consumer behavior throughout the customer journey.",
+    body_heading3: " Branding in Digital Billboard",
+    body_content3_description_top:
+      "Branding in digital Out-of Digital Billboard offers unique opportunities to create a strong and memorable brand presence. Here are some key aspects of branding in digital OOH media:",
+    body_content3_list: [
+      {
+        list: "Visual Impact: Digital Billboard provides high-resolution displays, vibrant colors, and dynamic content capabilities, allowing brands to create visually impactful advertisements. Attention-grabbing visuals, striking imagery, and compelling design elements can captivate audiences, leaving a lasting impression and reinforcing brand recognition.",
+      },
+      {
+        list: "Storytelling and Messaging: Digital Billboard enables brands to tell their brand story and convey their messaging effectively. Through sequential messaging, storytelling techniques, and creative content, brands can engage viewers and communicate their brand values, personality, and unique selling propositions.",
+      },
+      {
+        list: "Dynamic and Interactive Experiences: Digital Billboard offers interactive features and real-time content updates, enhancing brand experiences. Brands can incorporate interactive elements such as touchscreens, motion sensors, or augmented reality to create immersive and engaging experiences that resonate with audiences, leaving a memorable impression of the brand.",
+      },
+      {
+        list: "Contextual Relevance: Digital Billboard allows for contextual targeting and relevance. Brands can customize their advertisements based on factors such as location, time of day, weather conditions, or audience demographics. This level of personalization ensures that the brand message aligns with the viewers' environment and interests, increasing the effectiveness and impact of the branding efforts.",
+      },
+      {
+        list: "Integration with Digital Channels: Digital Billboard can be integrated with other digital marketing channels, creating a cohesive brand experience. By synchronizing messaging and creative elements across digital OOH displays, mobile ads, social media, or online platforms, brands can reinforce their branding efforts and maintain consistency throughout the customer journey.",
+      },
+      {
+        list: "Data-Driven Insights: Digital Billboard provides data and analytics to measure the effectiveness of branding efforts. Metrics such as audience impressions, engagement rates, and dwell time can be analyzed to gain insights into the reach and impact of the brand's presence in digital OOH media. These insights enable brands to refine their strategies, optimize campaigns, and make data-driven decisions to enhance their branding efforts.",
+      },
+      {
+        list: "Amplifying Brand Awareness: Digital Billboard amplifies brand awareness by reaching a wide audience in high-traffic areas. The dynamic nature of digital displays, coupled with creative and visually appealing content, increases the visibility and exposure of the brand. This continuous brand presence in strategic locations helps build brand familiarity, recall, and ultimately contributes to increased brand awareness.",
+      },
+    ],
+
+    body_content3_description_bottom:
+      "Branding in digital Billboard allows brands to leverage the power of technology, creativity, and targeted messaging to create impactful and memorable experiences. By utilizing the unique capabilities of digital displays and integrating branding efforts across various digital channels, brands can establish a strong brand presence, engage with audiences, and ultimately drive brand loyalty and business growth.",
+
+    body_link: "Check the rate of Digital Billboard",
+    body_content_link: [
+      { list: "Digital Billboard agency in mumbai" },
+      { list: "Digital Billboard agency in delhi" },
+      { list: "Digital Billboard agency in bengaluru" },
+      { list: "Digital Billboard agency in kolkata" },
+      { list: "Digital Billboard agency in hyderabad" },
+      { list: "Digital Billboard agency in pune" },
+      { list: "Digital Billboard agency in chennai" },
+    ],
+
+    faqs_heading: "FAQ’s about Digital Billboard Advertising in India",
+    faqs_content: [
+      {
+        id: 1,
+        faqs_qsn: "What is Digital Billboard Advertising?",
+        faqs_ans:
+          "Digital Billboard advertising involves the use of digital displays and technology to deliver advertising messages in public spaces. It utilizes digital screens, LED billboards, interactive kiosks, and other digital signage to reach and engage with audiences in a dynamic and visually appealing manner.",
+      },
+      {
+        id: 2,
+        faqs_qsn:
+          "What are the benefits of Digital Billboard Advertising in India?",
+        faqs_ans:
+          "Digital Billboard advertising in India offers several advantages. It allows for dynamic content updates, real-time messaging, and targeted advertising. With high-resolution displays and interactive features, brands can capture attention, deliver personalized messages, and create engaging brand experiences. Digital Billboard also provides measurable metrics and analytics to assess campaign performance and make data-driven decisions.",
+      },
+      {
+        id: 3,
+        faqs_qsn:
+          "How does Digital Billboard Advertising in India reach the target audience?",
+        faqs_ans:
+          "Digital Billboard advertising in India reaches the target audience through strategic placement of digital displays in high-traffic areas. By selecting prime locations such as shopping malls, transit stations, airports, and commercial centers, brands can effectively reach their desired demographic groups and engage with them at the right time and place.",
+      },
+      {
+        id: 4,
+        faqs_qsn:
+          "How can I measure the effectiveness of my Digital Billboard Advertising campaign in India?",
+        faqs_ans:
+          "Digital Billboard advertising provides measurement and analytics tools to assess the effectiveness of campaigns. Metrics such as impressions, dwell time, audience demographics, and engagement rates can be tracked and analyzed. These insights help evaluate the reach and impact of the campaign, optimize strategies, and refine future advertising efforts.",
+      },
+      {
+        id: 5,
+        faqs_qsn:
+          " Are there any regulations or guidelines for Digital Billboard Advertising in India?",
+        faqs_ans:
+          " Yes, there are regulations and guidelines for Digital Billboard advertising in India. These guidelines cover aspects such as display size, content restrictions, safety regulations, and permissions required for installation. It is important for brands and advertisers to comply with these regulations to ensure a successful and compliant campaign.",
+      },
+      {
+        id: 6,
+        faqs_qsn:
+          "Can Digital Billboard Advertising in India be integrated with other digital marketing channels?",
+        faqs_ans:
+          " Yes, Digital Billboard advertising can be integrated with other digital marketing channels such as mobile advertising, social media, or online campaigns. By synchronizing messaging and creative elements across different channels, brands can create a cohesive and immersive brand experience, reinforcing brand recall and driving customer engagement.",
+      },
+    ],
+  },
+  {
     value: "billboard",
+    srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
+    banner_heading: "About Billboard Advertising",
+    banner_content:
+      "Billboard advertising refers to a mode of advertising that is placed outdoor areas to convey the brand message to people outside. Billboard advertising is designed to capture the attention of people as they move through their daily routines, such as commuting to work, shopping, or engaging in recreational activities. This form of advertising relies on large-format visuals, catchy slogans, and impactful messaging to create brand awareness and deliver targeted marketing messages. Billboard advertising offers broad exposure, wide geographic coverage, and the ability to reach diverse demographics. It remains a popular and effective advertising medium to engage audiences in both urban and suburban areas, providing opportunities for businesses to make a memorable impact and generate brand recognition in the physical environment.",
+    body_heading1: " About Billboard Advertising Services in India",
+    body_content_list: [
+      { list: "Contemporary and high-tech billboards Advertising" },
+      { list: "Bridge-panels Advertising" },
+      { list: "Gantries Advertising" },
+      { list: "Uni poles Advertising" },
+    ],
+    body_heading2: "Billboard Advertising ",
+    body_content2_description_top:
+      "Billboard advertising can drive up sales through several key mechanisms:",
+    body_content2_list: [
+      {
+        list: "Wide Audience Reach: Billboard advertising has the potential to reach a vast audience across various locations, including busy streets, transit hubs, shopping centers, and recreational areas. This wide exposure increases brand visibility and generates awareness among a large number of potential customers, thereby driving up sales.",
+      },
+      {
+        list: "Targeted Messaging: By strategically placing advertisements in specific locations, businesses can tailor their messaging to reach their target audience. For example, a sports brand may choose to advertise near a stadium or fitness center to target active individuals. This targeted approach ensures that the advertising content resonates with the intended consumer base, leading to higher engagement and increased sales conversion rates.",
+      },
+      {
+        list: "Brand Awareness and Recall: Billboard advertising utilizes eye-catching visuals, creative designs, and memorable slogans to make a lasting impression on viewers. Consistent exposure to these advertisements builds brand awareness and recall, making customers more likely to consider the advertised brand when making purchasing decisions. Increased brand recognition ultimately drives up sales as customers choose familiar and trusted brands over competitors.",
+      },
+      {
+        list: "Impulse Buying and Call-to-Action: Billboard advertising, such as unipole billbord or static billbord , can influence impulse buying behavior. When placed strategically near points of purchase or in high-traffic areas, compelling advertisements can capture the attention of consumers and prompt them to make immediate buying decisions. Including a clear call-to-action, such as a limited-time offer or promotional code, further incentivizes customers to take action and make a purchase.",
+      },
+      {
+        list: "Complementing Other Advertising Channels: Billboard advertising works synergistically with other marketing channels, reinforcing brand messages and increasing overall campaign effectiveness. By integrating OOH advertising with digital and print media, businesses create a cohesive and omnichannel brand experience that enhances customer engagement and drives sales across various touchpoints.",
+      },
+      {
+        list: "Geographic Targeting: OOH advertising allows businesses to target specific geographical areas, enabling localized marketing campaigns. This is particularly beneficial for businesses with physical store locations, as they can concentrate their advertising efforts in proximity to their stores, attracting local customers and driving foot traffic, ultimately resulting in increased sales.",
+      },
+    ],
+    body_content2_description_bottom:
+      "Overall, Billboard advertising drives up sales by increasing brand exposure, fostering brand recall, capturing impulse purchases, and complementing other marketing channels. Its wide reach and ability to deliver targeted messaging make it a powerful tool for businesses looking to boost their sales and drive customer engagement.",
+    body_heading3: "Branding in Billboard",
+    body_content3_description_top:
+      "Branding in billboard  refers to the practice of incorporating brand elements and messaging into outdoor advertising channels such as billboards, transit shelters, street furniture, and other physical structures. It plays a crucial role in establishing brand identity, increasing brand visibility, and enhancing brand recall among the target audience. Here are some key aspects of branding in traditional OOH media:",
+    body_content3_list: [
+      {
+        list: "Brand Presence: By featuring logos, colors, and design elements consistent with the brand identity, Billboard advertising creates a strong brand presence in the physical environment. This helps businesses stand out, differentiate themselves from competitors, and establish a visual connection with the target audience.",
+      },
+      {
+        list: "Message Consistency: Billboard allows brands to deliver consistent messaging across multiple locations and touchpoints. Whether it's a tagline, key brand message, or visual representation, maintaining consistency across various OOH advertisements helps reinforce brand positioning and create a cohesive brand experience.",
+      },
+      {
+        list: "Visual Impact: Billboard offers a large canvas for creative and visually impactful advertisements. High-quality graphics, bold typography, and compelling visuals grab attention and make a lasting impression on passersby. This visual impact is essential for capturing the audience's attention and increasing brand awareness.",
+      },
+      {
+        list: "Geographic Targeting: Brands can strategically choose Billboard placements in specific geographic locations to target their desired audience. This localization helps brands connect with the local community, create a sense of relevance, and increase the likelihood of attracting customers to their physical stores or locations.",
+      },
+      {
+        list: "Amplified Reach: Billboard advertising has the advantage of reaching a wide and diverse audience. With its presence in public spaces and high-traffic areas, brands can effectively reach a broad range of potential customers who may not be exposed to other forms of advertising, thereby expanding their brand reach and driving awareness.",
+      },
+      {
+        list: "Brand Storytelling: Billboard allows brands to tell their story and communicate their brand values through engaging and visually compelling advertisements. By crafting narratives that resonate with the audience, brands can create an emotional connection, evoke positive associations, and build long-term brand loyalty.",
+      },
+    ],
+
+    body_content3_description_bottom:
+      "Branding in Billboard  provides businesses with a tangible and impactful way to showcase their brand identity, deliver consistent messaging, and engage with a wide audience. By leveraging the unique strengths of OOH media, brands can strengthen their market position, increase brand recognition, and ultimately drive consumer preference and sales.",
+
+    body_heading4: "Outdoor Advertising in India",
+    body_content4_list: [
+      {
+        list: "As we talk about outdoor advertising in India, one might mistakenly assume it's exclusively reserved for big brands, leaving small and medium-sized businesses out of the picture.",
+      },
+      {
+        list: "However, this assumption couldn't be farther from the truth. Over the past few years, outdoor advertising in India has evolved to become cost-effective, making it accessible and popular among businesses of all sizes.",
+      },
+      {
+        list: "The traditional billboards that once dominated the landscape have given way to their digital hoardings.This growing trend in Indian outdoor advertising goes by the name of ''digital out-of-home advertising''. It possesses qualities that make it exceptionally attractive, highly visible, and impactful compared to traditional hoarding advertising.",
+      },
+      {
+        list: "For those seeking opportunities in outdoor advertising in India, the initial step involves identifying a proficient outdoor advertising agency capable of seamlessly executing your campaign.",
+      },
+      {
+        list: "Given India's substantial population and the resulting high footfall in various areas, outdoor advertising provides an excellent platform for showcasing your brand.",
+      },
+      {
+        list: "With just one prominent billboard in a high-footfall location, advertisers can reach a vast audience, reaping the benefits of a cost-effective advertising strategy.",
+      },
+    ],
+    body_heading5: "Outdoor Hoarding Advertising",
+    body_content5_list: [
+      {
+        list: "Let's delve into the specifics of outdoor hoarding advertising, a key component of outdoor advertising in India.",
+      },
+      {
+        list: "Outdoor hoarding advertising has stood the test of time, with brands leveraging its potential to execute successful brand awareness campaigns.",
+      },
+      {
+        list: "The terms 'billboards' and 'hoarding are' often used interchangeably in the realm of outdoor advertising. While there may be slight differences in size and placement, billboards and hoardings essentially serve the same promotional purpose.",
+      },
+      {
+        list: "Outdoor hoarding advertising involves strategically placing large displays in high-footfall areas to captivate the public's attention.",
+      },
+      {
+        list: "The goal of outdoor hoarding advertising is to convey your brand's message to potential customers in a manner that leaves a lasting impression.",
+      },
+      {
+        list: "A well-executed outdoor campaign or outdoor hoarding advertising is visually striking and stays in the memory of potential customers, contributing to long-term brand recall.",
+      },
+      {
+        list: "Brands opt for outdoor hoarding advertising because of its potential to deliver high visibility, even though it may come with a price tag. When executed correctly, outdoor hoarding advertising yields handsome returns, making it an unrivaled choice for impactful brand awareness campaigns in India",
+      },
+    ],
+    body_heading6: "Outdoor Ads",
+    body_content6_list: [
+      {
+        list: "In the world of advertising in India, there's an abundance of options for marketers to promote their products or services to the public.",
+      },
+      {
+        list: "Brands often venture into digital advertising, radio, or TV advertising, given the ever-evolving technological landscape of today. Amidst this multitude of choices, one might wonder if outdoor advertising has lost its allure.",
+      },
+
+      {
+        list: "But that's not the case. Outdoor advertising has always been a powerful means for brands to achieve strong visibility. Even today, outdoor ads stand tall and compete vigorously with digital and TV advertising.The enduring appeal of outdoor ads can be attributed to the grand emotions they evoke. Since their inception, outdoor ads have held a special place in the advertising business.",
+      },
+      {
+        list: "While it's true that they require a certain budget threshold, if your brand possesses it, outdoor ads know how to craft a successful brand awareness campaign.",
+      },
+      {
+        list: "The versatility and impact of outdoor ads are truly remarkable. They can be strategically placed in various locations, ensuring your brand gains visibility and leaves a lasting impression on people's minds.",
+      },
+      {
+        list: "In a world filled with advertising options, outdoor advertising in India continues to shine as a compelling choice for marketers.",
+      },
+    ],
+    body_link: "Enquire about the Billboard advertising rates",
+
+    body_content_link: [
+      { list: "Billboard advertising agency in mumbai" },
+      { list: "Billboard advertising agency in delhi" },
+      { list: "Billboard advertising agency in bengaluru" },
+      { list: "Billboard advertising agency in kolkata" },
+      { list: "Billboard advertising agency in hyderabad" },
+      { list: "Billboard advertising agency in pune" },
+      { list: "Billboard advertising agency in chennai" },
+    ],
+    faqs_heading: "FAQ’s about Billboard Advertising in India",
+    faqs_content: [
+      {
+        id: 1,
+        faqs_qsn: "What is Billboard advertising?",
+        faqs_ans:
+          " Billboard advertising refers to the use of physical, non-digital advertising channels to promote brands, products, or services in public spaces. It includes billboards, posters, transit shelters, street furniture, and other outdoor structures to reach and engage with a wide audience.",
+      },
+      {
+        id: 2,
+        faqs_qsn:
+          "How effective is Billboard advertising in India?",
+        faqs_ans:
+          "Billboard advertising in India can be highly effective in reaching a large and diverse audience. It offers high visibility and exposure in high-traffic areas, making it an impactful medium for brand awareness and messaging. Studies have shown that Billboard has a positive impact on consumer behavior and can drive sales.",
+      },
+      {
+        id: 3,
+        faqs_qsn:
+          "What are the advantages of Billboard advertising in India?",
+        faqs_ans:
+          " Billboard advertising in India offers several advantages. It provides broad reach, allowing brands to connect with a vast audience across various locations. It is a visually impactful medium that captures attention and creates memorable brand experiences. Billboard also has a longer exposure time compared to other advertising channels, ensuring that the message is seen repeatedly.",
+      },
+      {
+        id: 4,
+        faqs_qsn:
+          "How can I select the right locations for my Billboard  advertising campaign in India?",
+        faqs_ans:
+          "Choosing the right locations for your Billboard advertising campaign in India depends on your target audience and marketing objectives. Consider factors such as high-traffic areas, proximity to target demographics, and the relevance of the location to your brand or product. Working with advertising agencies or Billboard providers can help you identify optimal locations based on your specific requirements.",
+      },
+      {
+        id: 5,
+        faqs_qsn:
+          " Are there any regulations or guidelines for Billboard  advertising in India?",
+        faqs_ans:
+          "Ans - Yes, there are regulations and guidelines for Billboard  advertising in India that vary across cities and states. These regulations cover aspects such as ad size, placement, safety, and permissions required for installation. It is important to comply with these regulations and obtain necessary approvals to ensure a successful and compliant advertising campaign.",
+      },
+      {
+        id: 6,
+        faqs_qsn:
+          "What is the cost of Billboard  advertising in India?",
+        faqs_ans:
+          " The cost of Billboard  advertising in India depends on factors such as the location, size, duration of the campaign, and demand in specific areas. Prime locations in major cities generally command higher prices. It is recommended to consult with advertising agencies or Billboard providers to get accurate pricing information based on your campaign objectives and budget.",
+      },
+      {
+        id: 7,
+        faqs_qsn:
+          " Can Billboard  advertising in India be integrated with digital marketing?",
+        faqs_ans:
+          " Yes, Billboard  advertising can be integrated with digital marketing strategies to enhance brand visibility and engagement. By incorporating QR codes, social media handles, or website URLs in the advertisements, brands can encourage consumers to interact digitally, enabling them to track the campaign's effectiveness and drive online conversions.",
+      },
+    ],
+  },
+  {
+    value: "traditional-ooh-media",
     srcImgM: "/images/web_pics/traditional-ooh-media-advertising.jpg",
     banner_heading: "About Billboard Advertising",
     banner_content:
@@ -1242,6 +1691,22 @@ export const wordCounts = [
 ];
 export const MetaKeys = [
   {
+    value: "traditional-ooh-media",
+    page_titel: "Top billboard advertising agency in India | Gohoardings",
+    page_decri:
+      "Choose from millions of billboards here. We are the best billboard advertising agency in India. Get the best outdoor advertising solutions with Gohoardings.",
+    meta_keyword:
+      "billboards, billboard advertising, billboard advertising agency, billboard agency, hoarding advertising agency, hoarding advertising company, hoarding company, billboard ad agency, billboard ads, billboard company, hoarding agency, unipole advertising, outdoor hoardings, billboard agency in india",
+  },
+  {
+    value: "digital-media",
+    page_titel: "Digital billboard advertising agency in India | Gohoardings",
+    page_decri:
+      "Start your digital billboard advertising with us. At Gohoardings, we provide the best interactive digital billboard advertising sites to enhance your brand presence.",
+    meta_keyword:
+      "digital billboard advertising, digital hoarding advertising, digital billboard ads, outdoor digital advertising, digital display advertising, digital hoarding rental, digital media hoardings, digital advertising display board, LED hoarding advertising, digital hoardings",
+  },
+  {
     value: "billboard",
     page_titel: "Top billboard advertising agency in India | Gohoardings",
     page_decri:
@@ -1265,6 +1730,15 @@ export const MetaKeys = [
       "Unlock the Power of Mall Advertising with Gohoardings - Your Trusted Partner for Effective Outdoor Advertising and Branding. Elevate Your Brand Visibility Today!",
     meta_keyword:
       "gohoardings, gohoarding, shopping mall advertising, mall media advertising, mall advertising, shopping mall ad services, mall media solution, mall advertising company, advertising in shopping mall, branding in shopping mall, mall display ad promotion, mall advertising rates, mall event advertising, malll marketing services, mall promotion agency",
+  },
+  {
+    value: "office-branding",
+    page_titel:
+      "Office Branding Services | GoHoardings: Transform Your Workspace",
+    page_decri:
+      "Elevate your office space with impactful Office Branding and In-Office Advertising solutions from GoHoardings. Enhance your workspace today!",
+    meta_keyword:
+      "in office media, office branding, office advertising, advertising inside office, in office advertising, inhouse branding, workspace advertisment, office branding agency, office branding company, office media advertisment, office marketing agency, office branding ideas",
   },
   {
     value: "lift-branding",

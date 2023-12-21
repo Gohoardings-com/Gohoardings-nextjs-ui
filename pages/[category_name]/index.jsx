@@ -22,6 +22,9 @@ const Media = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { category_name } = router.query;
   const validCategories = [
+    "traditional-ooh-media",
+    "digital-media",
+     "office-branding",
     "billboard",
     "digital-billboard",
     "mall-media",
