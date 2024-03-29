@@ -358,7 +358,7 @@ const convertJsonToExcel = async(data,ID) => {
         }
        }
 
-exports.addOnCart = catchError(async (req, res, next) => {
+    exports.addOnCart = catchError(async (req, res, next) => {
     const cookieData = req.cookies
     if (!cookieData) {
         return res.status(206).json({success:false, message: "No Cookie Found" })
@@ -370,8 +370,8 @@ exports.addOnCart = catchError(async (req, res, next) => {
         } else {
             const userid = user.id
             const { code, category_name, page_title, illumination, subcategory } = req.body.media;
-         const checkData = await executeQuery("SELECT * From goh_shopping_carts_item WHERE userid='"+userid+"'&& mediaid = '"+code+"' && campaigid='"+userid+"' && mediatype='"+category_name+"' && isDelete=0 ","gohoardi_goh",next)
-        if(checkData.length == 0){
+            const checkData = await executeQuery("SELECT * From goh_shopping_carts_item WHERE userid='"+userid+"'&& mediaid = '"+code+"' && campaigid='"+userid+"' && mediatype='"+category_name+"' && isDelete=0 ","gohoardi_goh",next)
+            if(checkData.length == 0){
             const result = await  executeQuery("INSERT INTO goh_shopping_carts_item (userid, mediaid, campaigid, mediatype, status, page_title , illumination, subcategory ) VALUES ('" +
             userid +
             "','" +
@@ -515,7 +515,7 @@ exports.deleteFromCart = catchError(async (req, res, next) => {
         }
     })
 
-
+ 
 exports.useritems = catchError(async (req, res, next) => {
     const user = req.id
   const result = await executeQuery(`SELECT COUNT(userid) AS item FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete=0`,"gohoardi_goh",next)

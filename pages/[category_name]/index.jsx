@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { CityNameImage, mediaApi, getCityDataApi } from "@/allApi/apis";
-
 import MainUi from "@/components/mediaComponents/MainUi";
 import dynamic from "next/dynamic";
 const Media = (props) => {
@@ -113,6 +112,7 @@ const Media = (props) => {
     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
     a.appendChild(r);
 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
+
   if (validCategories.includes(category_name)) {
     return (
       <>

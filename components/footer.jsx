@@ -16,6 +16,7 @@ import {
   changefooter,
   CityNameImage,
 } from "../allApi/apis";
+import FloatingWhatsAppComponent from "./floatingWhatsapp";
 
 const Footer = () => {
   const route = useRouter();
@@ -129,6 +130,7 @@ const Footer = () => {
 
     setServiceIcon(services);
   };
+
   return (
     <>
       <div className=" footerN-content  pb-3  p-0 px-3 px-md-5 py-md-1  pt-md-5 ">
@@ -362,7 +364,7 @@ const Footer = () => {
         </div>
         <div className="row my-2 d-flex justify-content-center">
           <p className="  text-light f-heading-clr ">
-            copyrights © 2023 Gohoardings Solutions LLP
+            copyrights © {new Date().getFullYear()}{" "}Gohoardings Solutions LLP
           </p>
         </div>
       </div>
@@ -374,6 +376,7 @@ const Footer = () => {
       >
         <LoginN />
       </Modal>
+      <FloatingWhatsAppComponent/>
       <style jsx>
         {`
           #not-work {

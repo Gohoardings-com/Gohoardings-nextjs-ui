@@ -120,7 +120,7 @@ export const logoutUser = async () => {
 export const googleLogin = async (res) => {
   const { data } = await instance.post("sociallogin", res);
   return data;
-};
+}; 
 
 export const loginUser = async (email, password) => {
   const { data } = await instance.patch("loginApis", { email, password });
@@ -476,5 +476,10 @@ export const influencer_enquiry = async (
 
 export const influencerAll = async () => {
   const { data } = await instance.get("influencer");
+  return data;
+};
+
+export const fetchBlogs = async () => {
+  const { data } = await instance.get('blogs');
   return data;
 };

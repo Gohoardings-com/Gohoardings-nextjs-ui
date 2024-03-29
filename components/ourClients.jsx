@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { goh_testimonialsApi } from "@/allApi/apis";
 const OurClients = () => {
+  
   const [posts, setPosts] = useState([]);
   const clients = async () => {
     const data = await goh_testimonialsApi();

@@ -11,8 +11,9 @@
   cursor: pointer;
   border-bottom: 1px solid #d1c601;
   color: #d1c601;
-
 }
+
+
 //Global fonts
 body {
   font-family: 'Poppins', sans-serif !important;
@@ -97,7 +98,7 @@ input::-webkit-inner-spin-button {
     border: 1px solid #f0e512f1;
   }
 }
-
+ 
 .modal-content {
   margin: 0;
   position: absolute !important;
@@ -106,7 +107,7 @@ input::-webkit-inner-spin-button {
   transform: translate(-50%, -50%) !important;
   width: 70vw !important;
   height: auto !important;
-  min-height: 70vh !important;
+  // min-height: 70vh !important;
 }
 
 
@@ -400,4 +401,10 @@ display: none;
   .drd{
     display:none!important;
   }
+}
+
+.styles-module_whatsappButton__tVits {
+
+  bottom: 7rem !important;
+  right: 1.8rem !important;
 }

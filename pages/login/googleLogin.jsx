@@ -31,7 +31,7 @@ const LoginOauth = ({ googleSignIn, afterLogin,setWithOtp ,withOtp,success}) => 
          
         />
 
-        }
+        } 
        <Image
                            width={500}
                            height={500}

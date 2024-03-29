@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "../styles/login.module.scss";
 import { toast } from "react-toastify";
-import Image from "next/image";
 import { enquiryApi } from "@/allApi/apis";
 const WelcomeForm = () => {
   const [show, setShow] = useState(false);
   const [welcomeForm, setWelcomeForm] = useState({
-    name: "",
-    email: "",
+    name: "unknown",
+    email: "unknown",
     phone: "",
-    message: "",
+    message: "not provided",
   });
   const handleChange = (e) => {
     setWelcomeForm({ ...welcomeForm, [e.target.name]: e.target.value });
@@ -24,29 +23,23 @@ const WelcomeForm = () => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    const isValidEmail = (email) => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    };
+  
     for (const key in welcomeForm) {
       if (!welcomeForm[key]) {
-        toast(`Please fill in the ${key.replace(/_/g, " ")} field.`);
+        toast.error(`Please fill in the ${key.replace(/_/g, " ")} number.`);
 
         return;
       }
       if (key === "phone" && welcomeForm[key].length < 10) {
-        toast(
+       toast.error(
           `Please enter a valid ${key.replace(
             /_/g,
             " "
-          )} with at least 10 digits.`
+          )} number.`
         );
         return;
       }
-      if (key === "email" && !isValidEmail(welcomeForm[key])) {
-        toast(`Please enter a valid email address.`);
-        return;
-      }
+     
     }
     const data = await enquiryApi(
       welcomeForm.name,
@@ -56,7 +49,7 @@ const WelcomeForm = () => {
     );
 
     if (data.success == true) {
-      toast("Thanks,our expert will contact you soon!");
+      toast.success("Thanks,our expert will contact you soon!");
       setShow(false);
       localStorage.setItem("forceClosed", "false");
     }
@@ -95,46 +88,31 @@ const WelcomeForm = () => {
       <Modal
         show={show}
         onHide={handleClose}
+        id="exampleModal"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <div className="lgn">
           <div className="row">
-            <div className="col-md-6 p-4 m-0 col-12">
+     
+            <div className=" p-4  col-12">
+            <button
+            title="Close"
+                  className="float-end m-1 close-btn"
+                  onClick={handleClose}
+                >
+                  x
+                </button>
               <div
                 className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}
               >
                 <>
-                  <h6 className={styles.txt_clr}>*Kindly fill up the form</h6>
+                  <h6 className={styles.txt_clr}>*Connect instantly by submitting your contact no.  </h6>
                   <form
-                    className="mt-md-4  mt-2 position-relative"
+                    className="mt-md-0  mt-2 position-relative"
                     onSubmit={onSubmit}
                   >
-                    <div className="form-group py-md-3 py-1">
-                      <input
-                        autoComplete="off"
-                        type="text"
-                        className="form-control ps-0 rounded-0"
-                        id="formGroupExampleInput"
-                        placeholder="Full name"
-                        name="name"
-                        value={welcomeForm.name}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="form-group py-md-3 py-1">
-                      <input
-                        type="text"
-                        autoComplete="off"
-                        className="form-control ps-0 rounded-0"
-                        placeholder="Email id"
-                        id="first-name"
-                        name="email"
-                        value={welcomeForm.email}
-                        onChange={handleChange}
-                      />
-                    </div>
+                   
                     <div className="form-group py-md-3 py-1">
                       <input
                         autoComplete="off"
@@ -147,18 +125,7 @@ const WelcomeForm = () => {
                       />
                     </div>
 
-                    <div className="form-group py-md-3 py-1">
-                      <input
-                        autoComplete="off"
-                        type="text"
-                        className="form-control ps-0 rounded-0"
-                        id="formGroupExampleInput2"
-                        placeholder="Write your requirment for our team"
-                        name="message"
-                        value={welcomeForm.message}
-                        onChange={handleChange}
-                      />
-                    </div>
+                   
                     <div className=" p-0 mt-1 mt-md-0 position-relative ">
                       <button
                         type="submit"
@@ -172,31 +139,7 @@ const WelcomeForm = () => {
                 </>
               </div>
             </div>
-            <div className="col-md-6 col-12">
-              <div className={styles.wrapperWelcome}>
-                <button
-                  className="float-end m-1 close-btn"
-                  onClick={handleClose}
-                >
-                  x
-                </button>
-                <div className={`${styles.opacitydivWelcome} rounded-4 `}>
-                  <div className={`${styles.title} pt-3 ps-4  `}>
-                    <h2>
-                      Get The Best Advertising <br />
-                      Solution From Us
-                    </h2>
-                  </div>
-                  <Image
-                    width={500}
-                    height={500}
-                    src="/images/web_pics/login1.png"
-                    className={`${styles.img_responsiveWelcome} img-fluid`}
-                    alt="Registraion"
-                  />
-                </div>
-              </div>
-            </div>
+       
           </div>
         </div>
       </Modal>
@@ -231,19 +174,7 @@ const WelcomeForm = () => {
             font-size: 14px;
           }
           @media screen and (max-width: 540px) {
-            .row {
-              flex-direction: column;
-            }
-      
-            /* Adjust the styles for the first column */
-            .col-md-6.p-4.m-0.col-12 {
-              order: 2; /* Change the order */
-            }
-      
-            /* Adjust the styles for the second column */
-            .col-md-6.col-12 {
-              order: 1; /* Change the order */
-            }
+           
             .txt-clr-tlk {
               color: #373435;
               font-size: 1.6rem;

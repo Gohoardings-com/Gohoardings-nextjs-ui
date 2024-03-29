@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import {MdKeyboardArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { BsWhatsapp } from "react-icons/bs";
 import Fixednavbar from "@/components/navbar/fixednavbar";
 import styles from '../../styles/contactUs.module.scss'  ;
 
@@ -11,13 +12,11 @@ const Contact = () => {
   const [name, setName] = useState(""); 
   const route = useRouter()
   const [phone, setphone] = useState("");
+  const [phone2, setphone2] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [nameValidate, setNameValidate] = useState();
-  const [phonevalidate, setphonevalidate] = useState();
-  const [emailValidate, setEmailValidate] = useState();
-  const [messageValidate, setMessageValidate] = useState();
   const [error, setEror] = useState(false);
+  const [conect,setConect]=useState(false);
 
   let count = 0;
   const onSubmit = async (e) => {
@@ -42,10 +41,6 @@ const Contact = () => {
         setphone("");
         setEmail("");
         setMessage("");
-        setNameValidate("");
-        setphonevalidate("");
-        setEmailValidate("");
-        setMessageValidate("");
         setEror(false);
         toast(data.message);
       } else {
@@ -54,6 +49,39 @@ const Contact = () => {
     }
   };
 
+  // Function to generate WhatsApp URL
+  const getWhatsAppLink = (phoneNumber, message) => {
+      const whatsappUrl = `https://wa.me/${encodeURIComponent(
+        phoneNumber
+      )}?text=${encodeURIComponent(message)}`;
+      return whatsappUrl;
+  };
+
+  const onNumbersubmit =  async (e) => {
+   if(phone2.length!==10){
+    toast.error("Enter valid phone number");
+    return ;
+   }
+   const data = await enquiryApi("unknown", "unknown", phone2, "not provided");
+   if (data.success == true) {
+    toast.success(data.message);
+    setphone2('');
+    setConect(false);
+   }
+  }
+  
+//   <a
+//   href={getWhatsAppLink(
+//     7777871717,
+//     "Hello, I'm interested in your advertising services. Could you please provide more details and pricing information?"
+//   )}
+//   target="_blank"
+//   rel="noopener noreferrer"
+// >
+//   <div className="btn btn-success">
+//     Connect on <BsWhatsapp className="" />
+//   </div>
+//               </a>
   const {asPath} = useRouter();
   const hotjarTrackingCode = `(function(h,o,t,j,a,r){
     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -130,18 +158,40 @@ const Contact = () => {
    <h6><span  onClick={()=>route.push("/")} className="bredcamp">Home</span><MdKeyboardArrowRight/><span className="bredcamp text-secondary">Contact-Us</span></h6>
           <div className={`row p-3 mt-md-5 rounded-3 ${styles.main_contact}`}>
             <div className="col-md-6 p-0">
-              <h3>
-                Support and Contact <br />
-                Enquiry
-              </h3>
-              <h6 className="my-3">
-                We would be happy to answer your
-                <br />
-                question and set up a meeting with you.
-              </h6>
+           <div className="text-center">
+           {conect ?
+  <div className="justify-content-center d-flex my-2 animate__animated animate__fadeInUp ">
+    <input type="number" placeholder="Enter your number" className={styles.conectInput} value={phone2} onChange={(e)=>setphone2(e.target.value)} />
+    <div className={`btn ${styles.conectBtn}`} onClick={onNumbersubmit}>
+      Connect
+    </div>
+  </div>
+  :
+  <button className={styles.justclick} onClick={()=>setConect(true)}>
+    Click to Connect
+  </button>
+}
+
+           
+
+           </div>
+           
+              <p className={`text-center my-2 fw-bold ${styles.orr}`}>or</p>
+              {/* <div className="d-flex justify-content-between pe-3">
+
+      
+             
+     
+             </div>
+
+              </div> */}
+              <h5 className="mt-4 mb-0 text-dark">
+              Please fill out the form to specify your requirements
+              </h5>
               <div className={`${styles.contact_form} pe-md-5`}>
-                <form className='mt-4 "position-relative' onSubmit={onSubmit}>
-                  <div className="form-group py-3 ">
+                <form className='position-relative' onSubmit={onSubmit}>
+                  
+                  <div className="form-group py-3 pt-2">
                     <label htmlFor="formGroupExampleInput">Name*</label>
                     <input
                       autoComplete="off"
@@ -259,7 +309,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-     
+  
     </>
   );
 };

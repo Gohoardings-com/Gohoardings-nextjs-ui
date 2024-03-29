@@ -21,7 +21,7 @@ export const AccountProvider = ({ children }) => {
       }
     }
   
-    }
+  }
 
 
   const reducer = (state, action) => {

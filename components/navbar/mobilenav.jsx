@@ -75,6 +75,14 @@ const Mobilenav = () => {
             <li
               className="list-group-item"
               data-bs-dismiss="offcanvas"
+              onClick={() => route.push("https://influencersea.com/")}
+              target="_blank"
+            >
+                Influencer marketing
+            </li>
+            <li
+              className="list-group-item"
+              data-bs-dismiss="offcanvas"
               onClick={() => route.push("/contact-us")}
             >
               Contact Us

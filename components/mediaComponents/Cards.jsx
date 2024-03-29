@@ -82,7 +82,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
 
                   <span className={styles.project_price}>
                     {item.isDelete === 0 ? (
-                      <Image
+                      <Image 
                         width={100}
                         height={100}
                         alt="check"

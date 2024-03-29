@@ -1,4 +1,61 @@
 @import "../assets/scss/variables";
+
+.justclick{
+  display: inline-block;
+outline: none;
+cursor: pointer;
+font-size: 18px;
+line-height: 1;
+border-radius: 500px;
+transition-property: background-color,border-color,color,box-shadow,filter;
+transition-duration: .3s;
+border: 1px solid transparent;
+letter-spacing: 2px;
+min-width: 160px;
+text-transform: uppercase;
+white-space: normal;
+font-weight: 700;
+text-align: center;
+padding: 30px 140px 32px;
+color: #fff;
+background-color: #15883e;
+
+}
+.justclick:hover{
+  background-color: #1db954;
+}
+
+
+.conectInput{
+  border-top-left-radius: 500px;
+  border-bottom-left-radius: 500px;
+  height: 60px;
+  width: 70%;
+  padding-left: 6px;
+  border-right: 0;  
+  border: 1px solid #15883e;
+}
+.conectInput:focus{
+  outline: none;
+}
+.conectBtn{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius:0px;
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+  height: 60px;
+  border-right: 0;  
+  display: flex;
+  align-items: center;
+  border: 1px solid #15883e;
+  background-color: #15883e;
+  color: rgb(237, 237, 237);
+}
+.conectBtn:hover{
+  background-color: #1db954 !important;
+  color: rgb(237, 237, 237) !important;
+}
+
 .main_contact_all {
     h1 {
       font-size: 3.2rem;

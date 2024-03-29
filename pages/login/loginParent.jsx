@@ -15,7 +15,7 @@ import {
   OtpRegister,
   registerUser,
   sendOTP,
- emailformate } from "@/allApi/apis";
+ emailformate } from "@/allApi/apis"; 
 import { useGoogleLogin } from "react-google-login";
 
 import { MdOutlineError } from "react-icons/md";
@@ -261,7 +261,7 @@ const LoginN = () => {
 
 
   return (
-    <div className="lgn">
+    <div className={`${styles.login_popup} lgn `}>
 
       <div className=" d-flex">
         <div className="col-md-6 ">
@@ -362,7 +362,7 @@ const LoginN = () => {
                     AiFillEye={AiFillEye}
                     AiFillEyeInvisible={AiFillEyeInvisible}
                     clickforget={clickforget}
-                    ToastContainer={ToastContainer}
+                    ToastContainer={ToastContainer} 
                     googleSignIn={signIn}
                     toggleSignUp={toggleSignUp}
                     onForget={onForget}

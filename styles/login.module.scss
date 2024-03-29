@@ -1,5 +1,10 @@
 @import "../assets/scss/variables";
 
+.login_popup{
+  width: 70vw !important;
+  height: auto !important;
+  min-height: 70vh !important;
+}
 #sendf {
   transition: all 0.1s ease-out;
   background-color: #7d7c7c;

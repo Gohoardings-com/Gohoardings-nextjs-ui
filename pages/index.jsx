@@ -14,6 +14,7 @@ const OurClients = dynamic(() => import("@/components/ourClients"));
 const TrendingCity = dynamic(() => import("@/components/trendingcity"));
 const WordCounts = dynamic(() => import("@/components/wordCounts"));
 const WelcomeForm = dynamic(() => import("@/components/welcomeForm"));
+const GohBlog = dynamic(() => import("@/components/blogs"));
 
 export default function Home() {
   const { asPath } = useRouter();
@@ -77,7 +78,7 @@ export default function Home() {
         <meta property="twitter:property" content="en_US" />
         <script dangerouslySetInnerHTML={{ __html: hotjarTrackingCode }} />
       </Head>
-      <main className="animate__animated  animate__fadeIn">
+      <main className="animate__animated   animate__fadeIn">
         <NavbarH />
         <Floatingnavbar />
         <Searchmedia />
@@ -86,6 +87,7 @@ export default function Home() {
         <Enquire />
         <OurClients />
         <TrendingCity />
+        {/* <GohBlog/> */}
         <WordCounts />
         <WelcomeForm />
       </main>

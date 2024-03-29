@@ -74,6 +74,7 @@ isLoading,
   async function categoryFilter(cate) {
     setcategoryValue(cate);
     const data = await subCategoryFilterApi(category_name, cate, city);
+    
     setilocationValue("");
     setFilterValue("");
     setSearch(data);
