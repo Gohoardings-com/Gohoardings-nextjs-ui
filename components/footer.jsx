@@ -194,7 +194,7 @@ const Footer = () => {
 
                 <li className=" text-decoration-none f-heading-clr mb-0 py-md-2">
                   <a
-                    href="https://blog.gohoardings.com/"
+                    href="https://gohoardings.com/blog"
                     target="_blank"
                     className=" text-decoration-none f-heading-clr mb-0"
                   >

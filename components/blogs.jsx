@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from 'react';
 import { useRouter } from 'next/router';
-import { fetchBlogs } from '@/allApi/apis';
 
+import { fetchBlogs } from '@/allApi/apis';
+import { FaArrowRight } from "react-icons/fa";
 
 const GohBlog = () => {
   const route=useRouter();
@@ -18,12 +19,13 @@ const GohBlog = () => {
 
   return (
     <div className="container">
-      <h2 className='my-md-5 my-3'><strong>Popular Blog Posts</strong></h2>
+      <h2 className='mt-md-5 mt-3 mb-4'><strong>Popular Blog Posts</strong> <button className='float-end' onClick={()=>route.push('/blog')}>View All <FaArrowRight className='ms-1' />
+</button></h2>
       <div className="image-row">
-      {posts && posts.map((blog, index) => (
-  <a key={index} href={`https://blog.gohoardings.com/${blog.url}`} target="_blank" rel="noopener noreferrer" className="image-container pnt text-decoration-none text-dark">
+      {posts && posts.slice(0,6).map((blog, index) => (
+  <a key={index} href={`https://gohoardings.com/blog/${blog.url}`} target="_blank" rel="noopener noreferrer" className="image-container pnt text-decoration-none text-dark">
     <img src={blog.image} alt={blog.url} />
-    <p className="card-title mt-2">{blog.title}</p>
+    <p className="card-title mt-2 ">{blog.title}</p>
   </a>
 ))}
 
@@ -59,6 +61,13 @@ const GohBlog = () => {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical ;
         
+        }
+        h2 button{
+          font-size: 16px;
+          padding: 9px;
+          border: none;
+          background: none;
+          border-radius: 5px;
         }
         @media screen and (max-width: 768px) {
           .image-container {

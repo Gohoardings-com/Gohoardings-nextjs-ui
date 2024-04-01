@@ -68,7 +68,7 @@ const Mobilenav = () => {
             <li
               className="list-group-item"
               data-bs-dismiss="offcanvas"
-              onClick={() => route.push("https://blog.gohoardings.com/")}
+              onClick={() => route.push("https://gohoardings.com/blog")}
             >
               Blogs
             </li>

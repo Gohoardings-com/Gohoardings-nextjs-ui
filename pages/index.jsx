@@ -87,7 +87,7 @@ export default function Home() {
         <Enquire />
         <OurClients />
         <TrendingCity />
-        {/* <GohBlog/> */}
+        <GohBlog/>
         <WordCounts />
         <WelcomeForm />
       </main>

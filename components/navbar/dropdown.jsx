@@ -12,7 +12,7 @@ const NavbarDropdown = () => {
     { text: "News & Media", href: "/media-and-news" },
     { text: "Contact", href: "/contact-us" },
     { text: "Testimonials", href: "/testimonial" },
-    { text: "Blogs", href: "https://blog.gohoardings.com/",taget:"_blank"  },
+    { text: "Blogs", href: "https://gohoardings.com/blog",taget:"_blank"  },
     { text: "FAQs", href: "/faqs" }
   ];
   

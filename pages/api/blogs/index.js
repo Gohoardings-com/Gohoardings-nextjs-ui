@@ -8,12 +8,15 @@ export default async function handler(req, res) {
     case "GET":
       blogs(req, res);
       break;
+    case "PATCH":
+      blogwithUrl(req, res);
+      break;
   }
 }
 
 export const blogs = catchError(async (req, res) => {
   try {
-    const qry="SELECT * FROM gohoardings_blog WHERE blog_for = 'gohoarding' ORDER BY id DESC LIMIT 6 "
+    const qry="SELECT title,url,image,blogCategory,keywords,summary,created_by,CreatedOn,UpdatedOn,content FROM gohoardings_blog WHERE blog_for = 'gohoarding' AND active=1 ORDER BY id DESC "
     const data = await executeQuery(qry,"gohoardi_crmapp")
 
     if(data.length>0){
@@ -27,3 +30,32 @@ export const blogs = catchError(async (req, res) => {
       .json({ success: false, message: "Internal server error" });
   }
 });
+
+export const blogwithUrl = catchError(async (req, res) => {
+  try {
+    const { url } = req.body;
+
+    let qry = `SELECT title, url, image, blogCategory, keywords, summary, created_by, CreatedOn, content FROM gohoardings_blog WHERE blog_for = 'gohoarding' AND url ='${url}' AND active=1 ORDER BY id DESC LIMIT 1`;
+    let data = await executeQuery(qry,"gohoardi_crmapp");
+
+    if (data.length === 0) {
+      qry = `SELECT title, url, image, blogCategory, keywords, summary, created_by, CreatedOn, content FROM gohoardings_blog WHERE blog_for = 'gohoarding' AND blogCategory ='${url}' AND active=1 ORDER BY id DESC`;
+      data = await executeQuery(qry,"gohoardi_crmapp");
+    }
+
+    if (data.length > 0) {
+      return res
+        .status(200)
+        .json({ success: true, data });
+    } else {
+      return res
+        .status(404)
+        .json({ success: false, message: "No blogs found" });
+    }
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+});
+

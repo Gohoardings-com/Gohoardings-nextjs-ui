@@ -201,7 +201,7 @@ const Media = (props) => {
 
 Media.getInitialProps = async ({ req, res }) => {
   let currentPageUrl = "";
-
+ 
   if (req) {
     currentPageUrl = req.url;
   } else if (res) {
