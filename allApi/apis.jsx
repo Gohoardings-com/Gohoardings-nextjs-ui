@@ -484,7 +484,7 @@ export const fetchBlogs = async () => {
   return data;
 };
 
-export const fetchBlogsWitURL = async (url) => {
-  const { data } = await instance.patch('blogs',{url});
+export const blogpopincrs = async (url) => {
+  const { data } = await instance.put('blogs',{url});
   return data;
 };

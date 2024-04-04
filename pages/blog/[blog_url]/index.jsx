@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import NavbarBlog from '@/components/navbar/blognav';
+import { FaRegEye } from "react-icons/fa";
 import Head from 'next/head';
 
 const Blog = ({ blogs,blogsp,headtag }) => {
@@ -18,6 +19,12 @@ const Blog = ({ blogs,blogsp,headtag }) => {
     const formattedDateTime = new Date(dateTimeString).toLocaleString("en-US", options);
     return formattedDateTime;
   };
+
+  const sortByPopularity = (a, b) => b.popularity - a.popularity;
+
+  const popularPosts = blogs
+    .sort(sortByPopularity)
+    .slice(0, 5);
 
   return (
     <>
@@ -87,7 +94,7 @@ const Blog = ({ blogs,blogsp,headtag }) => {
           <div className="ms-4">
             <h1 onClick={() => router.push(`/blog/${blog.url}`)} className="blogTitle">{blog.title}</h1>
             <div className="blog-details">
-              <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}</span></p>
+              <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}</span> <span><FaRegEye className="ms-2 me-1"/>{blog.popularity}</span></p>
               <p>{blog.summary}</p>
               <div className="">
                 <Link href={`/blog/${blog.url}`}>Read More...</Link>
@@ -104,7 +111,7 @@ const Blog = ({ blogs,blogsp,headtag }) => {
           <h1>{blog.title}</h1>
           <h2 className='fw-bold'>{blog.summary}</h2>
           <div className="blog-details">
-            <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}</span></p>
+            <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}</span> <span><FaRegEye className="ms-2 me-1"/>{blog.popularity}</span></p>
           </div>
           <center><img src={blog.image} alt={blog.url} className="main-blog-img mb-4" /></center>
           <div dangerouslySetInnerHTML={{ __html: blog.content }} />
@@ -116,14 +123,12 @@ const Blog = ({ blogs,blogsp,headtag }) => {
 
     
     
-    <div className="col-lg-4 col-md-12">
+<div className="col-lg-4 col-md-12">
             <div className="popular-section">
               <h4>Popular Posts</h4>
-              {blogsp
-                .filter((blog) => blog.created_by === "vipin goswami")
-                .map((blog, index) => (
+              {popularPosts.map((blog, index) => (
                   <div className="popular-post d-flex my-3" key={index}>
-                    <Link href={`/blog/${blog.url}`}>
+                    <Link href={`/blog/${blog.url}`} onClick={()=>increasePopularity(blog.url)}>
                     <img
                       src={blog.image}
                       alt={blog.url}
@@ -131,8 +136,8 @@ const Blog = ({ blogs,blogsp,headtag }) => {
                     />
                     </Link>
                     <div className="ms-3">
-                      <h6 onClick={() => router.push(`/blog/${blog.url}`)} className="blogTitle">{blog.title}</h6>
-                      <p>Gohoardings <span>&#128337; {formatDate(blog.CreatedOn)}</span></p>
+                      <h6 onClick={() =>{increasePopularity(blog.url),router.push(`/blog/${blog.url}`)}} className="blogTitle">{blog.title}</h6>
+                      <p>Gohoardings <span>&#128337; {formatDate(blog.CreatedOn)} <span> <FaRegEye className="ms-2 me-1"/>{blog.popularity}</span></span></p>
                     </div>
                     
                   </div>
@@ -253,8 +258,8 @@ export async function getServerSideProps({ params }) {
   const blogUrl = params.blog_url;
 
   try {
-    const response1 = await fetch('https://gohoardings.com/api/blogs');
-    const response2 = await fetch('https://gohoardings.com/api/blogs', {
+    const response1 = await fetch('http://localhost:3000/api/blogs');
+    const response2 = await fetch('http://localhost:3000/api/blogs', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

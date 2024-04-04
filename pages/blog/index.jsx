@@ -4,7 +4,8 @@ import Link from "next/link";
 import Slider from "react-slick";
 import { useRouter } from 'next/router';
 import NavbarBlog from "@/components/navbar/blognav";
-
+import { blogpopincrs } from "@/allApi/apis";
+import { FaRegEye } from "react-icons/fa";
 export default function Blog({ blogs }) {
 
   const router = useRouter();
@@ -33,6 +34,8 @@ export default function Blog({ blogs }) {
     ],
   };
 
+
+
   let slider = settings;
 
   const handleNextSlide = () => {
@@ -53,6 +56,17 @@ export default function Blog({ blogs }) {
     const formattedDateTime = new Date(dateTimeString).toLocaleString("en-US", options);
     return formattedDateTime;
   };
+
+  const increasePopularity = async(url)=>{
+    const data =await blogpopincrs(url);
+  }
+
+   const sortByPopularity = (a, b) => b.popularity - a.popularity;
+
+   const popularPosts = blogs
+     .sort(sortByPopularity)
+     .slice(0, 5);
+
   return (
     <>
     <Head>
@@ -102,7 +116,7 @@ export default function Blog({ blogs }) {
         <meta property="twitter:property" content="en_US" />
 
     </Head>
-  <NavbarBlog/>
+    <NavbarBlog/>
       <div className="position-relative mt-3" style={{ maxWidth: '100%', overflowX: 'hidden' }}>
         <Slider {...slider} ref={sliderRef}>
           {blogs &&
@@ -110,7 +124,7 @@ export default function Blog({ blogs }) {
               <div className="slide-item" key={i}>
                 <div className="">
                   <div className="image-container">
-                  <Link href={`/blog/${blog.url}`}>
+                  <Link href={`/blog/${blog.url}`} onClick={()=>increasePopularity(blog.url)}>
                     <img width="100%" src={blog.image} alt={blog.url} />
                  
                      <div className="blog-summary">
@@ -140,7 +154,6 @@ export default function Blog({ blogs }) {
           </button>
         </div>
       </div>
-
       <div className="container my-5">
         <div className="row">
           <div className="col-lg-8 col-md-12">
@@ -154,12 +167,12 @@ export default function Blog({ blogs }) {
                </div>
                <h5 className="mt-1 ms-md-1">{blog.blogCategory}</h5>
                     <div className="ms-md-4">
-                      <h1 onClick={() => router.push(`/blog/${blog.url}`)} className="blogTitle">{blog.title}</h1>
+                      <h1 onClick={() =>{increasePopularity(blog.url),router.push(`/blog/${blog.url}`)}} className="blogTitle">{blog.title}</h1>
                       <div className="blog-details">
-                        <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}</span></p>
+                        <p>{blog.created_by} <span>&#128337; {formatDate(blog.CreatedOn)}  <span> <FaRegEye className="ms-2 me-1"/>{blog.popularity}</span> </span></p>
                         <p>{blog.summary}</p>
                         <div className=""> 
-                        <Link href={`/blog/${blog.url}`}>Read More...</Link>
+                        <Link href={`/blog/${blog.url}`} onClick={()=>increasePopularity(blog.url)}>Read More...</Link>
                       </div>
                       </div>
                     </div>
@@ -170,11 +183,9 @@ export default function Blog({ blogs }) {
           <div className="col-lg-4 col-md-12">
             <div className="popular-section">
               <h4>Popular Posts</h4>
-              {blogs
-                .filter((blog) => blog.created_by === "vipin goswami")
-                .map((blog, index) => (
+              {popularPosts.map((blog, index) => (
                   <div className="popular-post d-flex my-3" key={index}>
-                    <Link href={`/blog/${blog.url}`}>
+                    <Link href={`/blog/${blog.url}`} onClick={()=>increasePopularity(blog.url)}>
                     <img
                       src={blog.image}
                       alt={blog.url}
@@ -182,8 +193,8 @@ export default function Blog({ blogs }) {
                     />
                     </Link>
                     <div className="ms-3">
-                      <h6 onClick={() => router.push(`/blog/${blog.url}`)} className="blogTitle">{blog.title}</h6>
-                      <p>Gohoardings <span>&#128337; {formatDate(blog.CreatedOn)}</span></p>
+                      <h6 onClick={() =>{increasePopularity(blog.url),router.push(`/blog/${blog.url}`)}} className="blogTitle">{blog.title}</h6>
+                      <p>Gohoardings <span>&#128337; {formatDate(blog.CreatedOn)} <span> <FaRegEye className="ms-2 me-1"/>{blog.popularity}</span></span></p>
                     </div>
                     
                   </div>
@@ -310,7 +321,7 @@ export default function Blog({ blogs }) {
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch('https://gohoardings.com/api/blogs');
+    const response = await fetch('http://localhost:3000/api/blogs');
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
@@ -330,3 +341,15 @@ export async function getServerSideProps() {
     };
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+                               
