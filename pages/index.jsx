@@ -15,6 +15,7 @@ const TrendingCity = dynamic(() => import("@/components/trendingcity"));
 const WordCounts = dynamic(() => import("@/components/wordCounts"));
 const WelcomeForm = dynamic(() => import("@/components/welcomeForm"));
 const GohBlog = dynamic(() => import("@/components/blogs"));
+const GohNews = dynamic(() => import("@/components/news"));
 
 export default function Home() {
   const { asPath } = useRouter();
@@ -88,6 +89,7 @@ export default function Home() {
         <OurClients />
         <TrendingCity />
         <GohBlog/>
+        <GohNews/>
         <WordCounts />
         <WelcomeForm />
       </main>

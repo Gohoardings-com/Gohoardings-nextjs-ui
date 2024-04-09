@@ -20,4 +20,7 @@
   <sitemap>
   <loc>http://gohoardings.com/blog-sitemap.xml</loc>
   </sitemap>
+  <sitemap>
+  <loc>http://gohoardings.com/media-and-news-sitemap.xml</loc>
+  </sitemap>
   </sitemapindex>
