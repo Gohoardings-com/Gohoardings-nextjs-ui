@@ -107,7 +107,7 @@ const WelcomeForm = () => {
                 className={`container-xxl  container-xl container-lg container-md  ${styles.login_container2}`}
               >
                 <>
-                  <h6 className={styles.txt_clr}>*Connect instantly by submitting your contact no.  </h6>
+                  <h6 className={styles.txt_clr}>*Provide your contact information for any assistance needed.  </h6>
                   <form
                     className="mt-md-0  mt-2 position-relative"
                     onSubmit={onSubmit}
