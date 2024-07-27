@@ -17,7 +17,7 @@ const OverView = ({ Media_content, category_name,city_name}) => {
   return (
     <>
       {Media_content.map((el, i) => {
-        if (category_name === el.value) {
+        if  (category_name === el.value || city_name === el.city) {
           return (
             <div
               key={i}
@@ -137,7 +137,7 @@ const OverView = ({ Media_content, category_name,city_name}) => {
 
               <section className="my-5">
                 <h3 className="fw-bold">{replaceIndiaWithCity(el.faqs_heading)}</h3>
-                {el.faqs_content.map((data, i) => {
+                {el.faqs_content?.map((data, i) => {
                   let abc = "a" + data.id;
                   return (
                     <div className="question-box mt-3" key={i}>

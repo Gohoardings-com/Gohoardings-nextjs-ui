@@ -129,6 +129,26 @@ input::-webkit-inner-spin-button {
   }
 }
 
+#welcomeModal{
+  .modal-content {
+    margin: 0;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 85vw !important;
+    height: auto !important;
+  }
+
+  @media screen and (min-width: 960px) {
+    .modal-content {
+      width: 33vw !important;
+    }
+
+  }
+
+}
+
 .icon-clr,
 .icon_clr {
   color: $icon;

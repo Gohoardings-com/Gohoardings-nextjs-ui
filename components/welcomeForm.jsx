@@ -84,15 +84,15 @@ const WelcomeForm = () => {
     };
   }, []);
   return (
-    <>
+    < >
       <Modal
         show={show}
         onHide={handleClose}
-        id="exampleModal"
+        id="welcomeModal"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <div className="lgn">
+        <div className="">
           <div className="row">
      
             <div className=" p-4  col-12">

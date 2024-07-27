@@ -207,15 +207,13 @@
 @media screen and (max-width: 540px) {
   .login_icon_cart {
     margin-top: -4px !important;
-    height: 38px !important;
-
-    cursor: pointer;
+    width: 40px;
   }
   .cart span:nth-child(2) {
     color: #565656;
     font-size: 13px !important;
     top: -16% !important;
-    left: -22px !important;
+    left: -25px !important;
   }
 }
 @media screen and (max-width: 1366px) {

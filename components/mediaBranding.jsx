@@ -6,7 +6,7 @@ const Medialogo = ({ category_name, city_name, Media_content }) => {
       <div className="media-branding-n">
         <div className="media-branding">
           {Media_content.map((el, i) => {
-            if (category_name === el.value) {
+            if (category_name === el.value || city_name === el.city) {
               return (
                 <div key={i}>
                   <div className="black-layer"></div>

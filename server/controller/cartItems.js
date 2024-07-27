@@ -527,7 +527,7 @@ exports.useritems = catchError(async (req, res, next) => {
 
 exports.getUserCartItem = catchError(async (req, res, next) => {
     const user = req.id
-    const result = await executeQuery(`SELECT medianame,areadescription,card_rate,category_name,city_name,code,foot_fall,footfall,ftf,height,width,id,illumination,isBooked,latitude,longitude,location,page_title,subcategory,thumb,thumbnail,price,size,state FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `,  "gohoardi_goh", next);   
+    const result = await executeQuery(`SELECT * FROM goh_shopping_carts_item WHERE userid = ${user} && isDelete= 0 `,  "gohoardi_goh", next);   
             if (result) {
                 req.data = result;
                 next();
