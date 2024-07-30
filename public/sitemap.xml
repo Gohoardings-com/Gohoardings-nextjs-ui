@@ -23,4 +23,25 @@
   <sitemap>
   <loc>http://gohoardings.com/media-and-news-sitemap.xml</loc>
   </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/bengaluru-sitemap.xml</loc>
+  </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/chennai-sitemap.xml</loc>
+  </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/noida-sitemap.xml</loc>
+  </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/delhi-sitemap.xml</loc>
+  </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/hyderabad-sitemap.xml</loc>
+  </sitemap>
+    <sitemap>
+  <loc>http://gohoardings.com/mumbai-sitemap.xml</loc>
+  </sitemap>
+      <sitemap>
+  <loc>http://gohoardings.com/pune-sitemap.xml</loc>
+  </sitemap>
   </sitemapindex>
