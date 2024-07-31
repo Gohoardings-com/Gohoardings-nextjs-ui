@@ -280,7 +280,7 @@ exports.mediaData = catchError(async (req, res, next) => {
     }
   );
 });
-
+ 
 exports.getCityData = catchError(async (req, res, next) => {
   const { city } = req.body;
   const data = "thumb,medianame,category_name, page_title,subcategory, price, code";
@@ -308,7 +308,7 @@ exports.getCityData = catchError(async (req, res, next) => {
       "'",
     "gohoardi_goh",
     next
-  );
+  ); 
   if (result) {
     // client.setEx(key,process.env.REDIS_TIMEOUT,JSON.stringify(result))
     return res.send(result);

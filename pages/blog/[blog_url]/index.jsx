@@ -25,7 +25,7 @@ const Blog = ({ blogs,blogsp,headtag }) => {
   const popularPosts = blogs
     .sort(sortByPopularity)
     .slice(0, 5);
-console.log("blogs");
+
   return (
     <>
        <Head>

@@ -24,7 +24,14 @@ export default function Document() {
             gtag('config', 'UA-114762499-1');
           `}
         </Script>
-  <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KS1XHTW3YH"></Script> <Script strategy="lazyOnload" id="lazyOnload">{` window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KS1XHTW3YH'); `}</Script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-KS1XHTW3YH"
+        ></Script>{" "}
+        <Script
+          strategy="lazyOnload"
+          id="lazyOnload"
+        >{` window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KS1XHTW3YH'); `}</Script>
       </Head>
 
       <body>
@@ -57,7 +64,6 @@ export default function Document() {
             })();
           `}
         </Script>
-
       </body>
     </Html>
   );
