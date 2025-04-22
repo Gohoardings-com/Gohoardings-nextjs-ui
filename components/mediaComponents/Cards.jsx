@@ -27,26 +27,32 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
                 <Link
                   href={`/seedetails/${item.category_name}/${item.page_title}/${item.code}`}
                   className="text-decoration-none"
-                > 
+                >
                   <Image
                     width={200}
                     height={200}
                     className={`${styles.img_responsive_media} rounded_top`}
-                    alt={item.mediaownercompanyname}
+                    alt={item?.mediaownercompanyname}
                     src={
-                      item.thumb.startsWith("https")
-                        ? item.thumb
-                        : `https://${item.mediaownercompanyname
-                            .trim()
-                            .split(" ")
-                            .slice(0, 2)
-                            .join("_")
-                            .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
-                            .trim()
-                            .split(" ")
-                            .slice(0, 2)
-                            .join("_")
-                            .toLowerCase()}/media/images/new${item.thumb}`
+                      item?.thumb?.startsWith("https")
+                        ? item?.thumb
+                        : `https://${(
+                            item?.mediaownercompanyname ?? "default_name"
+                          )
+                            ?.trim()
+                            ?.split(" ")
+                            ?.slice(0, 2)
+                            ?.join("_")
+                            ?.toLowerCase()}.odoads.com/media/${(
+                            item?.mediaownercompanyname ?? "default_name"
+                          )
+                            ?.trim()
+                            ?.split(" ")
+                            ?.slice(0, 2)
+                            ?.join("_")
+                            ?.toLowerCase()}/media/images/new${
+                            item?.thumb ?? "default.jpg"
+                          }`
                     }
                     onError={(e) =>
                       (e.target.src = "/images/web_pics/alter-img.png")
@@ -82,7 +88,7 @@ const Mediacard = ({ slice, addonCart, removefromCart, isLoading }) => {
 
                   <span className={styles.project_price}>
                     {item.isDelete === 0 ? (
-                      <Image 
+                      <Image
                         width={100}
                         height={100}
                         alt="check"

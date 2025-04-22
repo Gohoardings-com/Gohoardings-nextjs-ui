@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Modal from "react-bootstrap/Modal";
@@ -6,7 +6,7 @@ import { AccountContext } from "@/allApi/apicontext";
 import { FiPhoneCall } from "react-icons/fi";
 import dynamic from "next/dynamic";
 import { BiMailSend } from "react-icons/bi";
-import { setCookie } from "cookies-next";
+import { setCookie ,getCookie} from "cookies-next";
 import { MdLocationOn } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import Image from "next/image";
@@ -23,8 +23,20 @@ const Footer = () => {
   const [serviceIcon, setServiceIcon] = useState(CityNameImage);
   const [email, setEmail] = useState([]);
   const { handleClose, handleShow, show } = useContext(AccountContext);
-
+  const [country, setCountry] = useState("India"); // Default to India
   const LoginN = dynamic(() => import("@/pages/login/loginParent"));
+
+  useEffect(() => {
+    // Get the 'selected_country' cookie value on component mount
+    const selectedCountry = getCookie("selected_country");
+
+    // If the selected country is 'AE' (UAE), update the country name to 'UAE'
+    if (selectedCountry === "AE") {
+      setCountry("UAE");
+    } else {
+      setCountry("India");
+    }
+  }, []); // Empty dependency array to run this effect only once
 
   const handelSubmit = async (e) => {
     let count = 0;
@@ -45,7 +57,6 @@ const Footer = () => {
   const services = [...serviceIcon];
   const direactMedia = (e) => {
     setCookie("category_name", e);
-    setCookie("city_name", "delhi");
     services.map((el) => {
       if (el.value == e) {
         el.value2 = true;
@@ -57,6 +68,18 @@ const Footer = () => {
 
     setServiceIcon(services);
   };
+
+  const direactCity = (e) => {
+    setCookie("category_name", "traditional-media");
+    setCookie("city_name", e === "India" ? "UAE" : e); // Replace "India" with "UAE"
+    const services = [...serviceIcon];
+    services.map((el) => {
+      el.value2 = false;
+    });
+
+    setServiceIcon(services);
+  };
+
   const logo = [
     {
       id: 1,
@@ -89,47 +112,66 @@ const Footer = () => {
       link: "mailto:info@gohoardings.com",
     },
   ];
-  const cities = [
-    {
-      name: "Delhi",
-      city: "delhi",
-    },
-    {
-      name: "Noida",
-      city: "noida",
-    },
-    {
-      name: "Pune",
-      city: "pune",
-    },
-    {
-      name: "Bengaluru",
-      city: "bengaluru",
-    },
-    {
-      name: "Chennai",
-      city: "chennai",
-    },
-    {
-      name: "Hyderabad",
-      city: "hyderabad",
-    },
-    {
-      name: "Mumbai",
-      city: "mumbai",
-    },
+  // const cities = [
+  //   {
+  //     name: "Delhi",
+  //     city: "delhi",
+  //   },
+  //   {
+  //     name: "Noida",
+  //     city: "noida",
+  //   },
+  //   {
+  //     name: "Pune",
+  //     city: "pune",
+  //   },
+  //   {
+  //     name: "Bengaluru",
+  //     city: "bengaluru",
+  //   },
+  //   {
+  //     name: "Chennai",
+  //     city: "chennai",
+  //   },
+  //   {
+  //     name: "Hyderabad",
+  //     city: "hyderabad",
+  //   },
+  //   {
+  //     name: "Mumbai",
+  //     city: "mumbai",
+  //   },
+  // ];
+  const categories = [
+    { name: "Billboard", href: "/billboard" },
+    { name: "Digital Billboard", href: "/digital-billboard" },
+    { name: "Mall Media", href: "/mall-media" },
+    { name: "InFlight Branding", href: "/inflight-media" },
+    { name: "Lift Branding", href: "/lift-branding" },
+    { name: "Transit Media", href: "/transit-media" },
+    { name: "Airport Branding", href: "/airport-media" },
   ];
 
-  const direactCity = (e) => {
-    setCookie("category_name", "traditional-media");
-    setCookie("city_name", e);
-    const services = [...serviceIcon];
-    services.map((el) => {
-      el.value2 = false;
-    });
+  const [cities, setCities] = useState([]);
 
-    setServiceIcon(services);
-  };
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await fetch("/api/cities");
+        const result = await response.json();
+
+        if (result.success) {
+          setCities(result.data);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
 
   return (
     <>
@@ -146,9 +188,9 @@ const Footer = () => {
               />
             </Link>
           </div>
-         <div className="col-md-9 ">
+          <div className="col-md-9 ">
             <h4 className="f-heading pt-2 pt-md-0">
-              India&#39;s Largest Outdoor Advertising Company
+            {country === "UAE" ? "UAE's Largest" : "India's Largest"} Outdoor Advertising Company
             </h4>
             <h6 className="f-second-heading pt-1">
               Our advertising network spread across 130 cities with more than
@@ -247,25 +289,26 @@ const Footer = () => {
               </span>
             </ul>
           </div>
-          <div className="col-md-3  col-6  py-md-3  popular-media">
-            <h4 className=" f-heading">Popular Services</h4>
-            <ul className=" pt-md-3   ps-0">
-              {CityNameImage.map((el, i) => (
+          <div className="col-md-3 col-6 py-md-3 popular-media">
+            <h4 className="f-heading">Popular Services</h4>
+            <ul className="pt-md-3 ps-0">
+              {categories.map((category, i) => (
                 <li
                   key={i}
-                  className=" py-md-2  text-decoration-none f-heading-clr"
-                  onClick={(e) => direactMedia(el.value)}
+                  className="py-md-2 text-decoration-none f-heading-clr"
+                  onClick={() => direactMedia(category.name)}
                 >
                   <Link
-                    href={`/${el.value}`}
-                    className="text-decoration-none link "
+                    href={category.href}
+                    className="text-decoration-none link"
                   >
-                    <span className="f-heading-clr"> {el.label} </span>
+                    <span className="f-heading-clr"> {category.name} </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="col-md-3  col-6  py-md-3  ">
             <h4 className="   f-heading">Trending Cities</h4>
             <ul className=" pt-md-3   ps-0 ">
@@ -277,10 +320,10 @@ const Footer = () => {
                     onClick={(e) => direactCity(el.city)}
                   >
                     <Link
-                      href={`/${el.city}`}
+                      href={`/${el.href}`}
                       className="text-decoration-none link "
                     >
-                      <span className="f-heading-clr"> {el.name}</span>
+                      <span className="f-heading-clr"> {el.city}</span>
                     </Link>
                   </li>
                 ))}
@@ -292,7 +335,8 @@ const Footer = () => {
             <h4 className="  f-heading">Reach us</h4>
             <ul className=" pt-md-3  ps-0">
               <li className="py-md-2 reach-clr py-md-2 py-1">
-                <FiPhoneCall className="me-md-3 me-1 icon-clr drd" /> +91 7777871717
+                <FiPhoneCall className="me-md-3 me-1 icon-clr drd" /> +91
+                7777871717
               </li>
               <li className="py-md-2 reach-clr py-md-2 py-1">
                 <BiMailSend className="me-md-3 me-1  icon-clr drd" />
@@ -364,7 +408,7 @@ const Footer = () => {
         </div>
         <div className="row my-2 d-flex justify-content-center">
           <p className="  text-light f-heading-clr ">
-            copyrights © {new Date().getFullYear()}{" "}Gohoardings Solutions LLP
+            copyrights © {new Date().getFullYear()} Gohoardings Solutions LLP
           </p>
         </div>
       </div>
@@ -376,7 +420,7 @@ const Footer = () => {
       >
         <LoginN />
       </Modal>
-      <FloatingWhatsAppComponent/>
+      <FloatingWhatsAppComponent />
       <style jsx>
         {`
           #not-work {
@@ -522,7 +566,7 @@ const Footer = () => {
             }
           }
           @media screen and (max-width: 600px) {
-             .grid-container1 {
+            .grid-container1 {
               width: 45vw;
             }
             .grid-item {

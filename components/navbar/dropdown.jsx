@@ -12,7 +12,7 @@ const NavbarDropdown = () => {
     { text: "News & Media", href: "/media-and-news" },
     { text: "Contact", href: "/contact-us" },
     { text: "Testimonials", href: "/testimonial" },
-    { text: "Blogs", href: "https://gohoardings.com/blog",taget:"_blank"  },
+    { text: "Blogs", href:"https://blog.gohoardings.com/",taget:"_blank"  },
     { text: "FAQs", href: "/faqs" }
   ];
   
@@ -47,7 +47,6 @@ const NavbarDropdown = () => {
                     {e.label}
                   </li>
                 ))}
-                 
               </ul>
             </div>
             <div className="col-3 p-0 m-0 border-box mb-3">
@@ -61,13 +60,12 @@ const NavbarDropdown = () => {
                     {e.label}
                   </li>
                 ))}
-               <li
-  onClick={() => window.open("https://influencersea.com/", "_blank")}
+                            <li
+  onClick={() => window.open("https://influencersea.com/")}
   className="button text-light text-nowrap is-small is-info"
 >
   Influencer marketing
 </li>
-
               </ul>
             </div>
             <div className="col-3 p-0 m-0 border-box mb-3">

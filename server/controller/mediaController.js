@@ -4,11 +4,14 @@ const catchError = require("../middelware/catchError");
 const redis = require("redis");
 const ErrorHandle = require("../utils/Errorhandler");
 const client = redis.createClient();
+const { promisify } = require("util");
 
 client.connect();
 
 exports.city = catchError(async (req, res, next) => {
   const { value } = req.body;
+  const cookieData = req.cookies;
+  const countryCode = cookieData.selected_country || "IN"; // Default to "IN"
   let citystart = "";
   if (value) {
     citystart = " WHERE name LIKE '" + value + "%'";
@@ -19,7 +22,8 @@ exports.city = catchError(async (req, res, next) => {
   } else {
     const sql = await executeQuery(
       "SELECT DISTINCT name FROM goh_cities " + citystart + "  LIMIT 8",
-      "gohoardi_goh",
+      [],
+      countryCode,
       next
     );
     if (sql) {
@@ -35,6 +39,8 @@ exports.city = catchError(async (req, res, next) => {
 
 exports.state_name = catchError(async (req, res, next) => {
   const { state_name, pages } = req.body;
+  const cookieData = req.cookies;
+  const countryCode = cookieData.selected_country || "IN"; // Default to "IN"
   const pagination = pages ? pages : 10;
   const sql = await executeQuery(
     "SELECT * FROM `tblstates` WHERE `name` = '" + state_name + "'",
@@ -100,7 +106,7 @@ exports.state_name = catchError(async (req, res, next) => {
         "LIMIT " +
         pagination +
         "";
-      const result = await executeQuery(query, "gohoardi_goh", next);
+      const result = await executeQuery(query, [], countryCode, next);
 
       return res.status(200).json(result);
     }
@@ -123,13 +129,15 @@ exports.state_name = catchError(async (req, res, next) => {
 
   // }
 });
-
 exports.SearchData = catchError(async (req, res, next) => {
   const { category_name, city_name } = req.body;
   const city = city_name ? city_name : "delhi";
 
   const cookieData = req.cookies;
-  const key = `${category_name + city_name}`;
+  const countryCode = cookieData.selected_country || "IN"; // Default to "IN"
+  // const key = `${category_name + city_name}`;
+const key = `${category_name}_${city}_${countryCode}`;
+
   if (!cookieData) {
     return res.status(204).json({ message: "No Cookie Found" });
   }
@@ -187,7 +195,7 @@ exports.SearchData = catchError(async (req, res, next) => {
       if (data) {
         return res.status(200).json(JSON.parse(data));
       } else {
-        const dataLimit = await executeQuery(sql, "gohoardi_goh", next);
+        const dataLimit = await executeQuery(sql, [], countryCode, next);
         if (dataLimit) {
           client.setEx(
             key,
@@ -200,90 +208,103 @@ exports.SearchData = catchError(async (req, res, next) => {
     }
   );
 });
-
-
 exports.mediaData = catchError(async (req, res, next) => {
-  const { category_name, noofPage } = req.body;
-  const pagination = noofPage ? noofPage : 8;
-  const cookieData = req.cookies;
-  const key = `${category_name + pagination}`;
-  if (!cookieData) {
-    return res.status(204).json({ message: "No Cookie Found" });
-  }
-  switch (category_name) {
-    case "billboard":
-      table_name = "goh_media";
+  try {
+    const { category_name, noofPage } = req.body;
+    const pagination = noofPage ? parseInt(noofPage, 10) : 8;
+    const cookies = req.cookies;
 
-      break;
-    case "digital-billboard":
-      table_name = "goh_media_digital";
-      break;
-    case "transit-media":
-      table_name = "goh_media_transit";
-      break;
-    case "mall-media":
-      table_name = "goh_media_mall";
-      break;
-    case "airport-media":
-      table_name = "goh_media_airport";
-      break;
-    case "inflight-media":
-      table_name = "goh_media_inflight";
-      break;
-    case "lift-branding":
-      table_name = "goh_media_office";
-      break;
-    default:
-      table_name = "goh_media";
-  }
-  let sql;
-  const token = cookieData.gohoardings;
-  return jwtToken.verify(
-    token,
-    "thisismysecretejsonWebToken",
-    async (err, user) => {
-      if (err) {
-        sql =
-          "SELECT DISTINCT medianame,areadescription,card_rate,category_name,city_name,code,foot_fall,footfall,ftf,height,width,id,illumination,isBooked,latitude,longitude,location,page_title,subcategory,thumb,thumbnail,price,size,state FROM " +
-          table_name +
-          " WHERE price > 1 AND NOT price = 'Ask Price' LIMIT " +
-          pagination +
-          "";
-      } else {
-        const userID = user.id;
-        sql =
-          "SELECT DISTINCT SELECT DISTINCT media.medianame,media.areadescription, media.card_rate, media.category_name, media.city_name, media.code, media.foot_fall, media.footfall, media.ftf, media.height, media.width, media.id, media.illumination, media.isBooked, media.latitude, media.longitude, media.location, media.page_title, media.subcategory, media.thumb, media.thumbnail, media.price, media.size, media.state, cart.campaigid, cart.userid, cart.isDelete FROM " +
-          table_name +
-          " AS media LEFT JOIN goh_shopping_carts_item AS cart ON media.code=cart.mediaid AND cart.userid = '" +
-          userID +
-          "' AND media.price > 1 AND NOT media.price = 'Ask Price' ORDER BY `cart`.`userid` DESC  LIMIT " +
-          pagination +
-          " ";
-      }
-      const data = await client.get(key);
-      if (data) {
-        return res.status(200).json(JSON.parse(data));
-      } else {
-        const dataLimit = await executeQuery(sql, "gohoardi_goh", next);
-
-        if (dataLimit) {
-          client.setEx(
-            key,
-            process.env.REDIS_TIMEOUT,
-            JSON.stringify(dataLimit)
-          );
-          return res.status(200).json(dataLimit);
-        } else {
-          return res.send("No Data");
-        }
-      }
+    if (!cookies) {
+      return res.status(204).json({ message: "No Cookie Found" });
     }
-  );
+
+    const countryCode = cookies.selected_country || "IN"; // Default to India if not set
+    const token = cookies.gohoardings;
+    const cacheKey = `${category_name}_${pagination}_${countryCode}`;
+
+    const tableMap = {
+      "billboard": "goh_media",
+      "digital-billboard": "goh_media_digital",
+      "transit-media": "goh_media_transit",
+      "mall-media": "goh_media_mall",
+      "airport-media": "goh_media_airport",
+      "inflight-media": "goh_media_inflight",
+      "lift-branding": "goh_media_office",
+    };
+    const table_name = tableMap[category_name] || "goh_media";
+
+    console.log(`Fetching data for category: ${category_name}, Country: ${countryCode}, Table: ${table_name}`);
+
+    // Clear Redis cache to get fresh data
+    await client.del(cacheKey);
+
+    // Check Redis cache
+    const cachedData = await client.get(cacheKey);
+    if (cachedData) {
+      return res.status(200).json(JSON.parse(cachedData));
+    }
+
+    let sql;
+    let userID = null;
+
+    // Verify JWT Token
+    const user = await new Promise((resolve, reject) => {
+      jwtToken.verify(token, process.env.JWT_SECRET, (err, decodedUser) => {
+        if (err) resolve(null);
+        else resolve(decodedUser);
+      });
+    });
+
+    if (user) {
+      userID = user.id;
+      sql = `
+        SELECT DISTINCT media.medianame, media.areadescription, media.card_rate, media.category_name, 
+        media.city_name, media.code, media.foot_fall, media.footfall, media.ftf, media.height, media.width, 
+        media.id, media.illumination, media.isBooked, media.latitude, media.longitude, media.location, 
+        media.page_title, media.subcategory, media.thumb, media.thumbnail, media.price, media.size, media.state, 
+        cart.campaigid, cart.userid, cart.isDelete 
+        FROM ${table_name} AS media 
+        LEFT JOIN goh_shopping_carts_item AS cart 
+        ON media.code = cart.mediaid AND cart.userid = '${userID}' 
+        WHERE media.price > 1 AND media.price != 'Ask Price' 
+        ORDER BY cart.userid DESC 
+        LIMIT ${pagination}
+      `;
+    } else {
+      sql = `
+        SELECT DISTINCT medianame, areadescription, card_rate, category_name, city_name, code, foot_fall, footfall, 
+        ftf, height, width, id, illumination, isBooked, latitude, longitude, location, page_title, subcategory, 
+        thumb, thumbnail, price, size, state 
+        FROM ${table_name} 
+        WHERE price > 1 AND price != 'Ask Price' 
+        LIMIT ${pagination}
+      `;
+    }
+
+    console.log(`Executing Query for ${countryCode}:`, sql);
+
+    // Fetch data from the correct database based on countryCode
+    const dataLimit = await executeQuery(sql, [], countryCode, next);
+
+    if (dataLimit && dataLimit.length > 0) {
+      await client.setEx(cacheKey, process.env.REDIS_TIMEOUT, JSON.stringify(dataLimit));
+      return res.status(200).json(dataLimit);
+    } else {
+      return res.status(200).json({ message: "No Data Found" });
+    }
+  } catch (error) {
+    console.error("Error in mediaData API:", error);
+    return res.status(500).json({ message: "Internal Server Error", error });
+  }
 });
- 
+
+
 exports.getCityData = catchError(async (req, res, next) => {
   const { city } = req.body;
-  const data = "thumb,medianame,category_name, page_title,subcategory, price, code";
+  const cookieData = req.cookies;
+  const countryCode = cookieData.selected_country || "IN"; // Default to India
+  const data =
+    "thumb,medianame,category_name, page_title,subcategory, price, code";
   const result = await executeQuery(
     "SELECT " +
       data +
@@ -306,9 +327,10 @@ exports.getCityData = catchError(async (req, res, next) => {
       " FROM goh_media_airport WHERE city_name = '" +
       city +
       "'",
-    "gohoardi_goh",
+    [],
+    countryCode,
     next
-  ); 
+  );
   if (result) {
     // client.setEx(key,process.env.REDIS_TIMEOUT,JSON.stringify(result))
     return res.send(result);

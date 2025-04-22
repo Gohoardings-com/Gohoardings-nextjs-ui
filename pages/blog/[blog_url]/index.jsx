@@ -22,7 +22,7 @@ const Blog = ({ blogs,blogsp,headtag }) => {
 
   const sortByPopularity = (a, b) => b.popularity - a.popularity;
 
-  const popularPosts = blogs
+  const popularPosts = blogsp
     .sort(sortByPopularity)
     .slice(0, 5);
 
@@ -241,6 +241,11 @@ h3{
   .main-blog-img {
     max-width: 600px;
   }
+   @media screen and (max-width: 768px) {
+    .main-blog-img {
+      max-width: 100%;
+    }
+  }
   .main-blog-img2 {
     max-width: 400px;
   }
@@ -258,8 +263,8 @@ export async function getServerSideProps({ params }) {
   const blogUrl = params.blog_url;
 
   try {
-    const response1 = await fetch('http://localhost:3000/api/blogs');
-    const response2 = await fetch('http://localhost:3000/api/blogs', {
+    const response1 = await fetch('https://www.gohoardings.com/api/blogs');
+    const response2 = await fetch('https://www.gohoardings.com/api/blogs', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

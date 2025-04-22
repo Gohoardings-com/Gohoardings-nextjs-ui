@@ -61,11 +61,14 @@ export default function Blog({ blogs }) {
     const data =await blogpopincrs(url);
   }
 
-   const sortByPopularity = (a, b) => b.popularity - a.popularity;
+   const popblog = [...blogs];
+  
+  const sortByPopularity = (a, b) => b.popularity - a.popularity;
 
-   const popularPosts = blogs
-     .sort(sortByPopularity)
-     .slice(0, 5);
+ 
+  const popularPosts = popblog
+    .sort(sortByPopularity)
+    .slice(0, 5); 
 
   return (
     <>
@@ -321,7 +324,7 @@ export default function Blog({ blogs }) {
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch('http://localhost:3000/api/blogs');
+    const response = await fetch('https://gohoardings.com/api/blogs');
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
@@ -341,15 +344,3 @@ export async function getServerSideProps() {
     };
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-                               

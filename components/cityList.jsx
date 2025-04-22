@@ -7,6 +7,27 @@ const City = () => {
   const [serviceIcon, setServiceIcon] = useState(CityNameImage);
   const [imageDimensions, setImageDimensions] = useState({ width: 340, height: 210 });
 
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await fetch("/api/cities");
+        const result = await response.json();
+
+        if (result.success) {
+          setCities(result.data);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       function handleResize() {
@@ -44,50 +65,50 @@ const City = () => {
     setServiceIcon(services);
   };
 
-  const City = [
-    {
-      city: "Delhi",
-      href: "/delhi",
-      no: "2493+",
-      src: "/images/web_pics/01-min.jpg",
-      alt: "outdoor advertising agency in delhi"
-    },
-    {
-      city: "Mumbai",
-      href: "/mumbai",
-      no: "1716+",
-      src: "/images/web_pics/02-min.jpg",
-      alt: "outdoor advertising agency in mumbai"
-    },
-    {
-      city: "Bengaluru",
-      href: "/bengaluru",
-      no: "960+",
-      src: "/images/web_pics/03-min.jpg",
-      alt: "outdoor advertising agency in banglore"
-    },
-    {
-      city: "Chennai",
-      href: "/chennai",
-      no: "482+",
-      src: "/images/web_pics/04-min.jpg",
-      alt: "outdoor advertising agency in chennai"
-    },
-    {
-      city: "Hyderabad",
-      href: "/hyderabad",
-      no: "897+",
-      src: "/images/web_pics/05-min.jpg",
-      alt: "outdoor advertising agency in hyderabad"
-    },
-    {
-      city: "Pune",
-      href: "/pune",
-      no: "429+",
-      src: "/images/web_pics/06-min.jpg",
-      alt: "outdoor advertising agency in pune"
-    },
-  ];
+  // const City = [
+  //   {
+  //     city: "Delhi",
+  //     href: "/delhi",
+  //     no: "2493+",
+  //     src: "/images/web_pics/01-min.jpg",
+  //     alt: "outdoor advertising agency in delhi"
+  //   },
+  //   {
+  //     city: "Mumbai",
+  //     href: "/mumbai",
+  //     no: "1716+",
+  //     src: "/images/web_pics/02-min.jpg",
+  //     alt: "outdoor advertising agency in mumbai"
+  //   },
+  //   {
+  //     city: "Bengaluru",
+  //     href: "/bengaluru",
+  //     no: "960+",
+  //     src: "/images/web_pics/03-min.jpg",
+  //     alt: "outdoor advertising agency in banglore"
+  //   },
+  //   {
+  //     city: "Chennai",
+  //     href: "/chennai",
+  //     no: "482+",
+  //     src: "/images/web_pics/04-min.jpg",
+  //     alt: "outdoor advertising agency in chennai"
+  //   },
+  //   {
+  //     city: "Hyderabad",
+  //     href: "/hyderabad",
+  //     no: "897+",
+  //     src: "/images/web_pics/05-min.jpg",
+  //     alt: "outdoor advertising agency in hyderabad"
+  //   },
+  //   {
+  //     city: "Pune",
+  //     href: "/pune",
+  //     no: "429+",
+  //     src: "/images/web_pics/06-min.jpg",
+  //     alt: "outdoor advertising agency in pune"
+  //   },
+  // ];
 
   return (
     <div className="citylist m-0 mt-4 mt-md-5  py-md-4 ">
@@ -102,10 +123,10 @@ const City = () => {
         </h6>
       </section>
 
-      <div className="container mt-4 mt-md-5">
+      <div className="container mt-4 mt-md-5 ">
   <div className="row">
-    {City.slice(0, 3).map((e, i) => (
-      <div className="col col-md-4" key={i}>
+    {cities.slice(0,6).map((e, i) => (
+      <div className="col col-md-4 my-2" key={i}>
         <Link href={e.href}>
           <div
             className="city-img-container d-flex flex-column justify-content-center align-items-center"
@@ -136,7 +157,7 @@ const City = () => {
 
 
 
-<div className="container mt-4 mt-md-5">
+{/* <div className="container mt-4 mt-md-5">
   <div className="row">
     {City.slice(3).map((e, i) => (
       <div className="col col-md-4" key={i}>
@@ -166,7 +187,7 @@ const City = () => {
       </div>
     ))}
   </div>
-</div>
+</div> */}
 
       <style jsx>{`
         .citylist {

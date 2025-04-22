@@ -137,23 +137,22 @@ const Index = () => {
   };
 
   const getData = (text) => {
+    // Get the campaign name and set the corresponding id
     setCampings(text);
     const id = text.split("-")[1];
     setCampingid(id);
 
-    const data = [...campaingnName];
-    data.map((obj) => {
-      if (obj.campaign_name === text && obj.select == true) {
-        obj.select = false;
-      } else if (obj.campaign_name === text && obj.select == false) {
-        obj.select = true;
+    // Update the select state for the campaigns
+    const updatedCampaigns = campaingnName.map((obj) => {
+      // Toggle select for the clicked campaign name
+      if (obj.campaign_name === text) {
+        return { ...obj, select: !obj.select }; // Toggle the select state
       }
-      if (obj.campaign_name !== text) {
-        obj.select = false;
-      }
+      return { ...obj, select: false }; // Deselect other campaigns
     });
 
-    setCampaingnName(data);
+    // Set the updated list of campaigns
+    setCampaingnName(updatedCampaigns);
   };
 
   const [camp, setCamp] = useState(true);
@@ -303,10 +302,21 @@ const Index = () => {
                                         <tr key={i}>
                                           <td>{el.subcategory}</td>
                                           <td>
-                                            {el.address.slice(0, 10)} {el.city}
+                                            {el.address
+                                              ? el.address.slice(0, 10)
+                                              : "N/A"}{" "}
+                                            {el.city}
                                           </td>
-                                          <td>{el.start_date.slice(0, 10)}</td>
-                                          <td>{el.end_date.slice(0, 10)}</td>
+                                          <td>
+                                            {el.start_date
+                                              ? el.start_date.slice(0, 10)
+                                              : "N/A"}
+                                          </td>
+                                          <td>
+                                            {el.end_date
+                                              ? el.end_date.slice(0, 10)
+                                              : "N/A"}
+                                          </td>
                                           <Link
                                             href={`/seedetails/${el.media_type}/${el.page_title}/${el.code}`}
                                             className="text-decoration-none"

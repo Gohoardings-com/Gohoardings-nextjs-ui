@@ -1,102 +1,104 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
-import {TrendingCites} from "@/allApi/mediajson";
 import Loader from "../components/loader";
 
+const TrendingCity = () => {
+  const [trendingCities, setTrendingCities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const Trendingcity = () => {
+  useEffect(() => {
+    const fetchTrendingCities = async () => {
+      try {
+        const response = await fetch("/api/trendingcities");
+        const result = await response.json();
 
-  const [search, setSearch] = useState(TrendingCites);
-
-
-  {
-    var settings = {
-      dots: true,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 2,
-      autoplay: true,
-      speed: 3500,
-      pauseOnHover: true,
-  
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            initialSlide: 0,
-          },
-        },
-      ],
+        if (result.success) {
+          setTrendingCities(result.data);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      } finally {
+        setLoading(false);
+      }
     };
-  }
 
-  let slider = settings;
- 
+    fetchTrendingCities();
+  }, []);
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    autoplay: true,
+    speed: 3500,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 0,
+        },
+      },
+    ],
+  };
 
   return (
     <>
-      <div className="container-xxl  container-xl container-lg container-md  mt-5 mt-md-2 mb-md-4  py-5 mb-5 trending-contain ">
+      <div className="container-xxl container-xl container-lg container-md mt-5 mt-md-2 mb-md-4 py-5 mb-5 trending-contain">
         <section>
-          <h2 className="text-center text-nowrap ">
+          <h2 className="text-center text-nowrap">
             Choose what is Trending in your City
           </h2>
-          <h6 className=" text-center">
+          <h6 className="text-center">
             Choose the best ways to deliver relevant <br />
             messages to the relevant audience.
           </h6>
         </section>
 
-      
-            {!search? (
-              <div className=" container ">
-                <div className="row  text-center my-3">
-                  <Loader />
-                </div>
-              </div>
-            ) : (
-              <>
-                <Slider {...slider}>
-                  {search &&
-                    search.map((pos, i) => (
-                      <div className="container pt-3" key={i}>
-                        <div className="row  ">
-                          <div className="col p-3 ">
-                            <Link
-                              href={`/seedetails/${pos.category_name}/${pos.page_title}/${pos.code}`}
-                            >
-                              <div className="trending-card-img  rounded-2">
-                                <img
-                                  className="rounded-2  trending-cardd "
-                                  key={i}
-                                   alt={pos.alt}
-                                  src={pos.thumb}
-                                  onError={(e) =>
-                                    (e.target.src =
-                                      "/images/web_pics/alter-img.png")
-                                  }
-                                />
-
-                                <div className="bottom-left">
-                                  {pos.city_name}
-                                </div>
-                                <div className="bottom-left-media">
-                                  {pos.medianame.substring(0, 20)}...
-                                </div>
-                              </div>
-                            </Link>
-                          </div>
+        {loading ? (
+          <div className="container">
+            <div className="row text-center my-3">
+              <Loader />
+            </div>
+          </div>
+        ) : (
+          <Slider {...sliderSettings}>
+            {trendingCities.map((pos, i) => (
+              <div className="container pt-3" key={i}>
+                <div className="row">
+                  <div className="col p-3">
+                    <Link
+                      href={`/seedetails/${pos.category_name}/${pos.page_title}/${pos.code}`}
+                    >
+                      <div className="trending-card-img rounded-2">
+                        <img
+                          className="rounded-2 trending-cardd"
+                          alt={pos.alt || "Trending City"}
+                          src={pos.thumb}
+                          onError={(e) =>
+                            (e.target.src = "/images/web_pics/alter-img.png")
+                          }
+                        />
+                        <div className="bottom-left">{pos.city_name}</div>
+                        <div className="bottom-left-media">
+                          {pos.medianame.substring(0, 20)}...
                         </div>
                       </div>
-                    ))}
-                </Slider>
-              </>
-            )}
-         
-     
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        )}
       </div>
+
       <style jsx>
         {`
           h2 {
@@ -147,7 +149,6 @@ const Trendingcity = () => {
             left: 16px;
             font-size: 1.2rem;
             font-weight: 400;
-            padding-right: 0px;
           }
 
           .trending-cardd {
@@ -156,7 +157,6 @@ const Trendingcity = () => {
           }
 
           @media screen and (max-width: 1366px) {
-           
             .trending-card-img {
               height: 180px;
               width: 260px;
@@ -178,4 +178,4 @@ const Trendingcity = () => {
   );
 };
 
-export default Trendingcity;
+export default TrendingCity;

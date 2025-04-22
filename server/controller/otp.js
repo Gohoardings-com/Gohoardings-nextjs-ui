@@ -17,7 +17,7 @@ exports.sendOTP = catchError(async (req, res, next) => {
         res.status(206).json({success:false, message: "Wrong Input"})
     }
 
-    const result =await executeQuery("SELECT email from tblcontacts WHERE phonenumber= '" + email + "'","gohoardi_crmapp",next)
+    const result =await executeQuery("SELECT email from tblcontacts WHERE phonenumber= '" + email + "'",[],"CRM",next)
      if (result.length == 0) {
             return res.status(206).json({success:false,message: "Account Not Found"})
 
@@ -38,7 +38,7 @@ exports.sendOTP = catchError(async (req, res, next) => {
                 if (error) {
                     res.status(400).json({message: error.message})
                 } else {
-                    const sql = await executeQuery("UPDATE tblcontacts SET phone_otp = " + otp + " WHERE phonenumber = '" + email + "'","gohoardi_crmapp",next)
+                    const sql = await executeQuery("UPDATE tblcontacts SET phone_otp = " + otp + " WHERE phonenumber = '" + email + "'",[],"CRM",next)
             
                         if (sql) {
                             return res.status(200).json({success: true, message: "Mobile OTP Send.."})
@@ -57,7 +57,7 @@ exports.sendPasswordEmail = catchError(async (req, res, next) => {
         res.status(206).json({message: "Wrong Input"})
     }
 
-   const confirm = await  executeQuery("SELECT userid from tblcontacts WHERE  email='" + email + "'","gohoardi_crmapp", next)
+   const confirm = await  executeQuery("SELECT userid from tblcontacts WHERE  email='" + email + "'",[],"CRM", next)
        if (confirm.length == 0) {
         next(new ErrorHandle("Email Invalid", `The query in which error occurred sendPasswordEmail Api`,206))
             return res.status(206).json({success:false, message: "Email Invalid"})
@@ -79,10 +79,12 @@ exports.sendPasswordEmail = catchError(async (req, res, next) => {
 
 exports.checkOTP = catchError(async (req, res, next) => {
     const {otp} = req.body
+    const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
     if (!otp) {
         return res.status(206).json({success:false, message: "OTP Invalid"})
     }
-    const sql =await  executeQuery("SELECT userid from tblcontacts WHERE phone_otp=" + otp + " || email_otp=" + otp + "","gohoardi_crmapp", next )
+    const sql =await  executeQuery("SELECT userid from tblcontacts WHERE phone_otp=" + otp + " || email_otp=" + otp + "",[],"CRM", next )
 
    
         if (sql.length == 0) {
@@ -111,7 +113,7 @@ exports.changePassword = catchError(async (req, res, next) => {
             } else {
                 const userid = user.id;
                 const finalPassword = bcrypt.hashSync(password, 8)
-                const sqlQuery = await executeQuery("UPDATE tblcontacts SET password ='" + finalPassword + "' WHERE userId = " + userid + "", "gohoardi_crmapp",next);
+                const sqlQuery = await executeQuery("UPDATE tblcontacts SET password ='" + finalPassword + "' WHERE userId = " + userid + "",[],"CRM",next);
     if(sqlQuery){
         token(userid, 200, res)
     }
@@ -130,7 +132,7 @@ exports.loginwithOTP = catchError(async (req, res, next) => {
         return res.status(206).json({success:false, message: "OTP Invalid"})
     }
 
-    const sql =await executeQuery( "SELECT userid from tblcontacts WHERE phone_otp=" + otp + "", "gohoardi_crmapp", next)
+    const sql =await executeQuery( "SELECT userid from tblcontacts WHERE phone_otp=" + otp + "",[],"CRM", next)
 
         if (!sql) {
             return res.status(206).json({success:false, message: "OTP Invalid"})

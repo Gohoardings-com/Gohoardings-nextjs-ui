@@ -19,8 +19,8 @@ import {
 import { useRouter } from "next/router";
 
 const MainUi = ({
-isLoading,
- Media_content,
+  isLoading,
+  Media_content,
   noOfLogo,
   setnoOfLogo,
   categoryData,
@@ -38,7 +38,6 @@ isLoading,
   setValue,
   setFocus,
 }) => {
-
   const { addRemove, handleShow } = useContext(AccountContext);
   const [citys, setCity] = useState([]);
 
@@ -52,29 +51,46 @@ isLoading,
     setFocus(true);
     setCity(data);
   };
-  let slice;
-  if (search.success != false) {
+
+  let slice = [];
+  if (search && Array.isArray(search.data)) {
+    slice = search.data.slice(0, noOfLogo);
+  } else if (Array.isArray(search)) {
     slice = search.slice(0, noOfLogo);
   }
 
-  let locations;
-  const allLocations = locationData.map((locate) => locate.location);
-  locations = [...new Set(allLocations)];
+  let locations = [];
+  if (Array.isArray(locationData)) {
+    const allLocations = locationData.map((locate) => locate.location);
+    locations = [...new Set(allLocations)];
+  } else {
+    console.error("locationData is not an array:", locationData);
+  }
 
-  let category;
-  const allSubcategory = categoryData.map((category) => category.subcategory);
-  category = [...new Set(allSubcategory)];
+  let category = [];
+  if (Array.isArray(categoryData)) {
+    const allSubcategory = categoryData.map((category) => category.subcategory);
+    category = [...new Set(allSubcategory)];
+  } else {
+    console.error("categoryData is not an array:", categoryData);
+  }
 
-  let ILLUMINATION;
-  const allIllumations = mediaData.map((illumation) => illumation.illumination);
-  ILLUMINATION = [...new Set(allIllumations)];
+  let ILLUMINATION = [];
+  if (Array.isArray(mediaData)) {
+    const allIllumations = mediaData.map(
+      (illumation) => illumation.illumination
+    );
+    ILLUMINATION = [...new Set(allIllumations)];
+  } else {
+    console.error("mediaData is not an array:", mediaData);
+  }
 
   const router = useRouter();
 
   async function categoryFilter(cate) {
     setcategoryValue(cate);
     const data = await subCategoryFilterApi(category_name, cate, city);
-    
+
     setilocationValue("");
     setFilterValue("");
     setSearch(data);
@@ -371,9 +387,17 @@ isLoading,
           </div>
         )}
         <section className="my-2">
-          <Medialogo category_name={category_name} city_name={city} Media_content={Media_content} />
+          <Medialogo
+            category_name={category_name}
+            city_name={city}
+            Media_content={Media_content}
+          />
 
-          <OverView category_name={category_name} city_name={city} Media_content={Media_content}/>
+          <OverView
+            category_name={category_name}
+            city_name={city}
+            Media_content={Media_content}
+          />
         </section>
       </div>
     </>

@@ -12,9 +12,10 @@ export default async function updateBlogSitemap(req, res) {
         const priority = "0.8";
 
         data.forEach(news => {
+          const isoDate = new Date(news.update_on).toISOString();
             xmlContent += `<url>\n`;
             xmlContent += `<loc>${news.url}</loc>\n`;
-            xmlContent += `<lastmod>${news.update_on}</lastmod>\n`;
+            xmlContent += `<lastmod>${isoDate}</lastmod>\n`;
             xmlContent += `<changefreq>${changefreq}</changefreq>\n`;
             xmlContent += `<priority>${priority}</priority>\n`;
             xmlContent += `</url>\n`;

@@ -1,36 +1,35 @@
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
+
 exports.sendEmail = async (options) => {
-    var transport = nodemailer.createTransport({
+  const transport = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
 
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        auth: {
-            user:  process.env.EMAIL_USER,
-            pass:  process.env.EMAIL_PASS,
-        },
-        tls: {
-            rejectUnauthorized: false
-          }
-    });
+  const mailOptions = {
+    from: process.env.EMAIL_FROM,
+    to: options.email,
+    bcc: options.bcc || undefined,
+    subject: options.subject,
+    text: options.message,
+    html: options.html,   
+    attachments: options.attachments || [],
+  };
 
-    const mailOptions = {
-        from: process.env.EMAIL_FROM,
-        to: options.email,
-        subject: options.subject,
-        text: options.message,
-        attachments: options.attachments
-    }
-
-    transport.sendMail(mailOptions, function (error, response) {
-        if (error) {
-            return error
-        } else {
-            return true
-        }
-
-        // if you don't want to use this transport object anymore, uncomment following line
-        //smtpTransport.close(); // shut down the connection pool, no more messages
-    });
-
-
-}
+  // ✅ Use promise-style sendMail
+  try {
+    const info = await transport.sendMail(mailOptions);
+    console.log("Email sent successfully:", info.response); // Debug log
+    return true;
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    throw error; // let the caller catch and handle this
+  }
+};

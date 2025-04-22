@@ -13,6 +13,7 @@ import { SessionProvider } from "next-auth/react";
 import AccountProvider from "@/allApi/apicontext";
 import Footer from "@/components/footer";
 import Mobilenav from "@/components/navbar/mobilenav";
+import { appWithTranslation } from "next-i18next";
 
 
 function App({ Component, pageProps, session }) {
@@ -33,4 +34,4 @@ function App({ Component, pageProps, session }) {
   );
 }
 
-export default App;
+export default appWithTranslation(App);

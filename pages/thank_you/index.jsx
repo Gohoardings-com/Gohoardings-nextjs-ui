@@ -26,12 +26,12 @@ const Leads = () => {
 
           <div className="content-overlay">
             <div className="row text-center">
-{/*           
+          
             <img
             className="mt-5"
               alt="home-img"
-              src="/images/web_pics/gif-Untitled-2.gif"
-            /> */}
+              src="/images/web_pics/Animation - 1703059084854.gif"
+            />
            
             </div>
           </div>

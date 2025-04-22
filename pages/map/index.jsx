@@ -79,7 +79,6 @@ const Map = () => {
       remove(obj);
     }
   };
-  
   const add = (code) => {
     let temp = [...slice];
     temp.forEach((obj) => {

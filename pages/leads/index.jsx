@@ -63,7 +63,7 @@ const Leads = () => {
     );
 
     if (data.success == true) {
-      route.push("/thank_you");
+         route.push("/thank_you");
       setWelcomeForm({
         name: "",
         email: "",

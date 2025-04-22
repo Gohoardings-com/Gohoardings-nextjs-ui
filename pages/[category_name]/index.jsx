@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { CityNameImage, mediaApi, getCityDataApi } from "@/allApi/apis";
+
 import MainUi from "@/components/mediaComponents/MainUi";
 import dynamic from "next/dynamic";
 const Media = (props) => {
@@ -21,7 +22,7 @@ const Media = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { category_name } = router.query;
   const validCategories = [
-    "traditional-ooh-media",
+   "traditional-ooh-media",
     "digital-media",
      "office-branding",
     "billboard",
@@ -112,7 +113,6 @@ const Media = (props) => {
     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
     a.appendChild(r);
 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
-
   if (validCategories.includes(category_name)) {
     return (
       <>
@@ -201,7 +201,7 @@ const Media = (props) => {
 
 Media.getInitialProps = async ({ req, res }) => {
   let currentPageUrl = "";
- 
+
   if (req) {
     currentPageUrl = req.url;
   } else if (res) {

@@ -1,7 +1,15 @@
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-const nextConfig = {
+const nextConfig = { 
+   // next.config.js
+
+  i18n: {
+    locales: ['en', 'in', 'ae'], // Add the languages your app supports
+    defaultLocale: 'en', // Default language (if no language is selected or set)
+    // localeDetection: true, // Automatically detect user language (optional)
+  },
+
   reactStrictMode: true, // Show all warning for better production build
   swcMinify: true, // minify js file
   images: {

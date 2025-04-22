@@ -15,7 +15,7 @@ export const news = catchError(async (req, res) => {
   try {
     const qry="SELECT * FROM gohoardings_news WHERE news_for = 'gohoarding' AND status=1 ORDER BY id DESC "
 
-    const data = await executeQuery(qry,"gohoardi_crmapp")
+    const data = await executeQuery(qry,[],"CRM")
     if(data.length>0){
         return res
         .status(200)

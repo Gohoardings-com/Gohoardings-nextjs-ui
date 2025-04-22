@@ -5,18 +5,12 @@ import { executeQuery } from "@/server/conn/conn";
 function escapeXml(unsafe) {
   return unsafe.replace(/[<>&'"]/g, function (c) {
     switch (c) {
-      case "<":
-        return "&lt;";
-      case ">":
-        return "&gt;";
-      case "&":
-        return "&amp;";
-      case "'":
-        return "&apos;";
-      case '"':
-        return "&quot;";
-      default:
-        return c;
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '&': return '&amp;';
+      case '\'': return '&apos;';
+      case '"': return '&quot;';
+      default: return c;
     }
   });
 }
@@ -70,11 +64,7 @@ export default async function updatehoardingSitemap(req, res) {
       data.forEach((hoarding) => {
         const isoDate = new Date().toISOString();
         xmlContent += `<url>\n`;
-        xmlContent += `<loc>https://www.gohoardings.com/seedetails/${escapeXml(
-          hoarding.category_name
-        )}/${escapeXml(hoarding.page_title)}/${escapeXml(
-          hoarding.code
-        )}</loc>\n`;
+        xmlContent += `<loc>https://www.gohoardings.com/seedetails/${escapeXml(hoarding.category_name)}/${escapeXml(hoarding.page_title)}/${escapeXml(hoarding.code)}</loc>\n`;
         xmlContent += `<lastmod>${isoDate}</lastmod>\n`;
         xmlContent += `<changefreq>${changefreq}</changefreq>\n`;
         xmlContent += `<priority>${priority}</priority>\n`;

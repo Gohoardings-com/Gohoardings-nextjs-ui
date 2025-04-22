@@ -6,6 +6,8 @@ client.connect();
 
 exports.Nearproduct = catchError(async (req, res, next) => {
   const { code, category_name } = req.body;
+  const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
   const key = `${code + category_name}`;
   const noOfLogo = 2;
   switch (category_name) {
@@ -39,7 +41,7 @@ exports.Nearproduct = catchError(async (req, res, next) => {
   } else {
     const result = await executeQuery(
       "SELECT * FROM " + table_name + " WHERE code='" + code + "' LIMIT 1",
-      "gohoardi_goh",
+      [],countryCode,
       next
     );
     if (!result) {
@@ -61,7 +63,7 @@ exports.Nearproduct = catchError(async (req, res, next) => {
         "'  AND  '" +
         long +
         "'";
-      const data = await executeQuery(sql, "gohoardi_goh", next);
+      const data = await executeQuery(sql, "bb", next);
       if (!data) {
         return res.send({ resolve: "Empty", message: "Media Not Found" });
       } else {
@@ -74,6 +76,8 @@ exports.Nearproduct = catchError(async (req, res, next) => {
 
 exports.NearproductByLocation = catchError(async (req, res, next) => {
   const { category_name, city_name, loca, noOfLogo } = req.body;
+  const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
   const key = `${category_name + city_name + loca + noOfLogo}`;
   switch (category_name) {
     case "billboard":
@@ -112,7 +116,7 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
         "' && city_name='" +
         city_name +
         "'",
-      "gohoardi_goh",
+      [],countryCode,
       next
     );
     if (result) {
@@ -121,59 +125,65 @@ exports.NearproductByLocation = catchError(async (req, res, next) => {
   }
 });
 
-
 exports.product = catchError(async (req, res, next) => {
   const { page_title, category_name, code } = req.body;
-  const key = `${page_title + category_name}`;
+  const cookieData = req.cookies;
+  const countryCode = cookieData.selected_country || "IN"; // Default to India
+
+  let table_name = "goh_media";
+
   switch (category_name) {
-    case "billboard":
-      table_name = "goh_media";
-      break;
-    case "digital-billboard":
-      table_name = "goh_media_digital";
-      break;
-    case "transit-media":
-      table_name = "goh_media_transit";
-      break;
-    case "mall-media":
-      table_name = "goh_media_mall";
-      break;
-    case "airport-media":
-      table_name = "goh_media_airport";
-      break;
-    case "inflight_media":
-      table_name = "goh_media_inflight";
-      break;
-    case "lift-branding":
-      table_name = "goh_media_office";
-      break;
-    default:
-      table_name = "goh_media";
+    case "billboard": table_name = "goh_media"; break;
+    case "digital-billboard": table_name = "goh_media_digital"; break;
+    case "transit-media": table_name = "goh_media_transit"; break;
+    case "mall-media": table_name = "goh_media_mall"; break;
+    case "airport-media": table_name = "goh_media_airport"; break;
+    case "inflight_media": table_name = "goh_media_inflight"; break;
+    case "lift-branding": table_name = "goh_media_office"; break;
+    default: table_name = "goh_media";
   }
-  const data = await client.get(key);
-  if (data) {
-    return res.send(JSON.parse(data));
-  } else {
-    const sql = await executeQuery(
-      "SELECT medianame,areadescription,card_rate,category_name,city_name,code,foot_fall,footfall,ftf,height,width,id,illumination,isBooked,latitude,longitude,location,page_title,subcategory,thumb,thumbnail,price,size,state FROM " +
-        table_name +
-        " WHERE page_title='" +
-        page_title +
-        "'AND code = '" +
-        code +
-        "'",
-      "gohoardi_goh",
-      next
-    );
-    if (sql) {
-      client.setEx(key, process.env.REDIS_TIMEOUT, JSON.stringify(sql));
-      return res.send(sql);
+
+  const key = `${page_title}_${category_name}_${code}`;
+
+  console.log("Received Page Title:", page_title);
+  console.log("Received Code:", code);
+
+  const cachedData = await client.get(key);
+  if (cachedData) {
+    console.log("Cache Hit");
+    return res.json(JSON.parse(cachedData));
+  }
+
+  const sqlQuery = `
+    SELECT medianame, areadescription, card_rate, category_name, city_name, code, foot_fall, footfall, 
+           ftf, height, width, id, illumination, isBooked, latitude, longitude, location, 
+           page_title, subcategory, thumb, thumbnail, price,price_format , size, state 
+    FROM ${table_name} 
+    WHERE TRIM(page_title) = ? AND TRIM(code) = ?
+  `;
+
+  console.log("SQL Query:", sqlQuery);
+  console.log("Params:", [page_title, code]);
+
+  try {
+    const result = await executeQuery(sqlQuery, [page_title, code], countryCode, req);
+
+    if (result.length > 0) {
+      await client.setEx(key, process.env.REDIS_TIMEOUT, JSON.stringify(result));
+      return res.json(result); // Return all results
+    } else {
+      return res.json({ message: "No data found", success: false });
     }
+  } catch (error) {
+    console.error("Database Query Error:", error);
+    return res.status(500).json({ message: "Internal Server Error", success: false });
   }
 });
 
 exports.latlongdata = catchError(async (req, res, next) => {
   const { lat, long } = req.body;
+  const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
   const data = `id,illumination,height, width,ftf,code, latitude, longitude,mediaownercompanyname,price, thumb, category_name, subcategory, medianame,price,city_name,page_title,  ( 3959 * acos(cos( radians( ${lat} ) ) *cos( radians( latitude ) ) *cos(radians( longitude ) - radians( ${long} )) +sin(radians(${lat})) *sin(radians(latitude)))) distance`;
   const sql = await executeQuery(
     "SELECT " +
@@ -191,7 +201,7 @@ exports.latlongdata = catchError(async (req, res, next) => {
       " FROM goh_media_inflight HAVING distance < 3 UNION SELECT " +
       data +
       " FROM goh_media_office HAVING distance < 3",
-    "gohoardi_goh",
+    [],countryCode,
     next
   );
   if (sql) {

@@ -1,10 +1,9 @@
-
 const { executeQuery } = require("../conn/conn");
 const catchError = require("../middelware/catchError");
 
 exports.companyStaff = catchError(async (req, res, next) => {
-    const sql = "SELECT staff.*, role.name FROM tblstaff as staff  RIGHT JOIN tblroles as role ON staff.role = role.roleid WHERE staff.active=1"
-   const data = await executeQuery(sql,"gohoardi_crmapp", next)
+    const sql = "SELECT *  FROM tblstaff WHERE active=1"
+   const data = await executeQuery(sql,[],"CRM")
         if (!data) {
             return res.status(206).json({success:false, message: "Data Not Found"})
         } else {
@@ -14,7 +13,9 @@ exports.companyStaff = catchError(async (req, res, next) => {
 })
 
 exports.goh_quick_links = catchError(async (req, res, next) => {
-   const data = await executeQuery("SELECT * FROM goh_quick_links","gohoardi_goh", next)
+    const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
+   const data = await executeQuery("SELECT * FROM goh_quick_links",[],countryCode)
         if (!data) {
             return res.status(206).json({success:false, message: "Data Not Found"})
         } else {
@@ -25,7 +26,9 @@ exports.goh_quick_links = catchError(async (req, res, next) => {
 
 
 exports.goh_faqs = catchError(async (req, res, next) => {  
-    const data = await executeQuery("SELECT * FROM goh_faqs","gohoardi_goh", next)
+    const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
+    const data = await executeQuery("SELECT * FROM goh_faqs",[],countryCode)
         if (!data) {
             return res.status(206).json({success:false,message: "Data Not Found"})
         } else {
@@ -36,8 +39,9 @@ exports.goh_faqs = catchError(async (req, res, next) => {
 
 
 exports.goh_media_and_news = catchError(async (req, res, next) => {
-
-   const data = await executeQuery("SELECT * FROM goh_media_and_news","gohoardi_goh", next)
+    const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
+   const data = await executeQuery("SELECT * FROM goh_media_and_news",[],countryCode)
         if (!data) {
             return res.status(206).json({success:false,message: "Data Not Found"})
         } else {
@@ -49,8 +53,9 @@ exports.goh_media_and_news = catchError(async (req, res, next) => {
 
 
 exports.goh_testimonials = catchError(async (req, res, next) => {
- 
-   const data = await executeQuery("SELECT * FROM goh_testimonials",  "gohoardi_goh", next)
+    const cookieData = req.cookies;
+    const countryCode = cookieData.selected_country || "IN"; // Default to India
+   const data = await executeQuery("SELECT * FROM goh_testimonials", [],countryCode)
         if (!data) {
 
             return res.status(206).json({success:false,message: "Data Not Found"})

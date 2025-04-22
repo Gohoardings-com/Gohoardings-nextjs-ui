@@ -12,10 +12,10 @@ export default async function updateBlogSitemap(req, res) {
         const priority = "0.8";
 
         data.forEach(blog => {
-            const isoDate = new Date(blog.UpdatedOn).toISOString();
+             const isoDate = new Date(blog.UpdatedOn).toISOString();
             xmlContent += `<url>\n`;
             xmlContent += `<loc>https://www.gohoardings.com/blog/${blog.url}</loc>\n`;
-            xmlContent += `<lastmod>${isoDate}</lastmod>\n`;
+             xmlContent += `<lastmod>${isoDate}</lastmod>\n`;
             xmlContent += `<changefreq>${changefreq}</changefreq>\n`;
             xmlContent += `<priority>${priority}</priority>\n`;
             xmlContent += `</url>\n`;

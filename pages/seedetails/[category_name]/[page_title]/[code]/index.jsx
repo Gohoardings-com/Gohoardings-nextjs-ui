@@ -68,18 +68,29 @@ const Details = (props) => {
     setCookie("item_code", item.code);
     router.push("/map");
   };
-
   const getMedia = async () => {
     if (category_name && page_title && code) {
-      const { data } = await instance.post("seedetails", {
-        page_title: page_title,
-        category_name: category_name,
-        code: code,
-      });
-      setPosts(data);
+      try {
+        const { data } = await instance.post("seedetails", {
+          page_title: page_title,
+          category_name: category_name,
+          code: code,
+        });
+  
+        console.log("API Response for getMedia:", data);
+  
+        if (data) {
+          setPosts(Array.isArray(data) ? data : [data]); // Ensure it's always an array
+        } else {
+          setPosts([]);
+        }
+      } catch (error) {
+        console.error("Error fetching media data:", error);
+      }
     }
   };
-
+  
+  
   const addonCart = async (e) => {
     const data = await addItem(e);
     if (data.message === "Login First") {
@@ -251,28 +262,33 @@ const Details = (props) => {
                 <div className="row mt-3 mt-md-5 ms-md-3 me-md-3 ms-0 me-0 detail-mg p-1 p-md-3 rounded-3">
                   <div className="col-md-6 p-0">
                     <Carousel showThumbs={false} infiniteLoop={true}>
-                      {item.thumbnail.split(",").map((element, i) => (
+                      {item?.thumbnail?.split(",").map((element, i) => (
                         <div key={i}>
                           <Image
                             width={420}
                             height={390}
-                            alt={item.mediaownercompanyname}
+                            alt={item?.mediaownercompanyname}
                             src={
-                              element.startsWith("https")
-                                ? element
-                                : `https://${item.mediaownercompanyname
-                                    .trim()
-                                    .split(" ")
-                                    .slice(0, 2)
-                                    .join("_")
-                                    .toLowerCase()}.odoads.com/media/${item.mediaownercompanyname
-                                    .trim()
-                                    .split(" ")
-                                    .slice(0, 2)
-                                    .join("_")
-                                    .toLowerCase()}/media/images/new${element}`
-                            }
-                            onError={(e) =>
+                              item?.thumb?.startsWith("https")
+                                ? item?.thumb
+                                : `https://${(
+                                    item?.mediaownercompanyname ?? "default_name"
+                                  )
+                                    ?.trim()
+                                    ?.split(" ")
+                                    ?.slice(0, 2)
+                                    ?.join("_")
+                                    ?.toLowerCase()}.odoads.com/media/${(
+                                    item?.mediaownercompanyname ?? "default_name"
+                                  )
+                                    ?.trim()
+                                    ?.split(" ")
+                                    ?.slice(0, 2)
+                                    ?.join("_")
+                                    ?.toLowerCase()}/media/images/new${
+                                    item?.thumb ?? "default.jpg"
+                                  }`
+                                         }         onError={(e) =>
                               (e.target.src = "/images/web_pics/alter-img.png")
                             }
                             className="rounded-3 detail-img"
@@ -283,25 +299,25 @@ const Details = (props) => {
                   </div>
 
                   <div className="col-md-6 p-2 p-md-3  ps-md-4 rounded-3 text-dark">
-                    <h5 className=" text-uppercase"> {item.subcategory}</h5>
-                    <h2>{item.medianame}</h2>
-                    <p>Code : {item.code}</p>
+                    <h5 className=" text-uppercase"> {item?.subcategory}</h5>
+                    <h2>{item?.medianame}</h2>
+                    <p>Code : {item?.code}</p>
                     <div className="row my-3">
                       <div className="col-4">
                         <h6>Media</h6>
-                        <h6 className="fw-bold">{item.subcategory}</h6>
+                        <h6 className="fw-bold">{item?.subcategory}</h6>
                       </div>
                       <div className="col-4 ">
                         <h6>Size</h6>
                         <h6 className="fw-bold">
-                          {item.height}x{item.width} {item.widthunit}
+                          {item?.height}x{item?.width} {item?.widthunit}
                         </h6>
                       </div>
                       <div className="col-4">
                         <h6>Illumination</h6>
                         <h6 className="fw-bold">
-                          {item.illumination ? (
-                            item.illumination
+                          {item?.illumination ? (
+                            item?.illumination
                           ) : (
                             <span className="text-muted">No Data</span>
                           )}
@@ -311,24 +327,24 @@ const Details = (props) => {
                     <div className="row my-2">
                       <div className="col-8">
                         <h6>FTF</h6>
-                        <h6 className="fw-bold">{item.location}</h6>
+                        <h6 className="fw-bold">{item?.location}</h6>
                       </div>
                       <div className="col-4">
                         <h6>Total Area</h6>
                         <h6 className="fw-bold">
-                          {item.height * item.width} Sq. Ft.{" "}
+                          {item?.height * item?.width} Sq. Ft.{" "}
                         </h6>
                       </div>
                     </div>
                     {detailTag.map((el, i) => {
                       if (category_name === el.value) {
-                        return <p key={i}>{el.description}</p>;
+                        return <p key={i}>{el?.description}</p>;
                       }
                     })}
                     <div className="row p-0">
                       <div className=" col-6 position-relative">
                         <span className="bottom-0 position-absolute view">
-                          Price: {parseInt(item.price / 30)}
+                          Price: {parseInt(item?.price / 30)},{" "}{item?.price_format || "Rs"}
                         </span>
                       </div>
                       <div className="col-2">
@@ -367,16 +383,16 @@ const Details = (props) => {
                   <h3 className="ms-md-3  ms-1 fw-bold">
                     Media Location:{" "}
                     <span className="text-muted fw-normal">
-                      {item.location}{" "}
+                      {item?.location}{" "}
                     </span>
                   </h3>
                   <div className="detail-map ms-md-3 me-md-3 ms-0 me-0 p-1 p-md-3 rounded-3">
                     <iframe
                       src={
                         "https://maps.google.com/maps?q=" +
-                        item.latitude +
+                        item?.latitude +
                         "," +
-                        item.longitude +
+                        item?.longitude +
                         "&t=&z=15&ie=UTF8&iwloc=&output=embed"
                       }
                       className="map_sectionD rounded"

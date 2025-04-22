@@ -18,10 +18,8 @@ const Newsmedia = () => {
  
   useEffect(()=>{
     staff()
-  },[]);
-
+  },[])
   const {asPath} = useRouter();
-
   return (
     <>
       <Head>
@@ -98,7 +96,7 @@ const Newsmedia = () => {
               
                  src={el.image}
                  className="img-fluid rounded-start"
-                 alt={el.title}
+                 alt="..."
                  id="news_events"
                />
              </div>

@@ -1,18 +1,66 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { useRouter } from "next/router";
+import { removeCookies, setCookie, getCookie } from "cookies-next";
 const OverView = ({ Media_content, category_name,city_name}) => {
   const route = useRouter();
+  const countryCodeMapping = {
+    AE: 'UAE',
+    US: 'USA',
+    IN: 'India',
+    FR: 'France',
+    // Add more mappings as needed
+  };
   const { asPath } = useRouter();
 
     // Helper function to replace "India" with city_name
-    const replaceIndiaWithCity = (text) => {
-      const uppercaseCity = city_name.charAt(0).toUpperCase() + city_name.slice(1);
-      if (city_name && city_name.trim() !== "") {
-        return text.replace(/India/g, uppercaseCity);
+    // const replaceIndiaWithCity = (text) => {
+    //   const uppercaseCity = city_name.charAt(0).toUpperCase() + city_name.slice(1);
+    //   if (city_name && city_name.trim() !== "") {
+    //     return text.replace(/India/g, uppercaseCity);
+    //   }
+    //   return text;
+    // };
+
+    // const replaceIndiaWithCity = (text, city_name) => {
+    //   const selectedCountry = getCookie('selected_country'); // Using cookies-next
+    //   const nameToUse = city_name && city_name.trim() !== ""
+    //     ? city_name.charAt(0).toUpperCase() + city_name.slice(1)
+    //     : selectedCountry && countryCodeMapping[selectedCountry]
+    //       ? countryCodeMapping[selectedCountry]
+    //       : selectedCountry || "India"; // Fallback to "India" if neither is provided
+    
+    //   return text.replace(/India/g, nameToUse);
+    // };
+
+    const replaceIndiaWithCity = (text, city_name) => {
+      const selectedCountry = getCookie('selected_country'); // e.g., AE
+    
+      const countryMapped = countryCodeMapping[selectedCountry] || selectedCountry || "India";
+    
+      // Map Indian cities to UAE cities (adjust or add more as needed)
+      const cityReplacementsForUAE = {
+        mumbai: "Dubai",
+        delhi: "Abu Dhabi",
+        bengaluru: "Sharjah",
+        kolkata: "Ajman",
+        hyderabad: "Fujairah",
+        pune: "Ras Al Khaimah",
+        chennai: "Al Ain",
+      };
+    
+      let result = text.replace(/India/g, city_name || countryMapped);
+    
+      if (selectedCountry === "AE") {
+        Object.keys(cityReplacementsForUAE).forEach((indianCity) => {
+          const regex = new RegExp(indianCity, "gi"); // case-insensitive replace
+          result = result.replace(regex, cityReplacementsForUAE[indianCity]);
+        });
       }
-      return text;
+    
+      return result;
     };
+    
 
   return (
     <>
@@ -25,11 +73,11 @@ const OverView = ({ Media_content, category_name,city_name}) => {
             >
               <div className="my-5">
                 <h3 className="fw-bold" style={{ fontSize: "1.75rem" }}>
-                  {replaceIndiaWithCity(el.body_heading1)}
+                  {replaceIndiaWithCity(el.body_heading1,city_name)}
                 </h3>
                 <ul className="my-4">
                   {el.body_content_list.map((data, i) => (
-                    <li key={i}>{replaceIndiaWithCity(data.list)}</li>
+                    <li key={i}>{replaceIndiaWithCity(data.list,city_name)}</li>
                   ))}
                 </ul>
               </div>
@@ -41,25 +89,25 @@ const OverView = ({ Media_content, category_name,city_name}) => {
                   <span >Drive up the sales</span>
                
                 </h3>
-                <h6 className="my-2">{replaceIndiaWithCity(el.body_content2_description_top)}</h6>
+                <h6 className="my-2">{replaceIndiaWithCity(el.body_content2_description_top,city_name)}</h6>
                 <ul className="my-4">
                   {el.body_content2_list.map((data, i) => (
                     <li key={i} className="my-2">
                       <span>
                         <span style={{ fontWeight: "600" }}>
-                          {replaceIndiaWithCity(data.list.split(":")[0])}
+                          {replaceIndiaWithCity(data.list.split(":")[0],city_name)}
                         </span>
-                        :{replaceIndiaWithCity(data.list.split(":")[1])}
+                        :{replaceIndiaWithCity(data.list.split(":")[1],city_name)}
                       </span>
                     </li>
                   ))}
                 </ul>
-                <h6 className="my-2">{replaceIndiaWithCity(el.body_content2_description_bottom)}</h6>
+                <h6 className="my-2">{replaceIndiaWithCity(el.body_content2_description_bottom,city_name)}</h6>
               </div>
               <div className="my-5">
-                <h3 className="fw-bold">{replaceIndiaWithCity(el.body_heading3)}</h3>
+                <h3 className="fw-bold">{replaceIndiaWithCity(el.body_heading3,city_name)}</h3>
 
-                <h6 className="my-2">{replaceIndiaWithCity(el.body_content3_description_top)}</h6>
+                <h6 className="my-2">{replaceIndiaWithCity(el.body_content3_description_top,city_name)}</h6>
                 <ul className="my-4">
                   {el.body_content3_list.map((data, i) => (
                     <li key={i} className="my-2">
@@ -76,49 +124,49 @@ const OverView = ({ Media_content, category_name,city_name}) => {
               </div>
               <div className="my-5">
                 <h3 className="fw-bold">
-                  {el.body_heading4 && replaceIndiaWithCity(el.body_heading4)}
+                  {el.body_heading4 && replaceIndiaWithCity(el.body_heading4,city_name)}
                 </h3>
                 <ul className="my-4">
                   {el.body_content4_list &&
                     el.body_content4_list.map((data, i) => (
                       <li key={i} className="my-2">
-                        <span>{replaceIndiaWithCity(data.list)}</span>
+                        <span>{replaceIndiaWithCity(data.list,city_name)}</span>
                       </li>
                     ))}
                 </ul>
               </div>
               <div className="my-5">
                 <h3 className="fw-bold">
-                  {el.body_heading5 && replaceIndiaWithCity(el.body_heading5)}
+                  {el.body_heading5 && replaceIndiaWithCity(el.body_heading5,city_name)}
                 </h3>
                 <ul className="my-4">
                   {el.body_content5_list &&
                     el.body_content5_list.map((data, i) => (
                       <li key={i} className="my-2">
-                        <span>{replaceIndiaWithCity(data.list)}</span>
+                        <span>{replaceIndiaWithCity(data.list,city_name)}</span>
                       </li>
                     ))}
                 </ul>
               </div>
               <div className="my-5">
                 <h3 className="fw-bold">
-                  {el.body_heading6 && replaceIndiaWithCity(el.body_heading6)}
+                  {el.body_heading6 && replaceIndiaWithCity(el.body_heading6,city_name)}
                 </h3>
                 <h6 className="my-2">
                   {el.body_content6_description_top &&
-                    replaceIndiaWithCity(el.body_content6_description_top)}
+                    replaceIndiaWithCity(el.body_content6_description_top,city_name)}
                 </h6>
                 <ul className="my-4">
                   {el.body_content6_list &&
                     el.body_content6_list.map((data, i) => (
-                      <li className="my-1" key={i}>{replaceIndiaWithCity(data.list)}</li>
+                      <li className="my-1" key={i}>{replaceIndiaWithCity(data.list,city_name)}</li>
                     ))}
                 </ul>
               </div>
               <div className="my-5">
-                <h3 className="fw-bold">{el.body_link && replaceIndiaWithCity(el.body_link)}</h3>
+                <h3 className="fw-bold">{el.body_link && replaceIndiaWithCity(el.body_link,city_name)}</h3>
                 <h6 className="my-2">
-  {el.body_content_link_description_top && replaceIndiaWithCity(el.body_content_link_description_top)}
+  {el.body_content_link_description_top && replaceIndiaWithCity(el.body_content_link_description_top,city_name)}
 </h6>
 
                 <ul className="my-4">
@@ -129,14 +177,14 @@ const OverView = ({ Media_content, category_name,city_name}) => {
                         className="my-1 link"
                         onClick={() => route.push("/contact-us")}
                       >
-                        {replaceIndiaWithCity(data.list)}
+                        {replaceIndiaWithCity(data.list,city_name)}
                       </li>
                     ))}
                 </ul>
               </div>
 
               <section className="my-5">
-                <h3 className="fw-bold">{replaceIndiaWithCity(el.faqs_heading)}</h3>
+                <h3 className="fw-bold">{replaceIndiaWithCity(el.faqs_heading,city_name)}</h3>
                 {el.faqs_content?.map((data, i) => {
                   let abc = "a" + data.id;
                   return (
@@ -147,14 +195,14 @@ const OverView = ({ Media_content, category_name,city_name}) => {
                         data-bs-target={`#${abc}`}
                       >
                         <h4>
-                        {replaceIndiaWithCity(data.faqs_qsn)}
+                        {replaceIndiaWithCity(data.faqs_qsn,city_name)}
                          
                           <IoIosArrowDown className="down float-end" />
                         </h4>
                       </div>
                       <div className="collapse" id={abc}>
                         <div className="card-body  pb-1 ps-5 pe-4">
-                          <small>{replaceIndiaWithCity(data.faqs_ans)}</small>
+                          <small>{replaceIndiaWithCity(data.faqs_ans,city_name)}</small>
                         </div>
                       </div>
                     </div>

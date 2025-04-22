@@ -47,25 +47,31 @@ const Cart = () => {
   const getData = async () => {
     if (value) {
       const data = await cartitems();
-
-      if (data) {
-        data.map((obj, i) => {
-          obj["days"] = 5;
-          obj["startDate"] = Start;
-          obj["endDate"] = End;
-        });
+  
+      if (Array.isArray(data) && data.length > 0) {
+        // ✅ Create a new array with modified objects instead of mutating original
+        const updatedData = data.map((obj) => ({
+          ...obj,
+          days: 5,
+          startDate: Start,
+          endDate: End,
+        }));
+  
+        setPosts(updatedData);
+        setState(
+          updatedData.map(() => ({
+            startDate: new Date(),
+            endDate: addDays(new Date(), 4),
+            key: "selection",
+          }))
+        );
+      } else {
+        setPosts([]); // ✅ Ensure `setPosts` always gets an array
+        setState([]);
       }
-
-      setPosts(data);
-      setState(
-        data.map(() => ({
-          startDate: new Date(),
-          endDate: addDays(new Date(), 4),
-          key: "selection",
-        }))
-      );
     }
   };
+  
 
   useEffect(() => {
     getData();
@@ -200,20 +206,20 @@ const Cart = () => {
                                 >
                                   <Image
                                     src={
-                                      obj.thumb.startsWith("https")
-                                        ? obj.thumb
-                                        : `https://${obj.mediaownercompanyname
-                                            .trim()
-                                            .split(" ")
-                                            .slice(0, 2)
-                                            .join("_")
-                                            .toLowerCase()}.odoads.com/media/${obj.mediaownercompanyname
-                                            .trim()
-                                            .split(" ")
-                                            .slice(0, 2)
-                                            .join("_")
-                                            .toLowerCase()}/media/images/new${
-                                            obj.thumb
+                                      obj?.thumb?.startsWith("https")
+                                        ? obj?.thumb
+                                        : `https://${obj?.mediaownercompanyname
+                                            ?.trim()
+                                            ?.split(" ")
+                                            ?.slice(0, 2)
+                                            ?.join("_")
+                                            ?.toLowerCase()}.odoads.com/media/${obj?.mediaownercompanyname
+                                            ?.trim()
+                                            ?.split(" ")
+                                            ?.slice(0, 2)
+                                            ?.join("_")
+                                            ?.toLowerCase()}/media/images/new${
+                                            obj?.thumb
                                           }`
                                     }
                                     onError={(e) =>
@@ -223,7 +229,7 @@ const Cart = () => {
                                     width={500}
                                     height={500}
                                     className={`img-fluid w-100 rounded-2  m-2 ${styles.cart_media_img}`}
-                                    alt={obj.mediaownercompanyname}
+                                    alt={obj?.mediaownercompanyname}
                                   />
                                 </Link>
                               </div>
